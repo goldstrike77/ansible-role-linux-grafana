@@ -5,5 +5,8 @@
 - name: Include tasks for specific OS
   include: '{{ ansible_os_family }}.yml'
 
+- name: Configuration the grafana
+  include: 'configureation.yml'
+
 - name: Configure the grafana firewall
   include: 'firewall.yml'
