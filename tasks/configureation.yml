@@ -3,9 +3,10 @@
   lineinfile:
     state: present
     dest: '/etc/grafana/grafana.ini'
-    insertafter: '^[analytics]'
+    insertafter: '\[analytics\]'
     regexp: '{{ item.regexp }}'
     line: '{{ item.line }}'
   with_items:
     - { regexp: '^reporting_enabled =', line: 'reporting_enabled = {{ grafana_arg.reporting_enabled }}' }
     - { regexp: '^check_for_updates =', line: 'check_for_updates = {{ grafana_arg.check_for_updates }}' }
+  register: conf_updated

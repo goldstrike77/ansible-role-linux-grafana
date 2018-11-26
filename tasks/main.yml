@@ -10,3 +10,11 @@
 
 - name: Configure the grafana firewall
   include: 'firewall.yml'
+
+- name: Reload the grafana service
+  shell: echo ''
+  notify: 'Ensure grafana service is enabled'
+  when: soft_updated|changed or conf_updated|changed
+
+- name: Force the handler to run immediately
+  meta: flush_handlers
