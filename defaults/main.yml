@@ -1,2 +1,6 @@
 ---
-# defaults file for ansible-role-linux-grafana
+# General parameters #
+grafana: 'false'
+
+# Listen port #
+grafana_port: '3000'

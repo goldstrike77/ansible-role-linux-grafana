@@ -1,0 +1,14 @@
+---
+- name: Add grafana YUM repositories
+  yum_repository:
+    name: '{{ grafana_repo_name }}'
+    description: '{{ grafana_repo_name }} YUM repository'
+    file: '{{ grafana_repo_name }}'
+    baseurl: '{{ grafana_repo_url }}'
+    gpgcheck: no
+
+- name: Install the grafana
+  yum:
+    name: '{{ ",".join(vars["grafana_software"]) }}'
+    state: latest
+  register: soft_updated
