@@ -1,9 +1,7 @@
 ---
 - name: Allow grafana service port
   firewalld:
-    port: '{{ item.value }}/tcp'
+    port: '{{ grafana_port }}/tcp'
     permanent: 'true'
     immediate: 'true'
     state: 'enabled'
-  with_dict:
-    '{{ grafana_port }}'
