@@ -1,0 +1,12 @@
+apiVersion: 1
+
+deleteDatasources:
+  - name: Prometheus
+    orgId: 1
+
+datasources:
+- name: Prometheus
+  type: prometheus
+  orgId: 1
+  access: proxy
+  url: http://{{ grafana_ds_arg.prometheus_server }}:{{ grafana_ds_arg.prometheus_port }}

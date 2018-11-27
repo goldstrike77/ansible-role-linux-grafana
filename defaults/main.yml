@@ -1,11 +1,20 @@
 ---
 # General parameters #
 grafana: 'false'
+grafana_path: '/data'
+grafana_admin_user: 'admin'
+grafana_admin_password: 'admin'
 
 # Listen port #
 grafana_port: '3000'
 
 # Server System Variables #
 grafana_arg:
+  default_theme: 'light' # dark or light
   reporting_enabled: 'false'
   check_for_updates: 'false'
+
+# Datasource #
+grafana_ds_arg:
+  prometheus_server: '127.0.0.1'
+  prometheus_port: '9090'

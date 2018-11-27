@@ -2,19 +2,22 @@
 - name: Include OS-specific variables
   include_vars: '{{ ansible_os_family }}.yml'
 
+- name: Configure the grafana firewall
+  include: 'firewall.yml'
+
 - name: Include tasks for specific OS
   include: '{{ ansible_os_family }}.yml'
 
 - name: Configuration the grafana
   include: 'configureation.yml'
 
-- name: Configure the grafana firewall
-  include: 'firewall.yml'
-
 - name: Reload the grafana service
   shell: echo ''
   notify: 'Ensure grafana service is enabled'
-  when: soft_updated|changed or conf_updated|changed
+  when: soft_updated|changed or conf_updated|changed or secu_updated|changed or ds_updated|changed or dash_updated|changed
 
 - name: Force the handler to run immediately
   meta: flush_handlers
+
+- name: Manage Grafana dashboards
+  include: 'dashboard.yml'
