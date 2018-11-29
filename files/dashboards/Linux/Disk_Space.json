@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": 30,
-  "iteration": 1543461190207,
+  "iteration": 1543475355502,
   "links": [
     {
       "asDropdown": true,
@@ -380,7 +380,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": null,
-      "repeatIteration": 1543461190207,
+      "repeatIteration": 1543475355502,
       "repeatPanelId": 4,
       "scopedVars": {
         "mountpoint": {
@@ -517,7 +517,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": null,
-      "repeatIteration": 1543461190207,
+      "repeatIteration": 1543475355502,
       "repeatPanelId": 4,
       "scopedVars": {
         "mountpoint": {
@@ -685,8 +685,8 @@
       {
         "allValue": null,
         "current": {
-          "text": "DEMO",
-          "value": "DEMO"
+          "text": "MON",
+          "value": "MON"
         },
         "datasource": "Prometheus",
         "hide": 0,
@@ -710,8 +710,8 @@
         "allFormat": "glob",
         "allValue": null,
         "current": {
-          "text": "S-DEMO-APP01",
-          "value": "S-DEMO-APP01"
+          "text": "S-DEMO-MON01",
+          "value": "S-DEMO-MON01"
         },
         "datasource": "Prometheus",
         "hide": 0,
@@ -802,5 +802,5 @@
   "timezone": "browser",
   "title": "Disk Space",
   "uid": "80k9wMHmk",
-  "version": 7
+  "version": 9
 }

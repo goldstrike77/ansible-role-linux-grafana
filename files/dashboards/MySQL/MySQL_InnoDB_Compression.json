@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 29,
-  "iteration": 1543461143201,
+  "id": 39,
+  "iteration": 1543478351882,
   "links": [
     {
       "asDropdown": true,
@@ -76,66 +76,62 @@
   ],
   "panels": [
     {
-      "content": "You can click on an individual disk device on the legend to filter on it or multiple ones by holding Alt button.",
-      "datasource": "Prometheus",
-      "editable": true,
-      "error": false,
+      "collapsed": false,
       "gridPos": {
-        "h": 3,
+        "h": 1,
         "w": 24,
         "x": 0,
         "y": 0
       },
-      "height": "50px",
-      "id": 8,
-      "links": [],
-      "mode": "markdown",
-      "style": {},
-      "title": "",
-      "transparent": true,
-      "type": "text"
+      "id": 77,
+      "panels": [],
+      "repeat": null,
+      "title": "Statistic of compression operations",
+      "type": "row"
     },
     {
-      "aliasColors": {},
+      "aliasColors": {
+        "Max Checkpoint Age": "#BF1B00",
+        "Uncheckpointed Bytes": "#E0752D"
+      },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
       "decimals": 2,
-      "description": "Shows average latency for Reads and Writes IO Devices.  Higher than typical latency for highly loaded storage indicates saturation (overload) and is frequent cause of performance problems.  Higher than normal latency also can indicate internal storage problems.",
+      "description": "Number of compression operations attempted. Pages are compressed whenever an empty page is created or the space for the uncompressed modification log runs out.",
       "editable": true,
       "error": false,
       "fill": 2,
       "grid": {},
       "gridPos": {
         "h": 7,
-        "w": 24,
+        "w": 12,
         "x": 0,
-        "y": 3
+        "y": 1
       },
-      "id": 11,
+      "id": 19,
       "legend": {
         "alignAsTable": true,
         "avg": true,
         "current": false,
-        "hideEmpty": true,
-        "hideZero": true,
         "max": true,
         "min": true,
-        "rightSide": true,
+        "rightSide": false,
         "show": true,
-        "sort": null,
-        "sortDesc": null,
+        "sort": "avg",
+        "sortDesc": true,
         "total": false,
         "values": true
       },
-      "lines": false,
+      "lines": true,
       "linewidth": 2,
       "links": [],
+      "minSpan": 12,
       "nullPointMode": "null",
       "percentage": false,
-      "pointradius": 1,
-      "points": true,
+      "pointradius": 5,
+      "points": false,
       "renderer": "flot",
       "seriesOverrides": [],
       "spaceLength": 10,
@@ -146,42 +142,27 @@
           "calculatedInterval": "2m",
           "datasourceErrors": {},
           "errors": {},
-          "expr": "(rate(node_disk_read_time_ms{device=~\"$device\", instance=\"$host\"}[$interval]) / \nrate(node_disk_reads_completed{device=~\"$device\", instance=\"$host\"}[$interval])) or \n(irate(node_disk_read_time_ms{device=~\"$device\", instance=\"$host\"}[5m]) / \nirate(node_disk_reads_completed{device=~\"$device\", instance=\"$host\"}[5m])) or\navg_over_time(aws_rds_read_latency_average{instance=\"$host\"}[$interval]) or \navg_over_time(aws_rds_read_latency_average{instance=\"$host\"}[5m]) or\navg_over_time(rdsosmetrics_diskIO_readLatency{instance=\"$host\"}[$interval]) or \navg_over_time(rdsosmetrics_diskIO_readLatency{instance=\"$host\"}[5m])",
+          "expr": "rate(mysql_info_schema_innodb_cmp_compress_ops_total{instance=\"$host\"}[$interval]) or irate(mysql_info_schema_innodb_cmp_compress_ops_total{instance=\"$host\"}[5m])",
           "format": "time_series",
+          "hide": false,
           "interval": "$interval",
           "intervalFactor": 1,
-          "legendFormat": "Read: {{device}}",
+          "legendFormat": "{{ page_size }}",
           "metric": "",
           "refId": "A",
-          "step": 300,
-          "target": ""
-        },
-        {
-          "calculatedInterval": "2m",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "(rate(node_disk_write_time_ms{device=~\"$device\", instance=\"$host\"}[$interval]) / \nrate(node_disk_writes_completed{device=~\"$device\", instance=\"$host\"}[$interval])) or \n(irate(node_disk_write_time_ms{device=~\"$device\", instance=\"$host\"}[5m]) / \nirate(node_disk_writes_completed{device=~\"$device\", instance=\"$host\"}[5m])) or \n(avg_over_time(aws_rds_write_latency_average{instance=\"$host\"}[$interval]) or \navg_over_time(aws_rds_write_latency_average{instance=\"$host\"}[5m])) or\n(avg_over_time(rdsosmetrics_diskIO_writeLatency{instance=\"$host\"}[$interval]) or \navg_over_time(rdsosmetrics_diskIO_writeLatency{instance=\"$host\"}[5m]))",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Write: {{device}}",
-          "metric": "",
-          "refId": "B",
-          "step": 300,
-          "target": ""
+          "step": 300
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Disk Latency",
+      "title": "Compress Attempts",
       "tooltip": {
         "msResolution": false,
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": false,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -192,16 +173,121 @@
       },
       "yaxes": [
         {
-          "format": "ms",
-          "label": "",
-          "logBase": 2,
+          "format": "ops",
+          "logBase": 1,
           "max": null,
-          "min": null,
+          "min": 0,
           "show": true
         },
         {
-          "format": "ms",
-          "label": "",
+          "format": "bytes",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "description": "Number of uncompression operations performed. Compressed InnoDB pages are uncompressed whenever compression fails, or the first time a compressed page is accessed in the buffer pool and the uncompressed page does not exist.",
+      "editable": true,
+      "error": false,
+      "fill": 2,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 1
+      },
+      "id": 20,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "hideZero": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "minSpan": 12,
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "InnoDB Transactions",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "rate(mysql_info_schema_innodb_cmp_uncompress_ops_total{instance=\"$host\"}[$interval]) or \nirate(mysql_info_schema_innodb_cmp_uncompress_ops_total{instance=\"$host\"}[5m])",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ page_size }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Uncompressed Attempts",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "ops",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
           "logBase": 1,
           "max": null,
           "min": 0,
@@ -220,7 +306,6 @@
       "dashes": false,
       "datasource": "Prometheus",
       "decimals": 2,
-      "description": "Shows amount of physical IOs (reads and writes) different devices are serving. Spikes in number of IOs served often corresponds to performance problems due to IO subsystem overload.",
       "editable": true,
       "error": false,
       "fill": 2,
@@ -229,365 +314,13 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 10
+        "y": 8
       },
-      "id": 15,
+      "id": 23,
       "legend": {
         "alignAsTable": true,
         "avg": true,
         "current": false,
-        "hideEmpty": false,
-        "hideZero": true,
-        "max": true,
-        "min": true,
-        "rightSide": true,
-        "show": true,
-        "sort": null,
-        "sortDesc": null,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "links": [],
-      "nullPointMode": "null",
-      "percentage": false,
-      "pointradius": 1,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "calculatedInterval": "2m",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "(rate(node_disk_reads_completed{device=~\"$device\", instance=\"$host\"}[$interval]) or \nirate(node_disk_reads_completed{device=~\"$device\", instance=\"$host\"}[5m])) or\n(max_over_time(rdsosmetrics_diskIO_readIOsPS{instance=\"$host\"}[$interval]) or\nmax_over_time(rdsosmetrics_diskIO_readIOsPS{instance=\"$host\"}[5m])) ",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Read: {{ device }}",
-          "metric": "",
-          "refId": "A",
-          "step": 300,
-          "target": ""
-        },
-        {
-          "calculatedInterval": "2m",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "(rate(node_disk_writes_completed{device=~\"$device\", instance=\"$host\"}[$interval]) or \nirate(node_disk_writes_completed{device=~\"$device\", instance=\"$host\"}[5m])) or\n(max_over_time(rdsosmetrics_diskIO_writeIOsPS{instance=\"$host\"}[$interval]) or\nmax_over_time(rdsosmetrics_diskIO_writeIOsPS{instance=\"$host\"}[5m])) ",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Write: {{ device }}",
-          "metric": "",
-          "refId": "B",
-          "step": 300,
-          "target": ""
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Disk Operations",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "transparent": false,
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "iops",
-          "label": "",
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": "",
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "Prometheus",
-      "decimals": 2,
-      "description": "Shows volume of reads and writes the storage is handling. This can be better measure of IO capacity usage for network attached and SSD storage as it is often bandwidth limited.  Amount of data being written to the disk can be used to estimate Flash storage life time.",
-      "editable": true,
-      "error": false,
-      "fill": 2,
-      "grid": {},
-      "gridPos": {
-        "h": 7,
-        "w": 24,
-        "x": 0,
-        "y": 17
-      },
-      "id": 16,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": false,
-        "hideEmpty": false,
-        "hideZero": true,
-        "max": true,
-        "min": true,
-        "rightSide": true,
-        "show": true,
-        "sort": null,
-        "sortDesc": null,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "links": [],
-      "nullPointMode": "null",
-      "percentage": false,
-      "pointradius": 1,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "calculatedInterval": "2m",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "(rate(node_disk_bytes_read{device=~\"$device\", instance=\"$host\"}[$interval]) or \nirate(node_disk_bytes_read{device=~\"$device\", instance=\"$host\"}[5m])) or\n(rate(rdsosmetrics_diskIO_readThroughput{instance=\"$host\"}[$interval]) or\nirate(rdsosmetrics_diskIO_readThroughput{instance=\"$host\"}[5m]))",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Read: {{ device }}",
-          "metric": "",
-          "refId": "A",
-          "step": 300,
-          "target": ""
-        },
-        {
-          "calculatedInterval": "2m",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "rate(node_disk_bytes_written{device=~\"$device\", instance=\"$host\"}[$interval]) or \nirate(node_disk_bytes_written{device=~\"$device\", instance=\"$host\"}[5m]) or\n(rate(rdsosmetrics_diskIO_writeThroughput{instance=\"$host\"}[$interval]) or\nirate(rdsosmetrics_diskIO_writeThroughput{instance=\"$host\"}[5m]))",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Write: {{ device }}",
-          "metric": "",
-          "refId": "B",
-          "step": 300,
-          "target": ""
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Disk Bandwidth",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "transparent": false,
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "Bps",
-          "label": "",
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": "",
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "Prometheus",
-      "decimals": 2,
-      "description": "Shows how much disk was loaded for reads or writes as average number of outstanding requests at different period of time.  High disk load is a good measure of actual storage utilization. Different storage types handle load differently - some will show latency increases on low loads others can handle higher load with no problems.",
-      "editable": true,
-      "error": false,
-      "fill": 2,
-      "grid": {},
-      "gridPos": {
-        "h": 7,
-        "w": 24,
-        "x": 0,
-        "y": 24
-      },
-      "id": 14,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": false,
-        "hideEmpty": false,
-        "hideZero": true,
-        "max": true,
-        "min": true,
-        "rightSide": true,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": false,
-      "linewidth": 2,
-      "links": [],
-      "nullPointMode": "null",
-      "percentage": false,
-      "pointradius": 1,
-      "points": true,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "calculatedInterval": "2m",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "rate(node_disk_read_time_ms{device=~\"$device\", instance=\"$host\"}[$interval])/1000 or irate(node_disk_read_time_ms{device=~\"$device\", instance=\"$host\"}[5m])/1000",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Read: {{ device }}",
-          "metric": "",
-          "refId": "A",
-          "step": 300,
-          "target": ""
-        },
-        {
-          "calculatedInterval": "2m",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "rate(node_disk_write_time_ms{device=~\"$device\", instance=\"$host\"}[$interval])/1000 or irate(node_disk_write_time_ms{device=~\"$device\", instance=\"$host\"}[5m])/1000",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Write: {{ device }}",
-          "metric": "",
-          "refId": "B",
-          "step": 300,
-          "target": ""
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Disk Load",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "transparent": false,
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "label": "",
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": "",
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "Prometheus",
-      "decimals": 2,
-      "description": "Shows disk Utilization as percent of the time when there was at least one IO request in flight. It is designed to match utilization available in iostat tool. It is not very good measure of true IO Capacity Utilization. Consider looking at IO latency and Disk Load Graphs instead.",
-      "editable": true,
-      "error": false,
-      "fill": 2,
-      "grid": {},
-      "gridPos": {
-        "h": 7,
-        "w": 24,
-        "x": 0,
-        "y": 31
-      },
-      "id": 17,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": false,
-        "hideEmpty": false,
-        "hideZero": true,
         "max": true,
         "min": true,
         "rightSide": true,
@@ -600,9 +333,10 @@
       "lines": true,
       "linewidth": 2,
       "links": [],
+      "minSpan": 24,
       "nullPointMode": "null",
       "percentage": false,
-      "pointradius": 1,
+      "pointradius": 5,
       "points": false,
       "renderer": "flot",
       "seriesOverrides": [],
@@ -614,29 +348,27 @@
           "calculatedInterval": "2m",
           "datasourceErrors": {},
           "errors": {},
-          "expr": "rate(node_disk_io_time_ms{device=~\"$device\", instance=\"$host\"}[$interval])/1000 or \nirate(node_disk_io_time_ms{device=~\"$device\", instance=\"$host\"}[5m])/1000",
+          "expr": "sum_over_time(mysql_info_schema_innodb_cmp_compress_ops_ok_total{instance=\"$host\"}[$interval])/\nsum_over_time(mysql_info_schema_innodb_cmp_compress_ops_total{instance=\"$host\"}[$interval]) or \nsum_over_time(mysql_info_schema_innodb_cmp_compress_ops_ok_total{instance=\"$host\"}[5m])/\nsum_over_time(mysql_info_schema_innodb_cmp_compress_ops_total{instance=\"$host\"}[5m])",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
           "intervalFactor": 1,
-          "legendFormat": "{{ device }}",
+          "legendFormat": "{{ page_size }}",
           "metric": "",
           "refId": "A",
-          "step": 300,
-          "target": ""
+          "step": 300
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Disk IO Utilization",
+      "title": "Compression Success Ratio",
       "tooltip": {
         "msResolution": false,
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": false,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -647,8 +379,8 @@
       },
       "yaxes": [
         {
+          "decimals": null,
           "format": "percentunit",
-          "label": "",
           "logBase": 1,
           "max": null,
           "min": 0,
@@ -656,11 +388,318 @@
         },
         {
           "format": "short",
-          "label": "",
           "logBase": 1,
           "max": null,
           "min": 0,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 15
+      },
+      "id": 78,
+      "panels": [],
+      "repeat": null,
+      "title": "CPU Core Usage",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": true,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "fill": 2,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 16
+      },
+      "id": 58,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": false,
+      "linewidth": 2,
+      "links": [],
+      "minSpan": 12,
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "/.*/",
+          "color": "#1f78c1"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "(sum(rate(mysql_info_schema_innodb_cmp_compress_time_seconds_total{instance=~\"$host\"}[$interval])) by (instance) or\nsum(irate(mysql_info_schema_innodb_cmp_compress_time_seconds_total{instance=~\"$host\"}[5m])) by (instance)) /\ncount(node_cpu{mode=\"user\", instance=~\"$host\"}) by (instance) *100",
+          "format": "time_series",
+          "hide": false,
+          "interval": "1h",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}}",
+          "refId": "C"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": "24h",
+      "timeShift": null,
+      "title": "CPU Core Usage for Compression",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": 0,
+          "format": "percent",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
           "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": true,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "fill": 2,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 16
+      },
+      "id": 59,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": false,
+      "linewidth": 2,
+      "links": [],
+      "minSpan": 12,
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "/.*/",
+          "color": "#1f78c1"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "(sum(rate(mysql_info_schema_innodb_cmp_uncompress_time_seconds_total{instance=~\"$host\"}[$interval])) by (instance) or\nsum(irate(mysql_info_schema_innodb_cmp_uncompress_time_seconds_total{instance=~\"$host\"}[5m])) by (instance)) /\ncount(node_cpu{mode=\"user\", instance=~\"$host\"}) by (instance) * 100",
+          "format": "time_series",
+          "interval": "1h",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}}",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": "24h",
+      "timeShift": null,
+      "title": "CPU Core Usage for Uncompression",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": 0,
+          "format": "percent",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 23
+      },
+      "id": 79,
+      "panels": [],
+      "repeat": null,
+      "title": "Buffer Pool Total",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 0,
+      "fill": 1,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 24
+      },
+      "id": 74,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": true,
+        "max": true,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum by(page_size) (mysql_info_schema_innodb_cmpmem_pages_used_total{instance=\"$host\"})",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{page_size}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Total Used Pages",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
         }
       ],
       "yaxis": {
@@ -674,39 +713,33 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
-      "decimals": 2,
-      "description": "Shows how effectively Operating System is able to merge logical IO requests into physical requests.  This is a good measure of the IO locality which can be used for workload characterization.",
-      "editable": true,
-      "error": false,
-      "fill": 2,
-      "grid": {},
+      "decimals": 0,
+      "fill": 1,
       "gridPos": {
         "h": 7,
-        "w": 24,
-        "x": 0,
-        "y": 38
+        "w": 12,
+        "x": 12,
+        "y": 24
       },
-      "id": 18,
+      "id": 75,
       "legend": {
         "alignAsTable": true,
         "avg": true,
         "current": false,
-        "hideEmpty": true,
-        "hideZero": true,
         "max": true,
         "min": true,
-        "rightSide": true,
         "show": true,
         "total": false,
         "values": true
       },
-      "lines": false,
-      "linewidth": 2,
+      "lines": true,
+      "linewidth": 1,
       "links": [],
+      "minSpan": 12,
       "nullPointMode": "null",
       "percentage": false,
-      "pointradius": 1,
-      "points": true,
+      "pointradius": 5,
+      "points": false,
       "renderer": "flot",
       "seriesOverrides": [],
       "spaceLength": 10,
@@ -714,43 +747,24 @@
       "steppedLine": false,
       "targets": [
         {
-          "calculatedInterval": "2m",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "(1 + rate(node_disk_reads_merged{device=~\"$device\", instance=\"$host\"}[$interval]) / rate(node_disk_reads_completed{device=~\"$device\", instance=\"$host\"}[$interval])) or (1 + irate(node_disk_reads_merged{device=~\"$device\", instance=\"$host\"}[5m]) / irate(node_disk_reads_completed{device=~\"$device\", instance=\"$host\"}[5m]))",
+          "expr": "sum by(page_size) (mysql_info_schema_innodb_cmpmem_pages_free_total{instance=\"$host\"})",
+          "format": "time_series",
+          "hide": false,
           "interval": "$interval",
           "intervalFactor": 1,
-          "legendFormat": "Read Ratio: {{ device }}",
-          "metric": "",
-          "refId": "A",
-          "step": 300,
-          "target": ""
-        },
-        {
-          "calculatedInterval": "2m",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "(1 + rate(node_disk_writes_merged{device=~\"$device\", instance=\"$host\"}[$interval]) / rate(node_disk_writes_completed{device=~\"$device\", instance=\"$host\"}[$interval])) or (1 + irate(node_disk_writes_merged{device=~\"$device\", instance=\"$host\"}[5m]) / irate(node_disk_writes_completed{device=~\"$device\", instance=\"$host\"}[5m]))",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Write Ratio: {{ device }}",
-          "metric": "",
-          "refId": "B",
-          "step": 300,
-          "target": ""
+          "legendFormat": "{{page_size}}",
+          "refId": "A"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Disk Operations Merge Ratio",
+      "title": "Total Free Pages",
       "tooltip": {
-        "msResolution": false,
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": false,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -761,20 +775,21 @@
       },
       "yaxes": [
         {
+          "decimals": 0,
           "format": "short",
-          "label": "",
+          "label": null,
           "logBase": 1,
           "max": null,
-          "min": 0,
+          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": "",
+          "label": null,
           "logBase": 1,
           "max": null,
-          "min": 0,
-          "show": true
+          "min": null,
+          "show": false
         }
       ],
       "yaxis": {
@@ -783,91 +798,77 @@
       }
     },
     {
-      "aliasColors": {
-        "Read IO size: sdb": "#2F575E",
-        "Read: sdb": "#3F6833"
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 31
       },
+      "id": 80,
+      "panels": [],
+      "repeat": "buffer",
+      "title": "Buffer Pool  $buffer",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
-      "decimals": 2,
-      "description": "Shows average size of a single disk operation.",
-      "editable": true,
-      "error": false,
+      "decimals": 0,
       "fill": 2,
-      "grid": {},
       "gridPos": {
         "h": 7,
-        "w": 24,
+        "w": 12,
         "x": 0,
-        "y": 45
+        "y": 32
       },
-      "id": 20,
+      "id": 60,
       "legend": {
         "alignAsTable": true,
         "avg": true,
         "current": false,
-        "hideEmpty": true,
-        "hideZero": true,
         "max": true,
         "min": true,
-        "rightSide": true,
         "show": true,
         "total": false,
         "values": true
       },
-      "lines": false,
+      "lines": true,
       "linewidth": 2,
       "links": [],
+      "minSpan": 12,
       "nullPointMode": "null",
       "percentage": false,
-      "pointradius": 1,
-      "points": true,
+      "pointradius": 5,
+      "points": false,
       "renderer": "flot",
+      "repeat": null,
       "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
       "targets": [
         {
-          "calculatedInterval": "2m",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "rate(node_disk_sectors_read{instance=\"$host\", device=~\"$device\"}[$interval]) * 512 / rate(node_disk_reads_completed{instance=\"$host\", device=~\"$device\"}[$interval]) or irate(node_disk_sectors_read{instance=\"$host\", device=~\"$device\"}[5m]) * 512 / irate(node_disk_reads_completed{instance=\"$host\", device=~\"$device\"}[5m]) ",
+          "expr": "mysql_info_schema_innodb_cmpmem_pages_used_total{instance=\"$host\",buffer=~\"$buffer\"}",
+          "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
-          "legendFormat": "Read size: {{ device }}",
-          "metric": "",
-          "refId": "A",
-          "step": 300,
-          "target": ""
-        },
-        {
-          "calculatedInterval": "2m",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "rate(node_disk_sectors_written{instance=\"$host\", device=~\"$device\"}[$interval]) * 512 / rate(node_disk_writes_completed{instance=\"$host\", device=~\"$device\"}[$interval]) or irate(node_disk_sectors_written{instance=\"$host\", device=~\"$device\"}[5m]) * 512 / irate(node_disk_writes_completed{instance=\"$host\", device=~\"$device\"}[5m]) ",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Write size: {{ device }}",
-          "metric": "",
-          "refId": "B",
-          "step": 300,
-          "target": ""
+          "legendFormat": "{{page_size}}",
+          "refId": "A"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Disk IO Size",
+      "title": "Used Pages (Buffer Pull $buffer)",
       "tooltip": {
-        "msResolution": false,
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": false,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -878,20 +879,108 @@
       },
       "yaxes": [
         {
-          "format": "bytes",
-          "label": "",
+          "format": "short",
+          "label": null,
           "logBase": 1,
           "max": null,
-          "min": 0,
+          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": "",
+          "label": null,
           "logBase": 1,
           "max": null,
-          "min": 0,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 0,
+      "fill": 2,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 32
+      },
+      "id": 62,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "minSpan": 12,
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "mysql_info_schema_innodb_cmpmem_pages_free_total{instance=\"$host\",buffer=\"$buffer\"}",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{page_size}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Pages Free (Buffer Pull $buffer)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
           "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
         }
       ],
       "yaxis": {
@@ -900,11 +989,11 @@
       }
     }
   ],
-  "refresh": "1m",
+  "refresh": "5m",
   "schemaVersion": 16,
   "style": "dark",
   "tags": [
-    "OS"
+    "MySQL"
   ],
   "templating": {
     "list": [
@@ -974,7 +1063,6 @@
       {
         "allValue": null,
         "current": {
-          "tags": [],
           "text": "DEMO",
           "value": "DEMO"
         },
@@ -985,7 +1073,7 @@
         "multi": false,
         "name": "group",
         "options": [],
-        "query": "label_values(node_disk_reads_completed, group)",
+        "query": "label_values(mysql_up, group)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -1000,8 +1088,8 @@
         "allFormat": "glob",
         "allValue": null,
         "current": {
-          "text": "S-DEMO-APP01",
-          "value": "S-DEMO-APP01"
+          "text": "S-DEMO-DBS01",
+          "value": "S-DEMO-DBS01"
         },
         "datasource": "Prometheus",
         "hide": 0,
@@ -1011,42 +1099,39 @@
         "multiFormat": "regex values",
         "name": "host",
         "options": [],
-        "query": "node_disk_reads_completed{group=\"$group\"}",
+        "query": "mysql_up{group=\"$group\"}",
         "refresh": 1,
         "refresh_on_load": false,
         "regex": "/instance=\"(.+?)\"/",
         "skipUrlSync": false,
         "sort": 1,
-        "tagValuesQuery": "instance",
+        "tagValuesQuery": null,
         "tags": [],
-        "tagsQuery": "up",
+        "tagsQuery": null,
         "type": "query",
         "useTags": false
       },
       {
-        "allFormat": "glob",
-        "allValue": null,
+        "allValue": "blank = All",
         "current": {
           "text": "All",
           "value": "$__all"
         },
         "datasource": "Prometheus",
-        "hide": 0,
+        "hide": 2,
         "includeAll": true,
-        "label": "Device",
+        "label": null,
         "multi": true,
-        "multiFormat": "regex values",
-        "name": "device",
+        "name": "buffer",
         "options": [],
-        "query": "label_values(node_disk_reads_completed{instance=\"$host\", device!~\"dm-.+\"}, device)",
+        "query": "label_values(mysql_info_schema_innodb_cmpmem_pages_used_total,buffer)",
         "refresh": 1,
-        "refresh_on_load": false,
-        "regex": "",
+        "regex": "/./",
         "skipUrlSync": false,
         "sort": 1,
-        "tagValuesQuery": "instance",
+        "tagValuesQuery": "",
         "tags": [],
-        "tagsQuery": "up",
+        "tagsQuery": "",
         "type": "query",
         "useTags": false
       }
@@ -1089,7 +1174,7 @@
     "type": "timepicker"
   },
   "timezone": "browser",
-  "title": "Disk Performance",
-  "uid": "oxkrQMNmz",
-  "version": 8
+  "title": "MySQL InnoDB Compression",
+  "uid": "CnOxqWGmz",
+  "version": 9
 }

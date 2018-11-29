@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 28,
-  "iteration": 1543461325526,
+  "id": 49,
+  "iteration": 1543478455235,
   "links": [
     {
       "asDropdown": true,
@@ -81,32 +81,29 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
-      "decimals": 0,
-      "description": "",
+      "decimals": 2,
       "editable": true,
       "error": false,
       "fill": 2,
       "grid": {},
       "gridPos": {
-        "h": 10,
+        "h": 7,
         "w": 12,
         "x": 0,
         "y": 0
       },
-      "id": 6,
+      "id": 25,
       "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
         "hideEmpty": false,
-        "max": true,
-        "min": true,
+        "max": false,
+        "min": false,
         "rightSide": false,
         "show": true,
-        "sort": "current",
-        "sortDesc": true,
         "total": false,
-        "values": true
+        "values": false
       },
       "lines": true,
       "linewidth": 2,
@@ -122,39 +119,28 @@
       "steppedLine": false,
       "targets": [
         {
-          "calculatedInterval": "10s",
+          "calculatedInterval": "2m",
           "datasourceErrors": {},
           "errors": {},
-          "expr": "(1 - avg by(instance)(irate(node_cpu{instance=~\"$host\",mode='idle'}[5m])))",
-          "format": "time_series",
+          "expr": "topk(5, (rate(mysql_info_schema_user_statistics_total_ssl_connections_total{instance=\"$host\"}[$interval]) + rate(mysql_info_schema_user_statistics_total_connections{instance=\"$host\"}[$interval]))>0) or topk(5, (irate(mysql_info_schema_user_statistics_total_ssl_connections_total{instance=\"$host\"}[5m]) + irate(mysql_info_schema_user_statistics_total_connections{instance=\"$host\"}[5m]))>0)",
           "interval": "$interval",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{ user }}",
           "metric": "",
           "refId": "A",
-          "step": 300,
-          "target": ""
+          "step": 300
         }
       ],
-      "thresholds": [
-        {
-          "colorMode": "custom",
-          "line": true,
-          "lineColor": "rgb(241, 34, 15)",
-          "op": "gt",
-          "value": 15
-        }
-      ],
+      "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Combine CPU Usage",
+      "title": "Top Users by Connections Created",
       "tooltip": {
         "msResolution": false,
         "shared": true,
-        "sort": 0,
+        "sort": 2,
         "value_type": "individual"
       },
-      "transparent": false,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -165,19 +151,115 @@
       },
       "yaxes": [
         {
-          "decimals": 1,
-          "format": "percentunit",
-          "label": "",
+          "format": "short",
+          "label": "Connections/sec",
           "logBase": 1,
-          "max": "1",
+          "max": null,
           "min": 0,
           "show": true
         },
         {
-          "format": "none",
+          "format": "short",
           "logBase": 1,
           "max": null,
-          "min": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "editable": true,
+      "error": false,
+      "fill": 2,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 39,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "hideEmpty": false,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "topk(5, (rate(mysql_info_schema_user_statistics_bytes_sent_total{instance=\"$host\"}[$interval]) + rate(mysql_info_schema_user_statistics_bytes_received_total{instance=\"$host\"}[$interval]))>0) or \ntopk(5, (irate(mysql_info_schema_user_statistics_bytes_sent_total{instance=\"$host\"}[5m]) + irate(mysql_info_schema_user_statistics_bytes_received_total{instance=\"$host\"}[5m]))>0)",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ user }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Top Users by Traffic",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 2,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": 2,
+          "format": "Bps",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
           "show": false
         }
       ],
@@ -193,136 +275,28 @@
       "dashes": false,
       "datasource": "Prometheus",
       "decimals": 2,
-      "description": "**Load Average**\n\nOn Linux, this is the number of processes which are in “running” state or in “uninterruptible sleep” state which typically corresponds to disk IO. You can also map LoadAvg to VMSTAT output – it is something like moving average of sum of “r” and “b” columns from VMSTAT.",
       "editable": true,
       "error": false,
       "fill": 2,
       "grid": {},
       "gridPos": {
-        "h": 10,
-        "w": 12,
-        "x": 12,
-        "y": 0
-      },
-      "id": 14,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "hideEmpty": false,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "links": [],
-      "nullPointMode": "null",
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "calculatedInterval": "10s",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "node_load1{instance=~\"$host\"}",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "{{ instance }}",
-          "metric": "",
-          "refId": "A",
-          "step": 300,
-          "target": ""
-        }
-      ],
-      "thresholds": [
-        {
-          "colorMode": "custom",
-          "line": true,
-          "lineColor": "rgb(241, 34, 15)",
-          "op": "gt",
-          "value": 15
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Load Average",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "transparent": false,
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "none",
-          "label": "",
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        },
-        {
-          "format": "none",
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "Prometheus",
-      "decimals": 0,
-      "editable": true,
-      "error": false,
-      "fill": 2,
-      "grid": {},
-      "gridPos": {
-        "h": 10,
+        "h": 7,
         "w": 12,
         "x": 0,
-        "y": 10
+        "y": 7
       },
-      "id": 7,
+      "id": 37,
       "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
         "hideEmpty": false,
-        "max": true,
-        "min": true,
+        "max": false,
+        "min": false,
         "rightSide": false,
         "show": true,
         "total": false,
-        "values": true
+        "values": false
       },
       "lines": true,
       "linewidth": 2,
@@ -338,39 +312,29 @@
       "steppedLine": false,
       "targets": [
         {
-          "calculatedInterval": "10s",
+          "calculatedInterval": "2m",
           "datasourceErrors": {},
           "errors": {},
-          "expr": "100 - 100 * (node_memory_MemAvailable{instance=~\"$host\"} or (node_memory_MemFree{instance=~\"$host\"} + node_memory_Buffers{instance=~\"$host\"} + node_memory_Cached{instance=~\"$host\"})) / (node_memory_MemTotal{instance=~\"$host\"} + 0.1)",
+          "expr": "topk(5, rate(mysql_info_schema_user_statistics_rows_fetched_total{instance=\"$host\"}[$interval])>0) or topk(5, irate(mysql_info_schema_user_statistics_rows_fetched_total{instance=\"$host\"}[5m])>0) or topk(5, rate(mysql_info_schema_user_statistics_rows_read_total{instance=\"$host\"}[$interval])>0) or topk(5, irate(mysql_info_schema_user_statistics_rows_read_total{instance=\"$host\"}[5m])>0)",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
-          "legendFormat": "{{ instance }}",
+          "legendFormat": "{{ user }}",
           "metric": "",
           "refId": "A",
-          "step": 300,
-          "target": ""
+          "step": 300
         }
       ],
-      "thresholds": [
-        {
-          "colorMode": "custom",
-          "line": true,
-          "lineColor": "rgb(248, 8, 48)",
-          "op": "gt",
-          "value": 95
-        }
-      ],
+      "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Memory Usage",
+      "title": "Top Users by Rows Fetched/Read",
       "tooltip": {
         "msResolution": false,
         "shared": true,
-        "sort": 0,
+        "sort": 2,
         "value_type": "individual"
       },
-      "transparent": false,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -381,15 +345,15 @@
       },
       "yaxes": [
         {
-          "format": "percent",
-          "label": "",
+          "format": "short",
+          "label": "Rows/sec",
           "logBase": 1,
           "max": null,
           "min": 0,
           "show": true
         },
         {
-          "format": "none",
+          "format": "short",
           "logBase": 1,
           "max": null,
           "min": 0,
@@ -413,25 +377,23 @@
       "fill": 2,
       "grid": {},
       "gridPos": {
-        "h": 10,
+        "h": 7,
         "w": 12,
         "x": 12,
-        "y": 10
+        "y": 7
       },
-      "id": 10,
+      "id": 38,
       "legend": {
-        "alignAsTable": true,
-        "avg": true,
+        "alignAsTable": false,
+        "avg": false,
         "current": false,
         "hideEmpty": false,
-        "max": true,
-        "min": true,
+        "max": false,
+        "min": false,
         "rightSide": false,
         "show": true,
-        "sort": "avg",
-        "sortDesc": true,
         "total": false,
-        "values": true
+        "values": false
       },
       "lines": true,
       "linewidth": 2,
@@ -447,31 +409,29 @@
       "steppedLine": false,
       "targets": [
         {
-          "calculatedInterval": "2s",
+          "calculatedInterval": "2m",
           "datasourceErrors": {},
           "errors": {},
-          "expr": "sum(rate(node_network_receive_bytes{instance=~\"$host\", device!=\"lo\"}[$interval]) + rate(node_network_transmit_bytes{instance=~\"$host\", device!=\"lo\"}[$interval])) by (instance) or sum(irate(node_network_receive_bytes{instance=~\"$host\", device!=\"lo\"}[5m]) + irate(node_network_transmit_bytes{instance=~\"$host\", device!=\"lo\"}[5m])) by (instance) or\nsum(max_over_time(rdsosmetrics_network_rx{instance=~\"$host\"}[$interval]) + max_over_time(rdsosmetrics_network_tx{instance=~\"$host\"}[$interval])) by (instance) or sum(max_over_time(rdsosmetrics_network_rx{instance=~\"$host\"}[5m]) + max_over_time(rdsosmetrics_network_tx{instance=~\"$host\"}[5m])) by (instance)",
+          "expr": "topk(5, rate(mysql_info_schema_user_statistics_rows_updated_total{instance=\"$host\"}[$interval])>0) or \ntopk(5, irate(mysql_info_schema_user_statistics_rows_updated_total{instance=\"$host\"}[5m])>0)",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
-          "legendFormat": "{{ instance }}",
+          "legendFormat": "{{ user }}",
           "metric": "",
-          "refId": "B",
-          "step": 300,
-          "target": ""
+          "refId": "A",
+          "step": 300
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Network Traffic",
+      "title": "Top Users by Rows Updated",
       "tooltip": {
         "msResolution": false,
         "shared": true,
-        "sort": 0,
+        "sort": 2,
         "value_type": "individual"
       },
-      "transparent": false,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -482,226 +442,8 @@
       },
       "yaxes": [
         {
-          "format": "Bps",
-          "label": "",
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        },
-        {
-          "format": "bytes",
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "Prometheus",
-      "decimals": 0,
-      "editable": true,
-      "error": false,
-      "fill": 0,
-      "grid": {},
-      "gridPos": {
-        "h": 10,
-        "w": 12,
-        "x": 0,
-        "y": 20
-      },
-      "id": 13,
-      "legend": {
-        "alignAsTable": true,
-        "avg": false,
-        "current": true,
-        "hideEmpty": false,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "links": [],
-      "nullPointMode": "null",
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "calculatedInterval": "10s",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "1 - node_filesystem_free{instance=~\"$host\", mountpoint=\"/data\"}  / node_filesystem_size{instance=~\"$host\", mountpoint=\"/data\"}",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "{{ instance }}",
-          "metric": "",
-          "refId": "A",
-          "step": 300,
-          "target": ""
-        }
-      ],
-      "thresholds": [
-        {
-          "colorMode": "custom",
-          "line": true,
-          "lineColor": "rgb(248, 8, 48)",
-          "op": "gt",
-          "value": 95
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Data Disc Usage",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "transparent": false,
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "decimals": 1,
-          "format": "percentunit",
-          "label": "",
-          "logBase": 1,
-          "max": "1",
-          "min": 0,
-          "show": true
-        },
-        {
-          "format": "bytes",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "Prometheus",
-      "decimals": 0,
-      "description": "Shows disk Utilization as percent of the time when there was at least one IO request in flight. It is designed to match utilization available in iostat tool. It is not very good measure of true IO Capacity Utilization. Consider looking at IO latency and Disk Load Graphs instead.",
-      "editable": true,
-      "error": false,
-      "fill": 2,
-      "grid": {},
-      "gridPos": {
-        "h": 10,
-        "w": 12,
-        "x": 12,
-        "y": 20
-      },
-      "id": 17,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "hideEmpty": false,
-        "hideZero": false,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "links": [],
-      "nullPointMode": "null",
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "calculatedInterval": "10s",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "rate(node_disk_io_time_ms{device=\"sdb\", instance=~\"$host\"}[$interval])/1000 or \nirate(node_disk_io_time_ms{device=\"sdb\", instance=~\"$host\"}[5m])/1000",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "{{ instance }}",
-          "metric": "",
-          "refId": "A",
-          "step": 300,
-          "target": ""
-        }
-      ],
-      "thresholds": [
-        {
-          "colorMode": "custom",
-          "line": true,
-          "lineColor": "rgb(248, 8, 48)",
-          "op": "gt",
-          "value": 95
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Data Disk IO Utilization",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "transparent": false,
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "decimals": null,
-          "format": "percentunit",
-          "label": "",
+          "format": "short",
+          "label": "Rows/sec",
           "logBase": 1,
           "max": null,
           "min": 0,
@@ -711,7 +453,103 @@
           "format": "short",
           "logBase": 1,
           "max": null,
-          "min": "0",
+          "min": 0,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "editable": true,
+      "error": false,
+      "fill": 2,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 14
+      },
+      "id": 40,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "hideEmpty": false,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "topk(5, rate(mysql_info_schema_user_statistics_busy_seconds_total{instance=\"$host\"}[$interval])>0) or topk(5, irate(mysql_info_schema_user_statistics_busy_seconds_total{instance=\"$host\"}[5m])>0)",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ user }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Top Users by Busy Load",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 2,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
           "show": true
         }
       ],
@@ -721,231 +559,127 @@
       }
     },
     {
-      "columns": [],
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
       "datasource": "Prometheus",
+      "decimals": 2,
       "editable": true,
       "error": false,
-      "fontSize": "90%",
+      "fill": 2,
+      "grid": {},
       "gridPos": {
-        "h": 8,
-        "w": 24,
-        "x": 0,
-        "y": 30
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 14
       },
-      "height": "",
-      "hideTimeOverride": true,
-      "id": 12,
+      "id": 41,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "hideEmpty": false,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
       "links": [],
-      "pageSize": 7,
-      "scroll": true,
-      "showHeader": true,
-      "sort": {
-        "col": 0,
-        "desc": false
-      },
-      "styles": [
-        {
-          "alias": "",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "link": false,
-          "mappingType": 1,
-          "pattern": "Time",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "alias": "",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "Value",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "alias": "",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "__name__",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "alias": "Domainname",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "domainname",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "alias": "",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "job",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "alias": "Kernel",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "release",
-          "thresholds": [],
-          "type": "number",
-          "unit": "short"
-        },
-        {
-          "alias": "Hostname",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "nodename",
-          "thresholds": [],
-          "type": "number",
-          "unit": "short"
-        },
-        {
-          "alias": "",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "machine",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "alias": "Instance",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "instance",
-          "thresholds": [],
-          "type": "number",
-          "unit": "short"
-        },
-        {
-          "alias": "",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "version",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "alias": "System",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "sysname",
-          "thresholds": [],
-          "type": "number",
-          "unit": "short"
-        }
-      ],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
       "targets": [
         {
-          "expr": "node_uname_info{instance=~\"$host\"}",
-          "format": "table",
-          "instant": true,
-          "interval": "5m",
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "topk(5, rate(mysql_info_schema_user_statistics_cpu_time_seconds_total{instance=\"$host\"}[$interval])>0) or \ntopk(5, irate(mysql_info_schema_user_statistics_cpu_time_seconds_total{instance=\"$host\"}[5m])>0)",
+          "format": "time_series",
+          "interval": "$interval",
           "intervalFactor": 1,
-          "legendFormat": "{{sysname}} | {{ release }} | {{domainname}}",
+          "legendFormat": "{{ user }}",
+          "metric": "",
           "refId": "A",
           "step": 300
         }
       ],
-      "timeFrom": "5m",
-      "title": "System Info",
-      "transform": "table",
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Top Users by CPU Load",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 2,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "content": "These graphs are available only for [Percona Server](https://www.percona.com/doc/percona-server/5.6/diagnostics/user_stats.html) and [MariaDB](https://mariadb.com/kb/en/mariadb/user-statistics/) and require `userstat` variable turned on.",
+      "datasource": "Prometheus",
+      "editable": true,
+      "error": false,
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 21
+      },
+      "height": "50px",
+      "id": 36,
+      "links": [],
+      "mode": "markdown",
+      "style": {},
+      "title": "",
       "transparent": true,
-      "type": "table"
+      "type": "text"
     }
   ],
   "refresh": "1m",
   "schemaVersion": 16,
   "style": "dark",
   "tags": [
-    "Insight"
+    "MySQL"
   ],
   "templating": {
     "list": [
@@ -1009,14 +743,12 @@
         ],
         "query": "1s,5s,1m,5m,1h,6h,1d",
         "refresh": 2,
-        "regex": "",
         "skipUrlSync": false,
         "type": "interval"
       },
       {
         "allValue": null,
         "current": {
-          "tags": [],
           "text": "DEMO",
           "value": "DEMO"
         },
@@ -1027,7 +759,7 @@
         "multi": false,
         "name": "group",
         "options": [],
-        "query": "label_values({__name__=~\"node_load1|mysql_up\", job!=\"prometheus\"}, group)",
+        "query": "label_values(mysql_info_schema_user_statistics_bytes_sent_total, group)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -1039,25 +771,23 @@
         "useTags": false
       },
       {
-        "allFormat": "pipe",
+        "allFormat": "glob",
         "allValue": null,
         "current": {
-          "tags": [],
-          "text": "All",
-          "value": [
-            "$__all"
-          ]
+          "text": "S-DEMO-DBS02",
+          "value": "S-DEMO-DBS02"
         },
         "datasource": "Prometheus",
         "hide": 0,
-        "includeAll": true,
+        "includeAll": false,
         "label": "Host",
-        "multi": true,
-        "multiFormat": "pipe",
+        "multi": false,
+        "multiFormat": "regex values",
         "name": "host",
         "options": [],
-        "query": "node_load1{group=~\"$group\"}",
+        "query": "mysql_info_schema_user_statistics_bytes_sent_total{group=\"$group\"}",
         "refresh": 1,
+        "refresh_on_load": false,
         "regex": "/instance=\"(.+?)\"/",
         "skipUrlSync": false,
         "sort": 1,
@@ -1106,7 +836,7 @@
     "type": "timepicker"
   },
   "timezone": "browser",
-  "title": "Cross Server Graphs",
-  "uid": "Swz9QGNmz",
-  "version": 24
+  "title": "MySQL User Statistics",
+  "uid": "EEkrQGNmk",
+  "version": 7
 }

@@ -17,7 +17,7 @@
   "gnetId": 1856,
   "graphTooltip": 1,
   "id": 50,
-  "iteration": 1543460984374,
+  "iteration": 1543475382443,
   "links": [
     {
       "asDropdown": true,
@@ -2551,7 +2551,6 @@
       {
         "allValue": null,
         "current": {
-          "tags": [],
           "text": "MON",
           "value": "MON"
         },
@@ -2576,9 +2575,8 @@
       {
         "allValue": null,
         "current": {
-          "tags": [],
-          "text": "S-DEMO-MON02",
-          "value": "S-DEMO-MON02"
+          "text": "S-DEMO-MON01",
+          "value": "S-DEMO-MON01"
         },
         "datasource": "Prometheus",
         "hide": 0,
@@ -2658,5 +2656,5 @@
   "timezone": "browser",
   "title": "Network Overview",
   "uid": "000000193",
-  "version": 7
+  "version": 10
 }
