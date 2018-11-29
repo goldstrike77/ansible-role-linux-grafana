@@ -2,7 +2,7 @@
 grafana_datasources:
   - 'prometheus'
 grafana_dashboards:
-  - 'General'
+  - 'Universal'
   - 'Linux'
   - 'MongoDB'
   - 'MySQL'

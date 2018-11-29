@@ -1,8 +1,8 @@
 ---
 - name: Grafana dashboard file transfer
   copy:
-    src: 'dashboards/{{ grafana_dashboards }}/'
-    dest: '{{ grafana_path }}/grafana/dashboards/{{ grafana_dashboards }}/'
+    src: 'dashboards/{{ item }}'
+    dest: '{{ grafana_path }}/grafana/dashboards/'
     owner: 'grafana'
     group: 'grafana'
     mode: 0644
