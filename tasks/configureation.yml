@@ -19,10 +19,11 @@
 - name: Grafana Dashboards configuration
   template:
     src: 'dashboards.yaml.j2'
-    dest: '/etc/grafana/provisioning/dashboards/dashboards.yaml'
+    dest: '/etc/grafana/provisioning/dashboards/{{ item }}.yaml'
     owner: root
     group: grafana
     mode: 0640
+  with_items: '{{ grafana_dashboards }}'
   register: dash_updated
 
 - name: Grafana Datasources configuration
