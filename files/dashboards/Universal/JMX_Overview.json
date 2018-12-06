@@ -16,8 +16,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 33,
-  "iteration": 1544014775767,
+  "id": 36,
+  "iteration": 1544073287339,
   "links": [
     {
       "asDropdown": true,
@@ -275,8 +275,8 @@
       "isNew": true,
       "legend": {
         "alignAsTable": true,
-        "avg": true,
-        "current": true,
+        "avg": false,
+        "current": false,
         "hideEmpty": false,
         "hideZero": false,
         "max": true,
@@ -818,7 +818,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
-      "decimals": 2,
+      "decimals": 0,
       "editable": true,
       "error": false,
       "fill": 1,
@@ -862,11 +862,11 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "jvm_gc_collection_seconds_count{instance=~\"$host\"}",
+          "expr": "tomcat_servlet_requestcount_total{instance=~\"$host\"}",
           "format": "time_series",
           "interval": "$interval",
-          "intervalFactor": 5,
-          "legendFormat": "{{gc}}",
+          "intervalFactor": 1,
+          "legendFormat": "{{ servlet }}",
           "refId": "F",
           "step": 50
         }
@@ -875,7 +875,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "GC count",
+      "title": "Servlet request",
       "tooltip": {
         "msResolution": false,
         "shared": true,
@@ -894,7 +894,7 @@
       "yaxes": [
         {
           "decimals": 0,
-          "format": "short",
+          "format": "none",
           "label": "",
           "logBase": 1,
           "max": null,
@@ -907,7 +907,7 @@
           "logBase": 1,
           "max": null,
           "min": null,
-          "show": true
+          "show": false
         }
       ],
       "yaxis": {
@@ -1440,10 +1440,9 @@
       {
         "allValue": null,
         "current": {
-          "selected": true,
-          "tags": [],
-          "text": "S-DEMO-APP02",
-          "value": "S-DEMO-APP02"
+          "selected": false,
+          "text": "S-DEMO-APP01",
+          "value": "S-DEMO-APP01"
         },
         "datasource": "Prometheus",
         "definition": "jvm_info{group=\"$group\"}",
@@ -1498,5 +1497,5 @@
   "timezone": "browser",
   "title": "JMX Overview",
   "uid": "lpXvXkPiz",
-  "version": 39
+  "version": 1
 }
