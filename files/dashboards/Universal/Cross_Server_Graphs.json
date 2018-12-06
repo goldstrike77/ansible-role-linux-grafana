@@ -15,8 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 28,
-  "iteration": 1543475429345,
+  "iteration": 1544062789482,
   "links": [
     {
       "asDropdown": true,
@@ -146,6 +145,7 @@
         }
       ],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Combine CPU Usage",
       "tooltip": {
@@ -170,7 +170,7 @@
           "label": "",
           "logBase": 1,
           "max": "1",
-          "min": 0,
+          "min": "0",
           "show": true
         },
         {
@@ -255,6 +255,7 @@
         }
       ],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Load Average",
       "tooltip": {
@@ -352,16 +353,9 @@
           "target": ""
         }
       ],
-      "thresholds": [
-        {
-          "colorMode": "custom",
-          "line": true,
-          "lineColor": "rgb(248, 8, 48)",
-          "op": "gt",
-          "value": 95
-        }
-      ],
+      "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Memory Usage",
       "tooltip": {
@@ -381,10 +375,11 @@
       },
       "yaxes": [
         {
+          "decimals": 1,
           "format": "percent",
           "label": "",
           "logBase": 1,
-          "max": null,
+          "max": "100",
           "min": 0,
           "show": true
         },
@@ -393,7 +388,7 @@
           "logBase": 1,
           "max": null,
           "min": 0,
-          "show": true
+          "show": false
         }
       ],
       "yaxis": {
@@ -463,6 +458,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Network Traffic",
       "tooltip": {
@@ -549,7 +545,7 @@
           "calculatedInterval": "10s",
           "datasourceErrors": {},
           "errors": {},
-          "expr": "1 - node_filesystem_free{instance=~\"$host\", mountpoint=\"/data\"}  / node_filesystem_size{instance=~\"$host\", mountpoint=\"/data\"}",
+          "expr": "1- node_filesystem_free{instance=~\"$host\", mountpoint=\"/data\"}  / node_filesystem_size{instance=~\"$host\", mountpoint=\"/data\"}",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -560,16 +556,9 @@
           "target": ""
         }
       ],
-      "thresholds": [
-        {
-          "colorMode": "custom",
-          "line": true,
-          "lineColor": "rgb(248, 8, 48)",
-          "op": "gt",
-          "value": 95
-        }
-      ],
+      "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Data Disc Usage",
       "tooltip": {
@@ -680,6 +669,7 @@
         }
       ],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Data Disk IO Utilization",
       "tooltip": {
@@ -1016,17 +1006,18 @@
       {
         "allValue": null,
         "current": {
-          "text": "MON",
-          "value": "MON"
+          "text": "DEMO",
+          "value": "DEMO"
         },
         "datasource": "Prometheus",
+        "definition": "label_values({__name__=~\"node_load1\", job!=\"prometheus\"}, group)",
         "hide": 0,
         "includeAll": false,
         "label": "Group",
         "multi": false,
         "name": "group",
         "options": [],
-        "query": "label_values({__name__=~\"node_load1|mysql_up\", job!=\"prometheus\"}, group)",
+        "query": "label_values({__name__=~\"node_load1\", job!=\"prometheus\"}, group)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -1042,11 +1033,10 @@
         "allValue": null,
         "current": {
           "text": "All",
-          "value": [
-            "$__all"
-          ]
+          "value": "$__all"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": true,
         "label": "Host",
@@ -1106,5 +1096,5 @@
   "timezone": "browser",
   "title": "Cross Server Graphs",
   "uid": "Swz9QGNmz",
-  "version": 28
+  "version": 1
 }
