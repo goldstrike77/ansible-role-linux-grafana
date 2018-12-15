@@ -16,8 +16,8 @@
   "editable": true,
   "gnetId": 763,
   "graphTooltip": 0,
-  "id": 8,
-  "iteration": 1544156758976,
+  "id": 16,
+  "iteration": 1544840333413,
   "links": [
     {
       "asDropdown": true,
@@ -72,6 +72,17 @@
         "Insight"
       ],
       "title": "Insight",
+      "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "Cloud"
+      ],
+      "title": "Cloud",
       "type": "dashboards"
     }
   ],
@@ -1370,11 +1381,6 @@
           },
           {
             "selected": false,
-            "text": "1s",
-            "value": "1s"
-          },
-          {
-            "selected": false,
             "text": "5s",
             "value": "5s"
           },
@@ -1404,7 +1410,7 @@
             "value": "1d"
           }
         ],
-        "query": "1s,5s,1m,5m,1h,6h,1d",
+        "query": "5s,1m,5m,1h,6h,1d",
         "refresh": 2,
         "skipUrlSync": false,
         "type": "interval"
@@ -1437,7 +1443,6 @@
       {
         "allValue": null,
         "current": {
-          "tags": [],
           "text": "S-DEMO-APP02",
           "value": "S-DEMO-APP02"
         },

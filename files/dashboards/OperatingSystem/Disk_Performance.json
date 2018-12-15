@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 29,
-  "iteration": 1543475129591,
+  "id": 10,
+  "iteration": 1544840795143,
   "links": [
     {
       "asDropdown": true,
@@ -71,6 +71,17 @@
       ],
       "targetBlank": false,
       "title": "Insight",
+      "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "Cloud"
+      ],
+      "title": "Cloud",
       "type": "dashboards"
     }
   ],
@@ -153,6 +164,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Disk Latency",
       "tooltip": {
@@ -271,6 +283,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Disk Operations",
       "tooltip": {
@@ -389,6 +402,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Disk Bandwidth",
       "tooltip": {
@@ -503,6 +517,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Disk Load",
       "tooltip": {
@@ -608,6 +623,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Disk IO Utilization",
       "tooltip": {
@@ -722,6 +738,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Disk Operations Merge Ratio",
       "tooltip": {
@@ -839,6 +856,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Disk IO Size",
       "tooltip": {
@@ -912,11 +930,6 @@
           },
           {
             "selected": false,
-            "text": "1s",
-            "value": "1s"
-          },
-          {
-            "selected": false,
             "text": "5s",
             "value": "5s"
           },
@@ -946,7 +959,7 @@
             "value": "1d"
           }
         ],
-        "query": "1s,5s,1m,5m,1h,6h,1d",
+        "query": "5s,1m,5m,1h,6h,1d",
         "refresh": 2,
         "skipUrlSync": false,
         "type": "interval"
@@ -954,10 +967,12 @@
       {
         "allValue": null,
         "current": {
-          "text": "MON",
-          "value": "MON"
+          "selected": false,
+          "text": "DEMO",
+          "value": "DEMO"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Group",
@@ -979,10 +994,12 @@
         "allFormat": "glob",
         "allValue": null,
         "current": {
-          "text": "S-DEMO-MON01",
-          "value": "S-DEMO-MON01"
+          "selected": false,
+          "text": "S-DEMO-APP02",
+          "value": "S-DEMO-APP02"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Host",
@@ -1010,6 +1027,7 @@
           "value": "$__all"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": true,
         "label": "Device",
@@ -1070,5 +1088,5 @@
   "timezone": "browser",
   "title": "Disk Performance",
   "uid": "oxkrQMNmz",
-  "version": 13
+  "version": 1
 }

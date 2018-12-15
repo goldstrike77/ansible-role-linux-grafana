@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 33,
-  "iteration": 1543479382895,
+  "id": 31,
+  "iteration": 1544842305429,
   "links": [
     {
       "asDropdown": true,
@@ -71,6 +71,17 @@
       ],
       "targetBlank": false,
       "title": "Insight",
+      "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "Cloud"
+      ],
+      "title": "Cloud",
       "type": "dashboards"
     }
   ],
@@ -1871,11 +1882,6 @@
           },
           {
             "selected": false,
-            "text": "1s",
-            "value": "1s"
-          },
-          {
-            "selected": false,
             "text": "5s",
             "value": "5s"
           },
@@ -1905,7 +1911,7 @@
             "value": "1d"
           }
         ],
-        "query": "1s,5s,1m,5m,1h,6h,1d",
+        "query": "5s,1m,5m,1h,6h,1d",
         "refresh": 2,
         "skipUrlSync": false,
         "type": "interval"
@@ -1914,10 +1920,11 @@
         "allFormat": "glob",
         "allValue": null,
         "current": {
-          "text": "All",
-          "value": "$__all"
+          "text": "",
+          "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": true,
         "label": "Cluster",
@@ -1945,6 +1952,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Instance",
@@ -1999,5 +2007,5 @@
   "timezone": "browser",
   "title": "MongoDB MMAPv1",
   "uid": "Cok9wMHik",
-  "version": 4
+  "version": 1
 }

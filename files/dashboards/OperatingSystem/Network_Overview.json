@@ -16,8 +16,8 @@
   "editable": true,
   "gnetId": 1856,
   "graphTooltip": 1,
-  "id": 50,
-  "iteration": 1543475382443,
+  "id": 30,
+  "iteration": 1544840824233,
   "links": [
     {
       "asDropdown": true,
@@ -498,6 +498,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Network Traffic",
       "tooltip": {
@@ -604,6 +605,7 @@
       ],
       "thresholds": [],
       "timeFrom": "24h",
+      "timeRegions": [],
       "timeShift": null,
       "title": "Network Utilization Hourly",
       "tooltip": {
@@ -720,6 +722,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Network Traffic by Packets",
       "tooltip": {
@@ -818,6 +821,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Network Traffic Errors",
       "tooltip": {
@@ -916,6 +920,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Network Traffic Drop",
       "tooltip": {
@@ -1014,6 +1019,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Network Traffic Multicast",
       "tooltip": {
@@ -1423,6 +1429,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Netstat: TCP",
       "tooltip": {
@@ -1557,6 +1564,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "TCP Segments",
       "tooltip": {
@@ -1737,6 +1745,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Netstat: UDP",
       "tooltip": {
@@ -1880,6 +1889,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "UDP Lite",
       "tooltip": {
@@ -2047,6 +2057,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "ICMP Errors",
       "tooltip": {
@@ -2168,6 +2179,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Messages / Redirects",
       "tooltip": {
@@ -2289,6 +2301,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Echos",
       "tooltip": {
@@ -2443,6 +2456,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Timestamps / Mask Requests",
       "tooltip": {
@@ -2509,11 +2523,6 @@
           },
           {
             "selected": false,
-            "text": "1s",
-            "value": "1s"
-          },
-          {
-            "selected": false,
             "text": "5s",
             "value": "5s"
           },
@@ -2543,7 +2552,7 @@
             "value": "1d"
           }
         ],
-        "query": "1s,5s,1m,5m,1h,6h,1d",
+        "query": "5s,1m,5m,1h,6h,1d",
         "refresh": 2,
         "skipUrlSync": false,
         "type": "interval"
@@ -2551,10 +2560,12 @@
       {
         "allValue": null,
         "current": {
-          "text": "MON",
-          "value": "MON"
+          "selected": false,
+          "text": "DEMO",
+          "value": "DEMO"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Group",
@@ -2575,10 +2586,12 @@
       {
         "allValue": null,
         "current": {
-          "text": "S-DEMO-MON01",
-          "value": "S-DEMO-MON01"
+          "selected": false,
+          "text": "S-DEMO-APP02",
+          "value": "S-DEMO-APP02"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Host",
@@ -2599,10 +2612,12 @@
       {
         "allValue": null,
         "current": {
+          "selected": true,
           "text": "All",
           "value": "$__all"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": true,
         "label": "Device",
@@ -2656,5 +2671,5 @@
   "timezone": "browser",
   "title": "Network Overview",
   "uid": "000000193",
-  "version": 10
+  "version": 1
 }

@@ -16,8 +16,8 @@
   "editable": true,
   "gnetId": 3300,
   "graphTooltip": 1,
-  "id": 13,
-  "iteration": 1543566388836,
+  "id": 7,
+  "iteration": 1544841052985,
   "links": [
     {
       "asDropdown": true,
@@ -72,6 +72,17 @@
       ],
       "targetBlank": false,
       "title": "Insight",
+      "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "Cloud"
+      ],
+      "title": "Cloud",
       "type": "dashboards"
     }
   ],
@@ -826,6 +837,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "PostgreSQL Connections",
       "tooltip": {
@@ -933,6 +945,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Active Connections",
       "tooltip": {
@@ -1067,6 +1080,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Tuples",
       "tooltip": {
@@ -1168,6 +1182,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Read Tuple Activity",
       "tooltip": {
@@ -1279,6 +1294,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Tuples Changed per $interval",
       "tooltip": {
@@ -1393,6 +1409,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Transactions",
       "tooltip": {
@@ -1484,6 +1501,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Duration of Transactions",
       "tooltip": {
@@ -1586,6 +1604,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Number of Temp Files",
       "tooltip": {
@@ -1692,6 +1711,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Size of Temp Files",
       "tooltip": {
@@ -1896,6 +1916,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Conflicts/Deadlocks",
       "tooltip": {
@@ -2034,6 +2055,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Number of Locks",
       "tooltip": {
@@ -2151,6 +2173,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Operations with Blocks",
       "tooltip": {
@@ -2504,6 +2527,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Buffers",
       "tooltip": {
@@ -2650,6 +2674,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Canceled Queries",
       "tooltip": {
@@ -2745,6 +2770,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Cache Hit Ratio",
       "tooltip": {
@@ -2850,6 +2876,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Checkpoint stats",
       "tooltip": {
@@ -2988,6 +3015,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "CPU Usage",
       "tooltip": {
@@ -3103,6 +3131,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Saturation and Max Core Usage",
       "tooltip": {
@@ -3236,6 +3265,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Disk I/O and Swap Activity",
       "tooltip": {
@@ -3336,6 +3366,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Network Traffic",
       "tooltip": {
@@ -3402,11 +3433,6 @@
           },
           {
             "selected": false,
-            "text": "1s",
-            "value": "1s"
-          },
-          {
-            "selected": false,
             "text": "5s",
             "value": "5s"
           },
@@ -3436,7 +3462,7 @@
             "value": "1d"
           }
         ],
-        "query": "1s,5s,1m,5m,1h,6h,1d",
+        "query": "5s,1m,5m,1h,6h,1d",
         "refresh": 2,
         "skipUrlSync": false,
         "type": "interval"
@@ -3448,6 +3474,7 @@
           "value": "DEMO"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Group",
@@ -3468,11 +3495,11 @@
       {
         "allValue": null,
         "current": {
-          "tags": [],
           "text": "S-DEMO-DBS01",
           "value": "S-DEMO-DBS01"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Host",
@@ -3497,6 +3524,7 @@
           "value": "$__all"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": true,
         "label": "DB",
@@ -3521,6 +3549,7 @@
           "value": "9.6.11"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -3546,6 +3575,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -3571,6 +3601,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -3596,6 +3627,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -3621,6 +3653,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -3646,6 +3679,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -3671,6 +3705,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -3696,6 +3731,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -3721,6 +3757,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -3746,6 +3783,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -3771,6 +3809,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -3796,6 +3835,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -3821,6 +3861,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -3846,6 +3887,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -3871,6 +3913,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -3896,6 +3939,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -3921,6 +3965,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -3946,6 +3991,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -3971,6 +4017,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -3996,6 +4043,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -4021,6 +4069,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -4046,6 +4095,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -4071,6 +4121,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -4096,6 +4147,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -4121,6 +4173,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -4146,6 +4199,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -4171,6 +4225,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -4196,6 +4251,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -4221,6 +4277,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -4246,6 +4303,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -4271,6 +4329,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -4296,6 +4355,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -4321,6 +4381,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -4346,6 +4407,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -4371,6 +4433,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -4396,6 +4459,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -4421,6 +4485,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -4446,6 +4511,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -4471,6 +4537,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": null,

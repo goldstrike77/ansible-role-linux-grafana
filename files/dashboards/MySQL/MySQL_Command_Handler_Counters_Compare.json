@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 38,
-  "iteration": 1543478337087,
+  "id": 13,
+  "iteration": 1544841129642,
   "links": [
     {
       "asDropdown": true,
@@ -71,6 +71,17 @@
       ],
       "targetBlank": false,
       "title": "Insight",
+      "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "Cloud"
+      ],
+      "title": "Cloud",
       "type": "dashboards"
     }
   ],
@@ -167,6 +178,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "$host - $command",
       "tooltip": {
@@ -297,6 +309,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "$host - $handler",
       "tooltip": {
@@ -347,7 +360,7 @@
       "id": 262,
       "panels": [],
       "repeat": null,
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 261,
       "scopedVars": {
         "handler": {
@@ -396,7 +409,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": "host",
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 9,
       "repeatedByRow": true,
       "scopedVars": {
@@ -432,6 +445,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "$host - $handler",
       "tooltip": {
@@ -482,7 +496,7 @@
       "id": 264,
       "panels": [],
       "repeat": null,
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 261,
       "scopedVars": {
         "handler": {
@@ -531,7 +545,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": "host",
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 9,
       "repeatedByRow": true,
       "scopedVars": {
@@ -567,6 +581,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "$host - $handler",
       "tooltip": {
@@ -617,7 +632,7 @@
       "id": 266,
       "panels": [],
       "repeat": null,
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 261,
       "scopedVars": {
         "handler": {
@@ -666,7 +681,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": "host",
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 9,
       "repeatedByRow": true,
       "scopedVars": {
@@ -702,6 +717,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "$host - $handler",
       "tooltip": {
@@ -752,7 +768,7 @@
       "id": 268,
       "panels": [],
       "repeat": null,
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 261,
       "scopedVars": {
         "handler": {
@@ -801,7 +817,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": "host",
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 9,
       "repeatedByRow": true,
       "scopedVars": {
@@ -837,6 +853,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "$host - $handler",
       "tooltip": {
@@ -887,7 +904,7 @@
       "id": 270,
       "panels": [],
       "repeat": null,
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 261,
       "scopedVars": {
         "handler": {
@@ -936,7 +953,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": "host",
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 9,
       "repeatedByRow": true,
       "scopedVars": {
@@ -972,6 +989,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "$host - $handler",
       "tooltip": {
@@ -1022,7 +1040,7 @@
       "id": 272,
       "panels": [],
       "repeat": null,
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 261,
       "scopedVars": {
         "handler": {
@@ -1071,7 +1089,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": "host",
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 9,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1107,6 +1125,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "$host - $handler",
       "tooltip": {
@@ -1157,7 +1176,7 @@
       "id": 274,
       "panels": [],
       "repeat": null,
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 261,
       "scopedVars": {
         "handler": {
@@ -1206,7 +1225,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": "host",
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 9,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1242,6 +1261,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "$host - $handler",
       "tooltip": {
@@ -1292,7 +1312,7 @@
       "id": 276,
       "panels": [],
       "repeat": null,
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 261,
       "scopedVars": {
         "handler": {
@@ -1341,7 +1361,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": "host",
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 9,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1377,6 +1397,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "$host - $handler",
       "tooltip": {
@@ -1427,7 +1448,7 @@
       "id": 278,
       "panels": [],
       "repeat": null,
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 261,
       "scopedVars": {
         "handler": {
@@ -1476,7 +1497,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": "host",
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 9,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1512,6 +1533,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "$host - $handler",
       "tooltip": {
@@ -1562,7 +1584,7 @@
       "id": 280,
       "panels": [],
       "repeat": null,
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 261,
       "scopedVars": {
         "handler": {
@@ -1611,7 +1633,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": "host",
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 9,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1647,6 +1669,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "$host - $handler",
       "tooltip": {
@@ -1697,7 +1720,7 @@
       "id": 282,
       "panels": [],
       "repeat": null,
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 261,
       "scopedVars": {
         "handler": {
@@ -1746,7 +1769,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": "host",
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 9,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1782,6 +1805,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "$host - $handler",
       "tooltip": {
@@ -1832,7 +1856,7 @@
       "id": 284,
       "panels": [],
       "repeat": null,
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 261,
       "scopedVars": {
         "handler": {
@@ -1881,7 +1905,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": "host",
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 9,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1917,6 +1941,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "$host - $handler",
       "tooltip": {
@@ -1967,7 +1992,7 @@
       "id": 286,
       "panels": [],
       "repeat": null,
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 261,
       "scopedVars": {
         "handler": {
@@ -2016,7 +2041,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": "host",
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 9,
       "repeatedByRow": true,
       "scopedVars": {
@@ -2052,6 +2077,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "$host - $handler",
       "tooltip": {
@@ -2102,7 +2128,7 @@
       "id": 288,
       "panels": [],
       "repeat": null,
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 261,
       "scopedVars": {
         "handler": {
@@ -2151,7 +2177,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": "host",
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 9,
       "repeatedByRow": true,
       "scopedVars": {
@@ -2187,6 +2213,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "$host - $handler",
       "tooltip": {
@@ -2237,7 +2264,7 @@
       "id": 290,
       "panels": [],
       "repeat": null,
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 261,
       "scopedVars": {
         "handler": {
@@ -2286,7 +2313,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": "host",
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 9,
       "repeatedByRow": true,
       "scopedVars": {
@@ -2322,6 +2349,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "$host - $handler",
       "tooltip": {
@@ -2372,7 +2400,7 @@
       "id": 292,
       "panels": [],
       "repeat": null,
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 261,
       "scopedVars": {
         "handler": {
@@ -2421,7 +2449,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": "host",
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 9,
       "repeatedByRow": true,
       "scopedVars": {
@@ -2457,6 +2485,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "$host - $handler",
       "tooltip": {
@@ -2507,7 +2536,7 @@
       "id": 294,
       "panels": [],
       "repeat": null,
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 261,
       "scopedVars": {
         "handler": {
@@ -2556,7 +2585,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": "host",
-      "repeatIteration": 1543478337087,
+      "repeatIteration": 1544841129642,
       "repeatPanelId": 9,
       "repeatedByRow": true,
       "scopedVars": {
@@ -2592,6 +2621,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "$host - $handler",
       "tooltip": {
@@ -2659,11 +2689,6 @@
           },
           {
             "selected": false,
-            "text": "1s",
-            "value": "1s"
-          },
-          {
-            "selected": false,
             "text": "5s",
             "value": "5s"
           },
@@ -2693,7 +2718,7 @@
             "value": "1d"
           }
         ],
-        "query": "1s,5s,1m,5m,1h,6h,1d",
+        "query": "5s,1m,5m,1h,6h,1d",
         "refresh": 2,
         "skipUrlSync": false,
         "type": "interval"
@@ -2701,10 +2726,12 @@
       {
         "allValue": null,
         "current": {
+          "selected": true,
           "text": "DEMO",
           "value": "DEMO"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Group",
@@ -2725,10 +2752,12 @@
       {
         "allValue": null,
         "current": {
+          "selected": true,
           "text": "S-DEMO-DBS01",
           "value": "S-DEMO-DBS01"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Host",
@@ -2755,6 +2784,7 @@
           ]
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": true,
         "label": "Command",
@@ -2779,6 +2809,7 @@
           "value": "$__all"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": true,
         "label": "Handler",
@@ -2831,5 +2862,5 @@
   "timezone": "browser",
   "title": "MySQL Command/Handler Counters Compare",
   "uid": "000000170",
-  "version": 8
+  "version": 1
 }

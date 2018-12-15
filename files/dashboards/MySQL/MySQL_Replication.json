@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 47,
-  "iteration": 1543478436895,
+  "id": 23,
+  "iteration": 1544841427764,
   "links": [
     {
       "asDropdown": true,
@@ -71,6 +71,17 @@
       ],
       "targetBlank": false,
       "title": "Insight",
+      "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "Cloud"
+      ],
+      "title": "Cloud",
       "type": "dashboards"
     }
   ],
@@ -592,6 +603,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "MySQL Replication Delay",
       "tooltip": {
@@ -705,6 +717,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Binlogs Size",
       "tooltip": {
@@ -805,6 +818,7 @@
       ],
       "thresholds": [],
       "timeFrom": "24h",
+      "timeRegions": [],
       "timeShift": null,
       "title": "Binlog Data Written Hourly",
       "tooltip": {
@@ -918,6 +932,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Binlogs Count",
       "tooltip": {
@@ -1018,6 +1033,7 @@
       ],
       "thresholds": [],
       "timeFrom": "24h",
+      "timeRegions": [],
       "timeShift": null,
       "title": "Binlogs Created Hourly",
       "tooltip": {
@@ -1125,6 +1141,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Relay Log Space",
       "tooltip": {
@@ -1225,6 +1242,7 @@
       ],
       "thresholds": [],
       "timeFrom": "24h",
+      "timeRegions": [],
       "timeShift": null,
       "title": "Relay Log Written Hourly",
       "tooltip": {
@@ -1295,11 +1313,6 @@
           },
           {
             "selected": false,
-            "text": "1s",
-            "value": "1s"
-          },
-          {
-            "selected": false,
             "text": "5s",
             "value": "5s"
           },
@@ -1329,7 +1342,7 @@
             "value": "1d"
           }
         ],
-        "query": "1s,5s,1m,5m,1h,6h,1d",
+        "query": "5s,1m,5m,1h,6h,1d",
         "refresh": 2,
         "skipUrlSync": false,
         "type": "interval"
@@ -1337,11 +1350,11 @@
       {
         "allValue": null,
         "current": {
-          "isNone": true,
-          "text": "None",
-          "value": ""
+          "text": "DEMO",
+          "value": "DEMO"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Group",
@@ -1350,7 +1363,7 @@
         "options": [
           {
             "isNone": true,
-            "selected": true,
+            "selected": false,
             "text": "None",
             "value": ""
           }
@@ -1370,11 +1383,11 @@
         "allFormat": "glob",
         "allValue": null,
         "current": {
-          "isNone": true,
-          "text": "None",
-          "value": ""
+          "text": "S-DEMO-DBS01",
+          "value": "S-DEMO-DBS01"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Host",
@@ -1435,5 +1448,5 @@
   "timezone": "browser",
   "title": "MySQL Replication",
   "uid": "_9zrwMHmk",
-  "version": 7
+  "version": 1
 }

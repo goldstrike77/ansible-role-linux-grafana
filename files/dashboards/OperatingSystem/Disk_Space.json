@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 30,
-  "iteration": 1543475355502,
+  "id": 5,
+  "iteration": 1544840725650,
   "links": [
     {
       "asDropdown": true,
@@ -71,6 +71,17 @@
       ],
       "targetBlank": false,
       "title": "Insight",
+      "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "Cloud"
+      ],
+      "title": "Cloud",
       "type": "dashboards"
     }
   ],
@@ -142,6 +153,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Mountpoint Usage",
       "tooltip": {
@@ -297,6 +309,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Mountpoint $mountpoint",
       "tooltip": {
@@ -380,7 +393,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": null,
-      "repeatIteration": 1543475355502,
+      "repeatIteration": 1544840725650,
       "repeatPanelId": 4,
       "scopedVars": {
         "mountpoint": {
@@ -434,6 +447,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Mountpoint $mountpoint",
       "tooltip": {
@@ -517,7 +531,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": null,
-      "repeatIteration": 1543475355502,
+      "repeatIteration": 1544840725650,
       "repeatPanelId": 4,
       "scopedVars": {
         "mountpoint": {
@@ -571,6 +585,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Mountpoint $mountpoint",
       "tooltip": {
@@ -643,11 +658,6 @@
           },
           {
             "selected": false,
-            "text": "1s",
-            "value": "1s"
-          },
-          {
-            "selected": false,
             "text": "5s",
             "value": "5s"
           },
@@ -677,7 +687,7 @@
             "value": "1d"
           }
         ],
-        "query": "1s,5s,1m,5m,1h,6h,1d",
+        "query": "5s,1m,5m,1h,6h,1d",
         "refresh": 2,
         "skipUrlSync": false,
         "type": "interval"
@@ -685,10 +695,12 @@
       {
         "allValue": null,
         "current": {
-          "text": "MON",
-          "value": "MON"
+          "selected": false,
+          "text": "DEMO",
+          "value": "DEMO"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Group",
@@ -710,10 +722,12 @@
         "allFormat": "glob",
         "allValue": null,
         "current": {
-          "text": "S-DEMO-MON01",
-          "value": "S-DEMO-MON01"
+          "selected": false,
+          "text": "S-DEMO-APP02",
+          "value": "S-DEMO-APP02"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Host",
@@ -741,6 +755,7 @@
           "value": "$__all"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "hideLabel": false,
         "includeAll": true,
@@ -802,5 +817,5 @@
   "timezone": "browser",
   "title": "Disk Space",
   "uid": "80k9wMHmk",
-  "version": 9
+  "version": 1
 }

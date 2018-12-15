@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 35,
-  "iteration": 1543479402995,
+  "id": 9,
+  "iteration": 1544842409190,
   "links": [
     {
       "asDropdown": true,
@@ -72,6 +72,17 @@
       "targetBlank": false,
       "title": "Insight",
       "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "Cloud"
+      ],
+      "title": "Cloud",
+      "type": "dashboards"
     }
   ],
   "panels": [
@@ -96,12 +107,6 @@
         "show": false,
         "thresholdLabels": false,
         "thresholdMarkers": true
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 6,
-        "x": 0,
-        "y": 0
       },
       "height": "125px",
       "hideTimeOverride": true,
@@ -609,6 +614,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Replication Operations",
       "tooltip": {
@@ -725,6 +731,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Oplog Recovery Window",
       "tooltip": {
@@ -830,6 +837,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Replication Lag",
       "tooltip": {
@@ -934,6 +942,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Elections",
       "tooltip": {
@@ -1044,6 +1053,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Member State Uptime",
       "tooltip": {
@@ -1152,6 +1162,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Max Heartbeat Time",
       "tooltip": {
@@ -1260,6 +1271,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Max Member Ping Time",
       "tooltip": {
@@ -1365,6 +1377,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Oplog Getmore Time",
       "tooltip": {
@@ -1487,6 +1500,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Oplog Operations",
       "tooltip": {
@@ -1610,6 +1624,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Oplog Processing Time",
       "tooltip": {
@@ -1715,6 +1730,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Oplog Buffered Operations",
       "tooltip": {
@@ -1828,6 +1844,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Oplog Buffer Capacity",
       "tooltip": {
@@ -1905,11 +1922,6 @@
           },
           {
             "selected": false,
-            "text": "1s",
-            "value": "1s"
-          },
-          {
-            "selected": false,
             "text": "5s",
             "value": "5s"
           },
@@ -1939,7 +1951,7 @@
             "value": "1d"
           }
         ],
-        "query": "1s,5s,1m,5m,1h,6h,1d",
+        "query": "5s,1m,5m,1h,6h,1d",
         "refresh": 2,
         "skipUrlSync": false,
         "type": "interval"
@@ -1948,10 +1960,11 @@
         "allFormat": "blob",
         "allValue": null,
         "current": {
-          "text": "All",
-          "value": "$__all"
+          "text": "",
+          "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": true,
         "label": "Cluster",
@@ -1979,6 +1992,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Replica Set",
@@ -2002,10 +2016,12 @@
         "allValue": null,
         "current": {
           "isNone": true,
+          "selected": true,
           "text": "None",
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Instance",
@@ -2060,5 +2076,5 @@
   "timezone": "browser",
   "title": "MongoDB ReplSet",
   "uid": "7lzrQGNik",
-  "version": 5
+  "version": 1
 }

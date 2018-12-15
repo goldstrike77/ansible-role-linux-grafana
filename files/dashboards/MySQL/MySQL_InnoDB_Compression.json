@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 59,
-  "iteration": 1543485279568,
+  "id": 17,
+  "iteration": 1544841203031,
   "links": [
     {
       "asDropdown": true,
@@ -71,6 +71,17 @@
       ],
       "targetBlank": false,
       "title": "Insight",
+      "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "Cloud"
+      ],
+      "title": "Cloud",
       "type": "dashboards"
     }
   ],
@@ -155,6 +166,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Compress Attempts",
       "tooltip": {
@@ -262,6 +274,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Uncompressed Attempts",
       "tooltip": {
@@ -361,6 +374,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Compression Success Ratio",
       "tooltip": {
@@ -470,6 +484,7 @@
       ],
       "thresholds": [],
       "timeFrom": "24h",
+      "timeRegions": [],
       "timeShift": null,
       "title": "CPU Core Usage for Compression",
       "tooltip": {
@@ -565,6 +580,7 @@
       ],
       "thresholds": [],
       "timeFrom": "24h",
+      "timeRegions": [],
       "timeShift": null,
       "title": "CPU Core Usage for Uncompression",
       "tooltip": {
@@ -668,6 +684,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Total Used Pages",
       "tooltip": {
@@ -758,6 +775,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Total Free Pages",
       "tooltip": {
@@ -876,6 +894,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Used Pages (Buffer Pull $buffer)",
       "tooltip": {
@@ -971,6 +990,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Pages Free (Buffer Pull $buffer)",
       "tooltip": {
@@ -1020,7 +1040,7 @@
       "id": 81,
       "panels": [],
       "repeat": null,
-      "repeatIteration": 1543485279568,
+      "repeatIteration": 1544841203031,
       "repeatPanelId": 80,
       "scopedVars": {
         "buffer": {
@@ -1067,7 +1087,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": null,
-      "repeatIteration": 1543485279568,
+      "repeatIteration": 1544841203031,
       "repeatPanelId": 60,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1093,6 +1113,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Used Pages (Buffer Pull $buffer)",
       "tooltip": {
@@ -1165,7 +1186,7 @@
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "repeatIteration": 1543485279568,
+      "repeatIteration": 1544841203031,
       "repeatPanelId": 62,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1191,6 +1212,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Pages Free (Buffer Pull $buffer)",
       "tooltip": {
@@ -1240,7 +1262,7 @@
       "id": 84,
       "panels": [],
       "repeat": null,
-      "repeatIteration": 1543485279568,
+      "repeatIteration": 1544841203031,
       "repeatPanelId": 80,
       "scopedVars": {
         "buffer": {
@@ -1287,7 +1309,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": null,
-      "repeatIteration": 1543485279568,
+      "repeatIteration": 1544841203031,
       "repeatPanelId": 60,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1313,6 +1335,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Used Pages (Buffer Pull $buffer)",
       "tooltip": {
@@ -1385,7 +1408,7 @@
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "repeatIteration": 1543485279568,
+      "repeatIteration": 1544841203031,
       "repeatPanelId": 62,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1411,6 +1434,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Pages Free (Buffer Pull $buffer)",
       "tooltip": {
@@ -1460,7 +1484,7 @@
       "id": 87,
       "panels": [],
       "repeat": null,
-      "repeatIteration": 1543485279568,
+      "repeatIteration": 1544841203031,
       "repeatPanelId": 80,
       "scopedVars": {
         "buffer": {
@@ -1507,7 +1531,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": null,
-      "repeatIteration": 1543485279568,
+      "repeatIteration": 1544841203031,
       "repeatPanelId": 60,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1533,6 +1557,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Used Pages (Buffer Pull $buffer)",
       "tooltip": {
@@ -1605,7 +1630,7 @@
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "repeatIteration": 1543485279568,
+      "repeatIteration": 1544841203031,
       "repeatPanelId": 62,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1631,6 +1656,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Pages Free (Buffer Pull $buffer)",
       "tooltip": {
@@ -1680,7 +1706,7 @@
       "id": 90,
       "panels": [],
       "repeat": null,
-      "repeatIteration": 1543485279568,
+      "repeatIteration": 1544841203031,
       "repeatPanelId": 80,
       "scopedVars": {
         "buffer": {
@@ -1727,7 +1753,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": null,
-      "repeatIteration": 1543485279568,
+      "repeatIteration": 1544841203031,
       "repeatPanelId": 60,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1753,6 +1779,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Used Pages (Buffer Pull $buffer)",
       "tooltip": {
@@ -1825,7 +1852,7 @@
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "repeatIteration": 1543485279568,
+      "repeatIteration": 1544841203031,
       "repeatPanelId": 62,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1851,6 +1878,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Pages Free (Buffer Pull $buffer)",
       "tooltip": {
@@ -1900,7 +1928,7 @@
       "id": 93,
       "panels": [],
       "repeat": null,
-      "repeatIteration": 1543485279568,
+      "repeatIteration": 1544841203031,
       "repeatPanelId": 80,
       "scopedVars": {
         "buffer": {
@@ -1947,7 +1975,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": null,
-      "repeatIteration": 1543485279568,
+      "repeatIteration": 1544841203031,
       "repeatPanelId": 60,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1973,6 +2001,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Used Pages (Buffer Pull $buffer)",
       "tooltip": {
@@ -2045,7 +2074,7 @@
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "repeatIteration": 1543485279568,
+      "repeatIteration": 1544841203031,
       "repeatPanelId": 62,
       "repeatedByRow": true,
       "scopedVars": {
@@ -2071,6 +2100,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Pages Free (Buffer Pull $buffer)",
       "tooltip": {
@@ -2120,7 +2150,7 @@
       "id": 96,
       "panels": [],
       "repeat": null,
-      "repeatIteration": 1543485279568,
+      "repeatIteration": 1544841203031,
       "repeatPanelId": 80,
       "scopedVars": {
         "buffer": {
@@ -2167,7 +2197,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": null,
-      "repeatIteration": 1543485279568,
+      "repeatIteration": 1544841203031,
       "repeatPanelId": 60,
       "repeatedByRow": true,
       "scopedVars": {
@@ -2193,6 +2223,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Used Pages (Buffer Pull $buffer)",
       "tooltip": {
@@ -2265,7 +2296,7 @@
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "repeatIteration": 1543485279568,
+      "repeatIteration": 1544841203031,
       "repeatPanelId": 62,
       "repeatedByRow": true,
       "scopedVars": {
@@ -2291,6 +2322,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Pages Free (Buffer Pull $buffer)",
       "tooltip": {
@@ -2340,7 +2372,7 @@
       "id": 99,
       "panels": [],
       "repeat": null,
-      "repeatIteration": 1543485279568,
+      "repeatIteration": 1544841203031,
       "repeatPanelId": 80,
       "scopedVars": {
         "buffer": {
@@ -2387,7 +2419,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": null,
-      "repeatIteration": 1543485279568,
+      "repeatIteration": 1544841203031,
       "repeatPanelId": 60,
       "repeatedByRow": true,
       "scopedVars": {
@@ -2413,6 +2445,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Used Pages (Buffer Pull $buffer)",
       "tooltip": {
@@ -2485,7 +2518,7 @@
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "repeatIteration": 1543485279568,
+      "repeatIteration": 1544841203031,
       "repeatPanelId": 62,
       "repeatedByRow": true,
       "scopedVars": {
@@ -2511,6 +2544,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Pages Free (Buffer Pull $buffer)",
       "tooltip": {
@@ -2582,11 +2616,6 @@
           },
           {
             "selected": false,
-            "text": "1s",
-            "value": "1s"
-          },
-          {
-            "selected": false,
             "text": "5s",
             "value": "5s"
           },
@@ -2616,7 +2645,7 @@
             "value": "1d"
           }
         ],
-        "query": "1s,5s,1m,5m,1h,6h,1d",
+        "query": "5s,1m,5m,1h,6h,1d",
         "refresh": 2,
         "skipUrlSync": false,
         "type": "interval"
@@ -2624,10 +2653,12 @@
       {
         "allValue": null,
         "current": {
+          "selected": true,
           "text": "DEMO",
           "value": "DEMO"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Group",
@@ -2649,10 +2680,12 @@
         "allFormat": "glob",
         "allValue": null,
         "current": {
+          "selected": true,
           "text": "S-DEMO-DBS01",
           "value": "S-DEMO-DBS01"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Host",
@@ -2679,6 +2712,7 @@
           "value": "$__all"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": true,
         "label": null,
@@ -2737,5 +2771,5 @@
   "timezone": "browser",
   "title": "MySQL InnoDB Compression",
   "uid": "CnOxqWGmz",
-  "version": 4
+  "version": 1
 }

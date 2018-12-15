@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 43,
-  "iteration": 1543478388150,
+  "id": 26,
+  "iteration": 1544841332082,
   "links": [
     {
       "asDropdown": true,
@@ -73,6 +73,17 @@
       "title": "Insight",
       "type": "dashboards",
       "url": ""
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "Cloud"
+      ],
+      "title": "Cloud",
+      "type": "dashboards"
     }
   ],
   "panels": [
@@ -567,6 +578,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "MySQL Connections",
       "tooltip": {
@@ -705,6 +717,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "MySQL Client Thread Activity",
       "tooltip": {
@@ -826,6 +839,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "MySQL Questions",
       "tooltip": {
@@ -961,6 +975,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "MySQL Thread Cache",
       "tooltip": {
@@ -1096,6 +1111,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "MySQL Temporary Objects",
       "tooltip": {
@@ -1248,6 +1264,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "MySQL Select Types",
       "tooltip": {
@@ -1400,6 +1417,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "MySQL Sorts",
       "tooltip": {
@@ -1495,6 +1513,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "MySQL Slow Queries",
       "tooltip": {
@@ -1622,6 +1641,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "MySQL Aborted Connections",
       "tooltip": {
@@ -1735,6 +1755,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "MySQL Table Locks",
       "tooltip": {
@@ -1860,6 +1881,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "MySQL Network Traffic",
       "tooltip": {
@@ -1972,6 +1994,7 @@
       ],
       "thresholds": [],
       "timeFrom": "24h",
+      "timeRegions": [],
       "timeShift": null,
       "title": "MySQL Network Usage Hourly",
       "tooltip": {
@@ -2166,6 +2189,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "MySQL Internal Memory Overview",
       "tooltip": {
@@ -2289,6 +2313,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Top Command Counters",
       "tooltip": {
@@ -2394,6 +2419,7 @@
       ],
       "thresholds": [],
       "timeFrom": "24h",
+      "timeRegions": [],
       "timeShift": null,
       "title": "Top Command Counters Hourly",
       "tooltip": {
@@ -2493,6 +2519,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "MySQL Handlers",
       "tooltip": {
@@ -2590,6 +2617,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "MySQL Transaction Handlers",
       "tooltip": {
@@ -2687,6 +2715,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Process States",
       "tooltip": {
@@ -2784,6 +2813,7 @@
       ],
       "thresholds": [],
       "timeFrom": "24h",
+      "timeRegions": [],
       "timeShift": null,
       "title": "Top Process States Hourly",
       "tooltip": {
@@ -2909,6 +2939,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "MySQL Query Cache Memory",
       "tooltip": {
@@ -3060,6 +3091,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "MySQL Query Cache Activity",
       "tooltip": {
@@ -3168,6 +3200,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "MySQL File Openings",
       "tooltip": {
@@ -3283,6 +3316,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "MySQL Open Files",
       "tooltip": {
@@ -3442,6 +3476,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "MySQL Table Open Cache Status",
       "tooltip": {
@@ -3559,6 +3594,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "MySQL Open Tables",
       "tooltip": {
@@ -3704,6 +3740,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "MySQL Table Definition Cache",
       "tooltip": {
@@ -3829,6 +3866,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "I/O Activity",
       "tooltip": {
@@ -3969,6 +4007,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Memory Distribution",
       "tooltip": {
@@ -4113,6 +4152,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "CPU Usage / Load",
       "tooltip": {
@@ -4228,6 +4268,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Disk Latency",
       "tooltip": {
@@ -4350,6 +4391,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Network Traffic",
       "tooltip": {
@@ -4463,6 +4505,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Swap Activity",
       "tooltip": {
@@ -4535,11 +4578,6 @@
           },
           {
             "selected": false,
-            "text": "1s",
-            "value": "1s"
-          },
-          {
-            "selected": false,
             "text": "5s",
             "value": "5s"
           },
@@ -4569,7 +4607,7 @@
             "value": "1d"
           }
         ],
-        "query": "1s,5s,1m,5m,1h,6h,1d",
+        "query": "5s,1m,5m,1h,6h,1d",
         "refresh": 2,
         "skipUrlSync": false,
         "type": "interval"
@@ -4577,10 +4615,12 @@
       {
         "allValue": null,
         "current": {
+          "selected": true,
           "text": "DEMO",
           "value": "DEMO"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Group",
@@ -4602,10 +4642,12 @@
         "allFormat": "glob",
         "allValue": null,
         "current": {
+          "selected": true,
           "text": "S-DEMO-DBS01",
           "value": "S-DEMO-DBS01"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Host",
@@ -4666,5 +4708,5 @@
   "timezone": "browser",
   "title": "MySQL Overview",
   "uid": "MQWgroiiz",
-  "version": 6
+  "version": 1
 }

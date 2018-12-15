@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 27,
-  "iteration": 1543475409187,
+  "id": 8,
+  "iteration": 1544840859594,
   "links": [
     {
       "asDropdown": true,
@@ -71,6 +71,17 @@
       ],
       "targetBlank": false,
       "title": "Insight",
+      "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "Cloud"
+      ],
+      "title": "Cloud",
       "type": "dashboards"
     }
   ],
@@ -883,6 +894,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "CPU Usage",
       "tooltip": {
@@ -1016,6 +1028,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "CPU Saturation and Max Core Usage",
       "tooltip": {
@@ -1139,6 +1152,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Interrupts and Context Switches",
       "tooltip": {
@@ -1271,6 +1285,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Processes",
       "tooltip": {
@@ -1447,6 +1462,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Memory Utilization",
       "tooltip": {
@@ -1594,6 +1610,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Virtual Memory Utilization",
       "tooltip": {
@@ -1727,6 +1744,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Swap Space",
       "tooltip": {
@@ -1864,6 +1882,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Swap Activity",
       "tooltip": {
@@ -2022,6 +2041,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "I/O Activity",
       "tooltip": {
@@ -2145,6 +2165,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Global File Descriptors Usage",
       "tooltip": {
@@ -2280,6 +2301,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Disk IO Latency",
       "tooltip": {
@@ -2427,6 +2449,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Disk IO Load",
       "tooltip": {
@@ -2561,6 +2584,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Network Traffic",
       "tooltip": {
@@ -2694,6 +2718,7 @@
       ],
       "thresholds": [],
       "timeFrom": "24h",
+      "timeRegions": [],
       "timeShift": null,
       "title": "Network Utilization Hourly",
       "tooltip": {
@@ -2826,6 +2851,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Local Network Errors",
       "tooltip": {
@@ -2951,6 +2977,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "TCP Retransmission",
       "tooltip": {
@@ -3025,11 +3052,6 @@
           },
           {
             "selected": false,
-            "text": "1s",
-            "value": "1s"
-          },
-          {
-            "selected": false,
             "text": "5s",
             "value": "5s"
           },
@@ -3059,7 +3081,7 @@
             "value": "1d"
           }
         ],
-        "query": "1s,5s,1m,5m,1h,6h,1d",
+        "query": "5s,1m,5m,1h,6h,1d",
         "refresh": 2,
         "skipUrlSync": false,
         "type": "interval"
@@ -3067,10 +3089,12 @@
       {
         "allValue": null,
         "current": {
-          "text": "MON",
-          "value": "MON"
+          "selected": false,
+          "text": "DEMO",
+          "value": "DEMO"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Group",
@@ -3092,10 +3116,12 @@
         "allFormat": "glob",
         "allValue": null,
         "current": {
-          "text": "S-DEMO-MON02",
-          "value": "S-DEMO-MON02"
+          "selected": false,
+          "text": "S-DEMO-APP02",
+          "value": "S-DEMO-APP02"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Host",
@@ -3156,5 +3182,5 @@
   "timezone": "browser",
   "title": "System Overview",
   "uid": "qyzrQGHmk",
-  "version": 20
+  "version": 1
 }

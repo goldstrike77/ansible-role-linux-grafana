@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 45,
-  "iteration": 1543478405496,
+  "id": 28,
+  "iteration": 1544841387795,
   "links": [
     {
       "asDropdown": true,
@@ -71,6 +71,17 @@
       ],
       "targetBlank": false,
       "title": "Insight",
+      "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "Cloud"
+      ],
+      "title": "Cloud",
       "type": "dashboards"
     }
   ],
@@ -134,6 +145,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Count - Performance Schema Waits",
       "tooltip": {
@@ -230,6 +242,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Load - Performance Schema Waits",
       "tooltip": {
@@ -334,6 +347,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Avg Wait Time - Performance Schema Waits",
       "tooltip": {
@@ -404,11 +418,6 @@
           },
           {
             "selected": false,
-            "text": "1s",
-            "value": "1s"
-          },
-          {
-            "selected": false,
             "text": "5s",
             "value": "5s"
           },
@@ -438,7 +447,7 @@
             "value": "1d"
           }
         ],
-        "query": "1s,5s,1m,5m,1h,6h,1d",
+        "query": "5s,1m,5m,1h,6h,1d",
         "refresh": 2,
         "skipUrlSync": false,
         "type": "interval"
@@ -446,10 +455,12 @@
       {
         "allValue": null,
         "current": {
+          "selected": true,
           "text": "DEMO",
           "value": "DEMO"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Group",
@@ -471,10 +482,12 @@
         "allFormat": "glob",
         "allValue": null,
         "current": {
-          "text": "S-DEMO-DBS02",
-          "value": "S-DEMO-DBS02"
+          "selected": false,
+          "text": "S-DEMO-DBS01",
+          "value": "S-DEMO-DBS01"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Host",
@@ -502,6 +515,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Event",
@@ -555,5 +569,5 @@
   "timezone": "browser",
   "title": "MySQL Performance Schema Wait Event Analyses",
   "uid": "fl8HVgcmk",
-  "version": 6
+  "version": 1
 }

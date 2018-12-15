@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 40,
-  "iteration": 1543478359207,
+  "id": 24,
+  "iteration": 1544841232501,
   "links": [
     {
       "asDropdown": true,
@@ -71,6 +71,17 @@
       ],
       "targetBlank": false,
       "title": "Insight",
+      "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "Cloud"
+      ],
+      "title": "Cloud",
       "type": "dashboards"
     }
   ],
@@ -172,6 +183,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "InnoDB Checkpoint Age",
       "tooltip": {
@@ -299,6 +311,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "InnoDB Transactions",
       "tooltip": {
@@ -411,6 +424,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "InnoDB Row Operations",
       "tooltip": {
@@ -550,6 +564,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "InnoDB Row Lock Time",
       "tooltip": {
@@ -709,6 +724,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "InnoDB I/O",
       "tooltip": {
@@ -845,6 +861,7 @@
       ],
       "thresholds": [],
       "timeFrom": "24h",
+      "timeRegions": [],
       "timeShift": null,
       "title": "InnoDB Log File Usage Hourly",
       "tooltip": {
@@ -976,6 +993,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Innodb Logging Performance",
       "tooltip": {
@@ -1096,6 +1114,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "InnoDB Deadlocks",
       "tooltip": {
@@ -1222,6 +1241,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Index Condition Pushdown (ICP)",
       "tooltip": {
@@ -1345,6 +1365,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "InnoDB Buffer Pool Content",
       "tooltip": {
@@ -1441,6 +1462,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "InnoDB Buffer Pool Pages",
       "tooltip": {
@@ -1575,6 +1597,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "InnoDB Buffer Pool I/O",
       "tooltip": {
@@ -1700,6 +1723,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "InnoDB Buffer Pool Requests",
       "tooltip": {
@@ -1852,6 +1876,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Innodb Read-Ahead",
       "tooltip": {
@@ -1976,6 +2001,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "InnoDB Change Buffer",
       "tooltip": {
@@ -2110,6 +2136,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "InnoDB Change Buffer Activity",
       "tooltip": {
@@ -2180,11 +2207,6 @@
           },
           {
             "selected": false,
-            "text": "1s",
-            "value": "1s"
-          },
-          {
-            "selected": false,
             "text": "5s",
             "value": "5s"
           },
@@ -2214,7 +2236,7 @@
             "value": "1d"
           }
         ],
-        "query": "1s,5s,1m,5m,1h,6h,1d",
+        "query": "5s,1m,5m,1h,6h,1d",
         "refresh": 2,
         "skipUrlSync": false,
         "type": "interval"
@@ -2222,10 +2244,12 @@
       {
         "allValue": null,
         "current": {
+          "selected": true,
           "text": "DEMO",
           "value": "DEMO"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Group",
@@ -2247,10 +2271,12 @@
         "allFormat": "glob",
         "allValue": null,
         "current": {
+          "selected": true,
           "text": "S-DEMO-DBS01",
           "value": "S-DEMO-DBS01"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Host",
@@ -2311,5 +2337,5 @@
   "timezone": "browser",
   "title": "MySQL InnoDB Metrics",
   "uid": "giGgrTimz",
-  "version": 6
+  "version": 1
 }

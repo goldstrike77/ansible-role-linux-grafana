@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 31,
-  "iteration": 1543479362807,
+  "id": 33,
+  "iteration": 1544842210137,
   "links": [
     {
       "asDropdown": true,
@@ -72,6 +72,17 @@
       "targetBlank": false,
       "title": "Insight",
       "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "Cloud"
+      ],
+      "title": "Cloud",
+      "type": "dashboards"
     }
   ],
   "panels": [
@@ -95,12 +106,6 @@
         "show": false,
         "thresholdLabels": false,
         "thresholdMarkers": true
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 6,
-        "x": 0,
-        "y": 0
       },
       "hideTimeOverride": true,
       "id": 39,
@@ -720,6 +725,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Mongos Operations",
       "tooltip": {
@@ -810,6 +816,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Mongos  Connections",
       "tooltip": {
@@ -900,6 +907,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Mongos  Cursors",
       "tooltip": {
@@ -994,6 +1002,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Chunk Split Events",
       "tooltip": {
@@ -1087,6 +1096,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Change Log Events",
       "tooltip": {
@@ -1200,6 +1210,7 @@
         }
       ],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Operations Per Shard",
       "tooltip": {
@@ -1294,6 +1305,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Chunks by Shard",
       "tooltip": {
@@ -1389,6 +1401,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Connections Per Shard",
       "tooltip": {
@@ -1484,6 +1497,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Cursors Per Shard",
       "tooltip": {
@@ -1578,6 +1592,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Replication Lag by Set",
       "tooltip": {
@@ -1672,6 +1687,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Oplog Range by Set",
       "tooltip": {
@@ -1765,6 +1781,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Shard Elections",
       "tooltip": {
@@ -1859,6 +1876,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Collection Lock Time",
       "tooltip": {
@@ -1930,11 +1948,6 @@
           },
           {
             "selected": false,
-            "text": "1s",
-            "value": "1s"
-          },
-          {
-            "selected": false,
             "text": "5s",
             "value": "5s"
           },
@@ -1964,7 +1977,7 @@
             "value": "1d"
           }
         ],
-        "query": "1s,5s,1m,5m,1h,6h,1d",
+        "query": "5s,1m,5m,1h,6h,1d",
         "refresh": 2,
         "skipUrlSync": false,
         "type": "interval"
@@ -1978,6 +1991,7 @@
           "value": ""
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Cluster",
@@ -2032,5 +2046,5 @@
   "timezone": "browser",
   "title": "MongoDB Cluster Summary",
   "uid": "n9z9QGNiz",
-  "version": 4
+  "version": 1
 }

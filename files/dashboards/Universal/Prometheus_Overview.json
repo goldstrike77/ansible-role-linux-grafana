@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 34,
-  "iteration": 1543827293636,
+  "id": 14,
+  "iteration": 1544840291518,
   "links": [
     {
       "asDropdown": true,
@@ -71,6 +71,17 @@
       ],
       "targetBlank": false,
       "title": "Insight",
+      "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "Cloud"
+      ],
+      "title": "Cloud",
       "type": "dashboards"
     }
   ],
@@ -862,6 +873,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Prometheus Process CPU Usage",
       "tooltip": {
@@ -1002,6 +1014,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Prometheus Process  Memory Usage",
       "tooltip": {
@@ -1115,6 +1128,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Head Block",
       "tooltip": {
@@ -1205,6 +1219,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Active Data Blocks",
       "tooltip": {
@@ -1315,6 +1330,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Chunk Activity",
       "tooltip": {
@@ -1416,6 +1432,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Reload block data from disk",
       "tooltip": {
@@ -1539,6 +1556,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Ingestion",
       "tooltip": {
@@ -1664,6 +1682,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Prometheus Targets",
       "tooltip": {
@@ -1767,6 +1786,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Scraped Target by Job",
       "tooltip": {
@@ -1865,6 +1885,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Scrape Time by Job",
       "tooltip": {
@@ -1968,6 +1989,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Scraped Target by Instance",
       "tooltip": {
@@ -2066,6 +2088,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Scrape Time by Instance",
       "tooltip": {
@@ -2169,6 +2192,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Scrapes by Target Frequency",
       "tooltip": {
@@ -2272,6 +2296,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Scrape Frequency Versus Target",
       "tooltip": {
@@ -2370,6 +2395,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Scraping Time Drift",
       "tooltip": {
@@ -2489,6 +2515,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Prometheus Scrape Interval Variance",
       "tooltip": {
@@ -2592,6 +2619,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Slowest Jobs",
       "tooltip": {
@@ -2695,6 +2723,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Largest Samples Jobs",
       "tooltip": {
@@ -2833,6 +2862,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Prometheus Queries",
       "tooltip": {
@@ -2940,6 +2970,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Prometheus Query Execution",
       "tooltip": {
@@ -3047,6 +3078,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Prometheus Query Execution Latency",
       "tooltip": {
@@ -3154,6 +3186,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Prometheus Query Execution Load",
       "tooltip": {
@@ -3210,7 +3243,6 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
       "fill": 2,
       "gridPos": {
         "h": 7,
@@ -3256,6 +3288,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "HTTP Requests duration by Handler",
       "tooltip": {
@@ -3300,7 +3333,6 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
       "decimals": 2,
       "fill": 2,
       "gridPos": {
@@ -3347,6 +3379,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "HTTP Response Average Size by Handler",
       "tooltip": {
@@ -3521,11 +3554,6 @@
           },
           {
             "selected": false,
-            "text": "1s",
-            "value": "1s"
-          },
-          {
-            "selected": false,
             "text": "5s",
             "value": "5s"
           },
@@ -3555,7 +3583,7 @@
             "value": "1d"
           }
         ],
-        "query": "1s,5s,1m,5m,1h,6h,1d",
+        "query": "5s,1m,5m,1h,6h,1d",
         "refresh": 2,
         "skipUrlSync": false,
         "type": "interval"
@@ -3596,5 +3624,5 @@
   "timezone": "browser",
   "title": "Prometheus Overview",
   "uid": "SK8vJ2Hiz",
-  "version": 12
+  "version": 1
 }

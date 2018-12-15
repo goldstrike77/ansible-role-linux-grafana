@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 37,
-  "iteration": 1544791194047,
+  "iteration": 1544839493995,
   "links": [
     {
       "asDropdown": true,
@@ -71,6 +71,17 @@
         "Insight"
       ],
       "title": "Insight",
+      "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "Cloud"
+      ],
+      "title": "Cloud",
       "type": "dashboards"
     }
   ],
@@ -140,6 +151,7 @@
         {
           "expr": "count(vmware_host_power_state{environment=\"$environment\"})",
           "format": "time_series",
+          "interval": "10m",
           "intervalFactor": 1,
           "refId": "A"
         }
@@ -222,6 +234,7 @@
         {
           "expr": "sum(vmware_host_cpu_usage{environment=\"$environment\"}) / sum(vmware_host_cpu_max{environment=\"$environment\"}) * 100",
           "format": "time_series",
+          "interval": " $interval",
           "intervalFactor": 1,
           "legendFormat": "",
           "refId": "A",
@@ -305,6 +318,7 @@
         {
           "expr": "sum(vmware_host_memory_usage{environment=\"$environment\"}) / sum(vmware_host_memory_max{environment=\"$environment\"}) * 100",
           "format": "time_series",
+          "interval": " $interval",
           "intervalFactor": 1,
           "legendFormat": "",
           "refId": "A",
@@ -803,6 +817,7 @@
           "expr": "(vmware_datastore_capacity_size {environment=\"$environment\",ds_name!~\"local-.*\"})",
           "format": "table",
           "instant": true,
+          "interval": "10m",
           "intervalFactor": 1,
           "refId": "B"
         }
@@ -876,6 +891,7 @@
         {
           "expr": "avg(vmware_host_power_state{environment=\"$environment\"})",
           "format": "time_series",
+          "interval": "10m",
           "intervalFactor": 1,
           "refId": "A"
         }
@@ -962,6 +978,7 @@
         {
           "expr": "sum(vmware_host_cpu_max{environment=\"$environment\"})",
           "format": "time_series",
+          "interval": "10m",
           "intervalFactor": 1,
           "refId": "A"
         }
@@ -1042,6 +1059,7 @@
         {
           "expr": "sum(vmware_host_memory_max{environment=\"$environment\"})",
           "format": "time_series",
+          "interval": "10m",
           "intervalFactor": 1,
           "refId": "A"
         }
@@ -1122,6 +1140,7 @@
         {
           "expr": "sum(vmware_datastore_capacity_size {environment=\"$environment\",ds_name!~\"local-.*\"})",
           "format": "time_series",
+          "interval": "10m",
           "intervalFactor": 1,
           "refId": "A"
         }
@@ -1184,6 +1203,7 @@
         {
           "expr": "vmware_host_cpu_usage{environment=\"$environment\"} / vmware_host_cpu_max{environment=\"$environment\"} * 100",
           "format": "time_series",
+          "interval": " $interval",
           "intervalFactor": 2,
           "legendFormat": "{{host_name}}",
           "metric": "",
@@ -1277,6 +1297,7 @@
         {
           "expr": "vmware_host_memory_usage{environment=\"$environment\"} / vmware_host_memory_max{environment=\"$environment\"} * 100",
           "format": "time_series",
+          "interval": " $interval",
           "intervalFactor": 2,
           "legendFormat": "{{host_name}}",
           "metric": "",
@@ -1330,10 +1351,63 @@
   "schemaVersion": 16,
   "style": "dark",
   "tags": [
-    "Insight"
+    "Cloud"
   ],
   "templating": {
     "list": [
+      {
+        "auto": true,
+        "auto_count": 200,
+        "auto_min": "10s",
+        "current": {
+          "text": "auto",
+          "value": "$__auto_interval_interval"
+        },
+        "hide": 0,
+        "label": "Interval",
+        "name": "interval",
+        "options": [
+          {
+            "selected": true,
+            "text": "auto",
+            "value": "$__auto_interval_interval"
+          },
+          {
+            "selected": false,
+            "text": "5s",
+            "value": "5s"
+          },
+          {
+            "selected": false,
+            "text": "1m",
+            "value": "1m"
+          },
+          {
+            "selected": false,
+            "text": "5m",
+            "value": "5m"
+          },
+          {
+            "selected": false,
+            "text": "1h",
+            "value": "1h"
+          },
+          {
+            "selected": false,
+            "text": "6h",
+            "value": "6h"
+          },
+          {
+            "selected": false,
+            "text": "1d",
+            "value": "1d"
+          }
+        ],
+        "query": "5s,1m,5m,1h,6h,1d",
+        "refresh": 2,
+        "skipUrlSync": false,
+        "type": "interval"
+      },
       {
         "allValue": null,
         "current": {
@@ -1393,5 +1467,5 @@
   "timezone": "browser",
   "title": "VMware vSphere Overview",
   "uid": "8LdfoUEmz",
-  "version": 32
+  "version": 38
 }

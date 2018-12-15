@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 41,
-  "iteration": 1543478367398,
+  "id": 19,
+  "iteration": 1544841265203,
   "links": [
     {
       "asDropdown": true,
@@ -71,6 +71,17 @@
       ],
       "targetBlank": false,
       "title": "Insight",
+      "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "Cloud"
+      ],
+      "title": "Cloud",
       "type": "dashboards"
     }
   ],
@@ -185,6 +196,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Change Buffer Performance",
       "tooltip": {
@@ -308,6 +320,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "InnoDB Log Buffer Performance",
       "tooltip": {
@@ -458,6 +471,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "InnoDB Page Splits",
       "tooltip": {
@@ -596,6 +610,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "InnoDB Page Reorgs",
       "tooltip": {
@@ -728,6 +743,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "InnoDB Purge Performance",
       "tooltip": {
@@ -860,6 +876,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "InnoDB Locking",
       "tooltip": {
@@ -991,6 +1008,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "InnoDB Main Thread Utilization",
       "tooltip": {
@@ -1149,6 +1167,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "InnoDB Transactions Information",
       "tooltip": {
@@ -1262,6 +1281,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "InnoDB Undo Space Usage",
       "tooltip": {
@@ -1377,6 +1397,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "InnoDB Activity",
       "tooltip": {
@@ -1510,6 +1531,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "InnoDB Contention - OS Waits",
       "tooltip": {
@@ -1643,6 +1665,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "InnoDB Contention - Spin Rounds",
       "tooltip": {
@@ -1758,6 +1781,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "InnoDB Group Commit Batch Size",
       "tooltip": {
@@ -1887,6 +1911,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "InnoDB Purge Throttling",
       "tooltip": {
@@ -2025,6 +2050,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "InnoDB AHI Usage",
       "tooltip": {
@@ -2176,6 +2202,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "InnoDB AHI Maintenance",
       "tooltip": {
@@ -2314,6 +2341,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "InnoDB Online DDL",
       "tooltip": {
@@ -2440,6 +2468,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "InnoDB Defragmentation",
       "tooltip": {
@@ -2510,11 +2539,6 @@
           },
           {
             "selected": false,
-            "text": "1s",
-            "value": "1s"
-          },
-          {
-            "selected": false,
             "text": "5s",
             "value": "5s"
           },
@@ -2544,7 +2568,7 @@
             "value": "1d"
           }
         ],
-        "query": "1s,5s,1m,5m,1h,6h,1d",
+        "query": "5s,1m,5m,1h,6h,1d",
         "refresh": 2,
         "skipUrlSync": false,
         "type": "interval"
@@ -2552,10 +2576,12 @@
       {
         "allValue": null,
         "current": {
+          "selected": true,
           "text": "DEMO",
           "value": "DEMO"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Group",
@@ -2577,10 +2603,12 @@
         "allFormat": "glob",
         "allValue": null,
         "current": {
+          "selected": true,
           "text": "S-DEMO-DBS01",
           "value": "S-DEMO-DBS01"
         },
         "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Host",
@@ -2641,5 +2669,5 @@
   "timezone": "browser",
   "title": "MySQL InnoDB Metrics Advanced",
   "uid": "ibkrwGHmz",
-  "version": 12
+  "version": 1
 }
