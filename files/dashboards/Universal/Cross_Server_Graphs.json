@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": 11,
-  "iteration": 1544840195411,
+  "iteration": 1545025204713,
   "links": [
     {
       "asDropdown": true,
@@ -99,7 +99,7 @@
       "fill": 2,
       "grid": {},
       "gridPos": {
-        "h": 10,
+        "h": 11,
         "w": 12,
         "x": 0,
         "y": 0
@@ -136,7 +136,7 @@
           "calculatedInterval": "10s",
           "datasourceErrors": {},
           "errors": {},
-          "expr": "(1 - avg by(instance)(irate(node_cpu{instance=~\"$host\",mode='idle'}[5m])))",
+          "expr": "(1 - avg by(instance)(irate(node_cpu{instance=~\"$host\",mode='idle'}[5m]))) or (1 - avg by(instance)(irate(wmi_cpu_time_total{mode=\"idle\", instance=~\"$host\"}[5m])))",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -204,125 +204,16 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
-      "decimals": 2,
-      "description": "**Load Average**\n\nOn Linux, this is the number of processes which are in “running” state or in “uninterruptible sleep” state which typically corresponds to disk IO. You can also map LoadAvg to VMSTAT output – it is something like moving average of sum of “r” and “b” columns from VMSTAT.",
-      "editable": true,
-      "error": false,
-      "fill": 2,
-      "grid": {},
-      "gridPos": {
-        "h": 10,
-        "w": 12,
-        "x": 12,
-        "y": 0
-      },
-      "id": 14,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "hideEmpty": false,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "links": [],
-      "nullPointMode": "null",
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "calculatedInterval": "10s",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "node_load1{instance=~\"$host\"}",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "{{ instance }}",
-          "metric": "",
-          "refId": "A",
-          "step": 300,
-          "target": ""
-        }
-      ],
-      "thresholds": [
-        {
-          "colorMode": "custom",
-          "line": true,
-          "lineColor": "rgb(241, 34, 15)",
-          "op": "gt",
-          "value": 15
-        }
-      ],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Load Average",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "transparent": false,
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "none",
-          "label": "",
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        },
-        {
-          "format": "none",
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "Prometheus",
       "decimals": 0,
       "editable": true,
       "error": false,
       "fill": 2,
       "grid": {},
       "gridPos": {
-        "h": 10,
+        "h": 11,
         "w": 12,
-        "x": 0,
-        "y": 10
+        "x": 12,
+        "y": 0
       },
       "id": 7,
       "legend": {
@@ -354,7 +245,7 @@
           "calculatedInterval": "10s",
           "datasourceErrors": {},
           "errors": {},
-          "expr": "100 - 100 * (node_memory_MemAvailable{instance=~\"$host\"} or (node_memory_MemFree{instance=~\"$host\"} + node_memory_Buffers{instance=~\"$host\"} + node_memory_Cached{instance=~\"$host\"})) / (node_memory_MemTotal{instance=~\"$host\"} + 0.1)",
+          "expr": "(wmi_cs_physical_memory_bytes{instance=~\"$host\"} - wmi_os_physical_memory_free_bytes{instance=~\"$host\"}) / wmi_cs_physical_memory_bytes{instance=~\"$host\"} * 100 or (100 - 100 * (node_memory_MemAvailable{instance=~\"$host\"} or (node_memory_MemFree{instance=~\"$host\"} + node_memory_Buffers{instance=~\"$host\"} + node_memory_Cached{instance=~\"$host\"})) / (node_memory_MemTotal{instance=~\"$host\"} + 0.1))",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -414,118 +305,16 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
-      "decimals": 2,
-      "editable": true,
-      "error": false,
-      "fill": 2,
-      "grid": {},
-      "gridPos": {
-        "h": 10,
-        "w": 12,
-        "x": 12,
-        "y": 10
-      },
-      "id": 10,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": false,
-        "hideEmpty": false,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": true,
-        "sort": "avg",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "links": [],
-      "nullPointMode": "null",
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "calculatedInterval": "2s",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "sum(rate(node_network_receive_bytes{instance=~\"$host\", device!=\"lo\"}[$interval]) + rate(node_network_transmit_bytes{instance=~\"$host\", device!=\"lo\"}[$interval])) by (instance) or sum(irate(node_network_receive_bytes{instance=~\"$host\", device!=\"lo\"}[5m]) + irate(node_network_transmit_bytes{instance=~\"$host\", device!=\"lo\"}[5m])) by (instance) or\nsum(max_over_time(rdsosmetrics_network_rx{instance=~\"$host\"}[$interval]) + max_over_time(rdsosmetrics_network_tx{instance=~\"$host\"}[$interval])) by (instance) or sum(max_over_time(rdsosmetrics_network_rx{instance=~\"$host\"}[5m]) + max_over_time(rdsosmetrics_network_tx{instance=~\"$host\"}[5m])) by (instance)",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "{{ instance }}",
-          "metric": "",
-          "refId": "B",
-          "step": 300,
-          "target": ""
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Network Traffic",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "transparent": false,
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "Bps",
-          "label": "",
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        },
-        {
-          "format": "bytes",
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "Prometheus",
       "decimals": 0,
       "editable": true,
       "error": false,
       "fill": 0,
       "grid": {},
       "gridPos": {
-        "h": 10,
+        "h": 11,
         "w": 12,
         "x": 0,
-        "y": 20
+        "y": 11
       },
       "id": 13,
       "legend": {
@@ -557,7 +346,7 @@
           "calculatedInterval": "10s",
           "datasourceErrors": {},
           "errors": {},
-          "expr": "1- node_filesystem_free{instance=~\"$host\", mountpoint=\"/data\"}  / node_filesystem_size{instance=~\"$host\", mountpoint=\"/data\"}",
+          "expr": "(1- node_filesystem_free{instance=~\"$host\", mountpoint=\"/data\"}  / node_filesystem_size{instance=~\"$host\", mountpoint=\"/data\"}) or (1 - wmi_logical_disk_free_bytes{instance=~\"$host\", volume=\"D:\"} / wmi_logical_disk_size_bytes{instance=~\"$host\", volume=\"D:\"})",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -617,29 +406,29 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
-      "decimals": 0,
-      "description": "Shows disk Utilization as percent of the time when there was at least one IO request in flight. It is designed to match utilization available in iostat tool. It is not very good measure of true IO Capacity Utilization. Consider looking at IO latency and Disk Load Graphs instead.",
+      "decimals": 2,
       "editable": true,
       "error": false,
       "fill": 2,
       "grid": {},
       "gridPos": {
-        "h": 10,
+        "h": 11,
         "w": 12,
         "x": 12,
-        "y": 20
+        "y": 11
       },
-      "id": 17,
+      "id": 10,
       "legend": {
         "alignAsTable": true,
         "avg": true,
-        "current": true,
+        "current": false,
         "hideEmpty": false,
-        "hideZero": false,
         "max": true,
         "min": true,
         "rightSide": false,
         "show": true,
+        "sort": "avg",
+        "sortDesc": true,
         "total": false,
         "values": true
       },
@@ -657,33 +446,25 @@
       "steppedLine": false,
       "targets": [
         {
-          "calculatedInterval": "10s",
+          "calculatedInterval": "2s",
           "datasourceErrors": {},
           "errors": {},
-          "expr": "rate(node_disk_io_time_ms{device=\"sdb\", instance=~\"$host\"}[$interval])/1000 or \nirate(node_disk_io_time_ms{device=\"sdb\", instance=~\"$host\"}[5m])/1000",
+          "expr": "(sum(irate(node_network_receive_bytes{instance=~\"$host\", device!=\"lo\"}[5m]) + irate(node_network_transmit_bytes{instance=~\"$host\", device!=\"lo\"}[5m])) by (instance)) or (sum(rate(wmi_net_bytes_sent_total{instance=~\"$host\"}[5m])) by (instance) + sum(rate(wmi_net_bytes_received_total{instance=~\"$host\"}[5m])) by (instance))",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
           "legendFormat": "{{ instance }}",
           "metric": "",
-          "refId": "A",
+          "refId": "B",
           "step": 300,
           "target": ""
         }
       ],
-      "thresholds": [
-        {
-          "colorMode": "custom",
-          "line": true,
-          "lineColor": "rgb(248, 8, 48)",
-          "op": "gt",
-          "value": 95
-        }
-      ],
+      "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Data Disk IO Utilization",
+      "title": "Network Traffic",
       "tooltip": {
         "msResolution": false,
         "shared": true,
@@ -701,8 +482,7 @@
       },
       "yaxes": [
         {
-          "decimals": null,
-          "format": "percentunit",
+          "format": "Bps",
           "label": "",
           "logBase": 1,
           "max": null,
@@ -710,10 +490,10 @@
           "show": true
         },
         {
-          "format": "short",
+          "format": "bytes",
           "logBase": 1,
           "max": null,
-          "min": "0",
+          "min": 0,
           "show": true
         }
       ],
@@ -729,16 +509,16 @@
       "error": false,
       "fontSize": "90%",
       "gridPos": {
-        "h": 8,
+        "h": 9,
         "w": 24,
         "x": 0,
-        "y": 30
+        "y": 22
       },
       "height": "",
       "hideTimeOverride": true,
       "id": 12,
       "links": [],
-      "pageSize": 7,
+      "pageSize": null,
       "scroll": true,
       "showHeader": true,
       "sort": {
@@ -828,7 +608,7 @@
           "unit": "short"
         },
         {
-          "alias": "Kernel",
+          "alias": "Version",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -840,7 +620,7 @@
           "mappingType": 1,
           "pattern": "release",
           "thresholds": [],
-          "type": "number",
+          "type": "string",
           "unit": "short"
         },
         {
@@ -856,7 +636,7 @@
           "mappingType": 1,
           "pattern": "nodename",
           "thresholds": [],
-          "type": "number",
+          "type": "string",
           "unit": "short"
         },
         {
@@ -888,7 +668,7 @@
           "mappingType": 1,
           "pattern": "instance",
           "thresholds": [],
-          "type": "number",
+          "type": "hidden",
           "unit": "short"
         },
         {
@@ -922,6 +702,22 @@
           "thresholds": [],
           "type": "number",
           "unit": "short"
+        },
+        {
+          "alias": "",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "service",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
         }
       ],
       "targets": [
@@ -929,9 +725,9 @@
           "expr": "node_uname_info{instance=~\"$host\"}",
           "format": "table",
           "instant": true,
-          "interval": "5m",
+          "interval": "60m",
           "intervalFactor": 1,
-          "legendFormat": "{{sysname}} | {{ release }} | {{domainname}}",
+          "legendFormat": "",
           "refId": "A",
           "step": 300
         }
@@ -1013,19 +809,19 @@
       {
         "allValue": null,
         "current": {
-          "selected": true,
+          "tags": [],
           "text": "DEMO",
           "value": "DEMO"
         },
         "datasource": "Prometheus",
-        "definition": "label_values({__name__=~\"node_load1\", job!=\"prometheus\"}, group)",
+        "definition": "label_values(node_uname_info, group)",
         "hide": 0,
         "includeAll": false,
         "label": "Group",
         "multi": false,
         "name": "group",
         "options": [],
-        "query": "label_values({__name__=~\"node_load1\", job!=\"prometheus\"}, group)",
+        "query": "label_values(node_uname_info, group)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -1040,12 +836,13 @@
         "allFormat": "pipe",
         "allValue": null,
         "current": {
-          "selected": false,
-          "text": "S-DEMO-APP01",
-          "value": "S-DEMO-APP01"
+          "text": "All",
+          "value": [
+            "$__all"
+          ]
         },
         "datasource": "Prometheus",
-        "definition": "",
+        "definition": "node_uname_info{group=~\"$group\"}",
         "hide": 0,
         "includeAll": true,
         "label": "Host",
@@ -1053,7 +850,7 @@
         "multiFormat": "pipe",
         "name": "host",
         "options": [],
-        "query": "node_load1{group=~\"$group\"}",
+        "query": "node_uname_info{group=~\"$group\"}",
         "refresh": 1,
         "regex": "/instance=\"(.+?)\"/",
         "skipUrlSync": false,
@@ -1105,5 +902,5 @@
   "timezone": "browser",
   "title": "Cross Server Graphs",
   "uid": "Swz9QGNmz",
-  "version": 1
+  "version": 2
 }
