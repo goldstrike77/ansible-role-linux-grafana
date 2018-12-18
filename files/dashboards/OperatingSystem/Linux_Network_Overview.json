@@ -16,8 +16,8 @@
   "editable": true,
   "gnetId": 1856,
   "graphTooltip": 1,
-  "id": 11,
-  "iteration": 1545104201351,
+  "id": 38,
+  "iteration": 1545104638586,
   "links": [
     {
       "asDropdown": true,
@@ -72,6 +72,17 @@
       ],
       "targetBlank": false,
       "title": "Insight",
+      "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "Cloud"
+      ],
+      "title": "Cloud",
       "type": "dashboards"
     }
   ],
@@ -2614,6 +2625,7 @@
       {
         "allValue": null,
         "current": {
+          "selected": true,
           "text": "All",
           "value": "$__all"
         },
