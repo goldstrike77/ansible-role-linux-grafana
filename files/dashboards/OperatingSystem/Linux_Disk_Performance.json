@@ -12,11 +12,12 @@
       }
     ]
   },
+  "description": "Linux Disk Performance",
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 10,
-  "iteration": 1544840795143,
+  "id": 31,
+  "iteration": 1545104238715,
   "links": [
     {
       "asDropdown": true,
@@ -902,7 +903,8 @@
   "schemaVersion": 16,
   "style": "dark",
   "tags": [
-    "OS"
+    "OS",
+    "Linux"
   ],
   "templating": {
     "list": [
@@ -912,6 +914,7 @@
         "auto_count": 200,
         "auto_min": "1s",
         "current": {
+          "selected": true,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -967,7 +970,7 @@
       {
         "allValue": null,
         "current": {
-          "selected": false,
+          "selected": true,
           "text": "DEMO",
           "value": "DEMO"
         },
@@ -994,7 +997,7 @@
         "allFormat": "glob",
         "allValue": null,
         "current": {
-          "selected": false,
+          "selected": true,
           "text": "S-DEMO-APP02",
           "value": "S-DEMO-APP02"
         },
@@ -1023,6 +1026,7 @@
         "allFormat": "glob",
         "allValue": null,
         "current": {
+          "selected": true,
           "text": "All",
           "value": "$__all"
         },
@@ -1086,7 +1090,7 @@
     "type": "timepicker"
   },
   "timezone": "browser",
-  "title": "Disk Performance",
+  "title": "Linux Disk Performance",
   "uid": "oxkrQMNmz",
   "version": 1
 }

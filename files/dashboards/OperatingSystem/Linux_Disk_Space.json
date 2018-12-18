@@ -12,11 +12,12 @@
       }
     ]
   },
+  "description": "Linux Disk Space",
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 5,
-  "iteration": 1544840725650,
+  "id": 33,
+  "iteration": 1545104262679,
   "links": [
     {
       "asDropdown": true,
@@ -393,7 +394,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": null,
-      "repeatIteration": 1544840725650,
+      "repeatIteration": 1545104262679,
       "repeatPanelId": 4,
       "scopedVars": {
         "mountpoint": {
@@ -531,7 +532,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": null,
-      "repeatIteration": 1544840725650,
+      "repeatIteration": 1545104262679,
       "repeatPanelId": 4,
       "scopedVars": {
         "mountpoint": {
@@ -630,7 +631,8 @@
   "schemaVersion": 16,
   "style": "dark",
   "tags": [
-    "OS"
+    "OS",
+    "Linux"
   ],
   "templating": {
     "list": [
@@ -640,6 +642,7 @@
         "auto_count": 200,
         "auto_min": "1s",
         "current": {
+          "selected": true,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -695,7 +698,7 @@
       {
         "allValue": null,
         "current": {
-          "selected": false,
+          "selected": true,
           "text": "DEMO",
           "value": "DEMO"
         },
@@ -722,7 +725,7 @@
         "allFormat": "glob",
         "allValue": null,
         "current": {
-          "selected": false,
+          "selected": true,
           "text": "S-DEMO-APP02",
           "value": "S-DEMO-APP02"
         },
@@ -815,7 +818,7 @@
     "type": "timepicker"
   },
   "timezone": "browser",
-  "title": "Disk Space",
+  "title": "Linux Disk Space",
   "uid": "80k9wMHmk",
   "version": 1
 }
