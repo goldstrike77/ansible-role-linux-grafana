@@ -14,10 +14,10 @@
   },
   "description": "Windows System Overview",
   "editable": true,
-  "gnetId": 2129,
+  "gnetId": null,
   "graphTooltip": 1,
-  "id": 40,
-  "iteration": 1545116652375,
+  "id": 42,
+  "iteration": 1545186799027,
   "links": [
     {
       "asDropdown": true,
@@ -25,9 +25,9 @@
       "includeVars": true,
       "keepTime": true,
       "tags": [
-        "\t OS"
+        "OS"
       ],
-      "title": "\t OS",
+      "title": "OS",
       "type": "dashboards"
     },
     {
@@ -108,11 +108,11 @@
       },
       "gridPos": {
         "h": 2,
-        "w": 3,
+        "w": 2,
         "x": 0,
         "y": 0
       },
-      "id": 20,
+      "id": 2,
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -132,7 +132,7 @@
       "postfix": "s",
       "postfixFontSize": "50%",
       "prefix": "",
-      "prefixFontSize": "50%",
+      "prefixFontSize": "80%",
       "rangeMaps": [
         {
           "from": "null",
@@ -156,7 +156,7 @@
         }
       ],
       "thresholds": "300,3600",
-      "title": "System Uptime",
+      "title": "Uptime",
       "type": "singlestat",
       "valueFontSize": "50%",
       "valueMaps": [
@@ -189,10 +189,10 @@
       "gridPos": {
         "h": 2,
         "w": 2,
-        "x": 3,
+        "x": 2,
         "y": 0
       },
-      "id": 18,
+      "id": 4,
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -231,7 +231,6 @@
         {
           "expr": "wmi_cs_logical_processors{instance=\"$host\"}",
           "format": "time_series",
-          "interval": "60m",
           "intervalFactor": 1,
           "refId": "A"
         }
@@ -252,7 +251,6 @@
     {
       "cacheTimeout": null,
       "colorBackground": false,
-      "colorPrefix": false,
       "colorValue": false,
       "colors": [
         "#299c46",
@@ -260,7 +258,7 @@
         "#d44a3a"
       ],
       "datasource": "Prometheus",
-      "format": "none",
+      "format": "short",
       "gauge": {
         "maxValue": 100,
         "minValue": 0,
@@ -270,11 +268,12 @@
       },
       "gridPos": {
         "h": 2,
-        "w": 4,
-        "x": 5,
+        "w": 5,
+        "x": 4,
         "y": 0
       },
-      "id": 22,
+      "hideTimeOverride": false,
+      "id": 6,
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -310,26 +309,25 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "__name__",
+      "tableColumn": "",
       "targets": [
         {
           "expr": "node_uname_info{instance=\"$host\"}",
           "format": "time_series",
           "instant": false,
-          "interval": "",
+          "interval": "5m",
           "intervalFactor": 1,
           "legendFormat": "{{ release }}",
           "refId": "A"
         }
       ],
       "thresholds": "",
-      "timeFrom": null,
       "title": "Version",
       "transparent": false,
       "type": "singlestat",
-      "valueFontSize": "30%",
+      "valueFontSize": "50%",
       "valueMaps": [],
-      "valueName": "current"
+      "valueName": "name"
     },
     {
       "cacheTimeout": null,
@@ -356,7 +354,7 @@
         "x": 9,
         "y": 0
       },
-      "id": 24,
+      "id": 8,
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -395,7 +393,6 @@
         {
           "expr": "wmi_os_visible_memory_bytes{instance=\"$host\"}",
           "format": "time_series",
-          "interval": "5m",
           "intervalFactor": 1,
           "refId": "A"
         }
@@ -423,7 +420,7 @@
         "#d44a3a"
       ],
       "datasource": "Prometheus",
-      "format": "decbytes",
+      "format": "bytes",
       "gauge": {
         "maxValue": 100,
         "minValue": 0,
@@ -437,7 +434,7 @@
         "x": 12,
         "y": 0
       },
-      "id": 26,
+      "id": 10,
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -477,7 +474,6 @@
           "expr": "wmi_os_physical_memory_free_bytes{instance=\"$host\"}",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "",
           "refId": "A"
         }
       ],
@@ -505,7 +501,7 @@
       ],
       "datasource": "Prometheus",
       "description": "Memory + SWAP",
-      "format": "decbytes",
+      "format": "bytes",
       "gauge": {
         "maxValue": 100,
         "minValue": 0,
@@ -519,7 +515,7 @@
         "x": 15,
         "y": 0
       },
-      "id": 28,
+      "id": 12,
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -558,7 +554,6 @@
         {
           "expr": "wmi_os_virtual_memory_bytes{instance=\"$host\"}",
           "format": "time_series",
-          "interval": "5m",
           "intervalFactor": 1,
           "refId": "A"
         }
@@ -602,7 +597,7 @@
         "x": 18,
         "y": 0
       },
-      "id": 30,
+      "id": 14,
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -641,7 +636,6 @@
         {
           "expr": "sum(wmi_logical_disk_size_bytes{instance=\"$host\",volume!~\"HarddiskVolume.*\"})",
           "format": "time_series",
-          "interval": "5m",
           "intervalFactor": 1,
           "refId": "A"
         }
@@ -685,7 +679,7 @@
         "x": 21,
         "y": 0
       },
-      "id": 31,
+      "id": 15,
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -724,7 +718,6 @@
         {
           "expr": "sum(wmi_logical_disk_free_bytes{instance=\"$host\",volume!~\"HarddiskVolume.*\"})",
           "format": "time_series",
-          "interval": "5m",
           "intervalFactor": 1,
           "refId": "A"
         }
@@ -750,15 +743,13 @@
         "x": 0,
         "y": 2
       },
-      "id": 33,
+      "id": 17,
       "panels": [],
       "title": "CPU",
       "type": "row"
     },
     {
-      "aliasColors": {
-        "idle": "#0A50A1"
-      },
+      "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
@@ -770,15 +761,13 @@
         "x": 0,
         "y": 3
       },
-      "hideTimeOverride": false,
-      "id": 4,
+      "id": 19,
       "legend": {
         "alignAsTable": true,
         "avg": false,
         "current": true,
         "max": true,
         "min": false,
-        "rightSide": false,
         "show": true,
         "total": false,
         "values": true
@@ -797,32 +786,12 @@
       "steppedLine": false,
       "targets": [
         {
-          "application": {
-            "filter": ""
-          },
           "expr": "sum by (mode) (rate(wmi_cpu_time_total{instance=\"$host\"}[5m]))",
           "format": "time_series",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "hide": false,
-          "host": {
-            "filter": ""
-          },
           "interval": "$interval",
           "intervalFactor": 1,
-          "item": {
-            "filter": ""
-          },
           "legendFormat": "{{mode}}",
-          "metric": "mysql_global_status_questions",
-          "mode": 0,
-          "options": {
-            "showDisabledItems": false
-          },
-          "refId": "A",
-          "step": 20
+          "refId": "A"
         }
       ],
       "thresholds": [],
@@ -867,9 +836,7 @@
       }
     },
     {
-      "aliasColors": {
-        "idle": "#0A50A1"
-      },
+      "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
@@ -881,18 +848,15 @@
         "x": 12,
         "y": 3
       },
-      "hideTimeOverride": false,
-      "id": 37,
+      "id": 21,
       "legend": {
-        "alignAsTable": false,
         "avg": false,
-        "current": true,
-        "max": true,
+        "current": false,
+        "max": false,
         "min": false,
-        "rightSide": false,
         "show": false,
         "total": false,
-        "values": true
+        "values": false
       },
       "lines": true,
       "linewidth": 0,
@@ -908,32 +872,11 @@
       "steppedLine": false,
       "targets": [
         {
-          "application": {
-            "filter": ""
-          },
           "expr": "(1 - avg by(instance)(irate(wmi_cpu_time_total{mode=\"idle\", instance=\"$host\"}[5m])))",
           "format": "time_series",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "hide": false,
-          "host": {
-            "filter": ""
-          },
-          "interval": "$interval",
           "intervalFactor": 1,
-          "item": {
-            "filter": ""
-          },
           "legendFormat": "{{ instance }}",
-          "metric": "mysql_global_status_questions",
-          "mode": 0,
-          "options": {
-            "showDisabledItems": false
-          },
-          "refId": "A",
-          "step": 20
+          "refId": "A"
         }
       ],
       "thresholds": [],
@@ -961,7 +904,7 @@
           "label": null,
           "logBase": 1,
           "max": "1",
-          "min": null,
+          "min": "0",
           "show": true
         },
         {
@@ -970,7 +913,7 @@
           "logBase": 1,
           "max": null,
           "min": null,
-          "show": true
+          "show": false
         }
       ],
       "yaxis": {
@@ -979,14 +922,14 @@
       }
     },
     {
-      "collapsed": false,
+      "collapsed": true,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
         "y": 12
       },
-      "id": 35,
+      "id": 23,
       "panels": [],
       "title": "Memory",
       "type": "row"
@@ -1004,15 +947,13 @@
         "x": 0,
         "y": 13
       },
-      "hideTimeOverride": false,
-      "id": 14,
+      "id": 25,
       "legend": {
         "alignAsTable": true,
         "avg": false,
         "current": true,
         "max": true,
         "min": false,
-        "rightSide": false,
         "show": true,
         "total": false,
         "values": true
@@ -1020,7 +961,7 @@
       "lines": true,
       "linewidth": 1,
       "links": [],
-      "nullPointMode": "null as zero",
+      "nullPointMode": "null",
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1031,85 +972,25 @@
       "steppedLine": false,
       "targets": [
         {
-          "application": {
-            "filter": ""
-          },
           "expr": "wmi_os_virtual_memory_bytes{instance=\"$host\"}",
           "format": "time_series",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "hide": false,
-          "host": {
-            "filter": ""
-          },
           "intervalFactor": 1,
-          "item": {
-            "filter": ""
-          },
           "legendFormat": "Virtual memory",
-          "metric": "mysql_global_status_questions",
-          "mode": 0,
-          "options": {
-            "showDisabledItems": false
-          },
-          "refId": "A",
-          "step": 5
+          "refId": "A"
         },
         {
-          "application": {
-            "filter": ""
-          },
           "expr": "wmi_cs_physical_memory_bytes{instance=\"$host\"}",
           "format": "time_series",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "hide": false,
-          "host": {
-            "filter": ""
-          },
           "intervalFactor": 1,
-          "item": {
-            "filter": ""
-          },
           "legendFormat": "Physical memory",
-          "metric": "mysql_global_status_questions",
-          "mode": 0,
-          "options": {
-            "showDisabledItems": false
-          },
-          "refId": "B",
-          "step": 5
+          "refId": "B"
         },
         {
-          "application": {
-            "filter": ""
-          },
           "expr": "wmi_os_physical_memory_free_bytes{instance=\"$host\"}",
           "format": "time_series",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "hide": false,
-          "host": {
-            "filter": ""
-          },
           "intervalFactor": 1,
-          "item": {
-            "filter": ""
-          },
           "legendFormat": "Free physical memory",
-          "metric": "mysql_global_status_questions",
-          "mode": 0,
-          "options": {
-            "showDisabledItems": false
-          },
-          "refId": "C",
-          "step": 5
+          "refId": "C"
         }
       ],
       "thresholds": [],
@@ -1118,7 +999,7 @@
       "timeShift": null,
       "title": "Memory",
       "tooltip": {
-        "shared": false,
+        "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
@@ -1132,7 +1013,7 @@
       },
       "yaxes": [
         {
-          "format": "decbytes",
+          "format": "bytes",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -1166,23 +1047,20 @@
         "x": 12,
         "y": 13
       },
-      "hideTimeOverride": false,
-      "id": 36,
+      "id": 27,
       "legend": {
-        "alignAsTable": false,
         "avg": false,
-        "current": true,
-        "max": true,
+        "current": false,
+        "max": false,
         "min": false,
-        "rightSide": false,
         "show": false,
         "total": false,
-        "values": true
+        "values": false
       },
       "lines": true,
       "linewidth": 1,
       "links": [],
-      "nullPointMode": "null as zero",
+      "nullPointMode": "null",
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1193,31 +1071,11 @@
       "steppedLine": false,
       "targets": [
         {
-          "application": {
-            "filter": ""
-          },
           "expr": "(wmi_cs_physical_memory_bytes{instance=\"$host\"} - wmi_os_physical_memory_free_bytes{instance=\"$host\"}) / wmi_cs_physical_memory_bytes{instance=\"$host\"} * 100",
           "format": "time_series",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "hide": false,
-          "host": {
-            "filter": ""
-          },
           "intervalFactor": 1,
-          "item": {
-            "filter": ""
-          },
           "legendFormat": "{{ instance }}",
-          "metric": "mysql_global_status_questions",
-          "mode": 0,
-          "options": {
-            "showDisabledItems": false
-          },
-          "refId": "A",
-          "step": 5
+          "refId": "A"
         }
       ],
       "thresholds": [],
@@ -1226,7 +1084,7 @@
       "timeShift": null,
       "title": "Memory Usage",
       "tooltip": {
-        "shared": false,
+        "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
@@ -1244,7 +1102,7 @@
           "label": null,
           "logBase": 1,
           "max": "100",
-          "min": null,
+          "min": "0",
           "show": true
         },
         {
@@ -1253,7 +1111,7 @@
           "logBase": 1,
           "max": null,
           "min": null,
-          "show": true
+          "show": false
         }
       ],
       "yaxis": {
@@ -1262,14 +1120,14 @@
       }
     },
     {
-      "collapsed": false,
+      "collapsed": true,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
         "y": 22
       },
-      "id": 39,
+      "id": 33,
       "panels": [],
       "title": "System",
       "type": "row"
@@ -1282,28 +1140,25 @@
       "datasource": "Prometheus",
       "fill": 1,
       "gridPos": {
-        "h": 8,
+        "h": 9,
         "w": 12,
         "x": 0,
         "y": 23
       },
-      "hideTimeOverride": false,
-      "id": 12,
+      "id": 35,
       "legend": {
-        "alignAsTable": true,
         "avg": false,
         "current": true,
         "max": true,
         "min": false,
-        "rightSide": true,
-        "show": false,
+        "show": true,
         "total": false,
         "values": true
       },
       "lines": true,
       "linewidth": 1,
       "links": [],
-      "nullPointMode": "null as zero",
+      "nullPointMode": "null",
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1314,31 +1169,11 @@
       "steppedLine": false,
       "targets": [
         {
-          "application": {
-            "filter": ""
-          },
           "expr": "wmi_system_threads{instance=~\"$host\"}",
           "format": "time_series",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "hide": false,
-          "host": {
-            "filter": ""
-          },
           "intervalFactor": 1,
-          "item": {
-            "filter": ""
-          },
           "legendFormat": "system threads",
-          "metric": "mysql_global_status_questions",
-          "mode": 0,
-          "options": {
-            "showDisabledItems": false
-          },
-          "refId": "A",
-          "step": 20
+          "refId": "A"
         }
       ],
       "thresholds": [],
@@ -1347,7 +1182,7 @@
       "timeShift": null,
       "title": "System Threads",
       "tooltip": {
-        "shared": false,
+        "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
@@ -1388,135 +1223,24 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
-      "fill": 1,
+      "fill": 10,
       "gridPos": {
-        "h": 8,
+        "h": 9,
         "w": 12,
         "x": 12,
         "y": 23
       },
-      "hideTimeOverride": false,
-      "id": 13,
+      "id": 36,
       "legend": {
         "alignAsTable": true,
         "avg": false,
         "current": true,
-        "max": true,
-        "min": false,
-        "rightSide": true,
-        "show": false,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null as zero",
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "application": {
-            "filter": ""
-          },
-          "expr": "rate(wmi_system_exception_dispatches_total{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "hide": false,
-          "host": {
-            "filter": ""
-          },
-          "intervalFactor": 1,
-          "item": {
-            "filter": ""
-          },
-          "legendFormat": "exceptions",
-          "metric": "mysql_global_status_questions",
-          "mode": 0,
-          "options": {
-            "showDisabledItems": false
-          },
-          "refId": "A",
-          "step": 20
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "System exception dispatches",
-      "tooltip": {
-        "shared": false,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {
-        "Received mysqld-exporter:9104": "#0A50A1",
-        "stopped": "#2F575E"
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "Prometheus",
-      "fill": 10,
-      "gridPos": {
-        "h": 8,
-        "w": 24,
-        "x": 0,
-        "y": 31
-      },
-      "id": 7,
-      "legend": {
-        "alignAsTable": true,
-        "avg": false,
-        "current": false,
         "max": false,
         "min": false,
         "rightSide": true,
         "show": true,
         "total": false,
-        "values": false
+        "values": true
       },
       "lines": true,
       "linewidth": 0,
@@ -1532,29 +1256,11 @@
       "steppedLine": false,
       "targets": [
         {
-          "application": {
-            "filter": ""
-          },
           "expr": "sum(wmi_service_state{instance=~\"$host\"}) by (state)",
           "format": "time_series",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "host": {
-            "filter": ""
-          },
           "intervalFactor": 1,
-          "item": {
-            "filter": ""
-          },
           "legendFormat": "{{state}}",
-          "mode": 0,
-          "options": {
-            "showDisabledItems": false
-          },
-          "refId": "A",
-          "step": 5
+          "refId": "A"
         }
       ],
       "thresholds": [],
@@ -1599,14 +1305,14 @@
       }
     },
     {
-      "collapsed": false,
+      "collapsed": true,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 39
+        "y": 32
       },
-      "id": 41,
+      "id": 31,
       "panels": [],
       "title": "Network",
       "type": "row"
@@ -1622,17 +1328,15 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 40
+        "y": 33
       },
-      "hideTimeOverride": false,
-      "id": 10,
+      "id": 40,
       "legend": {
         "alignAsTable": true,
         "avg": false,
         "current": true,
         "max": true,
         "min": false,
-        "rightSide": false,
         "show": true,
         "total": false,
         "values": true
@@ -1651,58 +1355,18 @@
       "steppedLine": false,
       "targets": [
         {
-          "application": {
-            "filter": ""
-          },
-          "expr": "irate(wmi_net_packets_outbound_discarded{instance=\"$host\", nic!~\"isatap.+\"}[$interval]) + irate(wmi_net_packets_outbound_errors{instance=\"$host\"}[$interval])",
+          "expr": "irate(wmi_net_packets_outbound_discarded{instance=\"$host\", nic!~\"isatap.+\"}[5m]) + irate(wmi_net_packets_outbound_errors{instance=\"$host\"}[5m])",
           "format": "time_series",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "hide": false,
-          "host": {
-            "filter": ""
-          },
           "intervalFactor": 1,
-          "item": {
-            "filter": ""
-          },
           "legendFormat": "Sent {{nic}}",
-          "metric": "mysql_global_status_questions",
-          "mode": 0,
-          "options": {
-            "showDisabledItems": false
-          },
-          "refId": "B",
-          "step": 15
+          "refId": "A"
         },
         {
-          "application": {
-            "filter": ""
-          },
-          "expr": "irate(wmi_net_packets_received_discarded{instance=\"$host\", nic!~\"isatap.+\"}[$interval]) + irate(wmi_net_packets_received_errors{instance=\"$host\"}[$interval])",
+          "expr": "irate(wmi_net_packets_received_discarded{instance=\"$host\", nic!~\"isatap.+\"}[5m]) + irate(wmi_net_packets_received_errors{instance=\"$host\"}[5m])",
           "format": "time_series",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "hide": false,
-          "host": {
-            "filter": ""
-          },
           "intervalFactor": 1,
-          "item": {
-            "filter": ""
-          },
           "legendFormat": "Received {{nic}}",
-          "metric": "mysql_global_status_questions",
-          "mode": 0,
-          "options": {
-            "showDisabledItems": false
-          },
-          "refId": "A",
-          "step": 15
+          "refId": "B"
         }
       ],
       "thresholds": [],
@@ -1757,17 +1421,15 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 40
+        "y": 33
       },
-      "hideTimeOverride": false,
-      "id": 11,
+      "id": 38,
       "legend": {
         "alignAsTable": true,
         "avg": false,
         "current": true,
         "max": true,
         "min": false,
-        "rightSide": false,
         "show": true,
         "total": false,
         "values": true
@@ -1775,7 +1437,7 @@
       "lines": true,
       "linewidth": 1,
       "links": [],
-      "nullPointMode": "null as zero",
+      "nullPointMode": "null",
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1786,58 +1448,18 @@
       "steppedLine": false,
       "targets": [
         {
-          "application": {
-            "filter": ""
-          },
-          "expr": "rate(wmi_net_bytes_sent_total{instance=\"$host\"}[$interval]) >0",
+          "expr": "rate(wmi_net_bytes_sent_total{instance=\"$host\"}[5m]) >0",
           "format": "time_series",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "hide": false,
-          "host": {
-            "filter": ""
-          },
           "intervalFactor": 1,
-          "item": {
-            "filter": ""
-          },
           "legendFormat": "Sent {{nic}}",
-          "metric": "mysql_global_status_questions",
-          "mode": 0,
-          "options": {
-            "showDisabledItems": false
-          },
-          "refId": "B",
-          "step": 10
+          "refId": "A"
         },
         {
-          "application": {
-            "filter": ""
-          },
-          "expr": "- rate(wmi_net_bytes_received_total{instance=\"$host\"}[$interval]) <0",
+          "expr": "- rate(wmi_net_bytes_received_total{instance=\"$host\"}[5m]) <0",
           "format": "time_series",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "hide": false,
-          "host": {
-            "filter": ""
-          },
           "intervalFactor": 1,
-          "item": {
-            "filter": ""
-          },
           "legendFormat": "Received {{nic}}",
-          "metric": "mysql_global_status_questions",
-          "mode": 0,
-          "options": {
-            "showDisabledItems": false
-          },
-          "refId": "A",
-          "step": 10
+          "refId": "B"
         }
       ],
       "thresholds": [],
@@ -1846,8 +1468,8 @@
       "timeShift": null,
       "title": "Network Traffic",
       "tooltip": {
-        "shared": false,
-        "sort": 2,
+        "shared": true,
+        "sort": 0,
         "value_type": "individual"
       },
       "type": "graph",
@@ -1887,9 +1509,9 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 49
+        "y": 42
       },
-      "id": 43,
+      "id": 29,
       "panels": [],
       "title": "Disk",
       "type": "row"
@@ -1900,22 +1522,19 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
-      "fill": 2,
+      "fill": 1,
       "gridPos": {
-        "h": 8,
+        "h": 9,
         "w": 12,
         "x": 0,
-        "y": 50
+        "y": 43
       },
-      "hideTimeOverride": false,
-      "id": 8,
+      "id": 51,
       "legend": {
-        "alignAsTable": false,
         "avg": false,
         "current": true,
         "max": true,
         "min": false,
-        "rightSide": false,
         "show": true,
         "total": false,
         "values": true
@@ -1923,7 +1542,7 @@
       "lines": true,
       "linewidth": 1,
       "links": [],
-      "nullPointMode": "null as zero",
+      "nullPointMode": "null",
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1934,58 +1553,18 @@
       "steppedLine": false,
       "targets": [
         {
-          "application": {
-            "filter": ""
-          },
-          "expr": "irate(wmi_logical_disk_write_bytes_total{instance=\"$host\", volume !~\"HarddiskVolume.+\"}[$interval])",
+          "expr": "irate(wmi_logical_disk_write_bytes_total{instance=\"$host\", volume !~\"HarddiskVolume.+\"}[5m])",
           "format": "time_series",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "hide": false,
-          "host": {
-            "filter": ""
-          },
           "intervalFactor": 1,
-          "item": {
-            "filter": ""
-          },
           "legendFormat": "Write {{volume}}",
-          "metric": "mysql_global_status_questions",
-          "mode": 0,
-          "options": {
-            "showDisabledItems": false
-          },
-          "refId": "A",
-          "step": 20
+          "refId": "A"
         },
         {
-          "application": {
-            "filter": ""
-          },
-          "expr": "- irate(wmi_logical_disk_read_bytes_total{instance=\"$host\", volume !~\"HarddiskVolume.+\"}[$interval])",
+          "expr": "- irate(wmi_logical_disk_read_bytes_total{instance=\"$host\", volume !~\"HarddiskVolume.+\"}[5m])",
           "format": "time_series",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "hide": false,
-          "host": {
-            "filter": ""
-          },
           "intervalFactor": 1,
-          "item": {
-            "filter": ""
-          },
           "legendFormat": "Read {{volume}}",
-          "metric": "mysql_global_status_questions",
-          "mode": 0,
-          "options": {
-            "showDisabledItems": false
-          },
-          "refId": "B",
-          "step": 20
+          "refId": "B"
         }
       ],
       "thresholds": [],
@@ -1994,7 +1573,7 @@
       "timeShift": null,
       "title": "Hard Disk Load",
       "tooltip": {
-        "shared": false,
+        "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
@@ -2008,7 +1587,7 @@
       },
       "yaxes": [
         {
-          "format": "decbytes",
+          "format": "bytes",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -2037,20 +1616,17 @@
       "datasource": "Prometheus",
       "fill": 1,
       "gridPos": {
-        "h": 8,
+        "h": 9,
         "w": 12,
         "x": 12,
-        "y": 50
+        "y": 43
       },
-      "hideTimeOverride": false,
-      "id": 9,
+      "id": 50,
       "legend": {
-        "alignAsTable": false,
         "avg": false,
         "current": true,
         "max": true,
         "min": false,
-        "rightSide": false,
         "show": true,
         "total": false,
         "values": true
@@ -2058,7 +1634,7 @@
       "lines": true,
       "linewidth": 1,
       "links": [],
-      "nullPointMode": "null as zero",
+      "nullPointMode": "null",
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -2069,31 +1645,11 @@
       "steppedLine": false,
       "targets": [
         {
-          "application": {
-            "filter": ""
-          },
-          "expr": "rate(wmi_logical_disk_split_ios_total{instance=\"$host\", volume !~\"HarddiskVolume.+\"}[$interval])",
+          "expr": "rate(wmi_logical_disk_split_ios_total{instance=\"$host\", volume !~\"HarddiskVolume.+\"}[5m])",
           "format": "time_series",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "hide": false,
-          "host": {
-            "filter": ""
-          },
           "intervalFactor": 1,
-          "item": {
-            "filter": ""
-          },
           "legendFormat": "{{volume}}",
-          "metric": "mysql_global_status_questions",
-          "mode": 0,
-          "options": {
-            "showDisabledItems": false
-          },
-          "refId": "A",
-          "step": 20
+          "refId": "A"
         }
       ],
       "thresholds": [],
@@ -2102,7 +1658,7 @@
       "timeShift": null,
       "title": "Hard Disk I/O",
       "tooltip": {
-        "shared": false,
+        "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
@@ -2149,17 +1705,14 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 58
+        "y": 52
       },
-      "hideTimeOverride": false,
-      "id": 15,
+      "id": 48,
       "legend": {
-        "alignAsTable": false,
         "avg": false,
         "current": true,
         "max": false,
         "min": false,
-        "rightSide": false,
         "show": true,
         "total": false,
         "values": true
@@ -2167,7 +1720,7 @@
       "lines": true,
       "linewidth": 1,
       "links": [],
-      "nullPointMode": "null as zero",
+      "nullPointMode": "null",
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -2178,31 +1731,11 @@
       "steppedLine": false,
       "targets": [
         {
-          "application": {
-            "filter": ""
-          },
           "expr": "wmi_logical_disk_free_bytes{instance=\"$host\", volume !~\"HarddiskVolume.+\"}",
           "format": "time_series",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "hide": false,
-          "host": {
-            "filter": ""
-          },
           "intervalFactor": 1,
-          "item": {
-            "filter": ""
-          },
           "legendFormat": "{{volume}}",
-          "metric": "mysql_global_status_questions",
-          "mode": 0,
-          "options": {
-            "showDisabledItems": false
-          },
-          "refId": "A",
-          "step": 20
+          "refId": "A"
         }
       ],
       "thresholds": [],
@@ -2211,7 +1744,7 @@
       "timeShift": null,
       "title": "Hard Disk Space",
       "tooltip": {
-        "shared": false,
+        "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
@@ -2225,11 +1758,11 @@
       },
       "yaxes": [
         {
-          "format": "decbytes",
+          "format": "bytes",
           "label": null,
           "logBase": 1,
           "max": null,
-          "min": "0",
+          "min": null,
           "show": true
         },
         {
@@ -2257,17 +1790,14 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 58
+        "y": 52
       },
-      "hideTimeOverride": false,
-      "id": 44,
+      "id": 49,
       "legend": {
-        "alignAsTable": false,
         "avg": false,
         "current": true,
         "max": false,
         "min": false,
-        "rightSide": false,
         "show": true,
         "total": false,
         "values": true
@@ -2275,7 +1805,7 @@
       "lines": true,
       "linewidth": 1,
       "links": [],
-      "nullPointMode": "null as zero",
+      "nullPointMode": "null",
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -2286,31 +1816,11 @@
       "steppedLine": false,
       "targets": [
         {
-          "application": {
-            "filter": ""
-          },
           "expr": "(1 - wmi_logical_disk_free_bytes{instance=~\"$host\", volume !~\"HarddiskVolume.+\"} / wmi_logical_disk_size_bytes{instance=~\"$host\", volume !~\"HarddiskVolume.+\"})",
           "format": "time_series",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "hide": false,
-          "host": {
-            "filter": ""
-          },
           "intervalFactor": 1,
-          "item": {
-            "filter": ""
-          },
           "legendFormat": "{{volume}}",
-          "metric": "mysql_global_status_questions",
-          "mode": 0,
-          "options": {
-            "showDisabledItems": false
-          },
-          "refId": "A",
-          "step": 20
+          "refId": "A"
         }
       ],
       "thresholds": [],
@@ -2319,7 +1829,7 @@
       "timeShift": null,
       "title": "Hard Disk Usage",
       "tooltip": {
-        "shared": false,
+        "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
@@ -2369,6 +1879,7 @@
         "auto_count": 200,
         "auto_min": "1s",
         "current": {
+          "selected": false,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -2446,7 +1957,7 @@
       {
         "allValue": null,
         "current": {
-          "selected": true,
+          "selected": false,
           "tags": [],
           "text": "S-DEMO-WEB01",
           "value": "S-DEMO-WEB01"
@@ -2503,6 +2014,6 @@
   },
   "timezone": "browser",
   "title": "Windows System Overview",
-  "uid": "8LERfmyiz",
-  "version": 41
+  "uid": "8z5sWWymz",
+  "version": 27
 }

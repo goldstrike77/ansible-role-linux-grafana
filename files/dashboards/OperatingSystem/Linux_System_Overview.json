@@ -16,8 +16,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 14,
-  "iteration": 1545104285247,
+  "id": 39,
+  "iteration": 1545186244613,
   "links": [
     {
       "asDropdown": true,
@@ -110,7 +110,7 @@
       },
       "gridPos": {
         "h": 2,
-        "w": 3,
+        "w": 2,
         "x": 0,
         "y": 0
       },
@@ -167,7 +167,7 @@
         }
       ],
       "thresholds": "300,3600",
-      "title": "System Uptime",
+      "title": "Uptime",
       "transparent": false,
       "type": "singlestat",
       "valueFontSize": "50%",
@@ -197,7 +197,7 @@
       "gridPos": {
         "h": 2,
         "w": 2,
-        "x": 3,
+        "x": 2,
         "y": 0
       },
       "height": "125px",
@@ -238,7 +238,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "(count(node_cpu{instance=~\"$host\",mode=~\"user\"}) or (1-absent(node_cpu{instance=~\"$host\",mode=~\"user\"}))) + sum(rdsosmetrics_General_numVCPUs{instance=~\"$host\"} or up * 0)",
+          "expr": "(count(node_cpu{instance=\"$host\",mode=\"user\"}) or (1-absent(node_cpu{instance=\"$host\",mode=\"user\"}))) + sum(rdsosmetrics_General_numVCPUs{instance=\"$host\"} or up * 0)",
           "format": "time_series",
           "interval": "5m",
           "intervalFactor": 1,
@@ -281,8 +281,8 @@
       },
       "gridPos": {
         "h": 2,
-        "w": 4,
-        "x": 5,
+        "w": 5,
+        "x": 4,
         "y": 0
       },
       "height": "125px",
@@ -323,7 +323,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "node_uname_info{instance=~\"$host\"}",
+          "expr": "node_uname_info{instance=\"$host\"}",
           "format": "time_series",
           "interval": "5m",
           "intervalFactor": 1,
@@ -3036,7 +3036,6 @@
         "auto_count": 200,
         "auto_min": "1s",
         "current": {
-          "selected": true,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -3092,7 +3091,6 @@
       {
         "allValue": null,
         "current": {
-          "selected": true,
           "text": "DEMO",
           "value": "DEMO"
         },
@@ -3119,7 +3117,6 @@
         "allFormat": "glob",
         "allValue": null,
         "current": {
-          "selected": true,
           "text": "S-DEMO-APP02",
           "value": "S-DEMO-APP02"
         },
@@ -3185,5 +3182,5 @@
   "timezone": "browser",
   "title": "Linux System Overview",
   "uid": "qyzrQGHmk",
-  "version": 1
+  "version": 3
 }
