@@ -14,9 +14,9 @@
   },
   "editable": true,
   "gnetId": null,
-  "graphTooltip": 1,
-  "id": 11,
-  "iteration": 1545025204713,
+  "graphTooltip": 0,
+  "id": 10,
+  "iteration": 1545188931512,
   "links": [
     {
       "asDropdown": true,
@@ -809,7 +809,6 @@
       {
         "allValue": null,
         "current": {
-          "tags": [],
           "text": "DEMO",
           "value": "DEMO"
         },
@@ -902,5 +901,5 @@
   "timezone": "browser",
   "title": "Cross Server Graphs",
   "uid": "Swz9QGNmz",
-  "version": 2
+  "version": 1
 }
