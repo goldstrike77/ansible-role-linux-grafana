@@ -11,6 +11,8 @@ Requirements
 Operating systems
   - CentOS 7
 
+Tested on grafana version > 5.
+
 Role Variables
 --------------
 
