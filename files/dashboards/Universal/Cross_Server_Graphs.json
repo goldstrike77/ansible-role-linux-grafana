@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 10,
-  "iteration": 1545188931512,
+  "iteration": 1545272224589,
   "links": [
     {
       "asDropdown": true,
@@ -306,6 +306,7 @@
       "dashes": false,
       "datasource": "Prometheus",
       "decimals": 0,
+      "description": "Percentage of usage disk space on /data mount for Linux.\nPercentage of usage disk space exclude C & Reserve partition for Windows.",
       "editable": true,
       "error": false,
       "fill": 0,
@@ -346,7 +347,7 @@
           "calculatedInterval": "10s",
           "datasourceErrors": {},
           "errors": {},
-          "expr": "(1- node_filesystem_free{instance=~\"$host\", mountpoint=\"/data\"}  / node_filesystem_size{instance=~\"$host\", mountpoint=\"/data\"}) or (1 - wmi_logical_disk_free_bytes{instance=~\"$host\", volume=\"D:\"} / wmi_logical_disk_size_bytes{instance=~\"$host\", volume=\"D:\"})",
+          "expr": "(1- sum by(instance)(wmi_logical_disk_free_bytes{instance=~\"$host\", volume!~\"C:|HarddiskVolume.+\"}) / sum by(instance)(wmi_logical_disk_size_bytes{instance=~\"$host\", volume!~\"C:|HarddiskVolume.+\"})) or (1- node_filesystem_free{instance=~\"$host\", mountpoint=\"/data\"}  / node_filesystem_size{instance=~\"$host\", mountpoint=\"/data\"})",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,

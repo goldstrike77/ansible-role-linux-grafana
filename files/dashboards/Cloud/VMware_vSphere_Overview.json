@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 37,
-  "iteration": 1544839493995,
+  "id": 4,
+  "iteration": 1545270033376,
   "links": [
     {
       "asDropdown": true,
@@ -909,7 +909,7 @@
         {
           "op": "=",
           "text": "Downgrade",
-          "value": "2"
+          "value": "<1"
         }
       ],
       "valueName": "current"
@@ -1467,5 +1467,5 @@
   "timezone": "browser",
   "title": "VMware vSphere Overview",
   "uid": "8LdfoUEmz",
-  "version": 38
+  "version": 1
 }

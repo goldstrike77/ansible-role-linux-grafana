@@ -7,3 +7,17 @@
     group: 'grafana'
     mode: 0644
   with_items: '{{ grafana_dashboards }}'
+
+- name: Set default home dashboard
+  file:
+    src: '{{ grafana_path }}/grafana/dashboards/Universal/Cross_Server_Graphs.json'
+    dest: '/usr/share/grafana/public/dashboards/home.json'
+    state: 'link'
+    force: 'yes'
+  failed_when: false
+  ignore_errors: true
+
+- name: Disable Getting Started Panel
+  shell: 'sqlite3 {{ grafana_path }}/grafana/grafana.db "update user set help_flags1 = 1;"'
+  no_log: true
+  failed_when: false
