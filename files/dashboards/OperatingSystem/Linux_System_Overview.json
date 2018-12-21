@@ -16,8 +16,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 39,
-  "iteration": 1545186244613,
+  "id": 28,
+  "iteration": 1545358114911,
   "links": [
     {
       "asDropdown": true,
@@ -419,7 +419,7 @@
         }
       ],
       "thresholds": "",
-      "title": "Memory",
+      "title": "Physical Memory",
       "type": "singlestat",
       "valueFontSize": "50%",
       "valueMaps": [
@@ -3036,6 +3036,7 @@
         "auto_count": 200,
         "auto_min": "1s",
         "current": {
+          "selected": true,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -3091,6 +3092,7 @@
       {
         "allValue": null,
         "current": {
+          "selected": true,
           "text": "DEMO",
           "value": "DEMO"
         },
@@ -3117,8 +3119,9 @@
         "allFormat": "glob",
         "allValue": null,
         "current": {
-          "text": "S-DEMO-APP02",
-          "value": "S-DEMO-APP02"
+          "tags": [],
+          "text": "S-DEMO-APP01",
+          "value": "S-DEMO-APP01"
         },
         "datasource": "Prometheus",
         "definition": "",
@@ -3182,5 +3185,5 @@
   "timezone": "browser",
   "title": "Linux System Overview",
   "uid": "qyzrQGHmk",
-  "version": 3
+  "version": 1
 }

@@ -16,8 +16,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 42,
-  "iteration": 1545186799027,
+  "id": 34,
+  "iteration": 1545357952062,
   "links": [
     {
       "asDropdown": true,
@@ -398,7 +398,7 @@
         }
       ],
       "thresholds": "",
-      "title": "Memory",
+      "title": "Physical Memory",
       "type": "singlestat",
       "valueFontSize": "50%",
       "valueMaps": [
@@ -1879,7 +1879,6 @@
         "auto_count": 200,
         "auto_min": "1s",
         "current": {
-          "selected": false,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -1957,7 +1956,6 @@
       {
         "allValue": null,
         "current": {
-          "selected": false,
           "tags": [],
           "text": "S-DEMO-WEB01",
           "value": "S-DEMO-WEB01"
@@ -2015,5 +2013,5 @@
   "timezone": "browser",
   "title": "Windows System Overview",
   "uid": "8z5sWWymz",
-  "version": 27
+  "version": 1
 }
