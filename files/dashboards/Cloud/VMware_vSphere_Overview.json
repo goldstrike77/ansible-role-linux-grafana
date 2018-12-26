@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 4,
-  "iteration": 1545270033376,
+  "id": 10,
+  "iteration": 1545795260829,
   "links": [
     {
       "asDropdown": true,
@@ -619,7 +619,7 @@
       "scroll": true,
       "showHeader": true,
       "sort": {
-        "col": 0,
+        "col": 1,
         "desc": true
       },
       "styles": [
@@ -772,22 +772,6 @@
           "unit": "percent"
         },
         {
-          "alias": "Total",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 1,
-          "mappingType": 1,
-          "pattern": "Value #B",
-          "thresholds": [],
-          "type": "number",
-          "unit": "decbytes"
-        },
-        {
           "alias": "",
           "colorMode": null,
           "colors": [
@@ -802,23 +786,69 @@
           "thresholds": [],
           "type": "hidden",
           "unit": "short"
+        },
+        {
+          "alias": "Capacity",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 1,
+          "mappingType": 1,
+          "pattern": "Value #C",
+          "thresholds": [],
+          "type": "number",
+          "unit": "bytes"
+        },
+        {
+          "alias": "Provisoned",
+          "colorMode": "cell",
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 1,
+          "mappingType": 1,
+          "pattern": "Value #B",
+          "thresholds": [
+            "1",
+            "1.5"
+          ],
+          "type": "number",
+          "unit": "percentunit"
         }
       ],
       "targets": [
         {
-          "expr": "(1 - (vmware_datastore_freespace_size{environment=\"$environment\",ds_name!~\"local-.*\"}) / (vmware_datastore_capacity_size {environment=\"$environment\",ds_name!~\"local-.*\"})) * 100",
+          "expr": "(1 - (vmware_datastore_freespace_size{environment=\"$environment\",ds_name!~\"local-.*\"}) / (vmware_datastore_capacity_size{environment=\"$environment\",ds_name!~\"local-.*\"})) * 100",
           "format": "table",
+          "hide": false,
           "instant": true,
           "interval": "10m",
           "intervalFactor": 1,
           "refId": "A"
         },
         {
-          "expr": "(vmware_datastore_capacity_size {environment=\"$environment\",ds_name!~\"local-.*\"})",
+          "expr": "vmware_datastore_capacity_size{environment=\"$environment\",ds_name!~\"local-.*\"}",
           "format": "table",
+          "hide": false,
+          "instant": true,
+          "intervalFactor": 1,
+          "refId": "C"
+        },
+        {
+          "expr": " vmware_datastore_provisoned_size{environment=\"$environment\",ds_name!~\"local-.*\"} / vmware_datastore_capacity_size{environment=\"$environment\",ds_name!~\"local-.*\"}",
+          "format": "table",
+          "hide": false,
           "instant": true,
           "interval": "10m",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "B"
         }
       ],
