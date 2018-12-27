@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 10,
-  "iteration": 1545272224589,
+  "iteration": 1545876078331,
   "links": [
     {
       "asDropdown": true,
@@ -555,22 +555,6 @@
           "dateFormat": "YYYY-MM-DD HH:mm:ss",
           "decimals": 2,
           "mappingType": 1,
-          "pattern": "Value",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "alias": "",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
           "pattern": "__name__",
           "thresholds": [],
           "type": "hidden",
@@ -719,18 +703,135 @@
           "thresholds": [],
           "type": "hidden",
           "unit": "short"
+        },
+        {
+          "alias": "Virtual CPUs",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Value #B",
+          "thresholds": [],
+          "type": "string",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Value #A",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "Physical Memory",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "mappingType": 1,
+          "pattern": "Value #C",
+          "thresholds": [],
+          "type": "number",
+          "unit": "bytes"
+        },
+        {
+          "alias": "Disk Provisioning",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "mappingType": 1,
+          "pattern": "Value #D",
+          "thresholds": [],
+          "type": "number",
+          "unit": "bytes"
+        },
+        {
+          "alias": "Uptime",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 1,
+          "mappingType": 1,
+          "pattern": "Value #E",
+          "thresholds": [],
+          "type": "number",
+          "unit": "s"
         }
       ],
       "targets": [
         {
           "expr": "node_uname_info{instance=~\"$host\"}",
           "format": "table",
+          "hide": false,
           "instant": true,
           "interval": "60m",
           "intervalFactor": 1,
           "legendFormat": "",
           "refId": "A",
           "step": 300
+        },
+        {
+          "expr": "sum by(instance)(wmi_cs_logical_processors{instance=~\"$host\"}) or count by(instance)(node_cpu{instance=~\"$host\",mode=\"user\"})",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "60m",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "B"
+        },
+        {
+          "expr": "sum by(instance)(node_memory_MemTotal{instance=~\"$host\"}) or sum by(instance)(wmi_os_visible_memory_bytes{instance=~\"$host\"})",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "60m",
+          "intervalFactor": 1,
+          "refId": "C"
+        },
+        {
+          "expr": "sum by(instance)(node_filesystem_size{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) or sum by(instance)(wmi_logical_disk_size_bytes{instance=~\"$host\"})",
+          "format": "table",
+          "instant": true,
+          "interval": "60m",
+          "intervalFactor": 1,
+          "refId": "D"
+        },
+        {
+          "expr": "(time() - wmi_system_system_up_time{instance=~\"$host\"}) or ((time() - node_boot_time{instance=~\"$host\"}))",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "60m",
+          "intervalFactor": 1,
+          "refId": "E"
         }
       ],
       "timeFrom": "5m",
