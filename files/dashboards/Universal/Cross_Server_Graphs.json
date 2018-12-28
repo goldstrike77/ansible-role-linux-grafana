@@ -14,9 +14,9 @@
   },
   "editable": true,
   "gnetId": null,
-  "graphTooltip": 0,
-  "id": 10,
-  "iteration": 1545876078331,
+  "graphTooltip": 1,
+  "id": 4,
+  "iteration": 1545973165813,
   "links": [
     {
       "asDropdown": true,
@@ -855,6 +855,7 @@
         "auto_count": 200,
         "auto_min": "1s",
         "current": {
+          "selected": true,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -911,6 +912,7 @@
       {
         "allValue": null,
         "current": {
+          "selected": true,
           "text": "DEMO",
           "value": "DEMO"
         },
@@ -937,10 +939,9 @@
         "allFormat": "pipe",
         "allValue": null,
         "current": {
+          "selected": true,
           "text": "All",
-          "value": [
-            "$__all"
-          ]
+          "value": "$__all"
         },
         "datasource": "Prometheus",
         "definition": "node_uname_info{group=~\"$group\"}",
@@ -1003,5 +1004,5 @@
   "timezone": "browser",
   "title": "Cross Server Graphs",
   "uid": "Swz9QGNmz",
-  "version": 1
+  "version": 2
 }

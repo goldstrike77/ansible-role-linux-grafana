@@ -14,9 +14,9 @@
   },
   "editable": true,
   "gnetId": null,
-  "graphTooltip": 0,
+  "graphTooltip": 1,
   "id": 10,
-  "iteration": 1545795260829,
+  "iteration": 1545972615699,
   "links": [
     {
       "asDropdown": true,
@@ -1497,5 +1497,5 @@
   "timezone": "browser",
   "title": "VMware vSphere Overview",
   "uid": "8LdfoUEmz",
-  "version": 1
+  "version": 2
 }
