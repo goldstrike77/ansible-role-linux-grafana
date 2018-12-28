@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 14,
-  "iteration": 1544840291518,
+  "id": 15,
+  "iteration": 1545989368312,
   "links": [
     {
       "asDropdown": true,
@@ -163,7 +163,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "rate(prometheus_tsdb_wal_fsync_duration_seconds_sum[6h])/rate(prometheus_tsdb_wal_fsync_duration_seconds_count[6h])",
+          "expr": "rate(prometheus_tsdb_wal_fsync_duration_seconds_sum{instance=\"$host\"}[6h])/rate(prometheus_tsdb_wal_fsync_duration_seconds_count{instance=\"$host\"}[6h])",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -247,7 +247,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "rate(prometheus_tsdb_head_gc_duration_seconds_sum[6h])/rate(prometheus_tsdb_head_gc_duration_seconds_count[6h])",
+          "expr": "rate(prometheus_tsdb_head_gc_duration_seconds_sum{instance=\"$host\"}[6h])/rate(prometheus_tsdb_head_gc_duration_seconds_count{instance=\"$host\"}[6h])",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -334,7 +334,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(rate(prometheus_target_interval_length_seconds_count[$interval])) or sum(irate(prometheus_target_interval_length_seconds_count[5m]))",
+          "expr": "sum(rate(prometheus_target_interval_length_seconds_count{instance=\"$host\"}[$interval])) or sum(irate(prometheus_target_interval_length_seconds_count{instance=\"$host\"}[5m]))",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -420,7 +420,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "rate(prometheus_tsdb_head_samples_appended_total[$interval]) or irate(prometheus_tsdb_head_samples_appended_total[5m])",
+          "expr": "rate(prometheus_tsdb_head_samples_appended_total{instance=\"$host\"}[$interval]) or irate(prometheus_tsdb_head_samples_appended_total{instance=\"$host\"}[5m])",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -503,7 +503,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "prometheus_tsdb_blocks_loaded",
+          "expr": "prometheus_tsdb_blocks_loaded{instance=\"$host\"}",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -586,7 +586,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "prometheus_tsdb_head_series",
+          "expr": "prometheus_tsdb_head_series{instance=\"$host\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "series",
@@ -669,7 +669,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "prometheus_tsdb_head_max_time - prometheus_tsdb_head_min_time",
+          "expr": "prometheus_tsdb_head_max_time - prometheus_tsdb_head_min_time{instance=\"$host\"}",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -753,7 +753,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "rate(prometheus_tsdb_compaction_duration_seconds_sum[6h])/rate(prometheus_tsdb_compaction_duration_seconds_count[6h])",
+          "expr": "rate(prometheus_tsdb_compaction_duration_seconds_sum{instance=\"$host\"}[6h])/rate(prometheus_tsdb_compaction_duration_seconds_count{instance=\"$host\"}[6h])",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -843,7 +843,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(process_cpu_seconds_total{job=\"prometheus\"}[$interval]) or irate(process_cpu_seconds_total{job=\"prometheus\"}[5m])",
+          "expr": "rate(process_cpu_seconds_total{instance=\"$host\",job=\"prometheus\"}[$interval]) or irate(process_cpu_seconds_total{instance=\"$host\",job=\"prometheus\"}[5m])",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -854,7 +854,7 @@
           "step": 60
         },
         {
-          "expr": "count(node_cpu{mode=\"user\", instance=\"pmm-server\"})",
+          "expr": "count(node_cpu{mode=\"user\", instance=\"$host\",job=\"prometheus\"})",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -863,7 +863,7 @@
           "step": 40
         },
         {
-          "expr": "count(node_cpu{mode=\"user\", instance=\"pmm-server\"})*0.75",
+          "expr": "count(node_cpu{mode=\"user\", instance=\"$host\",job=\"prometheus\"})*0.75",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -971,7 +971,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "process_resident_memory_bytes{job=\"prometheus\"}",
+          "expr": "process_resident_memory_bytes{instance=\"$host\",job=\"prometheus\"}",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -982,7 +982,7 @@
           "step": 60
         },
         {
-          "expr": "process_virtual_memory_bytes{job=\"prometheus\"}",
+          "expr": "process_virtual_memory_bytes{instance=\"$host\",job=\"prometheus\"}",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -992,7 +992,7 @@
           "step": 60
         },
         {
-          "expr": "go_memstats_alloc_bytes{job=\"prometheus\"}+go_memstats_stack_inuse_bytes{job=\"prometheus\"}",
+          "expr": "go_memstats_alloc_bytes{instance=\"$host\",job=\"prometheus\"}+go_memstats_stack_inuse_bytes{instance=\"$host\",job=\"prometheus\"}",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -1002,7 +1002,7 @@
           "step": 60
         },
         {
-          "expr": "node_memory_MemTotal{instance=\"pmm-server\"}",
+          "expr": "node_memory_MemTotal{instance=\"$host\",job=\"prometheus\"}",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -1102,7 +1102,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "max_over_time(prometheus_tsdb_head_chunks[$interval]) ",
+          "expr": "max_over_time(prometheus_tsdb_head_chunks{instance=\"$host\"}[$interval]) ",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -1110,7 +1110,7 @@
           "refId": "A"
         },
         {
-          "expr": "max_over_time(prometheus_tsdb_head_series[$interval]) ",
+          "expr": "max_over_time(prometheus_tsdb_head_series{instance=\"$host\"}[$interval]) ",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -1118,7 +1118,7 @@
           "refId": "B"
         },
         {
-          "expr": "rate(prometheus_tsdb_compaction_chunk_size_sum[6h])/rate(prometheus_tsdb_compaction_chunk_size_count[6h])*(max_over_time(prometheus_tsdb_head_chunks[$interval]) )",
+          "expr": "rate(prometheus_tsdb_compaction_chunk_size_sum{instance=\"$host\"}[6h])/rate(prometheus_tsdb_compaction_chunk_size_count{instance=\"$host\"}[6h])*(max_over_time(prometheus_tsdb_head_chunks{instance=\"$host\"}[$interval]) )",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -1208,7 +1208,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "max_over_time(prometheus_tsdb_blocks_loaded[$interval])",
+          "expr": "max_over_time(prometheus_tsdb_blocks_loaded{instance=\"$host\"}[$interval])",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -1312,7 +1312,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(prometheus_tsdb_head_chunks_created_total[$interval]) or irate(prometheus_tsdb_head_chunks_created_total[5m])",
+          "expr": "rate(prometheus_tsdb_head_chunks_created_total{instance=\"$host\"}[$interval]) or irate(prometheus_tsdb_head_chunks_created_total{instance=\"$host\"}[5m])",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -1320,7 +1320,7 @@
           "refId": "A"
         },
         {
-          "expr": "rate(prometheus_tsdb_head_chunks_removed_total[$interval]) or irate(prometheus_tsdb_head_chunks_removed_total[5m])",
+          "expr": "rate(prometheus_tsdb_head_chunks_removed_total{instance=\"$host\"}[$interval]) or irate(prometheus_tsdb_head_chunks_removed_total{instance=\"$host\"}[5m])",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -1412,7 +1412,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "(rate(prometheus_tsdb_reloads_total[$interval]) - rate(prometheus_tsdb_reloads_failures_total[$interval])) or (irate(prometheus_tsdb_reloads_total[5m]) - irate(prometheus_tsdb_reloads_failures_total[5m]))",
+          "expr": "(rate(prometheus_tsdb_reloads_total{instance=\"$host\"}[$interval]) - rate(prometheus_tsdb_reloads_failures_total{instance=\"$host\"}[$interval])) or (irate(prometheus_tsdb_reloads_total{instance=\"$host\"}[5m]) - irate(prometheus_tsdb_reloads_failures_total{instance=\"$host\"}[5m]))",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -1421,7 +1421,7 @@
           "refId": "A"
         },
         {
-          "expr": "rate(prometheus_tsdb_reloads_failures_total[$interval]) or irate(prometheus_tsdb_reloads_failures_total[5m])",
+          "expr": "rate(prometheus_tsdb_reloads_failures_total{instance=\"$host\"}[$interval]) or irate(prometheus_tsdb_reloads_failures_total{instance=\"$host\"}[5m])",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -1535,7 +1535,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(prometheus_target_interval_length_seconds_count[$interval])) or sum(irate(prometheus_target_interval_length_seconds_count[5m]))",
+          "expr": "sum(rate(prometheus_target_interval_length_seconds_count{instance=\"$host\"}[$interval])) or sum(irate(prometheus_target_interval_length_seconds_count{instance=\"$host\"}[5m]))",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -1545,7 +1545,7 @@
           "step": 60
         },
         {
-          "expr": "rate(prometheus_tsdb_head_samples_appended_total[$interval]) or irate(prometheus_tsdb_head_samples_appended_total[5m])",
+          "expr": "rate(prometheus_tsdb_head_samples_appended_total{instance=\"$host\"}[$interval]) or irate(prometheus_tsdb_head_samples_appended_total{instance=\"$host\"}[5m])",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -1660,7 +1660,7 @@
           "step": 60
         },
         {
-          "expr": "sum(avg_over_time(up[$interval])) or  sum(avg_over_time(up[5m]))",
+          "expr": "sum(avg_over_time(up{instance=\"$host\"}[$interval])) or  sum(avg_over_time(up{instance=\"$host\"}[5m]))",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -1670,7 +1670,7 @@
           "step": 60
         },
         {
-          "expr": "sum(min_over_time(up[$interval])) or  sum(min_over_time(up[5m]))",
+          "expr": "sum(min_over_time(up{instance=\"$host\"}[$interval])) or  sum(min_over_time(up{instance=\"$host\"}[5m]))",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -1774,7 +1774,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(avg_over_time(up[$interval])) by (job) or sum(avg_over_time(up[5m])) by (job)",
+          "expr": "sum(avg_over_time(up{instance=\"$host\"}[$interval])) by (job) or sum(avg_over_time(up{instance=\"$host\"}[5m])) by (job)",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -1873,7 +1873,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "avg(avg_over_time(scrape_duration_seconds[$interval])) by (job) or avg(avg_over_time(scrape_duration_seconds[5m])) by (job) ",
+          "expr": "avg(avg_over_time(scrape_duration_seconds{instance=\"$host\"}[$interval])) by (job) or avg(avg_over_time(scrape_duration_seconds{instance=\"$host\"}[5m])) by (job) ",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -1977,7 +1977,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(avg_over_time(up[$interval])) by (instance) or sum(avg_over_time(up[5m])) by (instance)",
+          "expr": "sum(avg_over_time(up{instance=\"$host\"}[$interval])) by (instance) or sum(avg_over_time(up{instance=\"$host\"}[5m])) by (instance)",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -2076,7 +2076,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "avg(avg_over_time(scrape_duration_seconds[$interval])) by (instance) or avg(avg_over_time(scrape_duration_seconds[5m])) by (instance) ",
+          "expr": "avg(avg_over_time(scrape_duration_seconds{instance=\"$host\"}[$interval])) by (instance) or avg(avg_over_time(scrape_duration_seconds{instance=\"$host\"}[5m])) by (instance) ",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -2180,7 +2180,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(prometheus_target_interval_length_seconds_count[$interval]) or irate(prometheus_target_interval_length_seconds_count[5m])",
+          "expr": "rate(prometheus_target_interval_length_seconds_count{instance=\"$host\"}[$interval]) or irate(prometheus_target_interval_length_seconds_count{instance=\"$host\"}[5m])",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -2284,7 +2284,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "(rate(prometheus_target_interval_length_seconds_sum[$interval]) / rate(prometheus_target_interval_length_seconds_count[$interval])) or (irate(prometheus_target_interval_length_seconds_sum[5m]) / irate(prometheus_target_interval_length_seconds_count[5m]))",
+          "expr": "(rate(prometheus_target_interval_length_seconds_sum{instance=\"$host\"}[$interval]) / rate(prometheus_target_interval_length_seconds_count{instance=\"$host\"}[$interval])) or (irate(prometheus_target_interval_length_seconds_sum{instance=\"$host\"}[5m]) / irate(prometheus_target_interval_length_seconds_count{instance=\"$host\"}[5m]))",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -2383,7 +2383,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "time() - node_time",
+          "expr": "time() - node_time{instance=\"$host\"}",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -2487,7 +2487,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "(sum(prometheus_target_interval_length_seconds{instance=\"pmm-server\",interval=\"1s\",job=\"prometheus\",quantile=\"0.99\"}) by () - sum(prometheus_target_interval_length_seconds{instance=\"pmm-server\",interval=\"1s\",job=\"prometheus\",quantile=\"0.01\"}) by ())/1",
+          "expr": "(sum(prometheus_target_interval_length_seconds{instance=\"$host\",interval=\"1s\",job=\"prometheus\",quantile=\"0.99\"}) by () - sum(prometheus_target_interval_length_seconds{instance=\"$host\",interval=\"1s\",job=\"prometheus\",quantile=\"0.01\"}) by ())/1",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -2497,7 +2497,7 @@
           "step": 60
         },
         {
-          "expr": "(sum(prometheus_target_interval_length_seconds{instance=\"pmm-server\",interval=\"5s\",job=\"prometheus\",quantile=\"0.99\"}) by () - sum(prometheus_target_interval_length_seconds{instance=\"pmm-server\",interval=\"5s\",job=\"prometheus\",quantile=\"0.01\"}) by ())/5",
+          "expr": "(sum(prometheus_target_interval_length_seconds{instance=\"$host\",interval=\"5s\",job=\"prometheus\",quantile=\"0.99\"}) by () - sum(prometheus_target_interval_length_seconds{instance=\"$host\",interval=\"5s\",job=\"prometheus\",quantile=\"0.01\"}) by ())/5",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -2505,7 +2505,7 @@
           "refId": "B"
         },
         {
-          "expr": "(sum(prometheus_target_interval_length_seconds{instance=\"pmm-server\",interval=\"1m0s\",job=\"prometheus\",quantile=\"0.99\"}) by () - sum(prometheus_target_interval_length_seconds{instance=\"pmm-server\",interval=\"1m0s\",job=\"prometheus\",quantile=\"0.01\"}) by ())/60",
+          "expr": "(sum(prometheus_target_interval_length_seconds{instance=\"$host\",interval=\"1m0s\",job=\"prometheus\",quantile=\"0.99\"}) by () - sum(prometheus_target_interval_length_seconds{instance=\"$host\",interval=\"1m0s\",job=\"prometheus\",quantile=\"0.01\"}) by ())/60",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -2607,11 +2607,11 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "topk(10,max_over_time(scrape_duration_seconds[$interval]) or max_over_time(scrape_duration_seconds[5m]))",
+          "expr": "topk(10,max_over_time(scrape_duration_seconds{instance=\"$host\"}[$interval]) or max_over_time(scrape_duration_seconds{instance=\"$host\"}[5m]))",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
-          "legendFormat": "{{job}} at {{instance}}",
+          "legendFormat": "{{job}} at {{service}}",
           "metric": "",
           "refId": "A",
           "step": 60
@@ -2711,11 +2711,11 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "topk(10,max_over_time(scrape_samples_scraped[$interval]) or max_over_time(scrape_duration_seconds[5m]))",
+          "expr": "topk(10,max_over_time(scrape_samples_scraped{instance=\"$host\"}[$interval]) or max_over_time(scrape_duration_seconds{instance=\"$host\"}[5m]))",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
-          "legendFormat": "{{job}} at {{instance}}",
+          "legendFormat": "{{job}} at {{service}}",
           "metric": "",
           "refId": "A",
           "step": 60
@@ -2833,7 +2833,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "avg_over_time(prometheus_engine_queries[$interval]) or avg_over_time(prometheus_engine_queries[5m])",
+          "expr": "avg_over_time(prometheus_engine_queries{instance=\"$host\"}[$interval]) or avg_over_time(prometheus_engine_queries{instance=\"$host\"}[5m])",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -2843,7 +2843,7 @@
           "step": 60
         },
         {
-          "expr": "max_over_time(prometheus_engine_queries[$interval]) or max_over_time(prometheus_engine_queries[5m])",
+          "expr": "max_over_time(prometheus_engine_queries{instance=\"$host\"}[$interval]) or max_over_time(prometheus_engine_queries{instance=\"$host\"}[5m])",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -2852,7 +2852,7 @@
           "step": 60
         },
         {
-          "expr": "prometheus_engine_queries_concurrent_max",
+          "expr": "prometheus_engine_queries_concurrent_max{instance=\"$host\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "Maximum Queries Permitted",
@@ -2958,7 +2958,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(prometheus_engine_query_duration_seconds_count[$interval]) or irate(prometheus_engine_query_duration_seconds_count[$interval]) ",
+          "expr": "rate(prometheus_engine_query_duration_seconds_count{instance=\"$host\"}[$interval]) or irate(prometheus_engine_query_duration_seconds_count{instance=\"$host\"}[$interval]) ",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -3066,7 +3066,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "(rate(prometheus_engine_query_duration_seconds_sum[$interval])/rate(prometheus_engine_query_duration_seconds_count[$interval])) or (irate(prometheus_engine_query_duration_seconds_sum[$interval])/irate(prometheus_engine_query_duration_seconds_count[$interval]))",
+          "expr": "(rate(prometheus_engine_query_duration_seconds_sum{instance=\"$host\"}[$interval])/rate(prometheus_engine_query_duration_seconds_count{instance=\"$host\"}[$interval])) or (irate(prometheus_engine_query_duration_seconds_sum{instance=\"$host\"}[$interval])/irate(prometheus_engine_query_duration_seconds_count{instance=\"$host\"}[$interval]))",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -3174,7 +3174,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(prometheus_engine_query_duration_seconds_sum[$interval])",
+          "expr": "rate(prometheus_engine_query_duration_seconds_sum{instance=\"$host\"}[$interval])",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -3458,13 +3458,48 @@
       "scroll": false,
       "showHeader": true,
       "sort": {
-        "col": 1,
+        "col": 2,
         "desc": true
       },
-      "styles": [],
+      "styles": [
+        {
+          "alias": "",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Time",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "Metrics",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "__name__",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        }
+      ],
       "targets": [
         {
           "expr": "topk(10, count({__name__=~\".+\"})  by (__name__))",
+          "format": "table",
+          "instant": true,
           "interval": "5m",
           "intervalFactor": 2,
           "legendFormat": "{{ __name__ }}",
@@ -3474,7 +3509,7 @@
       ],
       "timeFrom": "5m",
       "title": "Top 10 metrics by time series count",
-      "transform": "timeseries_aggregations",
+      "transform": "table",
       "type": "table"
     },
     {
@@ -3502,23 +3537,58 @@
       "scroll": false,
       "showHeader": true,
       "sort": {
-        "col": 1,
+        "col": 2,
         "desc": true
       },
-      "styles": [],
+      "styles": [
+        {
+          "alias": "",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Time",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "Instance",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "instance",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        }
+      ],
       "targets": [
         {
-          "expr": "topk(10, count({__name__=~\".+\"})  by (instance))",
+          "expr": "topk(10, count({__name__=~\".+\"}) by (instance))",
+          "format": "table",
+          "instant": true,
           "interval": "5m",
           "intervalFactor": 2,
-          "legendFormat": "{{ instance }}",
+          "legendFormat": "",
           "refId": "A",
           "step": 600
         }
       ],
       "timeFrom": "5m",
       "title": "Top 10 hosts by time series count",
-      "transform": "timeseries_aggregations",
+      "transform": "table",
       "type": "table"
     }
   ],
@@ -3587,6 +3657,73 @@
         "refresh": 2,
         "skipUrlSync": false,
         "type": "interval"
+      },
+      {
+        "allValue": null,
+        "current": {
+          "text": "DEMO",
+          "value": "DEMO"
+        },
+        "datasource": "Prometheus",
+        "definition": "label_values(prometheus_api_remote_read_queries, group)",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Group",
+        "multi": false,
+        "name": "group",
+        "options": [],
+        "query": "label_values(prometheus_api_remote_read_queries, group)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "tags": [],
+          "text": "S-DEMO-MON03",
+          "value": "S-DEMO-MON03"
+        },
+        "datasource": "Prometheus",
+        "definition": "prometheus_api_remote_read_queries{group=\"$group\"}",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Host",
+        "multi": false,
+        "name": "host",
+        "options": [
+          {
+            "selected": false,
+            "text": "S-DEMO-MON01",
+            "value": "S-DEMO-MON01"
+          },
+          {
+            "selected": false,
+            "text": "S-DEMO-MON02",
+            "value": "S-DEMO-MON02"
+          },
+          {
+            "selected": true,
+            "text": "S-DEMO-MON03",
+            "value": "S-DEMO-MON03"
+          }
+        ],
+        "query": "prometheus_api_remote_read_queries{group=\"$group\"}",
+        "refresh": 0,
+        "regex": "/instance=\"(.+?)\"/",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
       }
     ]
   },
