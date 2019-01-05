@@ -17,4 +17,4 @@ grafana_arg:
 # Datasource #
 grafana_ds_arg:
   prometheus_server: '127.0.0.1'
-  prometheus_port: '19192'
+  prometheus_port: '19090'
