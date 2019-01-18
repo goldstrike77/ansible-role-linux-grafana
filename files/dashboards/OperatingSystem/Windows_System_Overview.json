@@ -16,8 +16,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 34,
-  "iteration": 1545357952062,
+  "id": 8,
+  "iteration": 1547791970195,
   "links": [
     {
       "asDropdown": true,
@@ -339,7 +339,7 @@
         "#d44a3a"
       ],
       "datasource": "Prometheus",
-      "decimals": 2,
+      "decimals": 0,
       "format": "bytes",
       "gauge": {
         "maxValue": 100,
@@ -420,6 +420,7 @@
         "#d44a3a"
       ],
       "datasource": "Prometheus",
+      "decimals": 0,
       "format": "bytes",
       "gauge": {
         "maxValue": 100,
@@ -500,6 +501,7 @@
         "#d44a3a"
       ],
       "datasource": "Prometheus",
+      "decimals": 0,
       "description": "Memory + SWAP",
       "format": "bytes",
       "gauge": {
@@ -581,7 +583,7 @@
         "#d44a3a"
       ],
       "datasource": "Prometheus",
-      "decimals": 2,
+      "decimals": 0,
       "description": "Sum of disk space on all partitions.",
       "format": "bytes",
       "gauge": {
@@ -663,7 +665,7 @@
         "#d44a3a"
       ],
       "datasource": "Prometheus",
-      "decimals": 2,
+      "decimals": 0,
       "description": "Sum of disk free on all partitions.",
       "format": "bytes",
       "gauge": {

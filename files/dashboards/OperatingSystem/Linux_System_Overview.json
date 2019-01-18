@@ -16,8 +16,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 28,
-  "iteration": 1545358114911,
+  "id": 22,
+  "iteration": 1547791421777,
   "links": [
     {
       "asDropdown": true,
@@ -355,7 +355,7 @@
         "rgba(50, 172, 45, 0.97)"
       ],
       "datasource": "Prometheus",
-      "decimals": 2,
+      "decimals": 0,
       "editable": true,
       "error": false,
       "format": "bytes",
@@ -441,7 +441,7 @@
         "rgba(50, 172, 45, 0.97)"
       ],
       "datasource": "Prometheus",
-      "decimals": 2,
+      "decimals": 0,
       "description": "Free+Cached+Buffers",
       "editable": true,
       "error": false,
@@ -497,7 +497,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "(node_memory_MemAvailable{instance=\"$host\"} or (node_memory_MemFree{instance=\"$host\"} + node_memory_Buffers{instance=\"$host\"} + node_memory_Cached{instance=\"$host\"}))",
+          "expr": "node_memory_MemFree{instance=\"$host\"} + node_memory_Buffers{instance=\"$host\"} + node_memory_Cached{instance=\"$host\"}",
           "format": "time_series",
           "interval": "5m",
           "intervalFactor": 1,
@@ -528,7 +528,7 @@
         "rgba(50, 172, 45, 0.97)"
       ],
       "datasource": "Prometheus",
-      "decimals": 2,
+      "decimals": 0,
       "description": "Memory + SWAP",
       "editable": true,
       "error": false,
@@ -615,7 +615,7 @@
         "rgba(50, 172, 45, 0.97)"
       ],
       "datasource": "Prometheus",
-      "decimals": 2,
+      "decimals": 0,
       "description": "Sum of disk space on all partitions. Note  it can be significantly over-reported in some installations",
       "editable": true,
       "error": false,
@@ -712,7 +712,7 @@
         "rgba(50, 172, 45, 0.97)"
       ],
       "datasource": "Prometheus",
-      "decimals": 2,
+      "decimals": 0,
       "description": "Sum of disk free on all partitions. Note  it can be significantly over-reported in some installations",
       "editable": true,
       "error": false,
@@ -3036,7 +3036,6 @@
         "auto_count": 200,
         "auto_min": "1s",
         "current": {
-          "selected": true,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -3119,9 +3118,9 @@
         "allFormat": "glob",
         "allValue": null,
         "current": {
-          "tags": [],
-          "text": "S-DEMO-APP01",
-          "value": "S-DEMO-APP01"
+          "selected": false,
+          "text": "S-DEMO-DBS01",
+          "value": "S-DEMO-DBS01"
         },
         "datasource": "Prometheus",
         "definition": "",
