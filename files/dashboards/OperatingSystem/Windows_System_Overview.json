@@ -1171,7 +1171,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "wmi_system_threads{instance=~\"$host\"}",
+          "expr": "wmi_system_threads{instance=\"$host\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "system threads",
@@ -1258,7 +1258,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(wmi_service_state{instance=~\"$host\"}) by (state)",
+          "expr": "sum(wmi_service_state{instance=\"$host\"}) by (state)",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "{{state}}",
@@ -1818,7 +1818,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "(1 - wmi_logical_disk_free_bytes{instance=~\"$host\", volume !~\"HarddiskVolume.+\"} / wmi_logical_disk_size_bytes{instance=~\"$host\", volume !~\"HarddiskVolume.+\"})",
+          "expr": "(1 - wmi_logical_disk_free_bytes{instance=\"$host\", volume !~\"HarddiskVolume.+\"} / wmi_logical_disk_size_bytes{instance=\"$host\", volume !~\"HarddiskVolume.+\"})",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "{{volume}}",

@@ -3416,7 +3416,7 @@
         "multi": true,
         "name": "level",
         "options": [],
-        "query": "label_values(mongodb_mongod_rocksdb_files{cluster=~\"$cluster\",instance=~\"$host\",level!=\"total\"}, level)",
+        "query": "label_values(mongodb_mongod_rocksdb_files{cluster=~\"$cluster\",instance=\"$host\",level!=\"total\"}, level)",
         "refresh": 2,
         "regex": "",
         "skipUrlSync": false,

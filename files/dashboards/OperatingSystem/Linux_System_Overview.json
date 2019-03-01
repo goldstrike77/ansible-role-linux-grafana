@@ -876,7 +876,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "clamp_max(((avg by (mode) ( (clamp_max(rate(node_cpu{instance=\"$host\",mode!=\"idle\"}[$interval]),1)) or (clamp_max(irate(node_cpu{instance=\"$host\",mode!=\"idle\"}[5m]),1)) ))*100 or (avg_over_time(node_cpu_average{instance=~\"$host\", mode!=\"total\", mode!=\"idle\"}[$interval]) or avg_over_time(node_cpu_average{instance=~\"$host\", mode!=\"total\", mode!=\"idle\"}[5m]))),100)",
+          "expr": "clamp_max(((avg by (mode) ( (clamp_max(rate(node_cpu{instance=\"$host\",mode!=\"idle\"}[$interval]),1)) or (clamp_max(irate(node_cpu{instance=\"$host\",mode!=\"idle\"}[5m]),1)) ))*100 or (avg_over_time(node_cpu_average{instance=\"$host\", mode!=\"total\", mode!=\"idle\"}[$interval]) or avg_over_time(node_cpu_average{instance=\"$host\", mode!=\"total\", mode!=\"idle\"}[5m]))),100)",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -2814,7 +2814,7 @@
           "calculatedInterval": "2s",
           "datasourceErrors": {},
           "errors": {},
-          "expr": "sum(rate(node_network_receive_errs{instance=~\"$host\", device!=\"lo\"}[$interval])) or \nsum(irate(node_network_receive_errs{instance=~\"$host\", device!=\"lo\"}[5m]))",
+          "expr": "sum(rate(node_network_receive_errs{instance=\"$host\", device!=\"lo\"}[$interval])) or \nsum(irate(node_network_receive_errs{instance=\"$host\", device!=\"lo\"}[5m]))",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -2826,7 +2826,7 @@
           "target": ""
         },
         {
-          "expr": "sum(rate(node_network_transmit_errs{instance=~\"$host\", device!=\"lo\"}[$interval])) or\nsum(irate(node_network_transmit_errs{instance=~\"$host\", device!=\"lo\"}[5m]))",
+          "expr": "sum(rate(node_network_transmit_errs{instance=\"$host\", device!=\"lo\"}[$interval])) or\nsum(irate(node_network_transmit_errs{instance=\"$host\", device!=\"lo\"}[5m]))",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -2834,7 +2834,7 @@
           "refId": "B"
         },
         {
-          "expr": "sum(rate(node_network_receive_drop{instance=~\"$host\", device!=\"lo\"}[$interval])) or\nsum(irate(node_network_receive_drop{instance=~\"$host\", device!=\"lo\"}[5m]))",
+          "expr": "sum(rate(node_network_receive_drop{instance=\"$host\", device!=\"lo\"}[$interval])) or\nsum(irate(node_network_receive_drop{instance=\"$host\", device!=\"lo\"}[5m]))",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -2842,7 +2842,7 @@
           "refId": "C"
         },
         {
-          "expr": "sum(rate(node_network_transmit_drop{instance=~\"$host\", device!=\"lo\"}[$interval])) or \nsum(irate(node_network_transmit_drop{instance=~\"$host\", device!=\"lo\"}[5m]))",
+          "expr": "sum(rate(node_network_transmit_drop{instance=\"$host\", device!=\"lo\"}[$interval])) or \nsum(irate(node_network_transmit_drop{instance=\"$host\", device!=\"lo\"}[5m]))",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,

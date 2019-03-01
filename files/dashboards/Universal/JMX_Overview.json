@@ -225,7 +225,7 @@
       "steppedLine": true,
       "targets": [
         {
-          "expr": "jvm_memory_pool_bytes_used{instance=~\"$host\"}",
+          "expr": "jvm_memory_pool_bytes_used{instance=\"$host\"}",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -873,7 +873,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "tomcat_servlet_requestcount_total{instance=~\"$host\"}",
+          "expr": "tomcat_servlet_requestcount_total{instance=\"$host\"}",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -1079,7 +1079,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "jvm_threads_current{instance=~\"$host\"}",
+          "expr": "jvm_threads_current{instance=\"$host\"}",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 2,
@@ -1088,7 +1088,7 @@
           "step": 50
         },
         {
-          "expr": "jvm_threads_daemon{instance=~\"$host\"}",
+          "expr": "jvm_threads_daemon{instance=\"$host\"}",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 2,
@@ -1190,7 +1190,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "jvm_classes_loaded{instance=~\"$host\"}",
+          "expr": "jvm_classes_loaded{instance=\"$host\"}",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 5,

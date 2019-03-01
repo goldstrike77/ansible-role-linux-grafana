@@ -1038,7 +1038,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(pg_stat_database_tup_fetched{datname=~\"$db\",instance=~\"$host\"}[$interval])) or \nsum(irate(pg_stat_database_tup_fetched{datname=~\"$db\",instance=~\"$host\"}[5m]))",
+          "expr": "sum(rate(pg_stat_database_tup_fetched{datname=~\"$db\",instance=\"$host\"}[$interval])) or \nsum(irate(pg_stat_database_tup_fetched{datname=~\"$db\",instance=\"$host\"}[5m]))",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -1594,7 +1594,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "max_over_time(pg_stat_database_temp_files{instance=~\"$host\",datname!~\"template.*\"}[$interval]) or \nmax_over_time(pg_stat_database_temp_files{instance=~\"$host\",datname!~\"template.*\"}[5m])",
+          "expr": "max_over_time(pg_stat_database_temp_files{instance=\"$host\",datname!~\"template.*\"}[$interval]) or \nmax_over_time(pg_stat_database_temp_files{instance=\"$host\",datname!~\"template.*\"}[5m])",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -1691,7 +1691,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "max_over_time(pg_stat_database_temp_bytes{instance=~\"$host\",datname!~\"template.*\"}[$interval]) or \nmax_over_time(pg_stat_database_temp_bytes{instance=~\"$host\",datname!~\"template.*\"}[5m])",
+          "expr": "max_over_time(pg_stat_database_temp_bytes{instance=\"$host\",datname!~\"template.*\"}[$interval]) or \nmax_over_time(pg_stat_database_temp_bytes{instance=\"$host\",datname!~\"template.*\"}[5m])",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -1700,7 +1700,7 @@
           "refId": "A"
         },
         {
-          "expr": "rate(pg_stat_database_temp_bytes{instance=~\"$host\",datname!~\"template.*\"}[$interval]) or\nirate(pg_stat_database_temp_bytes{instance=~\"$host\",datname!~\"template.*\"}[5m])",
+          "expr": "rate(pg_stat_database_temp_bytes{instance=\"$host\",datname!~\"template.*\"}[$interval]) or\nirate(pg_stat_database_temp_bytes{instance=\"$host\",datname!~\"template.*\"}[5m])",
           "format": "time_series",
           "hide": true,
           "interval": "$interval",
@@ -2999,7 +2999,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "clamp_max(((avg by (mode) ( (clamp_max(rate(node_cpu{instance=\"$host\",mode!=\"idle\"}[$interval]),1)) or (clamp_max(irate(node_cpu{instance=\"$host\",mode!=\"idle\"}[5m]),1)) ))*100 or (avg_over_time(node_cpu_average{instance=~\"$host\", mode!=\"total\", mode!=\"idle\"}[$interval]) or \navg_over_time(node_cpu_average{instance=~\"$host\", mode!=\"total\", mode!=\"idle\"}[5m]))),100)",
+          "expr": "clamp_max(((avg by (mode) ( (clamp_max(rate(node_cpu{instance=\"$host\",mode!=\"idle\"}[$interval]),1)) or (clamp_max(irate(node_cpu{instance=\"$host\",mode!=\"idle\"}[5m]),1)) ))*100 or (avg_over_time(node_cpu_average{instance=\"$host\", mode!=\"total\", mode!=\"idle\"}[$interval]) or \navg_over_time(node_cpu_average{instance=\"$host\", mode!=\"total\", mode!=\"idle\"}[5m]))),100)",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
