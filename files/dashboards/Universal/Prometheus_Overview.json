@@ -843,7 +843,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(process_cpu_seconds_total{instance=\"$host\",job=\"prometheus\"}[$interval]) or irate(process_cpu_seconds_total{instance=\"$host\",job=\"prometheus\"}[5m])",
+          "expr": "rate(process_cpu_seconds_total{instance=\"$host\"}[$interval]) or irate(process_cpu_seconds_total{instance=\"$host\"}[5m])",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -854,7 +854,7 @@
           "step": 60
         },
         {
-          "expr": "count(node_cpu{mode=\"user\", instance=\"$host\",job=\"prometheus\"})",
+          "expr": "count(node_cpu{mode=\"user\", instance=\"$host\"})",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -863,7 +863,7 @@
           "step": 40
         },
         {
-          "expr": "count(node_cpu{mode=\"user\", instance=\"$host\",job=\"prometheus\"})*0.75",
+          "expr": "count(node_cpu{mode=\"user\", instance=\"$host\"})*0.75",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -971,7 +971,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "process_resident_memory_bytes{instance=\"$host\",job=\"prometheus\"}",
+          "expr": "process_resident_memory_bytes{instance=\"$host\"}",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -982,7 +982,7 @@
           "step": 60
         },
         {
-          "expr": "process_virtual_memory_bytes{instance=\"$host\",job=\"prometheus\"}",
+          "expr": "process_virtual_memory_bytes{instance=\"$host\"}",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -992,7 +992,7 @@
           "step": 60
         },
         {
-          "expr": "go_memstats_alloc_bytes{instance=\"$host\",job=\"prometheus\"}+go_memstats_stack_inuse_bytes{instance=\"$host\",job=\"prometheus\"}",
+          "expr": "go_memstats_alloc_bytes{instance=\"$host\"}+go_memstats_stack_inuse_bytes{instance=\"$host\"}",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -1002,7 +1002,7 @@
           "step": 60
         },
         {
-          "expr": "node_memory_MemTotal{instance=\"$host\",job=\"prometheus\"}",
+          "expr": "node_memory_MemTotal{instance=\"$host\"}",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -2487,7 +2487,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "(sum(prometheus_target_interval_length_seconds{instance=\"$host\",interval=\"1s\",job=\"prometheus\",quantile=\"0.99\"}) by () - sum(prometheus_target_interval_length_seconds{instance=\"$host\",interval=\"1s\",job=\"prometheus\",quantile=\"0.01\"}) by ())/1",
+          "expr": "(sum(prometheus_target_interval_length_seconds{instance=\"$host\",interval=\"1s\",quantile=\"0.99\"}) by () - sum(prometheus_target_interval_length_seconds{instance=\"$host\",interval=\"1s\",quantile=\"0.01\"}) by ())/1",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -2497,7 +2497,7 @@
           "step": 60
         },
         {
-          "expr": "(sum(prometheus_target_interval_length_seconds{instance=\"$host\",interval=\"5s\",job=\"prometheus\",quantile=\"0.99\"}) by () - sum(prometheus_target_interval_length_seconds{instance=\"$host\",interval=\"5s\",job=\"prometheus\",quantile=\"0.01\"}) by ())/5",
+          "expr": "(sum(prometheus_target_interval_length_seconds{instance=\"$host\",interval=\"5s\",quantile=\"0.99\"}) by () - sum(prometheus_target_interval_length_seconds{instance=\"$host\",interval=\"5s\",quantile=\"0.01\"}) by ())/5",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -2505,7 +2505,7 @@
           "refId": "B"
         },
         {
-          "expr": "(sum(prometheus_target_interval_length_seconds{instance=\"$host\",interval=\"1m0s\",job=\"prometheus\",quantile=\"0.99\"}) by () - sum(prometheus_target_interval_length_seconds{instance=\"$host\",interval=\"1m0s\",job=\"prometheus\",quantile=\"0.01\"}) by ())/60",
+          "expr": "(sum(prometheus_target_interval_length_seconds{instance=\"$host\",interval=\"1m0s\",quantile=\"0.99\"}) by () - sum(prometheus_target_interval_length_seconds{instance=\"$host\",interval=\"1m0s\",quantile=\"0.01\"}) by ())/60",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,

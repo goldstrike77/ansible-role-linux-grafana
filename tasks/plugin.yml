@@ -1,0 +1,12 @@
+---
+- name: Install Grafana plugins
+  grafana_plugin:
+    name: '{{ item }}'
+    grafana_repo: 'http://grafana.com/api/plugins'
+    grafana_plugins_dir: '{{ grafana_path }}/grafana/plugins'
+    version: 'latest'
+    state: 'present'
+  with_items:
+    - '{{ grafana_plugins }}'
+  ignore_errors: true
+  register: plug_updated

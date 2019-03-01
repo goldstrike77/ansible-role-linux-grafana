@@ -8,3 +8,5 @@ grafana_dashboards:
   - 'MongoDB'
   - 'MySQL'
   - 'PostgreSQL'
+grafana_plugins:
+  - 'grafana-piechart-panel'
