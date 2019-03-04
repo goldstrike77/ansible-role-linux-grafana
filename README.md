@@ -52,7 +52,7 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 ##### General parameters
 * `grafana_path`: Specify the Grafana data directory.
 * `grafana_admin_user`: The name of the default Grafana admin user.
-* `grafana_admin_password`: The password of the default Grafana admin
+* `grafana_admin_password`: The password of the default Grafana admin.
 
 ##### Listen port
 * `grafana_port`: Grafana instance listen port.
