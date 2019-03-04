@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 4,
-  "iteration": 1545973165813,
+  "id": 37,
+  "iteration": 1551687377557,
   "links": [
     {
       "asDropdown": true,
@@ -523,8 +523,8 @@
       "scroll": true,
       "showHeader": true,
       "sort": {
-        "col": 0,
-        "desc": false
+        "col": 9,
+        "desc": true
       },
       "styles": [
         {
@@ -621,7 +621,7 @@
           "mappingType": 1,
           "pattern": "nodename",
           "thresholds": [],
-          "type": "string",
+          "type": "hidden",
           "unit": "short"
         },
         {
@@ -641,7 +641,7 @@
           "unit": "short"
         },
         {
-          "alias": "Instance",
+          "alias": "Hostname",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -650,10 +650,11 @@
           ],
           "dateFormat": "YYYY-MM-DD HH:mm:ss",
           "decimals": 2,
+          "link": false,
           "mappingType": 1,
           "pattern": "instance",
           "thresholds": [],
-          "type": "hidden",
+          "type": "string",
           "unit": "short"
         },
         {
@@ -783,6 +784,54 @@
           "thresholds": [],
           "type": "number",
           "unit": "s"
+        },
+        {
+          "alias": "Group",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "group",
+          "thresholds": [],
+          "type": "string",
+          "unit": "short"
+        },
+        {
+          "alias": "Environment",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "environment",
+          "thresholds": [],
+          "type": "string",
+          "unit": "short"
+        },
+        {
+          "alias": "Address",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "ipaddress",
+          "thresholds": [],
+          "type": "string",
+          "unit": "short"
         }
       ],
       "targets": [
@@ -855,7 +904,6 @@
         "auto_count": 200,
         "auto_min": "1s",
         "current": {
-          "selected": true,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
