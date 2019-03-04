@@ -1,6 +1,6 @@
 ---
 # General parameters #
-grafana: 'false'
+grafana_is_install: 'false'
 grafana_path: '/data'
 grafana_admin_user: 'admin'
 grafana_admin_password: 'admin'
