@@ -16,25 +16,53 @@
     mode: 0664
   register: conf_updated
 
-- name: Grafana Dashboards configuration
+- name: Grafana Dashboards provisioning files discover
+  find:
+    paths: '/etc/grafana/provisioning/dashboards/'
+    patterns: "^.*.yaml"
+    use_regex: 'yes'
+  register: grafana_provisioning_dashboard_wildcard_files_to_delete
+
+- name: Grafana Dashboards provisioning structure cleanup
+  file:
+    path: '{{ item.path }}'
+    state: 'absent'
+  with_items: '{{ grafana_provisioning_dashboard_wildcard_files_to_delete.files }}'
+
+- name: Grafana Dashboards provisioning structure establish
   template:
     src: 'dashboards.yaml.j2'
-    dest: '/etc/grafana/provisioning/dashboards/{{ item }}.yaml'
-    owner: root
-    group: grafana
-    mode: 0640
-  with_items: '{{ grafana_dashboards }}'
-  register: dash_updated
-
-- name: Grafana Datasources configuration
-  template:
-    src: 'datasources/{{ item }}.yaml.j2'
-    dest: '/etc/grafana/provisioning/datasources/{{ item }}.yaml'
+    dest: '/etc/grafana/provisioning/dashboards/{{ item.category }}.yaml'
     owner: root
     group: grafana
     mode: 0640
   with_items:
-    - '{{ grafana_datasources }}'
+    - '{{ grafana_dashboard_arg }}'
+  register: dash_updated
+
+- name: Grafana Datasources provisioning files discover
+  find:
+    paths: '/etc/grafana/provisioning/datasources/'
+    patterns: "^.*.yaml"
+    use_regex: 'yes'
+  register: grafana_provisioning_datasources_wildcard_files_to_delete
+
+- name: Grafana Datasources provisioning structure cleanup
+  file:
+    path: '{{ item.path }}'
+    state: 'absent'
+  with_items: '{{ grafana_provisioning_datasources_wildcard_files_to_delete.files }}'
+
+- name: Grafana Datasources configuration
+  template:
+    src: 'datasources/{{ item.0.name }}.yaml.j2'
+    dest: '/etc/grafana/provisioning/datasources/{{ item.0.name }}.yaml'
+    owner: root
+    group: grafana
+    mode: 0640
+  with_subelements:
+    - '{{ grafana_ds_arg }}'
+    - 'settings'
   register: ds_updated
 
 - name: Grafana Analytics configuration

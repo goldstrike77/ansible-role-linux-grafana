@@ -9,4 +9,4 @@ datasources:
   type: prometheus
   orgId: 1
   access: proxy
-  url: http://{{ grafana_ds_arg.prometheus_server }}:{{ grafana_ds_arg.prometheus_port }}
+  url: http://{{ item.1.server }}:{{ item.1.port }}

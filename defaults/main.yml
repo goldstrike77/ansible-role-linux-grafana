@@ -16,5 +16,58 @@ grafana_arg:
 
 # Datasource #
 grafana_ds_arg:
-  prometheus_server: '127.0.0.1'
-  prometheus_port: '19090'
+  - name: 'prometheus'
+    settings:  
+      - server: '127.0.0.1'
+        port: '19090'
+
+# Plugins #
+grafana_plugins:
+  - 'grafana-piechart-panel'
+
+# Dashboard #
+grafana_dashboard_arg:
+  - category: 'Cloud'
+    title:
+      - 'VMware_vSphere_Overview'
+  - category: 'MongoDB'
+    title:
+      - 'MongoDB_Cluster_Summary'
+      - 'MongoDB_InMemory'
+      - 'MongoDB_MMAPv1'
+      - 'MongoDB_Overview'
+      - 'MongoDB_ReplSet'
+      - 'MongoDB_RocksDB'
+      - 'MongoDB_WiredTiger'
+  - category: 'MySQL'
+    title:
+      - 'MySQL_Command_Handler_Counters_Compare'
+      - 'MySQL_InnoDB_Compression'
+      - 'MySQL_InnoDB_Metrics_Advanced'
+      - 'MySQL_InnoDB_Metrics'
+      - 'MySQL_MyISAM_Aria_Metrics'
+      - 'MySQL_Overview'
+      - 'MySQL_Performance_Schema'
+      - 'MySQL_Performance_Schema_Wait_Event_Analyses'
+      - 'MySQL_Query_Response_Time'
+      - 'MySQL_Replication'
+      - 'MySQL_Table_Statistics'
+      - 'MySQL_User_Statistics'
+  - category: 'OperatingSystem'
+    title:
+      - 'Linux_Disk_Performance'
+      - 'Linux_Disk_Space'
+      - 'Linux_Network_Overview'
+      - 'Linux_System_Overview'
+      - 'Windows_System_Overview'
+  - category: 'PostgreSQL'
+    title:
+      - 'PostgreSQL_Overview'
+  - category: 'Universal'
+    title:
+      - 'Cross_Server_Graphs'
+      - 'JMX_Overview'
+      - 'Minio'
+      - 'Prometheus_Overview'
+      - 'Redis_Overview'
+      - 'Trickster_Overview'
