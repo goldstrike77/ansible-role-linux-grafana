@@ -99,7 +99,7 @@ You can also use the group_vars or the host_vars files for setting the variables
     grafana_admin_password: 'admin'
     grafana_port: '3000'
     grafana_arg:
-      default_theme: 'light' # dark or light
+      default_theme: 'light'
       reporting_enabled: 'false'
       check_for_updates: 'false'
     grafana_ds_arg:
