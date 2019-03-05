@@ -16,8 +16,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 8,
-  "iteration": 1547791970195,
+  "id": 32,
+  "iteration": 1551769972553,
   "links": [
     {
       "asDropdown": true,
@@ -312,17 +312,17 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "node_uname_info{instance=\"$host\"}",
+          "expr": "os_info{instance=\"$host\"}",
           "format": "time_series",
           "instant": false,
           "interval": "5m",
           "intervalFactor": 1,
-          "legendFormat": "{{ release }}",
+          "legendFormat": "{{ build }}",
           "refId": "A"
         }
       ],
       "thresholds": "",
-      "title": "Version",
+      "title": "Operating System",
       "transparent": false,
       "type": "singlestat",
       "valueFontSize": "50%",
