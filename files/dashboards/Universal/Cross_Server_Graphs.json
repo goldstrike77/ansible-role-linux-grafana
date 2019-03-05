@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": 37,
-  "iteration": 1551755304180,
+  "iteration": 1551784897553,
   "links": [
     {
       "asDropdown": true,
@@ -593,7 +593,7 @@
           "unit": "short"
         },
         {
-          "alias": "Version",
+          "alias": "Kernel / Build",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -835,11 +835,27 @@
           "thresholds": [],
           "type": "string",
           "unit": "short"
+        },
+        {
+          "alias": "Operating System",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "build",
+          "thresholds": [],
+          "type": "string",
+          "unit": "short"
         }
       ],
       "targets": [
         {
-          "expr": "node_uname_info{instance=~\"$host\"}",
+          "expr": "os_info{instance=~\"$host\"}",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -964,8 +980,8 @@
         "allValue": null,
         "current": {
           "selected": false,
-          "text": "MON",
-          "value": "MON"
+          "text": "DEMO",
+          "value": "DEMO"
         },
         "datasource": "Prometheus",
         "definition": "label_values(node_uname_info, group)",
@@ -1055,5 +1071,5 @@
   "timezone": "browser",
   "title": "Cross Server Graphs",
   "uid": "Swz9QGNmz",
-  "version": 3
+  "version": 4
 }
