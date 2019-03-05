@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 10,
-  "iteration": 1545972615699,
+  "id": 27,
+  "iteration": 1551754860955,
   "links": [
     {
       "asDropdown": true,
@@ -821,6 +821,22 @@
           ],
           "type": "number",
           "unit": "percentunit"
+        },
+        {
+          "alias": "",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "ipaddress",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
         }
       ],
       "targets": [
@@ -1497,5 +1513,5 @@
   "timezone": "browser",
   "title": "VMware vSphere Overview",
   "uid": "8LdfoUEmz",
-  "version": 2
+  "version": 1
 }
