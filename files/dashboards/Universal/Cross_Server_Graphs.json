@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 37,
-  "iteration": 1551784897553,
+  "id": 56,
+  "iteration": 1551862151901,
   "links": [
     {
       "asDropdown": true,
@@ -508,7 +508,7 @@
       "datasource": "Prometheus",
       "editable": true,
       "error": false,
-      "fontSize": "90%",
+      "fontSize": "100%",
       "gridPos": {
         "h": 9,
         "w": 24,
@@ -516,10 +516,12 @@
         "y": 22
       },
       "height": "",
-      "hideTimeOverride": true,
+      "hideTimeOverride": false,
       "id": 12,
       "links": [],
       "pageSize": null,
+      "repeat": null,
+      "repeatDirection": "h",
       "scroll": true,
       "showHeader": true,
       "sort": {
@@ -604,6 +606,8 @@
           "decimals": 2,
           "mappingType": 1,
           "pattern": "release",
+          "preserveFormat": false,
+          "sanitize": false,
           "thresholds": [],
           "type": "string",
           "unit": "short"
@@ -902,7 +906,8 @@
           "refId": "E"
         }
       ],
-      "timeFrom": "5m",
+      "timeFrom": "60m",
+      "timeShift": null,
       "title": "System Info",
       "transform": "table",
       "transparent": true,
@@ -979,7 +984,7 @@
       {
         "allValue": null,
         "current": {
-          "selected": false,
+          "selected": true,
           "text": "DEMO",
           "value": "DEMO"
         },
@@ -1071,5 +1076,5 @@
   "timezone": "browser",
   "title": "Cross Server Graphs",
   "uid": "Swz9QGNmz",
-  "version": 4
+  "version": 1
 }
