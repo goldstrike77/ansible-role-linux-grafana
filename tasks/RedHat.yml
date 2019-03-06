@@ -9,6 +9,9 @@
 
 - name: Install the grafana
   yum:
-    name: '{{ ",".join(vars["grafana_software"]) }}'
+    name: '{{ item }}'
     state: present
+  with_items: '{{ grafana_software }}'
+  changed_when: false
+  failed_when: false
   register: soft_updated
