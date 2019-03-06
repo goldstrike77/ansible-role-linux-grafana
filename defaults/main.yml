@@ -72,3 +72,4 @@ grafana_dashboard_arg:
       - 'Prometheus_Overview'
       - 'Redis_Overview'
       - 'Trickster_Overview'
+      - 'NGinx_Overview'
