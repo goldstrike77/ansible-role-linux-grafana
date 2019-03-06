@@ -16,8 +16,8 @@
   "editable": true,
   "gnetId": 5756,
   "graphTooltip": 1,
-  "id": 45,
-  "iteration": 1551435508579,
+  "id": 34,
+  "iteration": 1551840879871,
   "links": [
     {
       "asDropdown": true,
@@ -552,11 +552,11 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(increase(trickster_requests_total{instance=\"$host\"}[5m])) by (instance)",
+          "expr": "sum(increase(trickster_requests_total{instance=\"$host\"}[5m]))",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
-          "legendFormat": "{{ instance }}",
+          "legendFormat": "{{ requests }}",
           "metric": "",
           "refId": "A",
           "step": 300
@@ -566,7 +566,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Total requests by instance",
+      "title": "Total requests",
       "tooltip": {
         "shared": true,
         "sort": 2,
@@ -987,7 +987,7 @@
           ],
           "interval": "$interval",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{usage}}",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -1012,7 +1012,7 @@
           "expr": "max(kube_pod_container_resource_limits_cpu_cores{container=\"trickster\", pod=\"$host\"}) by (instance)",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "Limit {{instance}}",
+          "legendFormat": "Limit {{usage}}",
           "refId": "B"
         }
       ],
@@ -1106,7 +1106,7 @@
           "hide": false,
           "interval": "$interval",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{usage}}",
           "refId": "E"
         },
         {
@@ -1211,10 +1211,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "max(prometheus_engine_query_duration_seconds{instance=\"$host\"}) by (instance, slice)",
+          "expr": "max(prometheus_engine_query_duration_seconds{instance=\"$host\"}) by (slice)",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{ slice }} {{ instance }}",
+          "legendFormat": "{{ slice }}",
           "metric": "prometheus_local_storage_rushed_mode",
           "refId": "A",
           "step": 900
@@ -1307,10 +1307,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(increase(http_requests_total{instance=\"$host\"}[5m])) by (instance, handler) > 0",
+          "expr": "sum(increase(http_requests_total{instance=\"$host\"}[5m])) by (handler) > 0",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{ handler }} on {{ instance }}",
+          "legendFormat": "{{ handler }}",
           "metric": "",
           "refId": "A",
           "step": 1800
@@ -1412,11 +1412,11 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(http_request_duration_microseconds{instance=\"$host\"}) by (instance, handler, quantile)",
+          "expr": "sum(http_request_duration_microseconds{instance=\"$host\"}) by (handler, quantile)",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 1,
-          "legendFormat": "{{ handler }} {{ quantile }} {{instance}}",
+          "legendFormat": "{{ handler }} {{ quantile }}",
           "refId": "B"
         }
       ],
@@ -1554,7 +1554,6 @@
         "allValue": ".*",
         "current": {
           "selected": true,
-          "tags": [],
           "text": "S-DEMO-MON01",
           "value": "S-DEMO-MON01"
         },
@@ -1612,5 +1611,5 @@
   "timezone": "browser",
   "title": "Trickster Overview",
   "uid": "JBXDP9Wmk",
-  "version": 21
+  "version": 1
 }
