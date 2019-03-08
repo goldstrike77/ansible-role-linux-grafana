@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": 56,
-  "iteration": 1551946653906,
+  "iteration": 1552030231677,
   "links": [
     {
       "asDropdown": true,
@@ -509,7 +509,7 @@
       "datasource": "Prometheus",
       "editable": true,
       "error": false,
-      "fontSize": "100%",
+      "fontSize": "90%",
       "gridPos": {
         "h": 9,
         "w": 24,
@@ -806,7 +806,7 @@
           "mappingType": 1,
           "pattern": "group",
           "thresholds": [],
-          "type": "string",
+          "type": "hidden",
           "unit": "short"
         },
         {
@@ -853,9 +853,27 @@
           "decimals": 2,
           "mappingType": 1,
           "pattern": "build",
+          "preserveFormat": false,
           "thresholds": [],
           "type": "string",
           "unit": "short"
+        },
+        {
+          "alias": "Model",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "model",
+          "thresholds": [],
+          "type": "string",
+          "unit": "short",
+          "valueMaps": []
         }
       ],
       "targets": [
@@ -985,8 +1003,6 @@
       {
         "allValue": null,
         "current": {
-          "selected": true,
-          "tags": [],
           "text": "DEMO",
           "value": "DEMO"
         },
@@ -1013,8 +1029,12 @@
         "allFormat": "pipe",
         "allValue": null,
         "current": {
+          "selected": false,
+          "tags": [],
           "text": "All",
-          "value": "$__all"
+          "value": [
+            "$__all"
+          ]
         },
         "datasource": "Prometheus",
         "definition": "node_uname_info{group=~\"$group\"}",
@@ -1077,5 +1097,5 @@
   "timezone": "browser",
   "title": "Cross Server Graphs",
   "uid": "Swz9QGNmz",
-  "version": 3
+  "version": 4
 }
