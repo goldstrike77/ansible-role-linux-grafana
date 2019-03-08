@@ -25,6 +25,7 @@ grafana_ds_arg:
 # Plugins #
 grafana_plugins:
   - 'grafana-piechart-panel'
+  - 'percona-percona-app'
 
 # Dashboard #
 grafana_dashboard_arg:

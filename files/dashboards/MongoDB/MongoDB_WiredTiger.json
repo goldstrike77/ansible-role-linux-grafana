@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 35,
-  "iteration": 1544842533535,
+  "id": 92,
+  "iteration": 1552036230769,
   "links": [
     {
       "asDropdown": true,
@@ -152,6 +152,7 @@
       "targets": [
         {
           "expr": "mongodb_mongod_wiredtiger_cache_bytes{instance=\"$host\", type=\"total\"}",
+          "format": "time_series",
           "interval": "5m",
           "intervalFactor": 1,
           "refId": "A",
@@ -348,15 +349,17 @@
     {
       "cacheTimeout": null,
       "colorBackground": false,
-      "colorValue": true,
+      "colorValue": false,
       "colors": [
-        "#299c46",
+        "rgba(245, 54, 54, 0.9)",
         "rgba(237, 129, 40, 0.89)",
-        "#d44a3a"
+        "rgba(50, 172, 45, 0.97)"
       ],
       "datasource": "Prometheus",
-      "decimals": 0,
-      "format": "percent",
+      "decimals": 2,
+      "editable": true,
+      "error": false,
+      "format": "bytes",
       "gauge": {
         "maxValue": 100,
         "minValue": 0,
@@ -370,7 +373,8 @@
         "x": 18,
         "y": 0
       },
-      "id": 71,
+      "hideTimeOverride": true,
+      "id": 69,
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -385,12 +389,12 @@
         }
       ],
       "maxDataPoints": 100,
-      "nullPointMode": "connected",
+      "nullPointMode": "null",
       "nullText": null,
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
-      "prefixFontSize": "80%",
+      "prefixFontSize": "50%",
       "rangeMaps": [
         {
           "from": "null",
@@ -402,24 +406,25 @@
         "fillColor": "rgba(31, 118, 189, 0.18)",
         "full": false,
         "lineColor": "rgb(31, 120, 193)",
-        "maxValue": 100,
-        "minValue": 0,
-        "show": true
+        "show": false
       },
       "tableColumn": "",
       "targets": [
         {
           "expr": "(node_memory_MemAvailable{instance=\"$host\"} or (node_memory_MemFree{instance=\"$host\"} + node_memory_Buffers{instance=\"$host\"} + node_memory_Cached{instance=\"$host\"})) / node_memory_MemTotal{instance=\"$host\"} * 100",
           "format": "time_series",
-          "interval": "$interval",
+          "interval": "5m",
           "intervalFactor": 1,
-          "refId": "A"
+          "legendFormat": "",
+          "refId": "A",
+          "step": 300
         }
       ],
-      "thresholds": "90,95",
+      "thresholds": "",
+      "timeFrom": "1m",
       "title": "Memory Available",
-      "type": "pmm-singlestat-panel",
-      "valueFontSize": "80%",
+      "type": "singlestat",
+      "valueFontSize": "70%",
       "valueMaps": [
         {
           "op": "=",
@@ -427,7 +432,7 @@
           "value": "null"
         }
       ],
-      "valueName": "current"
+      "valueName": "avg"
     },
     {
       "aliasColors": {},
@@ -485,6 +490,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "WiredTiger Transactions",
       "tooltip": {
@@ -589,6 +595,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "WiredTiger Cache Activity",
       "tooltip": {
@@ -682,6 +689,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "WiredTiger Block Activity",
       "tooltip": {
@@ -785,6 +793,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "WiredTiger Sessions",
       "tooltip": {
@@ -882,6 +891,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "WiredTiger Concurrency Tickets Available",
       "tooltip": {
@@ -975,6 +985,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Queued Operations",
       "tooltip": {
@@ -1082,6 +1093,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "WiredTiger Checkpoint Time",
       "tooltip": {
@@ -1175,6 +1187,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "WiredTiger Cache Eviction",
       "tooltip": {
@@ -1280,6 +1293,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "WiredTiger Cache Capacity",
       "tooltip": {
@@ -1371,6 +1385,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "WiredTiger Cache Pages",
       "tooltip": {
@@ -1465,6 +1480,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "WiredTiger Log Operations",
       "tooltip": {
@@ -1558,6 +1574,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "WiredTiger Log Activity",
       "tooltip": {
@@ -1652,6 +1669,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "WiredTiger Log Records",
       "tooltip": {
@@ -1784,6 +1802,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Document Changes",
       "tooltip": {
@@ -1887,6 +1906,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Scanned and Moved Objects",
       "tooltip": {
@@ -1978,6 +1998,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Page Faults",
       "tooltip": {
@@ -2031,7 +2052,6 @@
         "auto_count": 200,
         "auto_min": "1s",
         "current": {
-          "selected": true,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -2089,8 +2109,8 @@
         "allValue": null,
         "current": {
           "tags": [],
-          "text": "All",
-          "value": "$__all"
+          "text": "elasticsearch",
+          "value": "elasticsearch"
         },
         "datasource": "Prometheus",
         "definition": "",
@@ -2116,8 +2136,9 @@
         "allFormat": "glob",
         "allValue": null,
         "current": {
-          "text": "S-DEMO-DBS01",
-          "value": "S-DEMO-DBS01"
+          "isNone": true,
+          "text": "None",
+          "value": ""
         },
         "datasource": "Prometheus",
         "definition": "",
@@ -2175,5 +2196,5 @@
   "timezone": "browser",
   "title": "MongoDB WiredTiger",
   "uid": "tBkrQGNmz",
-  "version": 2
+  "version": 1
 }

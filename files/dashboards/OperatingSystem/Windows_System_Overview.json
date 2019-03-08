@@ -16,8 +16,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 32,
-  "iteration": 1551769972553,
+  "id": 67,
+  "iteration": 1552038927910,
   "links": [
     {
       "asDropdown": true,
@@ -314,7 +314,7 @@
         {
           "expr": "os_info{instance=\"$host\"}",
           "format": "time_series",
-          "instant": false,
+          "instant": true,
           "interval": "5m",
           "intervalFactor": 1,
           "legendFormat": "{{ build }}",
@@ -1881,6 +1881,7 @@
         "auto_count": 200,
         "auto_min": "1s",
         "current": {
+          "selected": true,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -1958,7 +1959,7 @@
       {
         "allValue": null,
         "current": {
-          "tags": [],
+          "selected": true,
           "text": "S-DEMO-WEB01",
           "value": "S-DEMO-WEB01"
         },

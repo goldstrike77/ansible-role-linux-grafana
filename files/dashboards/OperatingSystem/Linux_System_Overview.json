@@ -16,8 +16,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 30,
-  "iteration": 1551769856368,
+  "id": 42,
+  "iteration": 1552038948276,
   "links": [
     {
       "asDropdown": true,
@@ -325,6 +325,7 @@
         {
           "expr": "os_info{instance=\"$host\"}",
           "format": "time_series",
+          "instant": true,
           "interval": "5m",
           "intervalFactor": 1,
           "legendFormat": "{{ build }}",
@@ -3036,6 +3037,7 @@
         "auto_count": 200,
         "auto_min": "1s",
         "current": {
+          "selected": true,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -3118,7 +3120,7 @@
         "allFormat": "glob",
         "allValue": null,
         "current": {
-          "selected": false,
+          "tags": [],
           "text": "S-DEMO-APP01",
           "value": "S-DEMO-APP01"
         },

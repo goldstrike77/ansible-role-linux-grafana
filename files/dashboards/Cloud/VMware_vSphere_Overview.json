@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 27,
-  "iteration": 1551754860955,
+  "id": 40,
+  "iteration": 1552040832126,
   "links": [
     {
       "asDropdown": true,
@@ -341,7 +341,7 @@
     {
       "columns": [],
       "datasource": "Prometheus",
-      "fontSize": "100%",
+      "fontSize": "90%",
       "gridPos": {
         "h": 8,
         "w": 5,
@@ -501,6 +501,22 @@
           "thresholds": [],
           "type": "number",
           "unit": "mbytes"
+        },
+        {
+          "alias": "",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "ipaddress",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
         }
       ],
       "targets": [
@@ -606,7 +622,7 @@
     {
       "columns": [],
       "datasource": "Prometheus",
-      "fontSize": "100%",
+      "fontSize": "90%",
       "gridPos": {
         "h": 8,
         "w": 5,
@@ -736,7 +752,7 @@
           "unit": "short"
         },
         {
-          "alias": "DataStorage",
+          "alias": "Storage",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
