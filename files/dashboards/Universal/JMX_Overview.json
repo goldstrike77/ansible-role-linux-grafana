@@ -16,8 +16,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 29,
-  "iteration": 1544840250086,
+  "id": 52,
+  "iteration": 1552364575842,
   "links": [
     {
       "asDropdown": true,
@@ -93,6 +93,184 @@
       "colorBackground": false,
       "colorValue": true,
       "colors": [
+        "#d44a3a",
+        "rgba(237, 129, 40, 0.89)",
+        "#299c46"
+      ],
+      "datasource": "Prometheus",
+      "decimals": 1,
+      "format": "s",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 0,
+        "y": 0
+      },
+      "id": 32,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "s",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "80%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "(time() - process_start_time_seconds{instance=\"$host\",service=\"jmx_exporter\"})",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "thresholds": "300,3600",
+      "title": "Uptime",
+      "type": "singlestat",
+      "valueFontSize": "50%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": true,
+      "colors": [
+        "#f9934e",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "Prometheus",
+      "decimals": null,
+      "format": "short",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 5,
+        "x": 3,
+        "y": 0
+      },
+      "id": 35,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "80%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "jvm_info{instance=\"$host\"}",
+          "format": "time_series",
+          "interval": "5m",
+          "intervalFactor": 1,
+          "legendFormat": "{{ runtime }}<br>{{version}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "300,3600",
+      "title": "JVM Version",
+      "type": "singlestat",
+      "valueFontSize": "50%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "name"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 3
+      },
+      "id": 34,
+      "panels": [],
+      "repeat": null,
+      "title": "",
+      "type": "row"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": true,
+      "colors": [
         "rgba(50, 172, 45, 0.97)",
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
@@ -113,7 +291,7 @@
         "h": 6,
         "w": 4,
         "x": 0,
-        "y": 0
+        "y": 4
       },
       "id": 12,
       "interval": null,
@@ -190,7 +368,7 @@
         "h": 9,
         "w": 16,
         "x": 4,
-        "y": 0
+        "y": 4
       },
       "height": "300px",
       "id": 8,
@@ -301,7 +479,7 @@
         "h": 6,
         "w": 4,
         "x": 20,
-        "y": 0
+        "y": 4
       },
       "id": 13,
       "interval": null,
@@ -388,7 +566,7 @@
         "h": 3,
         "w": 2,
         "x": 0,
-        "y": 6
+        "y": 10
       },
       "height": "1px",
       "id": 15,
@@ -477,7 +655,7 @@
         "h": 3,
         "w": 2,
         "x": 2,
-        "y": 6
+        "y": 10
       },
       "height": "1px",
       "id": 16,
@@ -568,7 +746,7 @@
         "h": 3,
         "w": 2,
         "x": 20,
-        "y": 6
+        "y": 10
       },
       "height": "1px",
       "id": 23,
@@ -657,7 +835,7 @@
         "h": 3,
         "w": 2,
         "x": 22,
-        "y": 6
+        "y": 10
       },
       "height": "1px",
       "id": 25,
@@ -736,7 +914,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 9
+        "y": 13
       },
       "height": "200px",
       "id": 21,
@@ -838,7 +1016,7 @@
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 9
+        "y": 13
       },
       "height": "200px",
       "id": 28,
@@ -941,7 +1119,7 @@
         "h": 8,
         "w": 8,
         "x": 16,
-        "y": 9
+        "y": 13
       },
       "height": "200px",
       "id": 22,
@@ -1044,7 +1222,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 17
+        "y": 21
       },
       "height": "200px",
       "id": 27,
@@ -1155,7 +1333,7 @@
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 17
+        "y": 21
       },
       "height": "200px",
       "id": 29,
@@ -1258,7 +1436,7 @@
         "h": 8,
         "w": 8,
         "x": 16,
-        "y": 17
+        "y": 21
       },
       "height": "200px",
       "id": 30,
@@ -1447,8 +1625,9 @@
         "allValue": null,
         "current": {
           "selected": true,
-          "text": "S-DEMO-APP01",
-          "value": "S-DEMO-APP01"
+          "tags": [],
+          "text": "S-DEMO-MON01",
+          "value": "S-DEMO-MON01"
         },
         "datasource": "Prometheus",
         "definition": "jvm_info{group=\"$group\"}",
@@ -1472,7 +1651,7 @@
     ]
   },
   "time": {
-    "from": "now-12h",
+    "from": "now-5m",
     "to": "now"
   },
   "timepicker": {
