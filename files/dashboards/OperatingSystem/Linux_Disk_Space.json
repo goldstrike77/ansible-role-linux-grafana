@@ -1,4 +1,40 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "label": "Prometheus",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "5.4.2"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": "5.0.0"
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "5.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "text",
+      "name": "Text",
+      "version": "5.0.0"
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -16,8 +52,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 33,
-  "iteration": 1545104262679,
+  "id": null,
+  "iteration": 1552455409887,
   "links": [
     {
       "asDropdown": true,
@@ -95,7 +131,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "description": "Shows the percentage of disk space utilization for every mountpoint defined on the system. Having some of the mountpoints close to 100% space utilization is not good because of the risk to have a “disk full” error that can block one of the services or even cause a crash of the entire system.\n\nIn case when the mountpoint is close to 100% consider to remove unused files or to expand the space allocated to the mountpoint.",
       "editable": true,
@@ -196,7 +232,7 @@
     },
     {
       "content": "`Disk Space` -  Amount of disk space used and available on various mount points.  Running out of disk space on OS volume,  database volume or volume used for temporary space can cause downtime.   Some storage may also have reduced performance when small amount of space is available.\n",
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "editable": true,
       "error": false,
       "gridPos": {
@@ -222,7 +258,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "description": "Shows information about the disk space usage of the specified mountpoint.\n\n**Used** is the amount of space used.\n\n**Free** is the amount of space not in use.\n\n**Used+Free** is the total disk space allocated to the mountpoint.\n\nHaving *Free* close to 0 B is not good because of the risk to have a “disk full” error that can block one of the services or even cause a crash of the entire system.\n\nIn case Free is close to 0 B consider to remove unused files or to expand the space allocated to the mountpoint.",
       "editable": true,
@@ -258,289 +294,6 @@
       "points": false,
       "renderer": "flot",
       "repeat": "mountpoint",
-      "scopedVars": {
-        "mountpoint": {
-          "selected": false,
-          "text": "/",
-          "value": "/"
-        }
-      },
-      "seriesOverrides": [
-        {
-          "alias": "/Used/",
-          "color": "#99440A"
-        },
-        {
-          "alias": "/Free/",
-          "color": "#EF843C"
-        }
-      ],
-      "spaceLength": 10,
-      "stack": true,
-      "steppedLine": false,
-      "targets": [
-        {
-          "calculatedInterval": "2m",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "node_filesystem_size{instance=\"$host\",mountpoint=\"$mountpoint\", fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"} - node_filesystem_free{instance=\"$host\",mountpoint=\"$mountpoint\", fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}",
-          "format": "time_series",
-          "hide": false,
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Used (device {{ device }}, {{ fstype }})",
-          "metric": "",
-          "refId": "B",
-          "step": 300
-        },
-        {
-          "calculatedInterval": "2m",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "node_filesystem_free{instance=\"$host\", mountpoint=\"$mountpoint\", fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Free (device {{ device }}, {{ fstype }})",
-          "metric": "",
-          "refId": "A",
-          "step": 300,
-          "target": ""
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Mountpoint $mountpoint",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "transparent": false,
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "bytes",
-          "label": "",
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        },
-        {
-          "format": "bytes",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {
-        "Free (device /dev/xvda1, ext4)": "#82B5D8",
-        "Used (device /dev/xvda1, ext4)": "#BA43A9"
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "Prometheus",
-      "decimals": 2,
-      "description": "Shows information about the disk space usage of the specified mountpoint.\n\n**Used** is the amount of space used.\n\n**Free** is the amount of space not in use.\n\n**Used+Free** is the total disk space allocated to the mountpoint.\n\nHaving *Free* close to 0 B is not good because of the risk to have a “disk full” error that can block one of the services or even cause a crash of the entire system.\n\nIn case Free is close to 0 B consider to remove unused files or to expand the space allocated to the mountpoint.",
-      "editable": true,
-      "error": false,
-      "fill": 6,
-      "grid": {},
-      "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 12,
-        "y": 10
-      },
-      "id": 10,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": false,
-        "hideEmpty": false,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "links": [],
-      "minSpan": 12,
-      "nullPointMode": "null",
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "repeat": null,
-      "repeatIteration": 1545104262679,
-      "repeatPanelId": 4,
-      "scopedVars": {
-        "mountpoint": {
-          "selected": false,
-          "text": "/boot",
-          "value": "/boot"
-        }
-      },
-      "seriesOverrides": [
-        {
-          "alias": "/Used/",
-          "color": "#99440A"
-        },
-        {
-          "alias": "/Free/",
-          "color": "#EF843C"
-        }
-      ],
-      "spaceLength": 10,
-      "stack": true,
-      "steppedLine": false,
-      "targets": [
-        {
-          "calculatedInterval": "2m",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "node_filesystem_size{instance=\"$host\",mountpoint=\"$mountpoint\", fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"} - node_filesystem_free{instance=\"$host\",mountpoint=\"$mountpoint\", fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}",
-          "format": "time_series",
-          "hide": false,
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Used (device {{ device }}, {{ fstype }})",
-          "metric": "",
-          "refId": "B",
-          "step": 300
-        },
-        {
-          "calculatedInterval": "2m",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "node_filesystem_free{instance=\"$host\", mountpoint=\"$mountpoint\", fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Free (device {{ device }}, {{ fstype }})",
-          "metric": "",
-          "refId": "A",
-          "step": 300,
-          "target": ""
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Mountpoint $mountpoint",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "transparent": false,
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "bytes",
-          "label": "",
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        },
-        {
-          "format": "bytes",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {
-        "Free (device /dev/xvda1, ext4)": "#82B5D8",
-        "Used (device /dev/xvda1, ext4)": "#BA43A9"
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "Prometheus",
-      "decimals": 2,
-      "description": "Shows information about the disk space usage of the specified mountpoint.\n\n**Used** is the amount of space used.\n\n**Free** is the amount of space not in use.\n\n**Used+Free** is the total disk space allocated to the mountpoint.\n\nHaving *Free* close to 0 B is not good because of the risk to have a “disk full” error that can block one of the services or even cause a crash of the entire system.\n\nIn case Free is close to 0 B consider to remove unused files or to expand the space allocated to the mountpoint.",
-      "editable": true,
-      "error": false,
-      "fill": 6,
-      "grid": {},
-      "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 0,
-        "y": 17
-      },
-      "id": 11,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": false,
-        "hideEmpty": false,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "links": [],
-      "minSpan": 12,
-      "nullPointMode": "null",
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "repeat": null,
-      "repeatIteration": 1545104262679,
-      "repeatPanelId": 4,
-      "scopedVars": {
-        "mountpoint": {
-          "selected": false,
-          "text": "/data",
-          "value": "/data"
-        }
-      },
       "seriesOverrides": [
         {
           "alias": "/Used/",
@@ -646,7 +399,7 @@
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
-        "datasource": "Prometheus",
+        "datasource": "DS_PROMETHEUS",
         "hide": 0,
         "includeAll": false,
         "label": "Interval",
@@ -697,12 +450,8 @@
       },
       {
         "allValue": null,
-        "current": {
-          "selected": true,
-          "text": "DEMO",
-          "value": "DEMO"
-        },
-        "datasource": "Prometheus",
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
         "definition": "",
         "hide": 0,
         "includeAll": false,
@@ -724,12 +473,8 @@
       {
         "allFormat": "glob",
         "allValue": null,
-        "current": {
-          "selected": true,
-          "text": "S-DEMO-APP02",
-          "value": "S-DEMO-APP02"
-        },
-        "datasource": "Prometheus",
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
         "definition": "",
         "hide": 0,
         "includeAll": false,
@@ -753,11 +498,8 @@
       {
         "allFormat": "wildcard",
         "allValue": null,
-        "current": {
-          "text": "All",
-          "value": "$__all"
-        },
-        "datasource": "Prometheus",
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
         "definition": "",
         "hide": 2,
         "hideLabel": false,

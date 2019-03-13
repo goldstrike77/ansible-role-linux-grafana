@@ -1,4 +1,40 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "label": "Prometheus",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "5.4.2"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": "5.0.0"
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "5.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "text",
+      "name": "Text",
+      "version": "5.0.0"
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -15,8 +51,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 21,
-  "iteration": 1544841481788,
+  "id": null,
+  "iteration": 1552455195334,
   "links": [
     {
       "asDropdown": true,
@@ -91,7 +127,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "editable": true,
       "error": false,
@@ -188,7 +224,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "editable": true,
       "error": false,
@@ -286,7 +322,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "editable": true,
       "error": false,
@@ -384,7 +420,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "editable": true,
       "error": false,
@@ -482,7 +518,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "editable": true,
       "error": false,
@@ -579,7 +615,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "editable": true,
       "error": false,
@@ -673,7 +709,7 @@
     },
     {
       "content": "These graphs are available only for [Percona Server](https://www.percona.com/doc/percona-server/5.6/diagnostics/user_stats.html) and [MariaDB](https://mariadb.com/kb/en/mariadb/user-statistics/) and require `userstat` variable turned on.",
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "editable": true,
       "error": false,
       "gridPos": {
@@ -706,10 +742,11 @@
         "auto_count": 200,
         "auto_min": "1s",
         "current": {
+          "selected": true,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
-        "datasource": "Prometheus",
+        "datasource": "DS_PROMETHEUS",
         "hide": 0,
         "includeAll": false,
         "label": "Interval",
@@ -760,12 +797,8 @@
       },
       {
         "allValue": null,
-        "current": {
-          "selected": true,
-          "text": "DEMO",
-          "value": "DEMO"
-        },
-        "datasource": "Prometheus",
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
         "definition": "",
         "hide": 0,
         "includeAll": false,
@@ -787,12 +820,8 @@
       {
         "allFormat": "glob",
         "allValue": null,
-        "current": {
-          "selected": false,
-          "text": "S-DEMO-DBS01",
-          "value": "S-DEMO-DBS01"
-        },
-        "datasource": "Prometheus",
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
         "definition": "",
         "hide": 0,
         "includeAll": false,

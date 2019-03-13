@@ -1,4 +1,40 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "label": "Prometheus",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "5.4.2"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": "5.0.0"
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "5.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "singlestat",
+      "name": "Singlestat",
+      "version": "5.0.0"
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -16,8 +52,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 42,
-  "iteration": 1552038948276,
+  "id": null,
+  "iteration": 1552455540303,
   "links": [
     {
       "asDropdown": true,
@@ -96,7 +132,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(50, 172, 45, 0.97)"
       ],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 1,
       "editable": true,
       "error": false,
@@ -183,7 +219,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(50, 172, 45, 0.97)"
       ],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "editable": true,
       "error": false,
       "format": "none",
@@ -268,7 +304,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(50, 172, 45, 0.97)"
       ],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "editable": true,
       "error": false,
       "format": "short",
@@ -355,7 +391,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(50, 172, 45, 0.97)"
       ],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 0,
       "editable": true,
       "error": false,
@@ -441,7 +477,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(50, 172, 45, 0.97)"
       ],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 0,
       "description": "Free+Cached+Buffers",
       "editable": true,
@@ -528,7 +564,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(50, 172, 45, 0.97)"
       ],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 0,
       "description": "Memory + SWAP",
       "editable": true,
@@ -615,7 +651,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(50, 172, 45, 0.97)"
       ],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 0,
       "description": "Sum of disk space on all partitions. Note  it can be significantly over-reported in some installations",
       "editable": true,
@@ -712,7 +748,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(50, 172, 45, 0.97)"
       ],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 0,
       "description": "Sum of disk free on all partitions. Note  it can be significantly over-reported in some installations",
       "editable": true,
@@ -826,7 +862,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "editable": true,
       "error": false,
@@ -950,7 +986,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "editable": true,
       "error": false,
@@ -1075,7 +1111,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "editable": true,
       "error": false,
@@ -1205,7 +1241,7 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "editable": true,
       "error": false,
@@ -1350,7 +1386,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "editable": true,
       "error": false,
@@ -1513,7 +1549,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "editable": true,
       "error": false,
@@ -1661,7 +1697,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "editable": true,
       "error": false,
@@ -1795,7 +1831,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "editable": true,
       "error": false,
@@ -1944,7 +1980,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "editable": true,
       "error": false,
@@ -2091,7 +2127,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": null,
       "editable": true,
       "error": false,
@@ -2215,7 +2251,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "description": "Shows average latency for Reads and Writes IO Devices.  Higher than typical latency for highly loaded storage indicates saturation (overload) and is frequent cause of performance problems.  Higher than normal latency also can indicate internal storage problems.",
       "fill": 2,
@@ -2350,7 +2386,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "description": "Shows how much disk was loaded for reads or writes as average number of outstanding requests at different period of time.  High disk load is a good measure of actual storage utilization. Different storage types handle load differently - some will show latency increases on low loads others can handle higher load with no problems.",
       "editable": true,
@@ -2510,7 +2546,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "editable": true,
       "error": false,
@@ -2633,7 +2669,7 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "editable": true,
       "error": false,
@@ -2770,7 +2806,7 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "description": "Total Number of Local Network Interface Transmit Errors, Receive Errors and Drops.  Should be  Zero",
       "editable": true,
@@ -2900,7 +2936,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "editable": true,
       "error": false,
@@ -3041,7 +3077,7 @@
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
-        "datasource": "Prometheus",
+        "datasource": "DS_PROMETHEUS",
         "hide": 0,
         "includeAll": false,
         "label": "Interval",
@@ -3092,12 +3128,8 @@
       },
       {
         "allValue": null,
-        "current": {
-          "selected": true,
-          "text": "DEMO",
-          "value": "DEMO"
-        },
-        "datasource": "Prometheus",
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
         "definition": "",
         "hide": 0,
         "includeAll": false,
@@ -3119,12 +3151,8 @@
       {
         "allFormat": "glob",
         "allValue": null,
-        "current": {
-          "tags": [],
-          "text": "S-DEMO-APP01",
-          "value": "S-DEMO-APP01"
-        },
-        "datasource": "Prometheus",
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
         "definition": "",
         "hide": 0,
         "includeAll": false,
@@ -3186,5 +3214,5 @@
   "timezone": "browser",
   "title": "Linux System Overview",
   "uid": "qyzrQGHmk",
-  "version": 1
+  "version": 2
 }

@@ -1,4 +1,40 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "label": "Prometheus",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "5.4.2"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": "5.0.0"
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "5.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "singlestat",
+      "name": "Singlestat",
+      "version": "5.0.0"
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -16,8 +52,8 @@
   "editable": true,
   "gnetId": 1856,
   "graphTooltip": 1,
-  "id": 38,
-  "iteration": 1545104638586,
+  "id": null,
+  "iteration": 1552455443236,
   "links": [
     {
       "asDropdown": true,
@@ -109,7 +145,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "format": "Bps",
       "gauge": {
         "maxValue": 100,
@@ -190,7 +226,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "format": "Bps",
       "gauge": {
         "maxValue": 100,
@@ -270,7 +306,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "format": "short",
       "gauge": {
         "maxValue": 100,
@@ -352,7 +388,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "format": "percent",
       "gauge": {
         "maxValue": 100,
@@ -445,7 +481,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "editable": true,
       "error": false,
       "fill": 2,
@@ -553,7 +589,7 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "editable": true,
       "error": false,
       "fill": 1,
@@ -673,7 +709,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "fill": 2,
       "gridPos": {
         "h": 7,
@@ -777,7 +813,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "fill": 2,
       "gridPos": {
         "h": 7,
@@ -876,7 +912,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "fill": 1,
       "gridPos": {
         "h": 7,
@@ -975,7 +1011,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "fill": 2,
       "gridPos": {
         "h": 7,
@@ -1092,7 +1128,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "format": "ms",
       "gauge": {
         "maxValue": 100,
@@ -1174,7 +1210,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "format": "ms",
       "gauge": {
         "maxValue": 100,
@@ -1256,7 +1292,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "format": "ms",
       "gauge": {
@@ -1336,7 +1372,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "editable": true,
       "error": false,
       "fill": 2,
@@ -1483,7 +1519,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "fill": 2,
       "gridPos": {
         "h": 7,
@@ -1633,7 +1669,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "editable": true,
       "error": false,
       "fill": 1,
@@ -1800,7 +1836,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "description": "**InDatagrams** Packets received\n\n**OutDatagrams** Packets sent\n\n**InCsumErrors** Datagrams with checksum errors\n\n**InErrors** Datagrams that could not be delivered to an application\n\n**RcvbufErrors** Datagrams for which not enough socket buffer memory to receive\n\n**SndbufErrors**  Datagrams for which not enough socket buffer memory to transmit\n\n**NoPorts**  Datagrams received on a port with no listener",
       "fill": 1,
       "gridPos": {
@@ -1958,7 +1994,7 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "description": "**InErrors**  Messages which the entity received but determined as having ICMP-specific errors (bad ICMP checksums, bad length, etc.)\n\n**OutErrors** Messages which this entity did not send due to problems discovered within ICMP, such as a lack of buffers\n\n**InDestUnreachs**  Destination Unreachable messages received\n\n**OutDestUnreachs** Destination Unreachable messages sent\n\n**InType3** Destination unreachable\n\n**OutType3** Destination unreachable\n\n**InCsumErrors** Messages with ICMP checksum errors\n\n**InTimeExcds** Time Exceeded messages received",
       "fill": 2,
@@ -2112,7 +2148,7 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "description": "**InMsgs**  Messages which the entity received. Note that this counter includes all those counted by icmpInErrors\t\n\n**InRedirects**  Redirect messages received\t\n\n**OutMsgs**  Messages which this entity attempted to send. Note that this counter includes all those counted by icmpOutErrors\t\n\n**OutRedirects** Redirect messages sent. For a host, this object will always be zero, since hosts do not send redirects",
       "fill": 1,
@@ -2234,7 +2270,7 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "description": "**InEchoReps**  Echo Reply messages received\n\n**InEchos**  Echo (request) messages received\n\n**OutEchoReps** Echo Reply messages sent\n\n**OutEchos**  Echo (request) messages sent",
       "fill": 1,
@@ -2356,7 +2392,7 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "description": "**InAddrMaskReps**  Address Mask Reply messages received\n\n**InAddrMasks** Address Mask Request messages received\n\n**OutAddrMaskReps**  Address Mask Reply messages sent\n\n**OutAddrMasks**  Address Mask Request messages sent\n\n**InTimestampReps**  Timestamp Reply messages received\n\n**InTimestamps**  Timestamp Request messages received\t\n\n**OutTimestampReps** Timestamp Reply messages sent\n\n**OutTimestamps** Timestamp Request messages sent",
       "fill": 1,
       "gridPos": {
@@ -2572,12 +2608,8 @@
       },
       {
         "allValue": null,
-        "current": {
-          "selected": true,
-          "text": "DEMO",
-          "value": "DEMO"
-        },
-        "datasource": "Prometheus",
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
         "definition": "",
         "hide": 0,
         "includeAll": false,
@@ -2598,12 +2630,8 @@
       },
       {
         "allValue": null,
-        "current": {
-          "selected": true,
-          "text": "S-DEMO-APP02",
-          "value": "S-DEMO-APP02"
-        },
-        "datasource": "Prometheus",
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
         "definition": "",
         "hide": 0,
         "includeAll": false,
@@ -2624,12 +2652,8 @@
       },
       {
         "allValue": null,
-        "current": {
-          "selected": true,
-          "text": "All",
-          "value": "$__all"
-        },
-        "datasource": "Prometheus",
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
         "definition": "",
         "hide": 2,
         "includeAll": true,

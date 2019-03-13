@@ -1,4 +1,52 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "label": "Prometheus",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "5.4.2"
+    },
+    {
+      "type": "panel",
+      "id": "grafana-piechart-panel",
+      "name": "Pie Chart",
+      "version": "1.3.6"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": "5.0.0"
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "5.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "singlestat",
+      "name": "Singlestat",
+      "version": "5.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": "5.0.0"
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -16,8 +64,8 @@
   "editable": true,
   "gnetId": 5756,
   "graphTooltip": 1,
-  "id": 34,
-  "iteration": 1551840879871,
+  "id": null,
+  "iteration": 1552455270067,
   "links": [
     {
       "asDropdown": true,
@@ -96,7 +144,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "description": "Total count of points served",
       "format": "short",
       "gauge": {
@@ -184,7 +232,7 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "description": "Shows percentage and count of queried points found of not in Trickster cache.\n\n- cached = found in cache\n- uncached = not found in cache\n\n**The more cached the better.**",
       "fill": 7,
@@ -292,7 +340,7 @@
         "label": "Others",
         "threshold": 0
       },
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "description": "Shows percentage of query cache hit or miss of Trickster. \nFor more info about cache success see graph info on the right.",
       "fontSize": "80%",
       "format": "short",
@@ -348,7 +396,7 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "description": "Shows percentage and count of query cache hit types. Those are:\n\n- rmiss = query range miss\n- kmiss = key not found in cache \n- phit = partial hit\n- hit = found all data in cache\n- purge = i'm not sure :) (probably cache flush)",
       "fill": 7,
@@ -456,7 +504,7 @@
         "label": "Other",
         "threshold": "0.03"
       },
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 1,
       "description": "Shows percentage of query cache hit types of Trickster. \nFor more info about cache hit types see graph info on the right.",
       "fontSize": "80%",
@@ -507,7 +555,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "description": "Total count of requests aggregated by instance.\nShows how are the requests balanced.",
       "fill": 4,
       "gridPos": {
@@ -612,7 +660,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "description": "Shows how long the requests took to be served as histogram using quantiles. This means that x% was served faster than the value of the metric.\nThat means:\n- 50%: shows time before 50% of requests was served\n- 90%: shows time before 90% of requests was served\n- 99%: shows time before 99% of requests was served",
       "fill": 1,
       "gridPos": {
@@ -727,7 +775,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "description": "Shows total query count aggregated by type.\nThere are two types;\n- query: instant query resulting in data in given time\n- query_range: query for data in given time interval",
       "fill": 4,
       "gridPos": {
@@ -837,7 +885,7 @@
           "value": "total"
         }
       ],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "description": "This table shows query count by origin on which it was called. Those can differ depending on configuration of Trickster.",
       "fontSize": "100%",
       "gridPos": {
@@ -929,7 +977,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "fill": 1,
       "gridPos": {
@@ -1062,7 +1110,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "fill": 1,
       "gridPos": {
         "h": 7,
@@ -1176,7 +1224,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "description": "This shows how long did it take  Prometheus to server requests.\nThis could be possibly lower time when using Trickster since the queries can be for smaller more recent time range.",
       "editable": true,
       "error": false,
@@ -1272,7 +1320,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "description": "Shows total request count on Prometheus server.",
       "editable": true,
       "error": false,
@@ -1375,7 +1423,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "description": "Shows duration how long it takes to Prometheus to server requests aggregated by handlers",
       "editable": true,
       "error": false,
@@ -1476,6 +1524,7 @@
         "auto_count": 200,
         "auto_min": "1s",
         "current": {
+          "selected": true,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -1526,12 +1575,8 @@
       },
       {
         "allValue": ".*",
-        "current": {
-          "selected": true,
-          "text": "MON",
-          "value": "MON"
-        },
-        "datasource": "Prometheus",
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
         "definition": "process_cpu_seconds_total{service=\"trickster_exporter\"}",
         "hide": 0,
         "includeAll": false,
@@ -1552,12 +1597,8 @@
       },
       {
         "allValue": ".*",
-        "current": {
-          "selected": true,
-          "text": "S-DEMO-MON01",
-          "value": "S-DEMO-MON01"
-        },
-        "datasource": "Prometheus",
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
         "definition": "process_cpu_seconds_total{service=\"trickster_exporter\",group=\"$group\"}",
         "hide": 0,
         "includeAll": false,

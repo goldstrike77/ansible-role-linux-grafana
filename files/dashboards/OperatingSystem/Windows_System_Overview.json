@@ -1,4 +1,40 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "label": "Prometheus",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "5.4.2"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": "5.0.0"
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "5.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "singlestat",
+      "name": "Singlestat",
+      "version": "5.0.0"
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -16,8 +52,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 67,
-  "iteration": 1552038927910,
+  "id": null,
+  "iteration": 1552455604610,
   "links": [
     {
       "asDropdown": true,
@@ -96,7 +132,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#299c46"
       ],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 1,
       "format": "s",
       "gauge": {
@@ -177,7 +213,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -257,7 +293,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "format": "short",
       "gauge": {
         "maxValue": 100,
@@ -338,7 +374,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 0,
       "format": "bytes",
       "gauge": {
@@ -419,7 +455,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 0,
       "format": "bytes",
       "gauge": {
@@ -500,7 +536,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 0,
       "description": "Memory + SWAP",
       "format": "bytes",
@@ -582,7 +618,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 0,
       "description": "Sum of disk space on all partitions.",
       "format": "bytes",
@@ -664,7 +700,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 0,
       "description": "Sum of disk free on all partitions.",
       "format": "bytes",
@@ -755,7 +791,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "fill": 10,
       "gridPos": {
         "h": 9,
@@ -842,7 +878,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "fill": 10,
       "gridPos": {
         "h": 9,
@@ -941,7 +977,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "fill": 1,
       "gridPos": {
         "h": 9,
@@ -1041,7 +1077,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "fill": 1,
       "gridPos": {
         "h": 9,
@@ -1139,7 +1175,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "fill": 1,
       "gridPos": {
         "h": 9,
@@ -1224,7 +1260,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "fill": 10,
       "gridPos": {
         "h": 9,
@@ -1324,7 +1360,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "fill": 1,
       "gridPos": {
         "h": 9,
@@ -1417,7 +1453,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "fill": 1,
       "gridPos": {
         "h": 9,
@@ -1523,7 +1559,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "fill": 1,
       "gridPos": {
         "h": 9,
@@ -1615,7 +1651,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "fill": 1,
       "gridPos": {
         "h": 9,
@@ -1701,7 +1737,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "fill": 1,
       "gridPos": {
         "h": 9,
@@ -1786,7 +1822,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "fill": 1,
       "gridPos": {
         "h": 9,
@@ -1932,12 +1968,8 @@
       },
       {
         "allValue": null,
-        "current": {
-          "selected": true,
-          "text": "DEMO",
-          "value": "DEMO"
-        },
-        "datasource": "Prometheus",
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
         "definition": "label_values(wmi_system_system_up_time, group)",
         "hide": 0,
         "includeAll": false,
@@ -1958,12 +1990,8 @@
       },
       {
         "allValue": null,
-        "current": {
-          "selected": true,
-          "text": "S-DEMO-WEB01",
-          "value": "S-DEMO-WEB01"
-        },
-        "datasource": "Prometheus",
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
         "definition": "wmi_system_system_up_time{group=\"$group\"}",
         "hide": 0,
         "includeAll": false,
@@ -2016,5 +2044,5 @@
   "timezone": "browser",
   "title": "Windows System Overview",
   "uid": "8z5sWWymz",
-  "version": 1
+  "version": 2
 }

@@ -1,4 +1,46 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "label": "DS_PROMETHEUS",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "5.4.2"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": "5.0.0"
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "5.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "singlestat",
+      "name": "Singlestat",
+      "version": "5.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": "5.0.0"
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -16,8 +58,8 @@
   "editable": true,
   "gnetId": 6248,
   "graphTooltip": 1,
-  "id": 37,
-  "iteration": 1548301453940,
+  "id": null,
+  "iteration": 1552459079943,
   "links": [
     {
       "asDropdown": true,
@@ -97,7 +139,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#299c46"
       ],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 0,
       "format": "s",
       "gauge": {
@@ -179,7 +221,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -261,7 +303,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#299c46"
       ],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -343,7 +385,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#299c46"
       ],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 0,
       "description": "Totals of all disks",
       "format": "bytes",
@@ -427,7 +469,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#299c46"
       ],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "decimals": 0,
       "format": "short",
       "gauge": {
@@ -502,7 +544,7 @@
     },
     {
       "columns": [],
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "fontSize": "100%",
       "gridPos": {
         "h": 4,
@@ -702,7 +744,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "description": "Data received x transmited by current Minio server instance",
       "fill": 1,
       "gridPos": {
@@ -803,7 +845,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "DS_PROMETHEUS",
       "description": "The current aggregate time spent servicing all HTTP requests  in seconds",
       "fill": 1,
       "gridPos": {
@@ -945,6 +987,7 @@
         "auto_count": 200,
         "auto_min": "10s",
         "current": {
+          "selected": true,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -995,13 +1038,8 @@
       },
       {
         "allValue": null,
-        "current": {
-          "selected": false,
-          "tags": [],
-          "text": "Prometheus",
-          "value": "Prometheus"
-        },
-        "datasource": "Prometheus",
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
         "definition": "label_values(minio_offline_disks , tenant)",
         "hide": 0,
         "includeAll": false,
@@ -1054,5 +1092,5 @@
   "timezone": "browser",
   "title": "Minio",
   "uid": "quT3-klik",
-  "version": 16
+  "version": 2
 }
