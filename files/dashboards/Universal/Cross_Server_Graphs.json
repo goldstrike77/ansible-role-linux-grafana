@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": 56,
-  "iteration": 1552030231677,
+  "iteration": 1552448283200,
   "links": [
     {
       "asDropdown": true,
@@ -873,7 +873,16 @@
           "thresholds": [],
           "type": "string",
           "unit": "short",
-          "valueMaps": []
+          "valueMaps": [
+            {
+              "text": "Microsoft Azure",
+              "value": "Virtual Machine"
+            },
+            {
+              "text": "VMware",
+              "value": "VMware Virtual Platform"
+            }
+          ]
         }
       ],
       "targets": [
@@ -1003,6 +1012,7 @@
       {
         "allValue": null,
         "current": {
+          "selected": true,
           "text": "DEMO",
           "value": "DEMO"
         },
@@ -1029,12 +1039,9 @@
         "allFormat": "pipe",
         "allValue": null,
         "current": {
-          "selected": false,
-          "tags": [],
+          "selected": true,
           "text": "All",
-          "value": [
-            "$__all"
-          ]
+          "value": "$__all"
         },
         "datasource": "Prometheus",
         "definition": "node_uname_info{group=~\"$group\"}",
@@ -1097,5 +1104,5 @@
   "timezone": "browser",
   "title": "Cross Server Graphs",
   "uid": "Swz9QGNmz",
-  "version": 4
+  "version": 5
 }
