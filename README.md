@@ -53,6 +53,11 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `grafana_path`: Specify the Grafana data directory.
 * `grafana_admin_user`: The name of the default Grafana admin user.
 * `grafana_admin_password`: The password of the default Grafana admin.
+* `environments`: Define the object environment.
+* `consul_is_register`: a boolean value, whether register a client service with consul.
+* `consul_clients`: Consul client addresses list.
+* `consul_http_port`: Consul client listen port.
+* `consul_exporter_token`: Consul client ACL token.
 
 ##### Listen port
 * `grafana_port`: Grafana instance listen port.
