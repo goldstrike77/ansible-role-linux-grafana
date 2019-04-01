@@ -5,12 +5,13 @@ grafana_path: '/data'
 grafana_version: '5' # Only 5
 grafana_admin_user: 'admin'
 grafana_admin_password: 'admin'
-consul_is_register: false
-consul_exporter_token: '00000000-0000-0000-0000-000000000000'
-consul_clients:
-  - '1.1.1.1'
-  - '1.1.1.2'
-consul_http_port: '8500'
+
+# Service Mesh #
+consul_is_register: false # Whether register a client service with consul.
+consul_exporter_token: '00000000-0000-0000-0000-000000000000' # Consul client ACL token.
+consul_clients: # List of consul clients.
+  - 'localhost'
+consul_http_port: '8500' # The consul HTTP API port.
 
 # Listen port #
 grafana_port: '3000'

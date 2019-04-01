@@ -56,10 +56,12 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `grafana_admin_user`: The name of the default Grafana admin user.
 * `grafana_admin_password`: The password of the default Grafana admin.
 * `environments`: Define the object environment.
-* `consul_is_register`: a boolean value, whether register a client service with consul.
-* `consul_clients`: Consul client addresses list.
-* `consul_http_port`: Consul client listen port.
+
+##### Service Mesh
+* `consul_is_register`: Whether register a client service with consul.
 * `consul_exporter_token`: Consul client ACL token.
+* `consul_clients`: List of consul clients.
+* `consul_http_port`: The consul HTTP API port.
 
 ##### Listen port
 * `grafana_port`: Grafana instance listen port.
@@ -124,6 +126,10 @@ You can also use the group_vars or the host_vars files for setting the variables
           - 'Linux_Network_Overview'
           - 'Linux_System_Overview'
           - 'Windows_System_Overview'
+    consul_is_register: false
+    consul_exporter_token: '00000000-0000-0000-0000-000000000000'
+    consul_clients: 'localhost'
+    consul_http_port: '8500'
 
 ## License
 ![](https://img.shields.io/badge/MIT-purple.svg?style=for-the-badge)

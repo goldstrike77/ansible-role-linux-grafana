@@ -24,3 +24,6 @@
 
 - name: Manage Grafana dashboards
   include: 'dashboard.yml'
+
+- include_tasks: 'register.yml'
+  when: consul_is_register
