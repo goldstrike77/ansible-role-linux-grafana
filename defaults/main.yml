@@ -74,6 +74,7 @@ grafana_dashboard_arg:
   - category: 'Universal'
     title:
       - 'Cross_Server_Graphs'
+      - 'Elasticsearch_Overview'
       - 'JMX_Overview'
       - 'Minio'
       - 'Prometheus_Overview'
