@@ -75,9 +75,10 @@ grafana_dashboard_arg:
     title:
       - 'Cross_Server_Graphs'
       - 'Elasticsearch_Overview'
+      - 'Graylog_Overview'
       - 'JMX_Overview'
-      - 'Minio'
+      - 'Minio_Overview'
+      - 'NGinx_Overview'
       - 'Prometheus_Overview'
       - 'Redis_Overview'
       - 'Trickster_Overview'
-      - 'NGinx_Overview'
