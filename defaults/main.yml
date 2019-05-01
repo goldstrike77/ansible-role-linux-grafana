@@ -4,17 +4,26 @@ grafana_is_install: 'false'
 grafana_path: '/data'
 grafana_version: '5' # Only 5
 grafana_admin_user: 'admin'
-grafana_admin_password: 'admin'
+grafana_admin_password: 'password'
 
 # Service Mesh #
+environments: 'SIT' # Define the service environment.
 consul_is_register: false # Whether register a client service with consul.
 consul_exporter_token: '00000000-0000-0000-0000-000000000000' # Consul client ACL token.
-consul_clients: # List of consul clients.
-  - 'localhost'
+consul_clients: 'localhost' # List of consul clients.
 consul_http_port: '8500' # The consul HTTP API port.
 
 # Listen port #
 grafana_port: '3000'
+
+# NGinx parameters #
+grafana_ngx_dept: false # A boolean value, whether proxy web interface using NGinx.
+grafana_ngx_domain: 'visual.example.com' # Defines domain name.
+grafana_ngx_version: 'standard' # extras or standard
+grafana_ngx_port_http: '80' # NGinx HTTP listen port.
+grafana_ngx_port_https: '443' # NGinx HTTPs listen port.
+grafana_ngx_backend: # Define groups of servers that can be referenced.
+  - '127.0.0.1'
 
 # Server System Variables #
 grafana_arg:

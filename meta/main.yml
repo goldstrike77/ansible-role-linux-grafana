@@ -52,6 +52,28 @@ galaxy_info:
     # NOTE: A tag is limited to a single word comprised of alphanumeric characters.
     #       Maximum 20 tags per role.
 
-dependencies: []
+dependencies:
   # List your role dependencies here, one per line. Be sure to remove the '[]' above,
   # if you add dependencies to this list.
+  - role: 'ansible-role-linux-nginx'
+    vars:
+      ngx_version: '{{ grafana_ngx_version }}'
+      ngx_port_http: '{{ grafana_ngx_port_http }}'
+      ngx_port_https: '{{ grafana_ngx_port_https }}'
+      ngx_allow_methods:
+        - 'POST'
+        - 'PUT'
+        - 'GET'
+        - 'HEAD'
+      ngx_site:
+        - domain: '{{ grafana_ngx_domain }}'
+          type: 'proxy'
+          location: '/'
+          syntax:
+            - 'expires off'
+            - 'proxy_set_header Host $http_host'
+          backend_address: '{{ grafana_ngx_backend }}'
+          backend_port: '{{ grafana_port }}'
+          sticky: 'ip_hash'
+          keepalive: '32'
+    when: grafana_ngx_dept
