@@ -53,11 +53,12 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 
 ##### General parameters
 * `grafana_path`: Specify the Grafana data directory.
+* `grafana_version`: Specify the Grafana version.
 * `grafana_admin_user`: The name of the default Grafana admin user.
 * `grafana_admin_password`: The password of the default Grafana admin.
-* `environments`: Define the object environment.
 
 ##### Service Mesh
+* `environments`: Define the service environment.
 * `consul_is_register`: Whether register a client service with consul.
 * `consul_exporter_token`: Consul client ACL token.
 * `consul_clients`: List of consul clients.
@@ -65,6 +66,14 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 
 ##### Listen port
 * `grafana_port`: Grafana instance listen port.
+
+##### NGinx parameters
+* `grafana_ngx_dept`: A boolean value, whether proxy web interface using NGinx.
+* `grafana_ngx_domain`: Defines domain name.
+* `grafana_ngx_version`: # extras or standard
+* `grafana_ngx_port_http`: NGinx HTTP listen port.
+* `grafana_ngx_port_https`: NGinx HTTPs listen port.
+* `grafana_ngx_backend`: Define groups of servers that can be referenced.
 
 ##### Server System Variables
 * `grafana_arg.default_theme`: Default UI theme.
@@ -81,7 +90,8 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `grafana_dashboard_arg`: DashBoard settings.
 
 ## Dependencies
-There are no dependencies on other roles.
+- Ansible versions > 2.6 are supported.
+- [NGinx](https://github.com/goldstrike77/ansible-role-linux-nginx.git)
 
 ## Example
 
@@ -104,9 +114,17 @@ Including an example of how to use your role (for instance, with variables passe
 You can also use the group_vars or the host_vars files for setting the variables needed for this role. File you should change: group_vars/all or host_vars/`group_name`
 
     grafana_path: '/data'
+    grafana_version: '5'
     grafana_admin_user: 'admin'
-    grafana_admin_password: 'admin'
+    grafana_admin_password: 'password'
     grafana_port: '3000'
+    grafana_ngx_dept: false
+    grafana_ngx_domain: 'visual.example.com'
+    grafana_ngx_version: 'standard'
+    grafana_ngx_port_http: '80'
+    grafana_ngx_port_https: '443'
+    grafana_ngx_backend:
+      - '127.0.0.1'
     grafana_arg:
       default_theme: 'light'
       reporting_enabled: 'false'
@@ -126,6 +144,7 @@ You can also use the group_vars or the host_vars files for setting the variables
           - 'Linux_Network_Overview'
           - 'Linux_System_Overview'
           - 'Windows_System_Overview'
+    environments: 'SIT'
     consul_is_register: false
     consul_exporter_token: '00000000-0000-0000-0000-000000000000'
     consul_clients: 'localhost'
