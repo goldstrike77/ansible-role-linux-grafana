@@ -74,6 +74,7 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `grafana_ngx_port_http`: NGinx HTTP listen port.
 * `grafana_ngx_port_https`: NGinx HTTPs listen port.
 * `grafana_ngx_backend`: Define groups of servers that can be referenced.
+* `grafana_ngx_site`: Define backend traffic context.
 
 ##### Server System Variables
 * `grafana_arg.default_theme`: Default UI theme.
@@ -125,6 +126,17 @@ You can also use the group_vars or the host_vars files for setting the variables
     grafana_ngx_port_https: '443'
     grafana_ngx_backend:
       - '127.0.0.1'
+    grafana_ngx_site:
+      - domain: 'visual.example.com'
+        type: 'proxy'
+        location: '/'
+        syntax:
+          - 'expires off'
+          - 'proxy_set_header Host $http_host'
+        backend_address: '127.0.0.1'
+        backend_port: '3000'
+        sticky: 'ip_hash'
+        keepalive: '32'
     grafana_arg:
       default_theme: 'light'
       reporting_enabled: 'false'

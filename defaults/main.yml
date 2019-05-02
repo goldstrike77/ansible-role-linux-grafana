@@ -24,6 +24,17 @@ grafana_ngx_port_http: '80' # NGinx HTTP listen port.
 grafana_ngx_port_https: '443' # NGinx HTTPs listen port.
 grafana_ngx_backend: # Define groups of servers that can be referenced.
   - '127.0.0.1'
+grafana_ngx_site: # Define backend traffic context.
+  - domain: '{{ grafana_ngx_domain }}'
+    type: 'proxy'
+    location: '/'
+    syntax:
+      - 'expires off'
+      - 'proxy_set_header Host $http_host'
+    backend_address: '{{ grafana_ngx_backend }}'
+    backend_port: '{{ grafana_port }}'
+    sticky: 'ip_hash'
+    keepalive: '32'
 
 # Server System Variables #
 grafana_arg:

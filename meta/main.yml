@@ -65,15 +65,5 @@ dependencies:
         - 'PUT'
         - 'GET'
         - 'HEAD'
-      ngx_site:
-        - domain: '{{ grafana_ngx_domain }}'
-          type: 'proxy'
-          location: '/'
-          syntax:
-            - 'expires off'
-            - 'proxy_set_header Host $http_host'
-          backend_address: '{{ grafana_ngx_backend }}'
-          backend_port: '{{ grafana_port }}'
-          sticky: 'ip_hash'
-          keepalive: '32'
+      ngx_site: '{{ grafana_ngx_site }}'
     when: grafana_ngx_dept
