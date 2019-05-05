@@ -30,7 +30,10 @@ grafana_ngx_site: # Define backend traffic context.
     location: '/'
     syntax:
       - 'expires off'
+      - 'proxy_buffering off'
       - 'proxy_set_header Host $http_host'
+      - 'proxy_set_header X-Real-IP $remote_addr'
+      - 'proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for'
     backend_address: '{{ grafana_ngx_backend }}'
     backend_port: '{{ grafana_port }}'
     sticky: 'ip_hash'
