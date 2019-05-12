@@ -26,4 +26,4 @@
   include: 'dashboard.yml'
 
 - include_tasks: 'register.yml'
-  when: consul_is_register
+  when: consul_public_register
