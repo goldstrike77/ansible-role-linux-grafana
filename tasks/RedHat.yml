@@ -5,13 +5,14 @@
     description: '{{ grafana_repo_name }} YUM repository'
     file: '{{ grafana_repo_name }}'
     baseurl: '{{ grafana_repo_url }}'
-    gpgcheck: no
+    gpgcheck: 'no'
+    timeout: '60'
 
 - name: Install the grafana
   yum:
     name: '{{ item }}'
     state: present
+    validate_certs: 'no'
+    disable_gpg_check: 'yes'
   with_items: '{{ grafana_software }}'
-  changed_when: false
-  failed_when: false
   register: soft_updated
