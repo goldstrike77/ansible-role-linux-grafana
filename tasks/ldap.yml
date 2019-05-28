@@ -1,0 +1,23 @@
+---
+- name: Grafana LDAP configuration
+  lineinfile:
+    state: present
+    dest: '/etc/grafana/grafana.ini'
+    insertafter: '\[auth.ldap\]'
+    regexp: '{{ item.regexp }}'
+    line: '{{ item.line }}'
+  with_items:
+    - { regexp: '^enabled =',       line: 'enabled = {{ grafana_ldap_enabled | bool | to_json }}' }
+    - { regexp: '^allow_sign_up =', line: 'allow_sign_up = {{ grafana_ldap_allow_sign_up | bool | to_json  }}' }
+  register: ldap_enable
+
+- name: Grafana LDAP configuration file transfer
+  template:
+    src: 'ldap.toml.j2'
+    dest: '/etc/grafana/ldap.toml'
+    owner: 'root'
+    group: 'grafana'
+    mode: 0640
+  when: grafana_ldap_enabled
+  register: ldap_config
+  no_log: true
