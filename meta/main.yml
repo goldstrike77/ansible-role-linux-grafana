@@ -61,6 +61,7 @@ dependencies:
       ngx_port_http: '{{ grafana_ngx_port_http }}'
       ngx_port_https: '{{ grafana_ngx_port_https }}'
       ngx_allow_methods:
+        - 'DELETE'
         - 'POST'
         - 'PUT'
         - 'GET'
