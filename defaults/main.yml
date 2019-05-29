@@ -17,11 +17,16 @@ consul_public_http_port: '8500' # The consul HTTP API port.
 grafana_port: '3000'
 
 # NGinx parameters #
-grafana_ngx_dept: false # A boolean value, whether proxy web interface using NGinx.
+grafana_ngx_dept: false # A boolean value, whether proxy web interface and API traffic using NGinx.
+grafana_ngx_block_agents: false # Enables or disables block unsafe User Agents.
+grafana_ngx_block_string: false # Enables or disables block includes Exploits / File injections / Spam / SQL injections.
+grafana_ngx_compress: false # Enables or disables compression.
 grafana_ngx_domain: 'visual.example.com' # Defines domain name.
-grafana_ngx_version: 'standard' # extras or standard
+grafana_ngx_pagespeed: false # Enables or disables pagespeed modules.
 grafana_ngx_port_http: '80' # NGinx HTTP listen port.
 grafana_ngx_port_https: '443' # NGinx HTTPs listen port.
+grafana_ngx_ssl_protocols: 'modern' # intermediate or modern, defines SSL protocol profile.
+grafana_ngx_version: 'extras' # extras or standard
 grafana_ngx_backend: # Define groups of servers that can be referenced.
   - '127.0.0.1'
 grafana_ngx_site: # Define backend traffic context.

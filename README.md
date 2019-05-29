@@ -62,12 +62,15 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 
 ##### NGinx parameters
 * `grafana_ngx_dept`: A boolean value, whether proxy web interface using NGinx.
+* `grafana_ngx_block_agents`: Enables or disables block unsafe User Agents.
+* `grafana_ngx_block_string`: Enables or disables block includes Exploits / File injections / Spam / SQL injections.
+* `grafana_ngx_compress`: Enables or disables compression.
 * `grafana_ngx_domain`: Defines domain name.
-* `grafana_ngx_version`: # extras or standard
+* `grafana_ngx_pagespeed`: Enables or disables pagespeed modules.
 * `grafana_ngx_port_http`: NGinx HTTP listen port.
 * `grafana_ngx_port_https`: NGinx HTTPs listen port.
-* `grafana_ngx_backend`: Define groups of servers that can be referenced.
-* `grafana_ngx_site`: Define backend traffic context.
+* `grafana_ngx_ssl_protocols`: intermediate or modern, defines SSL protocol profile.
+* `grafana_ngx_version`: extras or standard
 
 ##### Server System Variables
 * `grafana_arg.default_theme`: Default UI theme.
@@ -113,10 +116,15 @@ You can also use the group_vars or the host_vars files for setting the variables
     grafana_admin_password: 'password'
     grafana_port: '3000'
     grafana_ngx_dept: false
-    grafana_ngx_domain: 'visual.example.com'
-    grafana_ngx_version: 'standard'
+    grafana_ngx_block_agents: false
+    grafana_ngx_block_string: false
+    grafana_ngx_compress: false
+    grafana_ngx_domain: 'visual.example.com
+    grafana_ngx_pagespeed: false
     grafana_ngx_port_http: '80'
     grafana_ngx_port_https: '443'
+    grafana_ngx_ssl_protocols: 'modern'
+    grafana_ngx_version: 'extras'
     grafana_ngx_backend:
       - '127.0.0.1'
     grafana_ngx_site:

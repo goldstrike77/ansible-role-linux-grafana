@@ -57,9 +57,15 @@ dependencies:
   # if you add dependencies to this list.
   - role: 'ansible-role-linux-nginx'
     vars:
-      ngx_version: '{{ grafana_ngx_version }}'
+      ngx_block_agents: '{{ grafana_ngx_block_agents }}'
+      ngx_block_string: '{{ grafana_ngx_block_string }}'
+      ngx_compress: '{{ grafana_ngx_compress }}'
+      ngx_domain: '{{ grafana_ngx_domain }}'
+      ngx_pagespeed: '{{ grafana_ngx_pagespeed }}'
       ngx_port_http: '{{ grafana_ngx_port_http }}'
       ngx_port_https: '{{ grafana_ngx_port_https }}'
+      ngx_ssl_protocols: '{{ grafana_ngx_ssl_protocols }}'
+      ngx_version: '{{ grafana_ngx_version }}'
       ngx_allow_methods:
         - 'DELETE'
         - 'POST'
