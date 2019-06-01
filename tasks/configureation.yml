@@ -88,7 +88,7 @@
     - { regexp: '^admin_password =', line: 'admin_password = {{ grafana_admin_password }}' }
   register: secu_updated
 
-- name: Grafana Session configuration
+- name: Grafana session configuration
   lineinfile:
     state: present
     dest: '/etc/grafana/grafana.ini'
@@ -96,11 +96,26 @@
     regexp: '{{ item.regexp }}'
     line: '{{ item.line }}'
   with_items:
-    - { regexp: '^provider =',     line: 'provider = redis' }
-    - { regexp: '^provider_config =', line: 'provider_config = addr={{ grafana_redis_hosts }}:{{ grafana_redis_port }},pool_size=100,prefix=grafana_sess_,password={{ grafana_redis_requirepass }},db=15' }
-    - { regexp: '^session_life_time =', line: 'session_life_time = {{ grafana_session_life }}' }
+    - { regexp: '^provider =',        line: 'provider = redis' }
+    - { regexp: '^provider_config =', line: 'provider_config = addr={{ grafana_redis_hosts }}:{{ grafana_redis_port }},pool_size=100,db=0,prefix=grafana_,password={{ grafana_redis_requirepass }}' }
   when:
-    - grafana_session_share
+    - grafana_session_share or grafana_redis_dept
+    - grafana_version < 6.2
+  register: sess_updated
+
+- name: Grafana remote cache configuration
+  lineinfile:
+    state: present
+    dest: '/etc/grafana/grafana.ini'
+    insertafter: '\[remote_cache\]'
+    regexp: '{{ item.regexp }}'
+    line: '{{ item.line }}'
+  with_items:
+    - { regexp: '^type =',    line: 'type = redis' }
+    - { regexp: '^connstr =', line: 'connstr = addr={{ grafana_redis_hosts }}:{{ grafana_redis_port }},pool_size=100,db=0,prefix=grafana_,password={{ grafana_redis_requirepass }}' }
+  when:
+    - grafana_session_share or grafana_redis_dept
+    - grafana_version >= 6.2
   register: sess_updated
 
 - name: Grafana UI theme configuration

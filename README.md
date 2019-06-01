@@ -38,7 +38,7 @@ This role will work on the following operating systems:
 
 The following list of supported the Grafana releases:
 
-* Grafana 5
+* Grafana 5,6
 
 ## Role variables
 ### Main parameters
@@ -50,7 +50,6 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `grafana_admin_user`: The name of the default Grafana admin user.
 * `grafana_admin_password`: The password of the default Grafana admin.
 * `grafana_session_share`: Whether store the session data on Redis.
-* `grafana_session_life`: Session life time.
 
 ##### Service Mesh
 * `environments`: Define the service environment.
@@ -122,11 +121,10 @@ Including an example of how to use your role (for instance, with variables passe
 You can also use the group_vars or the host_vars files for setting the variables needed for this role. File you should change: group_vars/all or host_vars/`group_name`
 
     grafana_path: '/data'
-    grafana_version: '5'
+    grafana_version: '6.2'
     grafana_admin_user: 'admin'
     grafana_admin_password: 'password'
     grafana_session_share: false
-    grafana_session_life: '86400'
     grafana_port: '3000'
     grafana_redis_dept: false
     grafana_redis_path: '/data'

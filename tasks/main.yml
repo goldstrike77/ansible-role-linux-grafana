@@ -17,6 +17,9 @@
 - name: Enable LDAP Authentication
   include: 'ldap.yml'
 
+- name: Manage Grafana dashboards
+  include: 'dashboard.yml'
+
 - name: Reload the grafana service
   shell: echo ''
   notify: 'Ensure grafana service is enabled'
@@ -24,9 +27,6 @@
 
 - name: Force the handler to run immediately
   meta: flush_handlers
-
-- name: Manage Grafana dashboards
-  include: 'dashboard.yml'
 
 - include_tasks: 'register.yml'
   when: consul_public_register
