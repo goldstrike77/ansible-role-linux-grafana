@@ -88,6 +88,21 @@
     - { regexp: '^admin_password =', line: 'admin_password = {{ grafana_admin_password }}' }
   register: secu_updated
 
+- name: Grafana Session configuration
+  lineinfile:
+    state: present
+    dest: '/etc/grafana/grafana.ini'
+    insertafter: '\[session\]'
+    regexp: '{{ item.regexp }}'
+    line: '{{ item.line }}'
+  with_items:
+    - { regexp: '^provider =',     line: 'provider = redis' }
+    - { regexp: '^provider_config =', line: 'provider_config = addr={{ grafana_redis_hosts }}:{{ grafana_redis_port }},pool_size=100,prefix=grafana_sess_,password={{ grafana_redis_requirepass }},db=15' }
+    - { regexp: '^session_life_time =', line: 'session_life_time = {{ grafana_session_life }}' }
+  when:
+    - grafana_session_share
+  register: sess_updated
+
 - name: Grafana UI theme configuration
   lineinfile:
     state: present
