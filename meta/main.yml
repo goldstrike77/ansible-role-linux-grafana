@@ -66,6 +66,12 @@ dependencies:
       ngx_port_https: '{{ grafana_ngx_port_https }}'
       ngx_ssl_protocols: '{{ grafana_ngx_ssl_protocols }}'
       ngx_version: '{{ grafana_ngx_version }}'
+      ngx_client_body_timeout: '120'
+      ngx_keepalive_timeout: '120'
+      ngx_proxy_connect_timeout: '120'
+      ngx_proxy_read_timeout: '120'
+      ngx_proxy_send_timeout: '120'
+      ngx_send_timeout: '120'
       ngx_allow_methods:
         - 'DELETE'
         - 'POST'
