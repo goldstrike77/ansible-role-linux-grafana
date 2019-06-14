@@ -42,8 +42,3 @@
     force: 'yes'
   failed_when: false
   ignore_errors: true
-
-- name: Disable Getting Started Panel
-  shell: 'sqlite3 {{ grafana_path }}/grafana/grafana.db "update user set help_flags1 = 1;"'
-  no_log: true
-  failed_when: false

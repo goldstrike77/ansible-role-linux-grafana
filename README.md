@@ -177,8 +177,9 @@ You can also use the group_vars or the host_vars files for setting the variables
     environments: 'SIT'
     consul_public_register: false
     consul_public_exporter_token: '00000000-0000-0000-0000-000000000000'
-    consul_public_clients: 'localhost'
     consul_public_http_port: '8500'
+    consul_public_clients:
+      - '127.0.0.1'
 
 ## License
 ![](https://img.shields.io/badge/MIT-purple.svg?style=for-the-badge)
