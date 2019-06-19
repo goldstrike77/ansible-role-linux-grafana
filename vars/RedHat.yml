@@ -1,5 +1,5 @@
 ---
 grafana_repo_name: 'grafana'
-grafana_repo_url: 'http://packages.grafana.com/oss/rpm'
+grafana_repo_url: 'http://mirrors.tuna.tsinghua.edu.cn/grafana/yum/rpm'
 grafana_software:
   - 'grafana-{{ grafana_version }}*'
