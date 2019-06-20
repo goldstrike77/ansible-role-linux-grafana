@@ -28,10 +28,10 @@
 - name: Force the handler to run immediately
   meta: flush_handlers
 
+- include_tasks: 'register.yml'
+  when: consul_public_register
+
 - name: Disable Getting Started Panel
   shell: 'sqlite3 {{ grafana_path }}/grafana/grafana.db "update user set help_flags1 = 1;"'
   no_log: true
   failed_when: false
-
-- include_tasks: 'register.yml'
-  when: consul_public_register
