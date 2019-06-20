@@ -46,7 +46,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1552456107627,
+  "iteration": 1552455087026,
   "links": [
     {
       "asDropdown": true,
@@ -64,32 +64,10 @@
       "includeVars": true,
       "keepTime": true,
       "tags": [
-        "MySQL"
+        "Databases"
       ],
       "targetBlank": false,
-      "title": "MySQL",
-      "type": "dashboards"
-    },
-    {
-      "asDropdown": true,
-      "includeVars": true,
-      "keepTime": true,
-      "tags": [
-        "MongoDB"
-      ],
-      "targetBlank": false,
-      "title": "MongoDB",
-      "type": "dashboards"
-    },
-    {
-      "asDropdown": true,
-      "includeVars": true,
-      "keepTime": true,
-      "tags": [
-        "PostgreSQL"
-      ],
-      "targetBlank": false,
-      "title": "PostgreSQL",
+      "title": "Databases",
       "type": "dashboards"
     },
     {
@@ -117,69 +95,82 @@
   ],
   "panels": [
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "DS_PROMETHEUS",
-      "decimals": 2,
-      "editable": true,
-      "error": false,
-      "fill": 1,
-      "grid": {},
+      "collapsed": false,
       "gridPos": {
-        "h": 7,
+        "h": 1,
         "w": 24,
         "x": 0,
         "y": 0
       },
-      "id": 27,
+      "id": 258,
+      "panels": [],
+      "repeat": "command",
+      "title": "$host - $command",
+      "type": "row"
+    },
+    {
+      "aliasColors": {
+        "insert": "#447ebc",
+        "select": "#447ebc"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "DS_PROMETHEUS",
+      "decimals": null,
+      "fill": 2,
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 1,
       "legend": {
         "alignAsTable": true,
         "avg": true,
         "current": false,
-        "hideEmpty": true,
-        "hideZero": true,
         "max": true,
         "min": true,
-        "rightSide": true,
         "show": true,
-        "sort": "avg",
-        "sortDesc": true,
         "total": false,
         "values": true
       },
-      "lines": false,
+      "lines": true,
       "linewidth": 2,
       "links": [],
-      "nullPointMode": "null as zero",
+      "minSpan": 4,
+      "nullPointMode": "null",
       "percentage": false,
       "pointradius": 1,
-      "points": true,
+      "points": false,
       "renderer": "flot",
-      "seriesOverrides": [],
+      "repeat": "host",
+      "seriesOverrides": [
+        {
+          "alias": "/.*/",
+          "color": "#614d93"
+        }
+      ],
       "spaceLength": 10,
       "stack": false,
-      "steppedLine": true,
+      "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(mysql_perf_schema_events_waits_total{instance=\"$host\",event_name=~\"$event\"}[$interval]) or irate(mysql_perf_schema_events_waits_total{instance=\"$host\",instance=\"$host\",event_name=~\"$event\"}[5m])",
+          "expr": "rate(mysql_global_status_commands_total{command=\"$command\", instance=\"$host\"}[$interval]) or irate(mysql_global_status_commands_total{command=\"$command\", instance=\"$host\"}[5m])",
           "format": "time_series",
-          "hide": false,
           "interval": "$interval",
           "intervalFactor": 1,
-          "legendFormat": "{{event_name}} ",
-          "refId": "A",
-          "step": 300
+          "legendFormat": "{{command}}",
+          "refId": "A"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Count - Performance Schema Waits",
+      "title": "$host - $command",
       "tooltip": {
-        "msResolution": false,
         "shared": true,
         "sort": 0,
         "value_type": "individual"
@@ -194,18 +185,21 @@
       },
       "yaxes": [
         {
-          "format": "ops",
+          "decimals": null,
+          "format": "short",
+          "label": null,
           "logBase": 1,
           "max": null,
-          "min": 0,
+          "min": "0",
           "show": true
         },
         {
           "format": "short",
+          "label": null,
           "logBase": 1,
           "max": null,
-          "min": 0,
-          "show": true
+          "min": null,
+          "show": false
         }
       ],
       "yaxis": {
@@ -214,174 +208,81 @@
       }
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "DS_PROMETHEUS",
-      "decimals": 2,
-      "editable": true,
-      "error": false,
-      "fill": 1,
-      "grid": {},
+      "collapsed": false,
       "gridPos": {
-        "h": 7,
+        "h": 1,
         "w": 24,
         "x": 0,
-        "y": 7
+        "y": 8
       },
-      "id": 26,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": false,
-        "hideEmpty": true,
-        "hideZero": true,
-        "max": true,
-        "min": true,
-        "rightSide": true,
-        "show": true,
-        "sort": "avg",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": false,
-      "linewidth": 2,
-      "links": [],
-      "nullPointMode": "null as zero",
-      "percentage": false,
-      "pointradius": 1,
-      "points": true,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": true,
-      "targets": [
-        {
-          "expr": "rate(mysql_perf_schema_events_waits_seconds_total{instance=\"$host\",event_name=~\"$event\"}[$interval]) or irate(mysql_perf_schema_events_waits_seconds_total{instance=\"$host\",instance=\"$host\",event_name=~\"$event\"}[5m])",
-          "format": "time_series",
-          "hide": false,
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "{{event_name}} ",
-          "refId": "A",
-          "step": 300
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Load - Performance Schema Waits",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        },
-        {
-          "format": "short",
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "id": 261,
+      "panels": [],
+      "repeat": "handler",
+      "title": "$host - $handler",
+      "type": "row"
     },
     {
-      "aliasColors": {},
+      "aliasColors": {
+        "commit": "#614d93"
+      },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
       "datasource": "DS_PROMETHEUS",
-      "decimals": 2,
-      "editable": true,
-      "error": false,
-      "fill": 1,
-      "grid": {},
+      "decimals": 0,
+      "fill": 2,
       "gridPos": {
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 14
+        "y": 9
       },
-      "id": 28,
+      "id": 9,
       "legend": {
         "alignAsTable": true,
         "avg": true,
         "current": false,
-        "hideEmpty": true,
-        "hideZero": true,
         "max": true,
         "min": true,
-        "rightSide": true,
         "show": true,
-        "sort": "avg",
-        "sortDesc": true,
         "total": false,
         "values": true
       },
-      "lines": false,
+      "lines": true,
       "linewidth": 2,
       "links": [],
-      "nullPointMode": "null as zero",
+      "minSpan": 4,
+      "nullPointMode": "null",
       "percentage": false,
-      "pointradius": 1,
-      "points": true,
+      "pointradius": 5,
+      "points": false,
       "renderer": "flot",
-      "seriesOverrides": [],
+      "repeat": "host",
+      "seriesOverrides": [
+        {
+          "alias": "/.*/",
+          "color": "#806eb7"
+        }
+      ],
       "spaceLength": 10,
       "stack": false,
-      "steppedLine": true,
+      "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(mysql_perf_schema_events_waits_seconds_total{instance=\"$host\",event_name=~\"$event\"}[$interval])/rate(mysql_perf_schema_events_waits_total{instance=\"$host\",event_name=~\"$event\"}[$interval]) or irate(mysql_perf_schema_events_waits_seconds_total{instance=\"$host\",instance=\"$host\",event_name=~\"$event\"}[5m])/irate(mysql_perf_schema_events_waits_total{instance=\"$host\",instance=\"$host\",event_name=~\"$event\"}[5m])",
+          "expr": "rate(mysql_global_status_handlers_total{handler=\"$handler\",instance=\"$host\"}[$interval]) or irate(mysql_global_status_handlers_total{handler=\"$handler\",instance=\"$host\"}[5m])",
           "format": "time_series",
-          "hide": false,
           "interval": "$interval",
           "intervalFactor": 1,
-          "legendFormat": "{{event_name}} ",
-          "refId": "A",
-          "step": 300
-        },
-        {
-          "expr": "rate(mysql_perf_schema_events_waits_total{instance=\"$host\",event_name=~\"$event\"}[$interval]) or irate(mysql_perf_schema_events_waits_total{instance=\"$host\",instance=\"$host\",event_name=~\"$event\"}[5m])",
-          "format": "time_series",
-          "hide": true,
-          "intervalFactor": 1,
-          "legendFormat": "",
-          "refId": "B"
+          "legendFormat": "{{handler}}",
+          "refId": "A"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Avg Wait Time - Performance Schema Waits",
+      "title": "$host - $handler",
       "tooltip": {
-        "msResolution": false,
         "shared": true,
         "sort": 0,
         "value_type": "individual"
@@ -396,18 +297,21 @@
       },
       "yaxes": [
         {
-          "format": "s",
+          "decimals": 0,
+          "format": "short",
+          "label": null,
           "logBase": 1,
           "max": null,
-          "min": 0,
+          "min": "0",
           "show": true
         },
         {
           "format": "short",
+          "label": null,
           "logBase": 1,
           "max": null,
-          "min": 0,
-          "show": true
+          "min": null,
+          "show": false
         }
       ],
       "yaxis": {
@@ -420,12 +324,11 @@
   "schemaVersion": 16,
   "style": "dark",
   "tags": [
-    "MySQL"
+    "Databases"
   ],
   "templating": {
     "list": [
       {
-        "allFormat": "glob",
         "auto": true,
         "auto_count": 200,
         "auto_min": "1s",
@@ -434,12 +337,8 @@
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
-        "datasource": "DS_PROMETHEUS",
         "hide": 0,
-        "includeAll": false,
         "label": "Interval",
-        "multi": false,
-        "multiFormat": "glob",
         "name": "interval",
         "options": [
           {
@@ -506,7 +405,6 @@
         "useTags": false
       },
       {
-        "allFormat": "glob",
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
@@ -514,19 +412,39 @@
         "hide": 0,
         "includeAll": false,
         "label": "Host",
-        "multi": false,
-        "multiFormat": "glob",
+        "multi": true,
         "name": "host",
         "options": [],
-        "query": "mysql_global_variables_performance_schema{group=\"$group\"}",
+        "query": "mysql_up{group=\"$group\"}",
         "refresh": 1,
-        "refresh_on_load": false,
         "regex": "/instance=\"(.+?)\"/",
         "skipUrlSync": false,
         "sort": 1,
-        "tagValuesQuery": null,
+        "tagValuesQuery": "",
         "tags": [],
-        "tagsQuery": null,
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": "",
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "",
+        "hide": 0,
+        "includeAll": true,
+        "label": "Command",
+        "multi": true,
+        "name": "command",
+        "options": [],
+        "query": "label_values(mysql_global_status_commands_total{instance=\"$host\"},command)",
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
         "type": "query",
         "useTags": false
       },
@@ -536,12 +454,12 @@
         "datasource": "DS_PROMETHEUS",
         "definition": "",
         "hide": 0,
-        "includeAll": false,
-        "label": "Event",
+        "includeAll": true,
+        "label": "Handler",
         "multi": true,
-        "name": "event",
+        "name": "handler",
         "options": [],
-        "query": "label_values(mysql_perf_schema_events_waits_seconds_total{instance=\"$host\"}, event_name)",
+        "query": "label_values(mysql_global_status_handlers_total{instance=\"$host\"},handler)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -560,7 +478,6 @@
   },
   "timepicker": {
     "hidden": false,
-    "now": true,
     "refresh_intervals": [
       "5s",
       "10s",
@@ -586,7 +503,7 @@
     ]
   },
   "timezone": "browser",
-  "title": "MySQL Performance Schema Wait Event Analyses",
-  "uid": "fl8HVgcmk",
+  "title": "MySQL Command/Handler Counters Compare",
+  "uid": "000000170",
   "version": 1
 }

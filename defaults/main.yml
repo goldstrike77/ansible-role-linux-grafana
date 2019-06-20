@@ -116,7 +116,7 @@ grafana_dashboard_arg:
   - category: 'Cloud'
     title:
       - 'VMware_vSphere_Overview'
-  - category: 'MongoDB'
+  - category: 'Databases'
     title:
       - 'MongoDB_Cluster_Summary'
       - 'MongoDB_InMemory'
@@ -125,8 +125,6 @@ grafana_dashboard_arg:
       - 'MongoDB_ReplSet'
       - 'MongoDB_RocksDB'
       - 'MongoDB_WiredTiger'
-  - category: 'MySQL'
-    title:
       - 'MySQL_Command_Handler_Counters_Compare'
       - 'MySQL_InnoDB_Compression'
       - 'MySQL_InnoDB_Metrics_Advanced'
@@ -139,6 +137,7 @@ grafana_dashboard_arg:
       - 'MySQL_Replication'
       - 'MySQL_Table_Statistics'
       - 'MySQL_User_Statistics'
+      - 'PostgreSQL_Overview'
   - category: 'OperatingSystem'
     title:
       - 'Linux_Disk_Performance'
@@ -146,9 +145,6 @@ grafana_dashboard_arg:
       - 'Linux_Network_Overview'
       - 'Linux_System_Overview'
       - 'Windows_System_Overview'
-  - category: 'PostgreSQL'
-    title:
-      - 'PostgreSQL_Overview'
   - category: 'Universal'
     title:
       - 'Cross_Server_Graphs'

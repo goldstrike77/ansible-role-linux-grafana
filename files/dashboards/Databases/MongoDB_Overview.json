@@ -76,32 +76,10 @@
       "includeVars": true,
       "keepTime": true,
       "tags": [
-        "MySQL"
+        "Databases"
       ],
       "targetBlank": false,
-      "title": "MySQL",
-      "type": "dashboards"
-    },
-    {
-      "asDropdown": true,
-      "includeVars": true,
-      "keepTime": true,
-      "tags": [
-        "MongoDB"
-      ],
-      "targetBlank": false,
-      "title": "MongoDB",
-      "type": "dashboards"
-    },
-    {
-      "asDropdown": true,
-      "includeVars": true,
-      "keepTime": true,
-      "tags": [
-        "PostgreSQL"
-      ],
-      "targetBlank": false,
-      "title": "PostgreSQL",
+      "title": "Databases",
       "type": "dashboards"
     },
     {
@@ -1991,7 +1969,7 @@
   "schemaVersion": 16,
   "style": "dark",
   "tags": [
-    "MongoDB"
+    "Databases"
   ],
   "templating": {
     "list": [
