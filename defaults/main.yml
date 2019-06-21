@@ -147,6 +147,7 @@ grafana_dashboard_arg:
       - 'Windows_System_Overview'
   - category: 'Universal'
     title:
+      - 'Consul_Overview'
       - 'Cross_Server_Graphs'
       - 'Elasticsearch_Overview'
       - 'Graylog_Overview'
