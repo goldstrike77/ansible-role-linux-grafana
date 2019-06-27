@@ -97,7 +97,7 @@
     line: '{{ item.line }}'
   with_items:
     - { regexp: '^provider =',        line: 'provider = redis' }
-    - { regexp: '^provider_config =', line: 'provider_config = addr={{ grafana_redis_hosts }}:{{ grafana_redis_port }},pool_size=100,db=0,prefix=grafana_,password={{ grafana_redis_requirepass }}' }
+    - { regexp: '^provider_config =', line: 'provider_config = addr={{ grafana_redis_hosts }}:{{ grafana_redis_port }},pool_size=100,db=0,password={{ grafana_redis_requirepass }}' }
   when:
     - grafana_session_share or grafana_redis_dept
     - grafana_version < 6.2
@@ -112,7 +112,7 @@
     line: '{{ item.line }}'
   with_items:
     - { regexp: '^type =',    line: 'type = redis' }
-    - { regexp: '^connstr =', line: 'connstr = addr={{ grafana_redis_hosts }}:{{ grafana_redis_port }},pool_size=100,db=0,prefix=grafana_,password={{ grafana_redis_requirepass }}' }
+    - { regexp: '^connstr =', line: 'connstr = addr={{ grafana_redis_hosts }}:{{ grafana_redis_port }},pool_size=100,db=0,password={{ grafana_redis_requirepass }}' }
   when:
     - grafana_session_share or grafana_redis_dept
     - grafana_version >= 6.2
