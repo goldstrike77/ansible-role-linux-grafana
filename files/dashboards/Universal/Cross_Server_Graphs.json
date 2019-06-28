@@ -1032,7 +1032,7 @@
         "hide": 0,
         "includeAll": false,
         "label": "Group",
-        "multi": false,
+        "multi": true,
         "name": "group",
         "options": [],
         "query": "label_values(os_info, group)",
