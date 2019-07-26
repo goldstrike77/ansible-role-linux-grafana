@@ -155,6 +155,7 @@ grafana_dashboard_arg:
       - 'Kibana_Overview'
       - 'Minio_Overview'
       - 'NGinx_Overview'
+      - 'PHP-FPM_Overview'
       - 'Prometheus_Overview'
       - 'Redis_Overview'
       - 'Trickster_Overview'
