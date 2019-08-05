@@ -1,9 +1,9 @@
 ---
-- name: Include OS-specific variables
-  include_vars: '{{ ansible_os_family }}.yml'
-
 - name: Configure the grafana firewall
   include: 'firewall.yml'
+
+- name: Straight to getenforce selinux status
+  include: 'selinux.yml'
 
 - name: Include tasks for specific OS
   include: '{{ ansible_os_family }}.yml'
@@ -28,8 +28,11 @@
 - name: Force the handler to run immediately
   meta: flush_handlers
 
-- include_tasks: 'register.yml'
-  when: consul_public_register
+- name: Registered with HashiCorp Consul
+  include: 'register.yml'
+  when:
+    - exporter_is_install
+    - consul_public_register
 
 - name: Disable Getting Started Panel
   shell: 'sqlite3 {{ grafana_path }}/grafana/grafana.db "update user set help_flags1 = 1;"'

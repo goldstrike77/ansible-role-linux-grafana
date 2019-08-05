@@ -2,18 +2,19 @@
 - name: Creating Grafana folder
   file:
     dest: '{{ grafana_path }}/grafana/dashboards'
-    state: directory
-    owner: grafana
-    group: grafana
-    mode: 0755
+    state: 'directory'
+    owner: 'grafana'
+    group: 'grafana'
+    mode: '0755'
 
 - name: Grafana sysconfig file transfer
   template:
     src: 'grafana-server.j2'
     dest: '/etc/sysconfig/grafana-server'
-    owner: root
-    group: root
-    mode: 0664
+    backup: 'yes'
+    owner: 'root'
+    group: 'root'
+    mode: '0664'
   register: conf_updated
 
 - name: Grafana Dashboards provisioning files discover
@@ -33,9 +34,9 @@
   template:
     src: 'dashboards.yaml.j2'
     dest: '/etc/grafana/provisioning/dashboards/{{ item.category }}.yaml'
-    owner: root
-    group: grafana
-    mode: 0640
+    owner: 'root'
+    group: 'grafana'
+    mode: '0640'
   with_items:
     - '{{ grafana_dashboard_arg }}'
   register: dash_updated
@@ -57,9 +58,9 @@
   template:
     src: 'datasources/{{ item.0.name }}.yaml.j2'
     dest: '/etc/grafana/provisioning/datasources/{{ item.0.name }}.yaml'
-    owner: root
-    group: grafana
-    mode: 0640
+    owner: 'root'
+    group: 'grafana'
+    mode: '0640'
   with_subelements:
     - '{{ grafana_ds_arg }}'
     - 'settings'
@@ -90,7 +91,7 @@
 
 - name: Grafana session configuration
   lineinfile:
-    state: present
+    state: 'present'
     dest: '/etc/grafana/grafana.ini'
     insertafter: '\[session\]'
     regexp: '{{ item.regexp }}'
@@ -105,7 +106,7 @@
 
 - name: Grafana remote cache configuration
   lineinfile:
-    state: present
+    state: 'present'
     dest: '/etc/grafana/grafana.ini'
     insertafter: '\[remote_cache\]'
     regexp: '{{ item.regexp }}'
@@ -120,7 +121,7 @@
 
 - name: Grafana UI theme configuration
   lineinfile:
-    state: present
+    state: 'present'
     dest: '/etc/grafana/grafana.ini'
     insertafter: '\[users\]'
     regexp: '{{ item.regexp }}'

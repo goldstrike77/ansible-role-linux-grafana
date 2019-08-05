@@ -1,4 +1,7 @@
 ---
+- name: Include OS-specific variables
+  include_vars: '{{ ansible_os_family }}.yml'
+
 - name: Add grafana YUM repositories
   yum_repository:
     name: '{{ grafana_repo_name }}'
@@ -11,8 +14,11 @@
 - name: Install the grafana
   yum:
     name: '{{ item }}'
-    state: present
+    state: 'present'
     validate_certs: 'no'
     disable_gpg_check: 'yes'
   with_items: '{{ grafana_software }}'
   register: soft_updated
+  until: soft_updated is succeeded
+  retries: 3
+  delay: 5

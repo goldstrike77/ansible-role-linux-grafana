@@ -49,10 +49,12 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `grafana_version`: Specify the Grafana version.
 * `grafana_admin_user`: The name of the default Grafana admin user.
 * `grafana_admin_password`: The password of the default Grafana admin.
+* `grafana_selinux`: SELinux security policy.
 * `grafana_session_share`: Whether store the session data on Redis.
 
 ##### Service Mesh
 * `environments`: Define the service environment.
+* `exporter_is_install`: Whether to install prometheus exporter.
 * `consul_public_register`: false Whether register a exporter service with public consul client.
 * `consul_public_exporter_token`: Public Consul client ACL token.
 * `consul_public_clients`: List of public consul clients.
@@ -124,6 +126,7 @@ You can also use the group_vars or the host_vars files for setting the variables
     grafana_version: '6.2'
     grafana_admin_user: 'admin'
     grafana_admin_password: 'password'
+    grafana_selinux: false
     grafana_session_share: false
     grafana_port: '3000'
     grafana_redis_dept: false
@@ -175,6 +178,7 @@ You can also use the group_vars or the host_vars files for setting the variables
           - 'Linux_System_Overview'
           - 'Windows_System_Overview'
     environments: 'SIT'
+    exporter_is_install: false
     consul_public_register: false
     consul_public_exporter_token: '00000000-0000-0000-0000-000000000000'
     consul_public_http_port: '8500'

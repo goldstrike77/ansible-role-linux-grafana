@@ -18,7 +18,7 @@
     state: 'directory'
     owner: 'grafana'
     group: 'grafana'
-    mode: 0755
+    mode: '0755'
   no_log: true
   with_items:
     - '{{ grafana_dashboard_arg }}'
@@ -29,7 +29,7 @@
     dest: '{{ grafana_path }}/grafana/dashboards/{{ item.0.category }}/{{ item.1 }}.json'
     owner: 'grafana'
     group: 'grafana'
-    mode: 0644
+    mode: '0644'
   with_subelements:
     - '{{ grafana_dashboard_arg }}'
     - 'title'

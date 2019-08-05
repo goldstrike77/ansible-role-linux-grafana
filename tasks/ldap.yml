@@ -15,9 +15,10 @@
   template:
     src: 'ldap.toml.j2'
     dest: '/etc/grafana/ldap.toml'
+    backup: 'yes'
     owner: 'root'
     group: 'grafana'
-    mode: 0640
+    mode: '0640'
   when: grafana_ldap_enabled
   register: ldap_config
   no_log: true
