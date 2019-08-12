@@ -174,7 +174,7 @@
       "tableColumn": "Value",
       "targets": [
         {
-          "expr": "((sum(elasticsearch_cluster_health_status{cluster=\"$cluster\",color=\"green\",})*2)+sum(elasticsearch_cluster_health_status{cluster=\"$cluster\",color=\"yellow\"})) / (count(elasticsearch_cluster_health_number_of_data_nodes{cluster=\"$cluster\"}))",
+          "expr": "((sum(elasticsearch_cluster_health_status{cluster=\"$cluster\",color=\"green\"})*2)+sum(elasticsearch_cluster_health_status{cluster=\"$cluster\",color=\"yellow\"})) / (count(elasticsearch_cluster_health_number_of_data_nodes{cluster=\"$cluster\"}))",
           "format": "time_series",
           "instant": false,
           "intervalFactor": 1,
@@ -195,17 +195,17 @@
         {
           "op": "=",
           "text": "green",
-          "value": "1"
-        },
-        {
-          "op": "=",
-          "text": "yellow",
           "value": "2"
         },
         {
           "op": "=",
+          "text": "yellow",
+          "value": "1"
+        },
+        {
+          "op": "=",
           "text": "red",
-          "value": "3"
+          "value": "0"
         }
       ],
       "valueName": "current"
