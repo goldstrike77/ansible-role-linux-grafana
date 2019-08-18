@@ -913,7 +913,7 @@
           "step": 300
         },
         {
-          "expr": "sum by(instance)(wmi_cs_logical_processors{instance=~\"$host\"}) or count by(instance)(node_cpu{instance=~\"$host\",mode=\"user\"})",
+          "expr": "sum by(instance)(wmi_cs_logical_processors{instance=~\"$host\"}) or count by(instance)(node_cpu_seconds_total{instance=~\"$host\",mode=\"user\"})",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -923,7 +923,7 @@
           "refId": "B"
         },
         {
-          "expr": "sum by(instance)(node_memory_MemTotal{instance=~\"$host\"}) or sum by(instance)(wmi_os_visible_memory_bytes{instance=~\"$host\"})",
+          "expr": "sum by(instance)(node_memory_MemTotal_bytes{instance=~\"$host\"}) or sum by(instance)(wmi_os_visible_memory_bytes{instance=~\"$host\"})",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -932,7 +932,7 @@
           "refId": "C"
         },
         {
-          "expr": "sum by(instance)(node_filesystem_size{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) or sum by(instance)(wmi_logical_disk_size_bytes{instance=~\"$host\"})",
+          "expr": "sum by(instance)(node_filesystem_size_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) or sum by(instance)(wmi_logical_disk_size_bytes{instance=~\"$host\"})",
           "format": "table",
           "instant": true,
           "interval": "60m",
@@ -940,7 +940,7 @@
           "refId": "D"
         },
         {
-          "expr": "(time() - wmi_system_system_up_time{instance=~\"$host\"}) or ((time() - node_boot_time{instance=~\"$host\"}))",
+          "expr": "(time() - wmi_system_system_up_time{instance=~\"$host\"}) or ((time() - node_boot_time_seconds{instance=~\"$host\"}))",
           "format": "table",
           "hide": false,
           "instant": true,
