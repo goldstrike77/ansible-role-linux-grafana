@@ -31,8 +31,8 @@
 - name: Registered with HashiCorp Consul
   include: 'register.yml'
   when:
-    - exporter_is_install
-    - consul_public_register
+    - exporter_is_install | bool
+    - consul_public_register | bool
 
 - name: Disable Getting Started Panel
   shell: 'sqlite3 {{ grafana_path }}/grafana/grafana.db "update user set help_flags1 = 1;"'
