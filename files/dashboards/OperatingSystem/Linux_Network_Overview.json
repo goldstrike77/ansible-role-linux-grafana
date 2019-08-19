@@ -53,7 +53,7 @@
   "gnetId": 1856,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1566098500086,
+  "iteration": 1566183680533,
   "links": [
     {
       "asDropdown": true,
@@ -1040,14 +1040,6 @@
           "intervalFactor": 1,
           "legendFormat": "{{device}} - Receive multicast",
           "refId": "A"
-        },
-        {
-          "expr": "rate(node_network_transmit_multicast{instance=\"$host\", device!=\"lo\"}[$interval]) or\nirate(node_network_transmit_multicast{instance=\"$host\", device!=\"lo\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "{{device}} - Transmit multicast",
-          "refId": "B"
         }
       ],
       "thresholds": [],
@@ -1106,257 +1098,6 @@
       "type": "row"
     },
     {
-      "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "#299c46",
-        "rgba(237, 129, 40, 0.89)",
-        "#d44a3a"
-      ],
-      "datasource": "DS_PROMETHEUS",
-      "format": "ms",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
-      },
-      "gridPos": {
-        "h": 2,
-        "w": 8,
-        "x": 0,
-        "y": 34
-      },
-      "height": "125px",
-      "id": 36,
-      "interval": null,
-      "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
-      "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "options": {},
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
-      },
-      "tableColumn": "",
-      "targets": [
-        {
-          "expr": "node_netstat_Tcp_RtoAlgorithm{instance=\"$host\"}",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "refId": "A"
-        }
-      ],
-      "thresholds": "",
-      "title": "Timeout value used for retransmitting",
-      "type": "singlestat",
-      "valueFontSize": "80%",
-      "valueMaps": [
-        {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
-        }
-      ],
-      "valueName": "current"
-    },
-    {
-      "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "#299c46",
-        "rgba(237, 129, 40, 0.89)",
-        "#d44a3a"
-      ],
-      "datasource": "DS_PROMETHEUS",
-      "format": "ms",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
-      },
-      "gridPos": {
-        "h": 2,
-        "w": 8,
-        "x": 8,
-        "y": 34
-      },
-      "height": "125px",
-      "id": 38,
-      "interval": null,
-      "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
-      "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "options": {},
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
-      },
-      "tableColumn": "",
-      "targets": [
-        {
-          "expr": "min_over_time(node_netstat_Tcp_RtoMin{instance=\"$host\"}[$interval])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "refId": "A"
-        }
-      ],
-      "thresholds": "",
-      "title": "Min TCP Retransmission timeout",
-      "type": "singlestat",
-      "valueFontSize": "80%",
-      "valueMaps": [
-        {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
-        }
-      ],
-      "valueName": "min"
-    },
-    {
-      "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "#299c46",
-        "rgba(237, 129, 40, 0.89)",
-        "#d44a3a"
-      ],
-      "datasource": "DS_PROMETHEUS",
-      "decimals": 2,
-      "format": "ms",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
-      },
-      "gridPos": {
-        "h": 2,
-        "w": 8,
-        "x": 16,
-        "y": 34
-      },
-      "height": "125px",
-      "id": 37,
-      "interval": null,
-      "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
-      "maxDataPoints": 100,
-      "maxPerRow": 3,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "options": {},
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
-      },
-      "tableColumn": "",
-      "targets": [
-        {
-          "expr": "max_over_time(node_netstat_Tcp_RtoMax{instance=\"$host\"}[$interval])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "refId": "A"
-        }
-      ],
-      "thresholds": "",
-      "title": "Max TCP Retransmission timeout",
-      "type": "singlestat",
-      "valueFontSize": "80%",
-      "valueMaps": [
-        {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
-        }
-      ],
-      "valueName": "current"
-    },
-    {
       "aliasColors": {},
       "bars": false,
       "dashLength": 10,
@@ -1370,7 +1111,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 36
+        "y": 34
       },
       "id": 21,
       "legend": {
@@ -1515,7 +1256,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 43
+        "y": 41
       },
       "id": 35,
       "legend": {
@@ -1647,7 +1388,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 50
+        "y": 48
       },
       "id": 48,
       "panels": [],
@@ -1669,7 +1410,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 51
+        "y": 49
       },
       "id": 23,
       "legend": {
@@ -1824,157 +1565,12 @@
       }
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "DS_PROMETHEUS",
-      "description": "**InDatagrams** Packets received\n\n**OutDatagrams** Packets sent\n\n**InCsumErrors** Datagrams with checksum errors\n\n**InErrors** Datagrams that could not be delivered to an application\n\n**RcvbufErrors** Datagrams for which not enough socket buffer memory to receive\n\n**SndbufErrors**  Datagrams for which not enough socket buffer memory to transmit\n\n**NoPorts**  Datagrams received on a port with no listener",
-      "fill": 1,
-      "gridPos": {
-        "h": 7,
-        "w": 24,
-        "x": 0,
-        "y": 58
-      },
-      "id": 43,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": false,
-        "max": true,
-        "min": true,
-        "rightSide": true,
-        "show": true,
-        "sort": "avg",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "options": {},
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "/.*Out.*/",
-          "transform": "negative-Y"
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "rate(node_netstat_UdpLite_InDatagrams{instance=\"$host\"}[$interval]) or\nirate(node_netstat_UdpLite_InDatagrams{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "InDatagrams ",
-          "refId": "A"
-        },
-        {
-          "expr": "rate(node_netstat_UdpLite_OutDatagrams{instance=\"$host\"}[$interval]) or\nirate(node_netstat_UdpLite_OutDatagrams{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "OutDatagrams ",
-          "refId": "B"
-        },
-        {
-          "expr": "rate(node_netstat_UdpLite_InCsumErrors{instance=\"$host\"}[$interval]) or\nirate(node_netstat_UdpLite_InCsumErrors{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "InCsumErrors",
-          "refId": "C"
-        },
-        {
-          "expr": "rate(node_netstat_UdpLite_InErrors{instance=\"$host\"}[$interval]) or\nirate(node_netstat_UdpLite_InErrors{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "InErrors ",
-          "refId": "D"
-        },
-        {
-          "expr": "rate(node_netstat_UdpLite_RcvbufErrors{instance=\"$host\"}[$interval]) or\nirate(node_netstat_UdpLite_RcvbufErrors{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "RcvbufErrors ",
-          "refId": "E"
-        },
-        {
-          "expr": "rate(node_netstat_UdpLite_SndbufErrors{instance=\"$host\"}[$interval]) or\nirate(node_netstat_UdpLite_SndbufErrors{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "SndbufErrors ",
-          "refId": "F"
-        },
-        {
-          "expr": "rate(node_netstat_UdpLite_NoPorts{instance=\"$host\"}[$interval]) or\nirate(node_netstat_UdpLite_NoPorts{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "NoPorts",
-          "refId": "G"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "UDP Lite",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "ops",
-          "label": "Out (-) / In (+)",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
       "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 65
+        "y": 56
       },
       "id": 49,
       "panels": [],
@@ -1989,168 +1585,13 @@
       "dashes": false,
       "datasource": "DS_PROMETHEUS",
       "decimals": 2,
-      "description": "**InErrors**  Messages which the entity received but determined as having ICMP-specific errors (bad ICMP checksums, bad length, etc.)\n\n**OutErrors** Messages which this entity did not send due to problems discovered within ICMP, such as a lack of buffers\n\n**InDestUnreachs**  Destination Unreachable messages received\n\n**OutDestUnreachs** Destination Unreachable messages sent\n\n**InType3** Destination unreachable\n\n**OutType3** Destination unreachable\n\n**InCsumErrors** Messages with ICMP checksum errors\n\n**InTimeExcds** Time Exceeded messages received",
-      "fill": 2,
-      "gridPos": {
-        "h": 7,
-        "w": 24,
-        "x": 0,
-        "y": 66
-      },
-      "id": 39,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": false,
-        "max": true,
-        "min": true,
-        "rightSide": true,
-        "show": true,
-        "sort": "avg",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": false,
-      "linewidth": 2,
-      "links": [],
-      "maxPerRow": 1,
-      "nullPointMode": "null",
-      "options": {},
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "/.*Out.*/",
-          "transform": "negative-Y"
-        }
-      ],
-      "spaceLength": 10,
-      "stack": true,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "rate(node_netstat_Icmp_InErrors{instance=\"$host\"}[$interval]) \nor irate(node_netstat_Icmp_InErrors{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "InErrors",
-          "refId": "A"
-        },
-        {
-          "expr": "rate(node_netstat_Icmp_OutErrors{instance=\"$host\"}[$interval]) or\nirate(node_netstat_Icmp_OutErrors{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "OutErrors",
-          "refId": "B"
-        },
-        {
-          "expr": "rate(node_netstat_Icmp_InDestUnreachs{instance=\"$host\"}[$interval]) or\nirate(node_netstat_Icmp_InDestUnreachs{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "InDestUnreachs",
-          "refId": "C"
-        },
-        {
-          "expr": "rate(node_netstat_Icmp_OutDestUnreachs{instance=\"$host\"}[$interval]) or\nirate(node_netstat_Icmp_OutDestUnreachs{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "OutDestUnreachs",
-          "refId": "D"
-        },
-        {
-          "expr": "rate(node_netstat_IcmpMsg_InType3{instance=\"$host\"}[$interval]) or\nirate(node_netstat_IcmpMsg_InType3{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "InType3 (Destination unreachable)",
-          "refId": "E"
-        },
-        {
-          "expr": "irate(node_netstat_IcmpMsg_OutType3{instance=\"$host\"}[$interval]) or\nirate(node_netstat_IcmpMsg_OutType3{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "OutType3 (Destination unreachable)",
-          "refId": "F"
-        },
-        {
-          "expr": "rate(node_netstat_Icmp_InCsumErrors{instance=\"$host\"}[$interval]) or\nirate(node_netstat_Icmp_InCsumErrors{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "InCsumErrors",
-          "refId": "G"
-        },
-        {
-          "expr": "rate(node_netstat_Icmp_InTimeExcds{instance=\"$host\"}[$interval]) or\nirate(node_netstat_Icmp_InTimeExcds{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "InTimeExcds",
-          "refId": "H"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "ICMP Errors",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "ops",
-          "label": "Out (-) / In (+)",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": true,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "DS_PROMETHEUS",
-      "decimals": 2,
       "description": "**InMsgs**  Messages which the entity received. Note that this counter includes all those counted by icmpInErrors\t\n\n**InRedirects**  Redirect messages received\t\n\n**OutMsgs**  Messages which this entity attempted to send. Note that this counter includes all those counted by icmpOutErrors\t\n\n**OutRedirects** Redirect messages sent. For a host, this object will always be zero, since hosts do not send redirects",
       "fill": 1,
       "gridPos": {
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 73
+        "y": 57
       },
       "id": 41,
       "legend": {
@@ -2195,28 +1636,12 @@
           "refId": "A"
         },
         {
-          "expr": "rate(node_netstat_Icmp_InRedirects{instance=\"$host\"}[$interval]) or\nirate(node_netstat_Icmp_InRedirects{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "InRedirects",
-          "refId": "B"
-        },
-        {
           "expr": "rate(node_netstat_Icmp_OutMsgs{instance=\"$host\"}[$interval]) or\nirate(node_netstat_Icmp_OutMsgs{instance=\"$host\"}[5m])",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
           "legendFormat": "OutMsgs",
           "refId": "C"
-        },
-        {
-          "expr": "rate(node_netstat_Icmp_OutRedirects{instance=\"$host\"}[$interval]) or\nirate(node_netstat_Icmp_OutRedirects{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "OutRedirects",
-          "refId": "D"
         }
       ],
       "thresholds": [],
@@ -2241,285 +1666,6 @@
         {
           "format": "ops",
           "label": "Out (-) / In (+)",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": true,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "DS_PROMETHEUS",
-      "decimals": 2,
-      "description": "**InEchoReps**  Echo Reply messages received\n\n**InEchos**  Echo (request) messages received\n\n**OutEchoReps** Echo Reply messages sent\n\n**OutEchos**  Echo (request) messages sent",
-      "fill": 1,
-      "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 0,
-        "y": 80
-      },
-      "id": 40,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": false,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": true,
-        "sort": "avg",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": false,
-      "linewidth": 1,
-      "links": [],
-      "maxPerRow": 2,
-      "nullPointMode": "null",
-      "options": {},
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "/.*Out.*/",
-          "transform": "negative-Y"
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "rate(node_netstat_Icmp_InEchoReps{instance=\"$host\"}[$interval]) or\nirate(node_netstat_Icmp_InEchoReps{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "InEchoReps",
-          "refId": "A"
-        },
-        {
-          "expr": "rate(node_netstat_Icmp_InEchos{instance=\"$host\"}[$interval]) or\nirate(node_netstat_Icmp_InEchos{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "InEchos ",
-          "refId": "B"
-        },
-        {
-          "expr": "rate(node_netstat_Icmp_OutEchoReps{instance=\"$host\"}[$interval]) or\nirate(node_netstat_Icmp_OutEchoReps{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "OutEchoReps",
-          "refId": "C"
-        },
-        {
-          "expr": "rate(node_netstat_Icmp_OutEchos{instance=\"$host\"}[$interval]) or\nirate(node_netstat_Icmp_OutEchos{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "OutEchos",
-          "refId": "D"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Echos",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "ops",
-          "label": "Out (-) / In (+)",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": true,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "DS_PROMETHEUS",
-      "description": "**InAddrMaskReps**  Address Mask Reply messages received\n\n**InAddrMasks** Address Mask Request messages received\n\n**OutAddrMaskReps**  Address Mask Reply messages sent\n\n**OutAddrMasks**  Address Mask Request messages sent\n\n**InTimestampReps**  Timestamp Reply messages received\n\n**InTimestamps**  Timestamp Request messages received\t\n\n**OutTimestampReps** Timestamp Reply messages sent\n\n**OutTimestamps** Timestamp Request messages sent",
-      "fill": 1,
-      "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 12,
-        "y": 80
-      },
-      "id": 42,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": false,
-        "hideEmpty": false,
-        "hideZero": false,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": true,
-        "sort": "avg",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": false,
-      "linewidth": 1,
-      "links": [],
-      "maxPerRow": 2,
-      "nullPointMode": "null",
-      "options": {},
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "/.*Out.*/",
-          "transform": "negative-Y"
-        }
-      ],
-      "spaceLength": 10,
-      "stack": true,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "rate(node_netstat_Icmp_InAddrMaskReps{instance=\"$host\"}[$interval]) or\nirate(node_netstat_Icmp_InAddrMaskReps{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "InAddrMaskReps",
-          "refId": "A"
-        },
-        {
-          "expr": "rate(node_netstat_Icmp_InAddrMasks{instance=\"$host\"}[$interval]) or\nirate(node_netstat_Icmp_InAddrMasks{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "InAddrMasks",
-          "refId": "B"
-        },
-        {
-          "expr": "rate(node_netstat_Icmp_OutAddrMaskReps{instance=\"$host\"}[$interval]) or\nirate(node_netstat_Icmp_OutAddrMaskReps{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "OutAddrMaskReps",
-          "refId": "C"
-        },
-        {
-          "expr": "rate(node_netstat_Icmp_OutAddrMasks{instance=\"$host\"}[5m]) or\nirate(node_netstat_Icmp_OutAddrMasks{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "OutAddrMasks",
-          "refId": "D"
-        },
-        {
-          "expr": "rate(node_netstat_Icmp_InTimestampReps{instance=\"$host\"}[$interval]) or\nirate(node_netstat_Icmp_InTimestampReps{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "InTimestampReps",
-          "refId": "E"
-        },
-        {
-          "expr": "rate(node_netstat_Icmp_InTimestamps{instance=\"$host\"}[$interval]) or\nirate(node_netstat_Icmp_InTimestamps{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "InTimestamps",
-          "refId": "F"
-        },
-        {
-          "expr": "rate(node_netstat_Icmp_OutTimestampReps{instance=\"$host\"}[$interval]) or\nirate(node_netstat_Icmp_OutTimestampReps{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "OutTimestampReps",
-          "refId": "G"
-        },
-        {
-          "expr": "rate(node_netstat_Icmp_OutTimestamps{instance=\"$host\"}[$interval]) or\nirate(node_netstat_Icmp_OutTimestamps{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "OutTimestamps",
-          "refId": "H"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Timestamps / Mask Requests",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "label": "out (-) / in (+)",
           "logBase": 1,
           "max": null,
           "min": null,
@@ -2671,7 +1817,7 @@
     ]
   },
   "time": {
-    "from": "now-5m",
+    "from": "now-12h",
     "to": "now"
   },
   "timepicker": {

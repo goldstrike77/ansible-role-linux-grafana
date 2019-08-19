@@ -13,11 +13,10 @@
 
 - name: Install the grafana
   yum:
-    name: '{{ item }}'
+    name: '{{ grafana_software }}'
     state: 'present'
     validate_certs: 'no'
     disable_gpg_check: 'yes'
-  with_items: '{{ grafana_software }}'
   register: soft_updated
   until: soft_updated is succeeded
   retries: 3

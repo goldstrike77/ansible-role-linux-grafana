@@ -2,7 +2,7 @@
   "__inputs": [
     {
       "name": "DS_PROMETHEUS",
-      "label": "Prometheus",
+      "label": "DS_PROMETHEUS",
       "description": "",
       "type": "datasource",
       "pluginId": "prometheus",
@@ -14,31 +14,31 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "5.4.2"
+      "version": "6.2.5"
     },
     {
       "type": "panel",
       "id": "graph",
       "name": "Graph",
-      "version": "5.0.0"
+      "version": ""
     },
     {
       "type": "datasource",
       "id": "prometheus",
       "name": "Prometheus",
-      "version": "5.0.0"
+      "version": "1.0.0"
     },
     {
       "type": "panel",
       "id": "singlestat",
       "name": "Singlestat",
-      "version": "5.0.0"
+      "version": ""
     },
     {
       "type": "panel",
       "id": "text",
       "name": "Text",
-      "version": "5.0.0"
+      "version": ""
     }
   ],
   "annotations": {
@@ -59,7 +59,7 @@
   "gnetId": 3300,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1552454592962,
+  "iteration": 1566181684206,
   "links": [
     {
       "asDropdown": true,
@@ -149,6 +149,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -164,7 +165,7 @@
         "fillColor": "rgba(31, 118, 189, 0.18)",
         "full": false,
         "lineColor": "rgb(31, 120, 193)",
-        "show": true
+        "show": false
       },
       "tableColumn": "",
       "targets": [
@@ -178,7 +179,7 @@
         }
       ],
       "thresholds": "0,1",
-      "title": "Connected",
+      "title": "",
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -189,20 +190,36 @@
         },
         {
           "op": "=",
-          "text": "NO",
+          "text": "Dead",
           "value": "0"
         },
         {
           "op": "=",
-          "text": "YES",
+          "text": "Alive",
           "value": "1"
         }
       ],
-      "valueName": "avg"
+      "valueName": "current"
     },
     {
-      "content": "<h1><b><font color=#e68a00><center>$version</center></font></b></h1>",
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "DS_PROMETHEUS",
       "description": "The version of the PostgreSQL instance.",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
       "gridPos": {
         "h": 2,
         "w": 2,
@@ -210,10 +227,62 @@
         "y": 0
       },
       "id": 65,
+      "interval": null,
       "links": [],
-      "mode": "html",
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "pg_static{instance=\"$host\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{ short_version }}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
       "title": "Version",
-      "type": "text"
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "name"
     },
     {
       "cacheTimeout": null,
@@ -265,6 +334,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -356,6 +426,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -451,6 +522,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -542,6 +614,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -632,6 +705,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -722,6 +796,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -819,6 +894,7 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -930,6 +1006,7 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1048,6 +1125,7 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1170,6 +1248,7 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1272,6 +1351,7 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1397,6 +1477,7 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1499,6 +1580,7 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1604,6 +1686,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1695,6 +1778,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1818,6 +1902,7 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -2010,6 +2095,7 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -2160,6 +2246,7 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -2270,6 +2357,7 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -2632,6 +2720,7 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -2767,8 +2856,9 @@
       "lines": true,
       "linewidth": 2,
       "links": [],
-      "minSpan": 4,
+      "maxPerRow": 6,
       "nullPointMode": "connected",
+      "options": {},
       "percentage": true,
       "pointradius": 1,
       "points": false,
@@ -2862,6 +2952,7 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -3009,6 +3100,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -3107,6 +3199,7 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -3219,6 +3312,7 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -3353,6 +3447,7 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -3368,7 +3463,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(node_network_receive_bytes_total{instance=\"$host\", device!=\"lo\"}[$interval])) or \nsum(irate(node_network_receive_bytes{instance=\"$host\", device!=\"lo\"}[5m])) or \nsum(max_over_time(rdsosmetrics_network_rx{instance=\"$host\"}[$interval])) or \nsum(max_over_time(rdsosmetrics_network_rx{instance=\"$host\"}[5m])) ",
+          "expr": "sum(rate(node_network_receive_bytes_total{instance=\"$host\", device!=\"lo\"}[$interval])) or \nsum(irate(node_network_receive_bytes_total{instance=\"$host\", device!=\"lo\"}[5m])) or \nsum(max_over_time(rdsosmetrics_network_rx{instance=\"$host\"}[$interval])) or \nsum(max_over_time(rdsosmetrics_network_rx{instance=\"$host\"}[5m])) ",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -3376,7 +3471,7 @@
           "refId": "A"
         },
         {
-          "expr": "sum(rate(node_network_transmit_bytes_total{instance=\"$host\", device!=\"lo\"}[$interval])) or sum(irate(node_network_transmit_bytes{instance=\"$host\", device!=\"lo\"}[5m])) or\nsum(max_over_time(rdsosmetrics_network_tx{instance=\"$host\"}[$interval])) or sum(max_over_time(rdsosmetrics_network_tx{instance=\"$host\"}[5m]))",
+          "expr": "sum(rate(node_network_transmit_bytes_total{instance=\"$host\", device!=\"lo\"}[$interval])) or sum(irate(node_network_transmit_bytes_total{instance=\"$host\", device!=\"lo\"}[5m])) or\nsum(max_over_time(rdsosmetrics_network_tx{instance=\"$host\"}[$interval])) or sum(max_over_time(rdsosmetrics_network_tx{instance=\"$host\"}[5m]))",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -3427,7 +3522,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 16,
+  "schemaVersion": 18,
   "style": "dark",
   "tags": [
     "Databases"
@@ -4446,5 +4541,5 @@
   "timezone": "browser",
   "title": "PostgreSQL Overview",
   "uid": "IvhES05ik",
-  "version": 1
+  "version": 2
 }

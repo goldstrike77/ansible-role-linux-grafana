@@ -2,7 +2,7 @@
   "__inputs": [
     {
       "name": "DS_PROMETHEUS",
-      "label": "Prometheus",
+      "label": "DS_PROMETHEUS",
       "description": "",
       "type": "datasource",
       "pluginId": "prometheus",
@@ -14,25 +14,19 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "5.4.2"
+      "version": "6.2.5"
     },
     {
       "type": "panel",
       "id": "graph",
       "name": "Graph",
-      "version": "5.0.0"
+      "version": ""
     },
     {
       "type": "datasource",
       "id": "prometheus",
       "name": "Prometheus",
-      "version": "5.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "text",
-      "name": "Text",
-      "version": "5.0.0"
+      "version": "1.0.0"
     }
   ],
   "annotations": {
@@ -52,7 +46,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1552455195334,
+  "iteration": 1566192282566,
   "links": [
     {
       "asDropdown": true,
@@ -134,6 +128,7 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -148,6 +143,7 @@
           "datasourceErrors": {},
           "errors": {},
           "expr": "topk(5, (rate(mysql_info_schema_user_statistics_total_ssl_connections_total{instance=\"$host\"}[$interval]) + rate(mysql_info_schema_user_statistics_total_connections{instance=\"$host\"}[$interval]))>0) or topk(5, (irate(mysql_info_schema_user_statistics_total_ssl_connections_total{instance=\"$host\"}[5m]) + irate(mysql_info_schema_user_statistics_total_connections{instance=\"$host\"}[5m]))>0)",
+          "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
           "legendFormat": "{{ user }}",
@@ -231,6 +227,7 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -329,6 +326,7 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -427,6 +425,7 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -525,6 +524,7 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -622,6 +622,7 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -684,30 +685,10 @@
         "align": false,
         "alignLevel": null
       }
-    },
-    {
-      "content": "These graphs are available only for [Percona Server](https://www.percona.com/doc/percona-server/5.6/diagnostics/user_stats.html) and [MariaDB](https://mariadb.com/kb/en/mariadb/user-statistics/) and require `userstat` variable turned on.",
-      "datasource": "DS_PROMETHEUS",
-      "editable": true,
-      "error": false,
-      "gridPos": {
-        "h": 3,
-        "w": 24,
-        "x": 0,
-        "y": 21
-      },
-      "height": "50px",
-      "id": 36,
-      "links": [],
-      "mode": "markdown",
-      "style": {},
-      "title": "",
-      "transparent": true,
-      "type": "text"
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 16,
+  "schemaVersion": 18,
   "style": "dark",
   "tags": [
     "Databases"
