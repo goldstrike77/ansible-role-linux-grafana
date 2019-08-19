@@ -58,7 +58,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1566200375766,
+  "iteration": 1566209644167,
   "links": [
     {
       "asDropdown": true,
@@ -136,6 +136,11 @@
               "color": "super-light-orange",
               "index": 0,
               "value": null
+            },
+            {
+              "color": "super-light-orange",
+              "index": 1,
+              "value": 80
             }
           ],
           "values": false
@@ -1194,5 +1199,5 @@
   "timezone": "browser",
   "title": "Cross Server Graphs",
   "uid": "Swz9QGNmz",
-  "version": 1
+  "version": 2
 }
