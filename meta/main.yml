@@ -79,7 +79,7 @@ dependencies:
         - 'GET'
         - 'HEAD'
       ngx_site: '{{ grafana_ngx_site }}'
-    when: grafana_ngx_dept
+    when: grafana_ngx_dept | bool
   - role: 'ansible-role-linux-redis'
     vars:
       redis_path: '{{ grafana_redis_path }}'
@@ -87,5 +87,5 @@ dependencies:
       redis_maxmemory: '{{ grafana_redis_maxmemory }}'
       redis_port: '{{ grafana_redis_port }}'
     when:
-      - grafana_redis_dept
+      - grafana_redis_dept | bool
       - grafana_redis_hosts in ansible_default_ipv4.address

@@ -24,4 +24,4 @@
     setype: 'http_port_t'
     state: 'present'
   when:
-    - grafana_selinux
+    - grafana_selinux | bool

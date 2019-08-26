@@ -100,7 +100,7 @@
     - { regexp: '^provider =',        line: 'provider = redis' }
     - { regexp: '^provider_config =', line: 'provider_config = addr={{ grafana_redis_hosts }}:{{ grafana_redis_port }},pool_size=100,db=0,password={{ grafana_redis_requirepass }}' }
   when:
-    - grafana_session_share or grafana_redis_dept
+    - grafana_session_share or grafana_redis_dept | bool
     - grafana_version < 6.2
   register: sess_updated
 
@@ -115,7 +115,7 @@
     - { regexp: '^type =',    line: 'type = redis' }
     - { regexp: '^connstr =', line: 'connstr = addr={{ grafana_redis_hosts }}:{{ grafana_redis_port }},pool_size=100,db=0,password={{ grafana_redis_requirepass }}' }
   when:
-    - grafana_session_share or grafana_redis_dept
+    - grafana_session_share or grafana_redis_dept | bool
     - grafana_version >= 6.2
   register: sess_updated
 

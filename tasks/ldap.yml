@@ -19,6 +19,6 @@
     owner: 'root'
     group: 'grafana'
     mode: '0640'
-  when: grafana_ldap_enabled
+  when: grafana_ldap_enabled | bool
   register: ldap_config
   no_log: true
