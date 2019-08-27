@@ -59,7 +59,7 @@
   "gnetId": 9965,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1566883542878,
+  "iteration": 1566897852486,
   "links": [
     {
       "asDropdown": true,
@@ -258,11 +258,11 @@
       "colorBackground": false,
       "colorPostfix": false,
       "colorPrefix": false,
-      "colorValue": false,
+      "colorValue": true,
       "colors": [
-        "#d44a3a",
-        "rgba(237, 129, 40, 0.89)",
-        "#299c46"
+        "#FF780A",
+        "#56A64B",
+        "#d44a3a"
       ],
       "datasource": "DS_PROMETHEUS",
       "decimals": null,
@@ -325,7 +325,7 @@
           "refId": "A"
         }
       ],
-      "thresholds": "",
+      "thresholds": "99,400",
       "timeFrom": null,
       "timeShift": null,
       "title": "Status code",
@@ -345,15 +345,15 @@
       "colorBackground": false,
       "colorPostfix": false,
       "colorPrefix": false,
-      "colorValue": false,
+      "colorValue": true,
       "colors": [
         "#d44a3a",
         "rgba(237, 129, 40, 0.89)",
         "#299c46"
       ],
       "datasource": "DS_PROMETHEUS",
-      "decimals": 0,
-      "format": "s",
+      "decimals": null,
+      "format": "none",
       "gauge": {
         "maxValue": 100,
         "minValue": 0,
@@ -385,7 +385,7 @@
       "nullPointMode": "connected",
       "nullText": null,
       "options": {},
-      "postfix": "",
+      "postfix": " Days",
       "postfixFontSize": "50%",
       "prefix": "",
       "prefixFontSize": "50%",
@@ -405,14 +405,14 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "probe_ssl_earliest_cert_expiry{target=\"$target\"}-time()",
+          "expr": "(probe_ssl_earliest_cert_expiry{target=\"$target\"}-time()) / 86400",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "",
           "refId": "A"
         }
       ],
-      "thresholds": "",
+      "thresholds": "36,35",
       "timeFrom": null,
       "timeShift": null,
       "title": "SSL cert expiry",
@@ -751,5 +751,5 @@
   "timezone": "browser",
   "title": "WebSite Overview",
   "uid": "ynUxXflik",
-  "version": 16
+  "version": 1
 }
