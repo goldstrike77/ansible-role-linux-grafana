@@ -53,6 +53,8 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `grafana_session_share`: Whether store the session data on Redis.
 
 ##### Service Mesh
+* `subscription`: Define the service subscription.
+* `region`: Define the service region.
 * `environments`: Define the service environment.
 * `exporter_is_install`: Whether to install prometheus exporter.
 * `consul_public_register`: false Whether register a exporter service with public consul client.
@@ -177,6 +179,8 @@ You can also use the group_vars or the host_vars files for setting the variables
           - 'Linux_Network_Overview'
           - 'Linux_System_Overview'
           - 'Windows_System_Overview'
+    subscription: 'default'
+    region: 'default'
     environments: 'SIT'
     exporter_is_install: false
     consul_public_register: false

@@ -9,6 +9,8 @@ grafana_selinux: 'false' # SELinux security policy.
 grafana_session_share: false # 6.2+移除了会话共享存储，目前[remote_cache]实际功能未知。
 
 # Service Mesh #
+subscription: 'default' # Define the service subscription.
+region: 'default' # Define the service region.
 environments: 'SIT' # Define the service environment.
 exporter_is_install: false # Whether to install prometheus exporter.
 consul_public_register: false # Whether register a exporter service with public consul client.
