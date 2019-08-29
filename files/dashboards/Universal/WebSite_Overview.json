@@ -18,12 +18,6 @@
     },
     {
       "type": "panel",
-      "id": "grafana-piechart-panel",
-      "name": "Pie Chart",
-      "version": "1.3.6"
-    },
-    {
-      "type": "panel",
       "id": "graph",
       "name": "Graph",
       "version": ""
@@ -59,7 +53,7 @@
   "gnetId": 9965,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1566897852486,
+  "iteration": 1566956354728,
   "links": [
     {
       "asDropdown": true,
@@ -108,53 +102,92 @@
   ],
   "panels": [
     {
-      "aliasColors": {},
-      "breakPoint": "50%",
       "cacheTimeout": null,
-      "combine": {
-        "label": "Others",
-        "threshold": 0
-      },
+      "colorBackground": false,
+      "colorPostfix": false,
+      "colorPrefix": false,
+      "colorValue": true,
+      "colors": [
+        "#FF780A",
+        "#56A64B",
+        "#d44a3a"
+      ],
       "datasource": "DS_PROMETHEUS",
-      "fontSize": "80%",
-      "format": "short",
+      "decimals": null,
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
       "gridPos": {
-        "h": 12,
-        "w": 5,
+        "h": 3,
+        "w": 3,
         "x": 0,
         "y": 0
       },
-      "id": 300,
+      "hideTimeOverride": true,
+      "id": 2416,
       "interval": null,
-      "legend": {
-        "percentage": true,
-        "percentageDecimals": 0,
-        "show": true,
-        "sort": null,
-        "sortDesc": null,
-        "values": false
-      },
-      "legendType": "Under graph",
       "links": [],
-      "maxDataPoints": 3,
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
       "nullPointMode": "connected",
+      "nullText": null,
       "options": {},
-      "pieType": "pie",
-      "pluginVersion": "6.2.5",
-      "strokeWidth": "0",
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
       "targets": [
         {
-          "expr": "count_values('value',probe_http_status_code{target=\"$target\"})",
+          "expr": "probe_http_status_code{target=\"$target\"}",
           "format": "time_series",
+          "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{ value }}",
+          "legendFormat": "",
           "refId": "A"
         }
       ],
-      "timeFrom": null,
+      "thresholds": "99,400",
+      "timeFrom": "$interval",
       "timeShift": null,
-      "title": "Response HTTP status code",
-      "type": "grafana-piechart-panel",
+      "title": "Status code",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
       "valueName": "current"
     },
     {
@@ -167,8 +200,8 @@
       "fill": 0,
       "gridPos": {
         "h": 12,
-        "w": 16,
-        "x": 5,
+        "w": 21,
+        "x": 3,
         "y": 0
       },
       "id": 28,
@@ -235,8 +268,8 @@
           "format": "none",
           "label": "Milliseconds",
           "logBase": 1,
-          "max": null,
-          "min": null,
+          "max": "5000",
+          "min": "0",
           "show": true
         },
         {
@@ -252,93 +285,6 @@
         "align": false,
         "alignLevel": null
       }
-    },
-    {
-      "cacheTimeout": null,
-      "colorBackground": false,
-      "colorPostfix": false,
-      "colorPrefix": false,
-      "colorValue": true,
-      "colors": [
-        "#FF780A",
-        "#56A64B",
-        "#d44a3a"
-      ],
-      "datasource": "DS_PROMETHEUS",
-      "decimals": null,
-      "format": "none",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 21,
-        "y": 0
-      },
-      "id": 2416,
-      "interval": null,
-      "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
-      "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "options": {},
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
-      },
-      "tableColumn": "",
-      "targets": [
-        {
-          "expr": "probe_http_status_code{target=\"$target\"}",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "",
-          "refId": "A"
-        }
-      ],
-      "thresholds": "99,400",
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Status code",
-      "type": "singlestat",
-      "valueFontSize": "80%",
-      "valueMaps": [
-        {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
-        }
-      ],
-      "valueName": "current"
     },
     {
       "cacheTimeout": null,
@@ -364,9 +310,10 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 21,
+        "x": 0,
         "y": 3
       },
+      "hideTimeOverride": true,
       "id": 2414,
       "interval": null,
       "links": [],
@@ -413,7 +360,7 @@
         }
       ],
       "thresholds": "36,35",
-      "timeFrom": null,
+      "timeFrom": "$interval",
       "timeShift": null,
       "title": "SSL cert expiry",
       "type": "singlestat",
@@ -451,9 +398,10 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 21,
+        "x": 0,
         "y": 6
       },
+      "hideTimeOverride": true,
       "id": 2415,
       "interval": null,
       "links": [],
@@ -500,7 +448,7 @@
         }
       ],
       "thresholds": "",
-      "timeFrom": null,
+      "timeFrom": "$interval",
       "timeShift": null,
       "title": "Protocol",
       "type": "singlestat",
@@ -548,9 +496,10 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 21,
+        "x": 0,
         "y": 9
       },
+      "hideTimeOverride": true,
       "id": 2417,
       "interval": null,
       "links": [],
@@ -597,7 +546,7 @@
         }
       ],
       "thresholds": "",
-      "timeFrom": null,
+      "timeFrom": "$interval",
       "timeShift": null,
       "title": "Version of HTTP",
       "type": "singlestat",
