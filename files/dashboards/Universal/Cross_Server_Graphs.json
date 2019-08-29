@@ -58,7 +58,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1566265160071,
+  "iteration": 1567072272449,
   "links": [
     {
       "asDropdown": true,
@@ -400,7 +400,7 @@
           "unit": "short"
         },
         {
-          "alias": "Virtual CPUs",
+          "alias": "VCores",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -432,7 +432,7 @@
           "unit": "short"
         },
         {
-          "alias": "Physical Memory",
+          "alias": "Memory (GB)",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -440,15 +440,15 @@
             "rgba(50, 172, 45, 0.97)"
           ],
           "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 0,
+          "decimals": null,
           "mappingType": 1,
           "pattern": "Value #C",
           "thresholds": [],
           "type": "number",
-          "unit": "bytes"
+          "unit": "short"
         },
         {
-          "alias": "Disk Provisioning",
+          "alias": "Disc (GB)",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -461,7 +461,7 @@
           "pattern": "Value #D",
           "thresholds": [],
           "type": "number",
-          "unit": "bytes"
+          "unit": "short"
         },
         {
           "alias": "Uptime",
@@ -495,7 +495,7 @@
           "mappingType": 1,
           "pattern": "group",
           "thresholds": [],
-          "type": "hidden",
+          "type": "string",
           "unit": "short"
         },
         {
@@ -548,7 +548,7 @@
           "unit": "short"
         },
         {
-          "alias": "Model",
+          "alias": "Platform",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -572,6 +572,38 @@
               "value": "VMware Virtual Platform"
             }
           ]
+        },
+        {
+          "alias": "",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "region",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "subscription",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
         }
       ],
       "targets": [
@@ -597,7 +629,7 @@
           "refId": "B"
         },
         {
-          "expr": "sum by(instance)(node_memory_MemTotal_bytes{instance=~\"$host\"}) or sum by(instance)(wmi_os_visible_memory_bytes{instance=~\"$host\"})",
+          "expr": "(sum by(instance)(node_memory_MemTotal_bytes{instance=~\"$host\"}) or sum by(instance)(wmi_os_visible_memory_bytes{instance=~\"$host\"})) / 1024 / 1024 / 1005",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -606,7 +638,7 @@
           "refId": "C"
         },
         {
-          "expr": "sum by(instance)(node_filesystem_size_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) or sum by(instance)(wmi_logical_disk_size_bytes{instance=~\"$host\"})",
+          "expr": "(sum by(instance)(node_filesystem_size_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) or sum by(instance)(wmi_logical_disk_size_bytes{instance=~\"$host\"})) / 1024 / 1024 / 1023.5",
           "format": "table",
           "instant": true,
           "interval": "60m",
@@ -1203,5 +1235,5 @@
   "timezone": "browser",
   "title": "Cross Server Graphs",
   "uid": "Swz9QGNmz",
-  "version": 1
+  "version": 3
 }
