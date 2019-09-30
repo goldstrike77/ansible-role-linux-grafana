@@ -1,12 +1,12 @@
 ---
+- name: Include tasks for specific OS
+  include: '{{ ansible_os_family }}.yml'
+
 - name: Configure the grafana firewall
   include: 'firewall.yml'
 
 - name: Straight to getenforce selinux status
   include: 'selinux.yml'
-
-- name: Include tasks for specific OS
-  include: '{{ ansible_os_family }}.yml'
 
 - name: Configuration the grafana
   include: 'configureation.yml'

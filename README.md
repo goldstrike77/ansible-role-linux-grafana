@@ -49,7 +49,6 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `grafana_version`: Specify the Grafana version.
 * `grafana_admin_user`: The name of the default Grafana admin user.
 * `grafana_admin_password`: The password of the default Grafana admin.
-* `grafana_selinux`: SELinux security policy.
 * `grafana_session_share`: Whether store the session data on Redis.
 
 ##### Service Mesh
@@ -99,7 +98,7 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `grafana_dashboard_arg`: DashBoard settings.
 
 ## Dependencies
-- Ansible versions > 2.6 are supported.
+- Ansible versions >= 2.8 are supported.
 - [NGinx](https://github.com/goldstrike77/ansible-role-linux-nginx.git)
 - [Redis](https://github.com/goldstrike77/ansible-role-linux-redis.git)
 
@@ -127,7 +126,6 @@ You can also use the group_vars or the host_vars files for setting the variables
     grafana_version: '6.2'
     grafana_admin_user: 'admin'
     grafana_admin_password: 'password'
-    grafana_selinux: false
     grafana_session_share: false
     grafana_port: '3000'
     grafana_redis_dept: false

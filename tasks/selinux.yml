@@ -1,4 +1,8 @@
 ---
+- name: 'Set grafana_selinux to false for default'
+  set_fact:
+    grafana_selinux: '{{ false }}'
+
 - name: 'Get getenforce binary'
   stat:
     path: '/usr/sbin/getenforce'

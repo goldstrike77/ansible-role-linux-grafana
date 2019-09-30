@@ -5,7 +5,6 @@ grafana_path: '/data'
 grafana_version: '6.2'
 grafana_admin_user: 'admin'
 grafana_admin_password: 'changeme'
-grafana_selinux: 'false' # SELinux security policy.
 grafana_session_share: false # 6.2+移除了会话共享存储，目前[remote_cache]实际功能未知。
 
 # Service Mesh #
