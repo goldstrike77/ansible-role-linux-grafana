@@ -43,7 +43,7 @@ grafana_ngx_pagespeed: false # Enables or disables pagespeed modules.
 grafana_ngx_port_http: '80' # NGinx HTTP listen port.
 grafana_ngx_port_https: '443' # NGinx HTTPs listen port.
 grafana_ngx_ssl_protocols: 'modern' # intermediate or modern, defines SSL protocol profile.
-grafana_ngx_version: 'extras' # extras or standard
+grafana_ngx_version: 'standard' # extras or standard
 grafana_ngx_backend: # Define groups of servers that can be referenced.
   - '127.0.0.1'
 grafana_ngx_site: # Define backend traffic context.
