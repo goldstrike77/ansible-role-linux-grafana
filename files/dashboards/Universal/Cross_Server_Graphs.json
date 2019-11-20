@@ -20,7 +20,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.3.5"
+      "version": "6.3.6"
     },
     {
       "type": "panel",
@@ -58,7 +58,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1567677463675,
+  "iteration": 1574216808738,
   "links": [
     {
       "asDropdown": true,
@@ -107,7 +107,7 @@
   ],
   "panels": [
     {
-      "datasource": "DS_PROMETHEUS",
+      "datasource": "${DS_PROMETHEUS}",
       "gridPos": {
         "h": 9,
         "w": 5,
@@ -145,7 +145,7 @@
         },
         "orientation": "horizontal"
       },
-      "pluginVersion": "6.3.5",
+      "pluginVersion": "6.3.6",
       "targets": [
         {
           "expr": "(count(node_memory_MemTotal_bytes{instance=~\"$host\"}) or vector(0)) + (count(wmi_os_visible_memory_bytes{instance=~\"$host\"}) or vector(0))",
@@ -177,7 +177,7 @@
           "refId": "C"
         },
         {
-          "expr": "((sum(node_filesystem_size_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) or vector(0)) + (sum(wmi_logical_disk_size_bytes{instance=~\"$host\"}) or vector(0))) / 1024 / 1024 / 1023.5",
+          "expr": "((sum(node_filesystem_size_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) or vector(0)) + (sum(node_memory_SwapTotal_bytes{instance=~\"$host\"}) or vector(0)) + (sum(wmi_logical_disk_size_bytes{instance=~\"$host\"}) or vector(0))) / 1024 / 1024 / 1023.5",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -193,7 +193,7 @@
     },
     {
       "columns": [],
-      "datasource": "DS_PROMETHEUS",
+      "datasource": "${DS_PROMETHEUS}",
       "editable": true,
       "error": false,
       "fontSize": "90%",
@@ -233,7 +233,7 @@
           "preserveFormat": false,
           "sanitize": false,
           "thresholds": [],
-          "type": "string",
+          "type": "hidden",
           "unit": "short"
         },
         {
@@ -270,7 +270,7 @@
           "unit": "short"
         },
         {
-          "alias": "Memory (GB)",
+          "alias": "Memory",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -283,10 +283,10 @@
           "pattern": "Value #C",
           "thresholds": [],
           "type": "number",
-          "unit": "short"
+          "unit": "bytes"
         },
         {
-          "alias": "Disc (GB)",
+          "alias": "Disc",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -299,7 +299,7 @@
           "pattern": "Value #D",
           "thresholds": [],
           "type": "number",
-          "unit": "short"
+          "unit": "bytes"
         },
         {
           "alias": "Uptime",
@@ -386,7 +386,7 @@
           "unit": "short"
         },
         {
-          "alias": "Platform",
+          "alias": "Vendor",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -402,12 +402,16 @@
           "unit": "short",
           "valueMaps": [
             {
-              "text": "Microsoft Azure",
+              "text": "Azure",
               "value": "Virtual Machine"
             },
             {
               "text": "VMware",
               "value": "VMware Virtual Platform"
+            },
+            {
+              "text": "Tencent",
+              "value": "Bochs"
             }
           ]
         },
@@ -451,7 +455,7 @@
           "refId": "B"
         },
         {
-          "expr": "(sum by(instance)(node_memory_MemTotal_bytes{instance=~\"$host\"}) or sum by(instance)(wmi_os_visible_memory_bytes{instance=~\"$host\"})) / 1024 / 1024 / 1005",
+          "expr": "(sum by(instance)(node_memory_MemTotal_bytes{instance=~\"$host\"}) or sum by(instance)(wmi_os_visible_memory_bytes{instance=~\"$host\"}))",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -460,7 +464,7 @@
           "refId": "C"
         },
         {
-          "expr": "(sum by(instance)(node_filesystem_size_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) or sum by(instance)(wmi_logical_disk_size_bytes{instance=~\"$host\"})) / 1024 / 1024 / 1023.5",
+          "expr": "sum by(instance)(node_filesystem_size_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) + sum by(instance)(node_memory_SwapTotal_bytes{instance=~\"$host\"}) or sum by(instance)(wmi_logical_disk_size_bytes{instance=~\"$host\"})",
           "format": "table",
           "instant": true,
           "interval": "$interval",
@@ -488,7 +492,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "DS_PROMETHEUS",
+      "datasource": "${DS_PROMETHEUS}",
       "decimals": 0,
       "description": "",
       "editable": true,
@@ -605,7 +609,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "DS_PROMETHEUS",
+      "datasource": "${DS_PROMETHEUS}",
       "decimals": 0,
       "editable": true,
       "error": false,
@@ -710,7 +714,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "DS_PROMETHEUS",
+      "datasource": "${DS_PROMETHEUS}",
       "decimals": 0,
       "description": "Percentage of usage disk space on mount for Linux.\nPercentage of usage disk space exclude reserve partition for Windows.",
       "editable": true,
@@ -815,7 +819,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "DS_PROMETHEUS",
+      "datasource": "${DS_PROMETHEUS}",
       "decimals": 0,
       "editable": true,
       "error": false,
@@ -987,7 +991,7 @@
       {
         "allValue": null,
         "current": {},
-        "datasource": "DS_PROMETHEUS",
+        "datasource": "${DS_PROMETHEUS}",
         "definition": "label_values(os_info, group)",
         "hide": 0,
         "includeAll": false,
@@ -1010,7 +1014,7 @@
         "allFormat": "pipe",
         "allValue": null,
         "current": {},
-        "datasource": "DS_PROMETHEUS",
+        "datasource": "${DS_PROMETHEUS}",
         "definition": "os_info{group=~\"$group\"}",
         "hide": 0,
         "includeAll": true,
