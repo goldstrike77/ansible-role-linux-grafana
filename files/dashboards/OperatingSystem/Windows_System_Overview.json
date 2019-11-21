@@ -2,7 +2,7 @@
   "__inputs": [
     {
       "name": "DS_PROMETHEUS",
-      "label": "Prometheus",
+      "label": "DS_PROMETHEUS",
       "description": "",
       "type": "datasource",
       "pluginId": "prometheus",
@@ -14,25 +14,25 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "5.4.2"
+      "version": "6.3.6"
     },
     {
       "type": "panel",
       "id": "graph",
       "name": "Graph",
-      "version": "5.0.0"
+      "version": ""
     },
     {
       "type": "datasource",
       "id": "prometheus",
       "name": "Prometheus",
-      "version": "5.0.0"
+      "version": "1.0.0"
     },
     {
       "type": "panel",
       "id": "singlestat",
       "name": "Singlestat",
-      "version": "5.0.0"
+      "version": ""
     }
   ],
   "annotations": {
@@ -53,7 +53,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1552455604610,
+  "iteration": 1574303530109,
   "links": [
     {
       "asDropdown": true,
@@ -143,6 +143,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "s",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -223,6 +224,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -304,6 +306,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -337,7 +340,6 @@
       ],
       "thresholds": "",
       "title": "Operating System",
-      "transparent": false,
       "type": "singlestat",
       "valueFontSize": "50%",
       "valueMaps": [],
@@ -385,6 +387,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -412,7 +415,7 @@
         }
       ],
       "thresholds": "",
-      "title": "Physical Memory",
+      "title": "Physical Memory Space",
       "type": "singlestat",
       "valueFontSize": "50%",
       "valueMaps": [
@@ -466,6 +469,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -493,7 +497,7 @@
         }
       ],
       "thresholds": "",
-      "title": "Memory Available",
+      "title": "Physical Memory Available",
       "type": "singlestat",
       "valueFontSize": "50%",
       "valueMaps": [
@@ -548,6 +552,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -630,6 +635,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -650,7 +656,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(wmi_logical_disk_size_bytes{instance=\"$host\",volume!~\"HarddiskVolume.*\"})",
+          "expr": "sum(wmi_logical_disk_size_bytes{instance=\"$host\"})",
           "format": "time_series",
           "intervalFactor": 1,
           "refId": "A"
@@ -712,6 +718,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -771,6 +778,7 @@
       "dashes": false,
       "datasource": "DS_PROMETHEUS",
       "fill": 10,
+      "fillGradient": 0,
       "gridPos": {
         "h": 9,
         "w": 12,
@@ -792,6 +800,9 @@
       "linewidth": 0,
       "links": [],
       "nullPointMode": "null as zero",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -858,6 +869,7 @@
       "dashes": false,
       "datasource": "DS_PROMETHEUS",
       "fill": 10,
+      "fillGradient": 0,
       "gridPos": {
         "h": 9,
         "w": 12,
@@ -878,6 +890,9 @@
       "linewidth": 0,
       "links": [],
       "nullPointMode": "null as zero",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -957,6 +972,7 @@
       "dashes": false,
       "datasource": "DS_PROMETHEUS",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 9,
         "w": 12,
@@ -978,6 +994,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1057,6 +1076,7 @@
       "dashes": false,
       "datasource": "DS_PROMETHEUS",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 9,
         "w": 12,
@@ -1077,6 +1097,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1155,6 +1178,7 @@
       "dashes": false,
       "datasource": "DS_PROMETHEUS",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 9,
         "w": 12,
@@ -1175,6 +1199,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1240,6 +1267,7 @@
       "dashes": false,
       "datasource": "DS_PROMETHEUS",
       "fill": 10,
+      "fillGradient": 0,
       "gridPos": {
         "h": 9,
         "w": 12,
@@ -1262,6 +1290,9 @@
       "linewidth": 0,
       "links": [],
       "nullPointMode": "null as zero",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1361,6 +1392,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null as zero",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1454,6 +1486,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1559,6 +1592,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1651,6 +1685,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1737,6 +1772,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1822,6 +1858,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1882,7 +1919,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 16,
+  "schemaVersion": 19,
   "style": "dark",
   "tags": [
     "OS",
@@ -1895,7 +1932,6 @@
         "auto_count": 200,
         "auto_min": "1s",
         "current": {
-          "selected": true,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -2022,5 +2058,5 @@
   "timezone": "browser",
   "title": "Windows System Overview",
   "uid": "8z5sWWymz",
-  "version": 2
+  "version": 1
 }

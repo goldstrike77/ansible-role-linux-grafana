@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.2.5"
+      "version": "6.3.6"
     },
     {
       "type": "panel",
@@ -53,7 +53,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1566093214351,
+  "iteration": 1574302218015,
   "links": [
     {
       "asDropdown": true,
@@ -437,7 +437,7 @@
         }
       ],
       "thresholds": "",
-      "title": "Physical Memory",
+      "title": "Physical Memory Space",
       "type": "singlestat",
       "valueFontSize": "50%",
       "valueMaps": [
@@ -525,7 +525,7 @@
         }
       ],
       "thresholds": "",
-      "title": "Memory Available",
+      "title": "Physical Memory Available",
       "type": "singlestat",
       "valueFontSize": "50%",
       "valueMaps": [
@@ -658,13 +658,9 @@
       "interval": "$interval",
       "links": [
         {
-          "dashUri": "db/disk-space",
-          "dashboard": "Disk Space",
-          "includeVars": true,
-          "keepTime": true,
           "targetBlank": true,
           "title": "Disk Space",
-          "type": "dashboard"
+          "url": "/dashboard/db/disk-space?$__url_time_range&$__all_variables"
         }
       ],
       "mappingType": 1,
@@ -702,7 +698,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(avg(node_filesystem_size_bytes{instance=\"$host\",fstype=~\"(ext.|xfs|vfat)\"}) without (mountpoint)) without (device,fstype)",
+          "expr": "sum(node_filesystem_size_bytes{instance=\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) + sum(node_memory_SwapTotal_bytes{instance=\"$host\"})",
           "format": "time_series",
           "interval": "5m",
           "intervalFactor": 1,
@@ -756,13 +752,9 @@
       "interval": "$interval",
       "links": [
         {
-          "dashUri": "db/disk-space",
-          "dashboard": "Disk Available",
-          "includeVars": true,
-          "keepTime": true,
           "targetBlank": true,
           "title": "Disk Available",
-          "type": "dashboard"
+          "url": "/dashboard/db/disk-available?$__url_time_range&$__all_variables"
         }
       ],
       "mappingType": 1,
@@ -800,7 +792,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(node_filesystem_free_bytes{instance=\"$host\",fstype=~\"(ext.|xfs|vfat)\"})",
+          "expr": "sum(node_filesystem_free_bytes{instance=\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"})",
           "format": "time_series",
           "interval": "5m",
           "intervalFactor": 1,
@@ -852,6 +844,7 @@
       "editable": true,
       "error": false,
       "fill": 5,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 8,
@@ -880,7 +873,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -977,6 +972,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 8,
@@ -1003,7 +999,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1102,6 +1100,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -1128,7 +1127,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1232,6 +1233,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -1258,7 +1260,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1377,6 +1381,7 @@
       "editable": true,
       "error": false,
       "fill": 10,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -1404,7 +1409,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1540,6 +1547,7 @@
       "editable": true,
       "error": false,
       "fill": 6,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -1567,19 +1575,15 @@
       "linewidth": 2,
       "links": [
         {
-          "dashUri": "db/system-overview",
-          "dashboard": "System Overview",
-          "includeVars": true,
-          "keepTime": true,
-          "params": "panelId=34&fullscreen",
           "targetBlank": true,
           "title": "Memory Advanced Details",
-          "type": "dashboard",
-          "url": "Memory Advanced Details"
+          "url": "Memory Advanced Details?$__url_time_range&$__all_variables&panelId=34&fullscreen"
         }
       ],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1688,6 +1692,7 @@
       "editable": true,
       "error": false,
       "fill": 10,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -1714,7 +1719,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1822,6 +1829,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -1848,7 +1856,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1971,6 +1981,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -1997,17 +2008,15 @@
       "linewidth": 2,
       "links": [
         {
-          "dashUri": "db/disk-performance",
-          "dashboard": "Disk Performance",
-          "includeVars": true,
-          "keepTime": true,
           "targetBlank": true,
           "title": "Disk Performance",
-          "type": "dashboard"
+          "url": "/dashboard/db/disk-performance?$__url_time_range&$__all_variables"
         }
       ],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -2118,6 +2127,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -2144,7 +2154,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -2241,6 +2253,7 @@
       "decimals": 2,
       "description": "Shows average latency for Reads and Writes IO Devices.  Higher than typical latency for highly loaded storage indicates saturation (overload) and is frequent cause of performance problems.  Higher than normal latency also can indicate internal storage problems.",
       "fill": 2,
+      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 12,
@@ -2266,7 +2279,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 1,
       "points": true,
@@ -2379,6 +2394,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -2406,17 +2422,15 @@
       "linewidth": 2,
       "links": [
         {
-          "dashUri": "db/disk-performance",
-          "dashboard": "Disk Performance",
-          "includeVars": true,
-          "keepTime": true,
           "targetBlank": true,
           "title": "Disk Performance",
-          "type": "dashboard"
+          "url": "/dashboard/db/disk-performance?$__url_time_range&$__all_variables"
         }
       ],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 1,
       "points": false,
@@ -2538,6 +2552,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -2564,7 +2579,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -2661,6 +2678,7 @@
       "editable": true,
       "error": false,
       "fill": 6,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -2687,7 +2705,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -2799,6 +2819,7 @@
       "editable": true,
       "error": false,
       "fill": 6,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -2825,7 +2846,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 1,
       "points": true,
@@ -2928,6 +2951,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -2954,7 +2978,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -3046,7 +3072,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 18,
+  "schemaVersion": 19,
   "style": "dark",
   "tags": [
     "OS",
