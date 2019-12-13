@@ -88,4 +88,5 @@ dependencies:
       redis_port: '{{ grafana_redis_port }}'
     when:
       - grafana_redis_dept | bool
+      - grafana_session_share | bool
       - grafana_redis_hosts in ansible_default_ipv4.address
