@@ -159,6 +159,7 @@ grafana_dashboard_arg:
       - 'Elasticsearch_Overview'
       - 'Graylog_Overview'
       - 'JMX_Overview'
+      - 'Kafka_Overview'
       - 'Kibana_Overview'
       - 'Minio_Overview'
       - 'NGinx_Overview'
