@@ -161,6 +161,7 @@ grafana_dashboard_arg:
       - 'JMX_Overview'
       - 'Kafka_Overview'
       - 'Kibana_Overview'
+      - 'Logstash_Overview'
       - 'Minio_Overview'
       - 'NGinx_Overview'
       - 'PHP-FPM_Overview'
