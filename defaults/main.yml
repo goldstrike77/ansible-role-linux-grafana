@@ -122,6 +122,7 @@ grafana_ldap_arg:
 grafana_dashboard_arg:
   - category: 'Cloud'
     title:
+      - 'Dell_PowerEdge'
       - 'VMware_vSphere_Overview'
   - category: 'Databases'
     title:
