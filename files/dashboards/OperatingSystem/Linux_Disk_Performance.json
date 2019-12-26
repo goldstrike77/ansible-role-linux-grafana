@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.2.5"
+      "version": "6.4.5"
     },
     {
       "type": "panel",
@@ -47,7 +47,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1566094755753,
+  "iteration": 1577328814432,
   "links": [
     {
       "asDropdown": true,
@@ -106,6 +106,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -133,7 +134,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 1,
       "points": true,
@@ -225,6 +228,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -252,7 +256,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 1,
       "points": false,
@@ -344,6 +350,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -371,7 +378,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 1,
       "points": false,
@@ -463,6 +472,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -488,7 +498,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 1,
       "points": true,
@@ -580,6 +592,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -607,7 +620,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 1,
       "points": false,
@@ -686,6 +701,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -711,7 +727,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 1,
       "points": true,
@@ -794,7 +812,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 18,
+  "schemaVersion": 20,
   "style": "dark",
   "tags": [
     "OS",
@@ -808,6 +826,7 @@
         "auto_count": 200,
         "auto_min": "1s",
         "current": {
+          "selected": true,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },

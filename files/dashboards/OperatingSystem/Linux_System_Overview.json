@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.3.6"
+      "version": "6.4.5"
     },
     {
       "type": "panel",
@@ -53,7 +53,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1574302218015,
+  "iteration": 1577328773322,
   "links": [
     {
       "asDropdown": true,
@@ -815,6 +815,7 @@
     },
     {
       "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1355,6 +1356,7 @@
     },
     {
       "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1958,6 +1960,7 @@
     },
     {
       "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -2531,6 +2534,7 @@
     },
     {
       "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -3072,7 +3076,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 19,
+  "schemaVersion": 20,
   "style": "dark",
   "tags": [
     "OS",
@@ -3086,6 +3090,7 @@
         "auto_count": 200,
         "auto_min": "1s",
         "current": {
+          "selected": true,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
