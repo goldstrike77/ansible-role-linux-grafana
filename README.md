@@ -50,6 +50,7 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `grafana_admin_user`: The name of the default Grafana admin user.
 * `grafana_admin_password`: The password of the default Grafana admin.
 * `grafana_session_share`: Whether store the session data on Redis.
+* `grafana_proxy`: Whether running behind a HaProxy.
 
 ##### Service Mesh
 * `environments`: Define the service environment.
@@ -127,6 +128,7 @@ You can also use the group_vars or the host_vars files for setting the variables
     grafana_admin_user: 'admin'
     grafana_admin_password: 'password'
     grafana_session_share: false
+    grafana_proxy: false
     grafana_port: '3000'
     grafana_redis_dept: false
     grafana_redis_path: '/data'

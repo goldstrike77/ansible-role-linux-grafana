@@ -128,3 +128,14 @@
     line: '{{ item.line }}'
   with_items:
     - { regexp: '^default_theme =', line: 'default_theme = {{ grafana_arg.default_theme }}' }
+
+- name: Grafana reverse proxy configuration
+  lineinfile:
+    state: 'present'
+    dest: '/etc/grafana/grafana.ini'
+    insertafter: '\[server\]'
+    regexp: '{{ item.regexp }}'
+    line: '{{ item.line }}'
+  with_items:
+    - { regexp: '^root_url =', line: 'root_url = %(protocol)s://%(domain)s/grafana/' }
+  when: grafana_proxy | bool 
