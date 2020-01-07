@@ -1,4 +1,40 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "label": "DS_PROMETHEUS",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "6.4.5"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "singlestat",
+      "name": "Singlestat",
+      "version": ""
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -15,8 +51,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 92,
-  "iteration": 1552036230769,
+  "id": null,
+  "iteration": 1578377544699,
   "links": [
     {
       "asDropdown": true,
@@ -109,6 +145,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "null",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -196,6 +233,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "null",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -282,6 +320,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "null",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -302,7 +341,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "node_memory_Cached{instance=\"$host\"}",
+          "expr": "node_memory_Cached_bytes{instance=\"$host\"}",
           "interval": "5m",
           "intervalFactor": 1,
           "legendFormat": "",
@@ -337,7 +376,7 @@
       "decimals": 2,
       "editable": true,
       "error": false,
-      "format": "bytes",
+      "format": "percent",
       "gauge": {
         "maxValue": 100,
         "minValue": 0,
@@ -369,6 +408,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "null",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -389,7 +429,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "(node_memory_MemAvailable{instance=\"$host\"} or (node_memory_MemFree{instance=\"$host\"} + node_memory_Buffers{instance=\"$host\"} + node_memory_Cached{instance=\"$host\"})) / node_memory_MemTotal{instance=\"$host\"} * 100",
+          "expr": "(node_memory_MemAvailable_byte{instance=\"$host\"} or (node_memory_MemFree_bytes{instance=\"$host\"} + node_memory_Buffers_bytes{instance=\"$host\"} + node_memory_Cached_bytes{instance=\"$host\"})) / node_memory_MemTotal_bytes{instance=\"$host\"} * 100",
           "format": "time_series",
           "interval": "5m",
           "intervalFactor": 1,
@@ -422,6 +462,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -448,6 +489,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -517,6 +561,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -542,6 +587,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -622,6 +670,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -647,6 +696,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -716,6 +768,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -741,6 +794,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -820,6 +876,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -843,6 +900,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -918,6 +978,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -942,6 +1003,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1012,6 +1076,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -1037,6 +1102,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1120,6 +1188,7 @@
       "editable": true,
       "error": false,
       "fill": 6,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -1145,6 +1214,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1214,6 +1286,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -1236,6 +1309,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1320,6 +1396,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -1343,6 +1420,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1412,6 +1492,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -1438,6 +1519,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1507,6 +1591,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -1532,6 +1617,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1601,6 +1689,7 @@
       "editable": true,
       "error": false,
       "fill": 6,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -1626,6 +1715,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1697,6 +1789,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -1723,6 +1816,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1829,6 +1925,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -1855,6 +1952,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1933,6 +2033,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -1955,6 +2056,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -2017,7 +2121,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 16,
+  "schemaVersion": 20,
   "style": "dark",
   "tags": [
     "Databases"
@@ -2083,43 +2187,33 @@
         "type": "interval"
       },
       {
-        "allFormat": "glob",
         "allValue": null,
-        "current": {
-          "tags": [],
-          "text": "elasticsearch",
-          "value": "elasticsearch"
-        },
+        "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "",
+        "definition": "label_values(mongodb_up, group)",
         "hide": 0,
-        "includeAll": true,
-        "label": "Cluster",
+        "includeAll": false,
+        "label": "Group",
         "multi": false,
-        "multiFormat": "glob",
-        "name": "cluster",
+        "name": "group",
         "options": [],
-        "query": "label_values(cluster)",
+        "query": "label_values(mongodb_up, group)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
-        "sort": 1,
-        "tagValuesQuery": null,
+        "sort": 0,
+        "tagValuesQuery": "",
         "tags": [],
-        "tagsQuery": null,
+        "tagsQuery": "",
         "type": "query",
         "useTags": false
       },
       {
         "allFormat": "glob",
         "allValue": null,
-        "current": {
-          "isNone": true,
-          "text": "None",
-          "value": ""
-        },
+        "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "",
+        "definition": "label_values(mongodb_mongod_storage_engine{group=\"$group\", engine=\"wiredTiger\"}, instance)",
         "hide": 0,
         "includeAll": false,
         "label": "Instance",
@@ -2127,7 +2221,7 @@
         "multiFormat": "glob",
         "name": "host",
         "options": [],
-        "query": "label_values(mongodb_mongod_storage_engine{cluster=~\"$cluster\", engine=\"wiredTiger\"}, instance)",
+        "query": "label_values(mongodb_mongod_storage_engine{group=\"$group\", engine=\"wiredTiger\"}, instance)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,

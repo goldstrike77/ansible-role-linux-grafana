@@ -53,7 +53,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1577341003307,
+  "iteration": 1578366360550,
   "links": [
     {
       "asDropdown": true,
@@ -437,6 +437,22 @@
           "unit": "short"
         },
         {
+          "alias": "Cabinet",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "CabinetUnits",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        },
+        {
           "alias": "",
           "colorMode": null,
           "colors": [
@@ -455,7 +471,7 @@
       ],
       "targets": [
         {
-          "expr": "sum by(instance,ExpressServiceCode,ServiceTag,environment,group)(dell_hw_chassis_status{component=\"Batteries\",instance=~\"$host\"})",
+          "expr": "sum by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Batteries\",instance=~\"$host\"})",
           "format": "table",
           "instant": true,
           "interval": "$interval",
@@ -463,7 +479,7 @@
           "refId": "A"
         },
         {
-          "expr": "sum by(instance,ExpressServiceCode,ServiceTag,environment,group)(dell_hw_chassis_status{component=\"Fans\",instance=~\"$host\"})",
+          "expr": "sum by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Fans\",instance=~\"$host\"})",
           "format": "table",
           "instant": true,
           "interval": "$interval",
@@ -471,7 +487,7 @@
           "refId": "B"
         },
         {
-          "expr": "sum by(instance,ExpressServiceCode,ServiceTag,environment,group)(dell_hw_chassis_status{component=\"Intrusion\",instance=~\"$host\"})",
+          "expr": "sum by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Intrusion\",instance=~\"$host\"})",
           "format": "table",
           "instant": true,
           "interval": "$interval",
@@ -479,7 +495,7 @@
           "refId": "C"
         },
         {
-          "expr": "sum by(instance,ExpressServiceCode,ServiceTag,environment,group)(dell_hw_chassis_status{component=\"Memory\",instance=~\"$host\"})",
+          "expr": "sum by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Memory\",instance=~\"$host\"})",
           "format": "table",
           "instant": true,
           "interval": "$interval",
@@ -487,7 +503,7 @@
           "refId": "D"
         },
         {
-          "expr": "sum by(instance,ExpressServiceCode,ServiceTag,environment,group)(dell_hw_chassis_status{component=\"Power_Supplies\",instance=~\"$host\"})",
+          "expr": "sum by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Power_Supplies\",instance=~\"$host\"})",
           "format": "table",
           "instant": true,
           "interval": "$interval",
@@ -495,7 +511,7 @@
           "refId": "F"
         },
         {
-          "expr": "sum by(instance,ExpressServiceCode,ServiceTag,environment,group)(dell_hw_chassis_status{component=\"Processors\",instance=~\"$host\"})",
+          "expr": "sum by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Processors\",instance=~\"$host\"})",
           "format": "table",
           "instant": true,
           "interval": "$interval",
@@ -503,7 +519,7 @@
           "refId": "G"
         },
         {
-          "expr": "sum by(instance,ExpressServiceCode,ServiceTag,environment,group)(dell_hw_chassis_status{component=\"Temperatures\",instance=~\"$host\"})",
+          "expr": "sum by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Temperatures\",instance=~\"$host\"})",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -512,7 +528,7 @@
           "refId": "H"
         },
         {
-          "expr": "sum by(instance,ExpressServiceCode,ServiceTag,environment,group)(dell_hw_chassis_status{component=\"Voltages\",instance=~\"$host\"})",
+          "expr": "sum by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Voltages\",instance=~\"$host\"})",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -521,25 +537,25 @@
           "refId": "I"
         },
         {
-          "expr": "sum by(instance,ExpressServiceCode,ServiceTag,environment,group)(dell_hw_storage_pdisk_status{instance=~\"$host\"})",
+          "expr": "sum by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_storage_pdisk_status{instance=~\"$host\"})",
           "format": "table",
           "instant": true,
           "refId": "K"
         },
         {
-          "expr": "sum by(instance,ExpressServiceCode,ServiceTag,environment,group)(dell_hw_storage_vdisk_status{instance=~\"$host\"})",
+          "expr": "sum by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_storage_vdisk_status{instance=~\"$host\"})",
           "format": "table",
           "instant": true,
           "refId": "L"
         },
         {
-          "expr": "avg by(instance,ExpressServiceCode,ServiceTag,environment,group)(dell_hw_chassis_temps_reading{component=\"System_Board_Inlet_Temp\",instance=~\"$host\"})",
+          "expr": "avg by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_temps_reading{component=\"System_Board_Inlet_Temp\",instance=~\"$host\"})",
           "format": "table",
           "instant": true,
           "refId": "E"
         },
         {
-          "expr": "avg by(instance,ExpressServiceCode,ServiceTag,environment,group)(dell_hw_chassis_temps_reading{component=\"System_Board_Exhaust_Temp\",instance=~\"$host\"})",
+          "expr": "avg by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_temps_reading{component=\"System_Board_Exhaust_Temp\",instance=~\"$host\"})",
           "format": "table",
           "instant": true,
           "refId": "J"
