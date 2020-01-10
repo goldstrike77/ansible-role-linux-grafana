@@ -109,6 +109,7 @@ grafana_dashboard_arg:
   - category: 'Cloud'
     title:
       - 'Dell_PowerEdge'
+      - 'Kubernetes'
       - 'VMware_vSphere_Overview'
   - category: 'Databases'
     title:
