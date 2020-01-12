@@ -151,6 +151,7 @@ grafana_dashboard_arg:
       - 'Kibana_Overview'
       - 'Logstash_Overview'
       - 'Minio_Overview'
+      - 'Netdata_Overview'
       - 'NGinx_Overview'
       - 'PHP-FPM_Overview'
       - 'Prometheus_Overview'
