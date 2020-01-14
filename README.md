@@ -86,8 +86,9 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 
 ##### Server System Variables
 * `grafana_arg.default_theme`: Default UI theme.
-* `reporting_enabled`: Sends usage counters to stats.grafana.org every 24 hours.
-* `check_for_updates`: Enable or disable all checks to https://grafana.net for new vesions.
+* `grafana_arg.reporting_enabled`: Sends usage counters to stats.grafana.org every 24 hours.
+* `grafana_arg.check_for_updates`: Enable or disable all checks to https://grafana.net for new vesions.
+* `grafana_arg.timeout`: How long the data proxy should wait before timing out.
 
 ##### Datasource
 * `grafana_ds_arg`: DataSource settings.
@@ -163,6 +164,7 @@ You can also use the group_vars or the host_vars files for setting the variables
       default_theme: 'light'
       reporting_enabled: 'false'
       check_for_updates: 'false'
+      timeout: '60'
     grafana_ds_arg:
       - name: 'prometheus'
         settings:  
@@ -178,7 +180,7 @@ You can also use the group_vars or the host_vars files for setting the variables
           - 'Linux_Network_Overview'
           - 'Linux_System_Overview'
           - 'Windows_System_Overview'
-    environments: 'SIT'
+    environments: 'Development'
     tags:
       subscription: 'default'
       owner: 'nobody'

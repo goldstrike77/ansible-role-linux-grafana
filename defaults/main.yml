@@ -52,6 +52,7 @@ grafana_arg:
   default_theme: 'light' # dark or light
   reporting_enabled: 'false'
   check_for_updates: 'false'
+  timeout: '60'
 
 # Datasource #
 grafana_ds_arg:
@@ -160,7 +161,7 @@ grafana_dashboard_arg:
       - 'WebSite_Overview'
 
 # Service Mesh #
-environments: 'SIT' # Define the service environment.
+environments: 'Development' # Define the service environment.
 #tags: # Define the service custom label.
 #  subscription: 'default'
 #  owner: 'nobody'

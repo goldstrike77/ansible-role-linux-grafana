@@ -66,6 +66,16 @@
     - 'settings'
   register: ds_updated
 
+- name: Grafana Data proxy configuration
+  lineinfile:
+    state: present
+    dest: '/etc/grafana/grafana.ini'
+    insertafter: '\[dataproxy\]'
+    regexp: '{{ item.regexp }}'
+    line: '{{ item.line }}'
+  with_items:
+    - { regexp: '^timeout =', line: 'timeout = {{ grafana_arg.timeout }}' }
+
 - name: Grafana Analytics configuration
   lineinfile:
     state: present
