@@ -157,6 +157,7 @@ grafana_dashboard_arg:
       - 'PHP-FPM_Overview'
       - 'Prometheus_Overview'
       - 'Redis_Overview'
+      - 'Smoke_Ping'
       - 'Trickster_Overview'
       - 'WebSite_Overview'
 
