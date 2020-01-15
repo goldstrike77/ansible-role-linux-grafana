@@ -53,7 +53,7 @@
   "gnetId": 11335,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1579057964239,
+  "iteration": 1579059411644,
   "links": [
     {
       "asDropdown": true,
@@ -216,13 +216,13 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "(smokeping_requests_total{host=\"$target\"} - smokeping_response_duration_seconds_count{host=\"$target\"})/smokeping_requests_total{host=\"$target\"} ",
+          "expr": "avg by(host)((smokeping_requests_total{host=\"$target\"} - smokeping_response_duration_seconds_count{host=\"$target\"})/smokeping_requests_total{host=\"$target\"})",
           "interval": "$interval",
           "legendFormat": "Percentage",
           "refId": "A"
         },
         {
-          "expr": "(smokeping_requests_total{host=\"$target\"} - smokeping_response_duration_seconds_count{host=\"$target\"})",
+          "expr": "avg by(host)((smokeping_requests_total{host=\"$target\"} - smokeping_response_duration_seconds_count{host=\"$target\"}))",
           "interval": "$interval",
           "legendFormat": "Count",
           "refId": "B"
@@ -487,5 +487,5 @@
   "timezone": "browser",
   "title": "Smoke Ping",
   "uid": "i5aRaLaik",
-  "version": 3
+  "version": 1
 }
