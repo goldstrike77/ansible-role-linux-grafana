@@ -64,7 +64,6 @@ grafana_ds_arg:
 # Plugins #
 grafana_plugins:
   - 'grafana-piechart-panel'
-  - 'grafana-kubernetes-app'
 
 # LDAP Authentication #
 grafana_ldap_enabled: false # Enable LDAP integration.
@@ -111,7 +110,7 @@ grafana_dashboard_arg:
   - category: 'Cloud'
     title:
       - 'Dell_PowerEdge'
-      - 'Kubernetes'
+      - 'Kubernetes_Cluster'
       - 'VMware_vSphere_Overview'
   - category: 'Databases'
     title:
