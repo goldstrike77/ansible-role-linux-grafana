@@ -52,15 +52,6 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `grafana_session_share`: Whether store the session data on Redis.
 * `grafana_proxy`: Whether running behind a HaProxy.
 
-##### Service Mesh
-* `environments`: Define the service environment.
-* `tags`: Define the service custom label.
-* `exporter_is_install`: Whether to install prometheus exporter.
-* `consul_public_register`: false Whether register a exporter service with public consul client.
-* `consul_public_exporter_token`: Public Consul client ACL token.
-* `consul_public_clients`: List of public consul clients.
-* `consul_public_http_port`: The consul HTTP API port.
-
 ##### Listen port
 * `grafana_port`: Grafana instance listen port.
 
@@ -98,6 +89,16 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 
 ##### Dashboard #
 * `grafana_dashboard_arg`: DashBoard settings.
+
+##### Service Mesh
+* `environments`: Define the service environment.
+* `tags`: Define the service custom label.
+* `exporter_is_install`: Whether to install prometheus exporter.
+* `consul_public_register`: false Whether register a exporter service with public consul client.
+* `consul_public_exporter_token`: Public Consul client ACL token.
+* `consul_public_http_prot`: The consul Hypertext Transfer Protocol.
+* `consul_public_clients`: List of public consul clients.
+* `consul_public_http_port`: The consul HTTP API port.
 
 ## Dependencies
 - Ansible versions >= 2.8 are supported.
@@ -190,6 +191,7 @@ You can also use the group_vars or the host_vars files for setting the variables
     exporter_is_install: false
     consul_public_register: false
     consul_public_exporter_token: '00000000-0000-0000-0000-000000000000'
+    consul_public_http_prot: 'https'
     consul_public_http_port: '8500'
     consul_public_clients:
       - '127.0.0.1'
