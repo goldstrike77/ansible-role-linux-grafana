@@ -17,10 +17,16 @@
       "version": ""
     },
     {
+      "type": "panel",
+      "id": "gauge",
+      "name": "Gauge",
+      "version": ""
+    },
+    {
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.4.5"
+      "version": "6.5.2"
     },
     {
       "type": "panel",
@@ -58,7 +64,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1577091980062,
+  "iteration": 1581926719686,
   "links": [
     {
       "asDropdown": true,
@@ -109,8 +115,8 @@
     {
       "datasource": "DS_PROMETHEUS",
       "gridPos": {
-        "h": 9,
-        "w": 5,
+        "h": 5,
+        "w": 12,
         "x": 0,
         "y": 0
       },
@@ -133,7 +139,7 @@
                 "value": null
               },
               {
-                "color": "super-light-orange",
+                "color": "orange",
                 "value": 80
               }
             ],
@@ -145,7 +151,7 @@
         },
         "orientation": "horizontal"
       },
-      "pluginVersion": "6.4.5",
+      "pluginVersion": "6.5.2",
       "targets": [
         {
           "expr": "(count(node_memory_MemTotal_bytes{instance=~\"$host\"}) or vector(0)) + (count(wmi_os_visible_memory_bytes{instance=~\"$host\"}) or vector(0))",
@@ -186,10 +192,208 @@
           "refId": "D"
         }
       ],
-      "timeFrom": "$interval",
+      "timeFrom": null,
       "timeShift": null,
       "title": "Summary",
       "type": "bargauge"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "DS_PROMETHEUS",
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 12,
+        "y": 0
+      },
+      "id": 17,
+      "links": [],
+      "options": {
+        "fieldOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "defaults": {
+            "decimals": 0,
+            "mappings": [
+              {
+                "id": 0,
+                "op": "=",
+                "text": "N/A",
+                "type": 1,
+                "value": "null"
+              }
+            ],
+            "max": 100,
+            "min": 0,
+            "nullValueMode": "connected",
+            "thresholds": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 80
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ],
+            "unit": "percentunit"
+          },
+          "override": {},
+          "values": false
+        },
+        "orientation": "horizontal",
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "6.5.2",
+      "targets": [
+        {
+          "expr": "(1 - avg(irate(node_cpu_seconds_total{instance=~\"$host\",mode='idle'}[5m]))) or (1 - avg(irate(wmi_cpu_time_total{mode=\"idle\", instance=~\"$host\"}[5m])))",
+          "interval": "$interval",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Combine CPU Usage",
+      "type": "gauge"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "DS_PROMETHEUS",
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 16,
+        "y": 0
+      },
+      "id": 18,
+      "links": [],
+      "options": {
+        "fieldOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "defaults": {
+            "decimals": 0,
+            "mappings": [
+              {
+                "id": 0,
+                "op": "=",
+                "text": "N/A",
+                "type": 1,
+                "value": "null"
+              }
+            ],
+            "max": 100,
+            "min": 0,
+            "nullValueMode": "connected",
+            "thresholds": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 80
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ],
+            "unit": "percentunit"
+          },
+          "override": {},
+          "values": false
+        },
+        "orientation": "horizontal",
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "6.5.2",
+      "targets": [
+        {
+          "expr": "avg((node_memory_MemTotal_bytes{instance=~\"$host\"} - (node_memory_MemFree_bytes{instance=~\"$host\"} + node_memory_Buffers_bytes{instance=~\"$host\"} + node_memory_Cached_bytes{instance=~\"$host\"})) / node_memory_MemTotal_bytes{instance=~\"$host\"}) or avg((wmi_cs_physical_memory_bytes{instance=~\"$host\"} - wmi_os_physical_memory_free_bytes{instance=~\"$host\"}) / wmi_cs_physical_memory_bytes{instance=~\"$host\"})",
+          "interval": "$interval",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Memory Usage",
+      "type": "gauge"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "DS_PROMETHEUS",
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 20,
+        "y": 0
+      },
+      "id": 19,
+      "links": [],
+      "options": {
+        "fieldOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "defaults": {
+            "decimals": 0,
+            "mappings": [
+              {
+                "id": 0,
+                "op": "=",
+                "text": "N/A",
+                "type": 1,
+                "value": "null"
+              }
+            ],
+            "max": 100,
+            "min": 0,
+            "nullValueMode": "connected",
+            "thresholds": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 80
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ],
+            "unit": "percentunit"
+          },
+          "override": {},
+          "values": false
+        },
+        "orientation": "horizontal",
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "6.5.2",
+      "targets": [
+        {
+          "expr": "(1- sum(node_filesystem_free_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) / sum (node_filesystem_size_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"})) or (1- sum(wmi_logical_disk_free_bytes{instance=~\"$host\"}) / sum(wmi_logical_disk_size_bytes{instance=~\"$host\"}))",
+          "interval": "$interval",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Disc Usage",
+      "type": "gauge"
     },
     {
       "columns": [],
@@ -199,9 +403,9 @@
       "fontSize": "80%",
       "gridPos": {
         "h": 9,
-        "w": 19,
-        "x": 5,
-        "y": 0
+        "w": 24,
+        "x": 0,
+        "y": 5
       },
       "height": "",
       "hideTimeOverride": false,
@@ -214,8 +418,8 @@
       "scroll": true,
       "showHeader": true,
       "sort": {
-        "col": 6,
-        "desc": false
+        "col": 7,
+        "desc": true
       },
       "styles": [
         {
@@ -504,8 +708,9 @@
         "h": 11,
         "w": 12,
         "x": 0,
-        "y": 9
+        "y": 14
       },
+      "hiddenSeries": false,
       "hideTimeOverride": true,
       "id": 6,
       "legend": {
@@ -560,7 +765,8 @@
           "line": true,
           "lineColor": "rgb(241, 34, 15)",
           "op": "gt",
-          "value": 15
+          "value": 15,
+          "yaxis": "left"
         }
       ],
       "timeFrom": null,
@@ -620,8 +826,9 @@
         "h": 11,
         "w": 12,
         "x": 12,
-        "y": 9
+        "y": 14
       },
+      "hiddenSeries": false,
       "hideTimeOverride": true,
       "id": 7,
       "legend": {
@@ -726,8 +933,9 @@
         "h": 11,
         "w": 12,
         "x": 0,
-        "y": 20
+        "y": 25
       },
+      "hiddenSeries": false,
       "id": 13,
       "legend": {
         "alignAsTable": true,
@@ -830,8 +1038,9 @@
         "h": 11,
         "w": 12,
         "x": 12,
-        "y": 20
+        "y": 25
       },
+      "hiddenSeries": false,
       "id": 10,
       "legend": {
         "alignAsTable": true,
@@ -922,7 +1131,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 20,
+  "schemaVersion": 21,
   "style": "dark",
   "tags": [
     "Insight"
@@ -935,6 +1144,7 @@
         "auto_count": 200,
         "auto_min": "1s",
         "current": {
+          "selected": false,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -992,16 +1202,38 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(os_info, group)",
+        "definition": "label_values(os_info, environment)",
         "hide": 0,
-        "includeAll": false,
+        "includeAll": true,
+        "label": "Environment",
+        "multi": true,
+        "name": "environment",
+        "options": [],
+        "query": "label_values(os_info, environment)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "os_info{environment=~\"$environment\"}",
+        "hide": 0,
+        "includeAll": true,
         "label": "Group",
         "multi": true,
         "name": "group",
         "options": [],
-        "query": "label_values(os_info, group)",
+        "query": "os_info{environment=~\"$environment\"}",
         "refresh": 1,
-        "regex": "",
+        "regex": "/group=\"(.+?)\"/",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
@@ -1015,7 +1247,7 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "os_info{group=~\"$group\"}",
+        "definition": "os_info{group=~\"$group\",environment=~\"$environment\"}",
         "hide": 0,
         "includeAll": true,
         "label": "Host",
@@ -1023,7 +1255,7 @@
         "multiFormat": "pipe",
         "name": "host",
         "options": [],
-        "query": "os_info{group=~\"$group\"}",
+        "query": "os_info{group=~\"$group\",environment=~\"$environment\"}",
         "refresh": 1,
         "regex": "/instance=\"(.+?)\"/",
         "skipUrlSync": false,
