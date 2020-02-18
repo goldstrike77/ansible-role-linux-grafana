@@ -20,7 +20,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.2.4"
+      "version": "6.5.2"
     },
     {
       "type": "panel",
@@ -59,7 +59,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1561555881993,
+  "iteration": 1582012030045,
   "links": [
     {
       "asDropdown": true,
@@ -208,32 +208,30 @@
             "mean"
           ],
           "defaults": {
+            "mappings": [],
             "max": 100,
             "min": 0,
+            "thresholds": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ],
             "title": "",
-            "unit": "none"
+            "unit": "percent"
           },
-          "mappings": [],
           "override": {},
-          "thresholds": [
-            {
-              "color": "green",
-              "index": 0,
-              "value": null
-            },
-            {
-              "color": "red",
-              "index": 1,
-              "value": 90
-            }
-          ],
           "values": false
         },
         "orientation": "auto",
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "6.2.4",
+      "pluginVersion": "6.5.2",
       "targets": [
         {
           "expr": "kibana_heap_used_in_bytes{instance=\"$host\"} / kibana_heap_max_in_bytes{instance=\"$host\"} * 100",
@@ -260,6 +258,7 @@
       "editable": true,
       "error": false,
       "fill": 1,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 6,
@@ -267,6 +266,7 @@
         "x": 9,
         "y": 0
       },
+      "hiddenSeries": false,
       "id": 3,
       "legend": {
         "avg": false,
@@ -281,7 +281,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "connected",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 2,
       "points": false,
@@ -441,7 +443,7 @@
   ],
   "refresh": "1m",
   "revision": "1.0",
-  "schemaVersion": 18,
+  "schemaVersion": 21,
   "style": "dark",
   "tags": [
     "Insight"
@@ -453,6 +455,7 @@
         "auto_count": 200,
         "auto_min": "10s",
         "current": {
+          "selected": false,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -580,5 +583,5 @@
   "timezone": "browser",
   "title": "Kibana Overview",
   "uid": "U3tGfHzWz",
-  "version": 9
+  "version": 1
 }
