@@ -58,7 +58,7 @@ grafana_arg:
 grafana_ds_arg:
   - name: 'prometheus'
     settings:
-      - server: '127.0.0.1'
+      - server: '{{ ansible_default_ipv4.address }}'
         port: '19090'
 
 # Plugins #

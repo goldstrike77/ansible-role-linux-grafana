@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.4.5"
+      "version": "6.5.2"
     },
     {
       "type": "panel",
@@ -58,7 +58,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1578378078666,
+  "iteration": 1582090914386,
   "links": [
     {
       "asDropdown": true,
@@ -131,6 +131,7 @@
         "x": 0,
         "y": 0
       },
+      "hideTimeOverride": true,
       "id": 66,
       "interval": null,
       "links": [],
@@ -172,13 +173,15 @@
           "expr": "mongodb_mongod_instance_uptime_seconds {instance=\"$host\"}",
           "format": "time_series",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
       "thresholds": "300,3600",
+      "timeFrom": "$interval",
       "title": "MongoDB Uptime",
       "type": "singlestat",
-      "valueFontSize": "80%",
+      "valueFontSize": "70%",
       "valueMaps": [
         {
           "op": "=",
@@ -213,6 +216,7 @@
         "x": 3,
         "y": 0
       },
+      "hideTimeOverride": true,
       "id": 67,
       "interval": null,
       "links": [],
@@ -259,9 +263,10 @@
         }
       ],
       "thresholds": "300,3600",
+      "timeFrom": "$interval",
       "title": "MongoDB Version",
       "type": "singlestat",
-      "valueFontSize": "80%",
+      "valueFontSize": "70%",
       "valueMaps": [
         {
           "op": "=",
@@ -296,6 +301,7 @@
         "x": 7,
         "y": 0
       },
+      "hideTimeOverride": true,
       "id": 70,
       "interval": null,
       "links": [],
@@ -342,9 +348,10 @@
         }
       ],
       "thresholds": "300,3600",
+      "timeFrom": "$interval",
       "title": "Storage Engine",
       "type": "singlestat",
-      "valueFontSize": "80%",
+      "valueFontSize": "50%",
       "valueMaps": [
         {
           "op": "=",
@@ -379,6 +386,7 @@
         "x": 11,
         "y": 0
       },
+      "hideTimeOverride": true,
       "id": 69,
       "interval": null,
       "links": [],
@@ -426,9 +434,10 @@
         }
       ],
       "thresholds": "300,3600",
+      "timeFrom": "$interval",
       "title": "Resident Memory",
       "type": "singlestat",
-      "valueFontSize": "80%",
+      "valueFontSize": "70%",
       "valueMaps": [
         {
           "op": "=",
@@ -463,6 +472,7 @@
         "x": 15,
         "y": 0
       },
+      "hideTimeOverride": true,
       "id": 71,
       "interval": null,
       "links": [],
@@ -510,9 +520,10 @@
         }
       ],
       "thresholds": "300,3600",
+      "timeFrom": "$interval",
       "title": "Data Size",
       "type": "singlestat",
-      "valueFontSize": "80%",
+      "valueFontSize": "70%",
       "valueMaps": [
         {
           "op": "=",
@@ -525,13 +536,14 @@
     {
       "columns": [],
       "datasource": "DS_PROMETHEUS",
-      "fontSize": "100%",
+      "fontSize": "90%",
       "gridPos": {
         "h": 4,
         "w": 5,
         "x": 19,
         "y": 0
       },
+      "hideTimeOverride": true,
       "id": 73,
       "interval": "",
       "links": [],
@@ -714,6 +726,7 @@
           "refId": "A"
         }
       ],
+      "timeFrom": "$interval",
       "title": "Documents",
       "transform": "table",
       "type": "table"
@@ -744,6 +757,7 @@
         "x": 0,
         "y": 4
       },
+      "hiddenSeries": false,
       "id": 15,
       "legend": {
         "alignAsTable": true,
@@ -880,6 +894,7 @@
         "y": 11
       },
       "height": "250px",
+      "hiddenSeries": false,
       "id": 38,
       "legend": {
         "alignAsTable": true,
@@ -995,6 +1010,7 @@
         "y": 11
       },
       "height": "250px",
+      "hiddenSeries": false,
       "id": 25,
       "legend": {
         "alignAsTable": true,
@@ -1111,6 +1127,7 @@
         "y": 18
       },
       "height": "250px",
+      "hiddenSeries": false,
       "id": 36,
       "legend": {
         "alignAsTable": true,
@@ -1226,6 +1243,7 @@
         "y": 18
       },
       "height": "250px",
+      "hiddenSeries": false,
       "id": 40,
       "legend": {
         "alignAsTable": true,
@@ -1340,6 +1358,7 @@
         "y": 25
       },
       "height": "250px",
+      "hiddenSeries": false,
       "id": 63,
       "legend": {
         "alignAsTable": true,
@@ -1455,6 +1474,7 @@
         "x": 12,
         "y": 25
       },
+      "hiddenSeries": false,
       "id": 64,
       "legend": {
         "alignAsTable": true,
@@ -1573,6 +1593,7 @@
         "x": 0,
         "y": 32
       },
+      "hiddenSeries": false,
       "id": 41,
       "legend": {
         "alignAsTable": true,
@@ -1687,6 +1708,7 @@
         "y": 32
       },
       "height": "250px",
+      "hiddenSeries": false,
       "id": 62,
       "legend": {
         "alignAsTable": true,
@@ -1812,6 +1834,7 @@
         "y": 39
       },
       "height": "250px",
+      "hiddenSeries": false,
       "id": 37,
       "legend": {
         "alignAsTable": true,
@@ -1928,6 +1951,7 @@
         "y": 39
       },
       "height": "250px",
+      "hiddenSeries": false,
       "id": 39,
       "legend": {
         "alignAsTable": true,
@@ -2017,7 +2041,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 20,
+  "schemaVersion": 21,
   "style": "dark",
   "tags": [
     "Databases"
@@ -2030,6 +2054,7 @@
         "auto_count": 200,
         "auto_min": "1s",
         "current": {
+          "selected": false,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -2188,5 +2213,5 @@
   "timezone": "browser",
   "title": "MongoDB Overview",
   "uid": "6Lk9wMHik",
-  "version": 2
+  "version": 1
 }

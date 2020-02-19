@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.4.5"
+      "version": "6.5.2"
     },
     {
       "type": "panel",
@@ -53,7 +53,7 @@
   "gnetId": 1856,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1577328858062,
+  "iteration": 1582091832139,
   "links": [
     {
       "asDropdown": true,
@@ -139,6 +139,7 @@
         "x": 0,
         "y": 1
       },
+      "hideTimeOverride": true,
       "id": 53,
       "interval": null,
       "links": [],
@@ -185,6 +186,7 @@
         }
       ],
       "thresholds": "",
+      "timeFrom": "$interval",
       "title": "Inbound Speed",
       "type": "singlestat",
       "valueFontSize": "80%",
@@ -221,6 +223,7 @@
         "x": 6,
         "y": 1
       },
+      "hideTimeOverride": true,
       "id": 55,
       "interval": null,
       "links": [],
@@ -266,6 +269,7 @@
         }
       ],
       "thresholds": "",
+      "timeFrom": "$interval",
       "title": "Outbound Speed",
       "type": "singlestat",
       "valueFontSize": "80%",
@@ -302,6 +306,7 @@
         "x": 12,
         "y": 1
       },
+      "hideTimeOverride": true,
       "id": 57,
       "interval": null,
       "links": [],
@@ -349,6 +354,7 @@
         }
       ],
       "thresholds": "0.9,10",
+      "timeFrom": "$interval",
       "title": "Traffic Errors and Drops",
       "type": "singlestat",
       "valueFontSize": "80%",
@@ -385,6 +391,7 @@
         "x": 18,
         "y": 1
       },
+      "hideTimeOverride": true,
       "id": 59,
       "interval": null,
       "links": [],
@@ -433,6 +440,7 @@
         }
       ],
       "thresholds": "0.1,10",
+      "timeFrom": "$interval",
       "title": "Retransmit rate",
       "type": "singlestat",
       "valueFontSize": "80%",
@@ -477,6 +485,7 @@
         "x": 0,
         "y": 4
       },
+      "hiddenSeries": false,
       "id": 12,
       "legend": {
         "alignAsTable": true,
@@ -588,6 +597,7 @@
         "x": 12,
         "y": 4
       },
+      "hiddenSeries": false,
       "id": 24,
       "legend": {
         "alignAsTable": true,
@@ -709,6 +719,7 @@
         "x": 0,
         "y": 12
       },
+      "hiddenSeries": false,
       "id": 28,
       "legend": {
         "alignAsTable": true,
@@ -817,6 +828,7 @@
         "x": 0,
         "y": 19
       },
+      "hiddenSeries": false,
       "id": 29,
       "legend": {
         "alignAsTable": true,
@@ -920,6 +932,7 @@
         "x": 12,
         "y": 19
       },
+      "hiddenSeries": false,
       "id": 30,
       "legend": {
         "alignAsTable": true,
@@ -1016,12 +1029,14 @@
       "dashes": false,
       "datasource": "DS_PROMETHEUS",
       "fill": 2,
+      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 24,
         "x": 0,
         "y": 26
       },
+      "hiddenSeries": false,
       "id": 32,
       "legend": {
         "alignAsTable": true,
@@ -1041,7 +1056,9 @@
       "links": [],
       "maxPerRow": 1,
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1125,6 +1142,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -1132,6 +1150,7 @@
         "x": 0,
         "y": 34
       },
+      "hiddenSeries": false,
       "id": 21,
       "legend": {
         "alignAsTable": true,
@@ -1151,7 +1170,9 @@
       "links": [],
       "maxPerRow": 1,
       "nullPointMode": "connected",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1271,12 +1292,14 @@
       "dashes": false,
       "datasource": "DS_PROMETHEUS",
       "fill": 2,
+      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 24,
         "x": 0,
         "y": 41
       },
+      "hiddenSeries": false,
       "id": 35,
       "legend": {
         "alignAsTable": true,
@@ -1296,7 +1319,9 @@
       "links": [],
       "maxPerRow": 1,
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1425,6 +1450,7 @@
       "editable": true,
       "error": false,
       "fill": 1,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -1432,6 +1458,7 @@
         "x": 0,
         "y": 49
       },
+      "hiddenSeries": false,
       "id": 23,
       "legend": {
         "alignAsTable": true,
@@ -1451,7 +1478,9 @@
       "links": [],
       "maxPerRow": 1,
       "nullPointMode": "connected",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1608,12 +1637,14 @@
       "decimals": 2,
       "description": "**InMsgs**  Messages which the entity received. Note that this counter includes all those counted by icmpInErrors\t\n\n**InRedirects**  Redirect messages received\t\n\n**OutMsgs**  Messages which this entity attempted to send. Note that this counter includes all those counted by icmpOutErrors\t\n\n**OutRedirects** Redirect messages sent. For a host, this object will always be zero, since hosts do not send redirects",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 24,
         "x": 0,
         "y": 57
       },
+      "hiddenSeries": false,
       "id": 41,
       "legend": {
         "alignAsTable": true,
@@ -1633,7 +1664,9 @@
       "links": [],
       "maxPerRow": 1,
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1708,7 +1741,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 20,
+  "schemaVersion": 21,
   "style": "dark",
   "tags": [
     "OS",

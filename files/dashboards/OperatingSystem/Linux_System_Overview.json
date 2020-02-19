@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.4.5"
+      "version": "6.5.2"
     },
     {
       "type": "panel",
@@ -53,7 +53,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1577328773322,
+  "iteration": 1582090284423,
   "links": [
     {
       "asDropdown": true,
@@ -129,6 +129,7 @@
         "y": 0
       },
       "height": "125px",
+      "hideTimeOverride": true,
       "id": 19,
       "interval": "$interval",
       "links": [],
@@ -148,9 +149,9 @@
       "nullText": null,
       "options": {},
       "postfix": "s",
-      "postfixFontSize": "50%",
+      "postfixFontSize": "30%",
       "prefix": "",
-      "prefixFontSize": "80%",
+      "prefixFontSize": "30%",
       "rangeMaps": [
         {
           "from": "null",
@@ -182,96 +183,11 @@
         }
       ],
       "thresholds": "300,3600",
+      "timeFrom": "$interval\t",
       "title": "Uptime",
       "type": "singlestat",
       "valueFontSize": "50%",
       "valueMaps": [],
-      "valueName": "current"
-    },
-    {
-      "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "rgba(245, 54, 54, 0.9)",
-        "rgba(237, 129, 40, 0.89)",
-        "rgba(50, 172, 45, 0.97)"
-      ],
-      "datasource": "DS_PROMETHEUS",
-      "editable": true,
-      "error": false,
-      "format": "none",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
-      },
-      "gridPos": {
-        "h": 2,
-        "w": 2,
-        "x": 2,
-        "y": 0
-      },
-      "height": "125px",
-      "id": 25,
-      "interval": "$interval",
-      "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
-      "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "options": {},
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "80%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
-      },
-      "tableColumn": "",
-      "targets": [
-        {
-          "expr": "(count(node_cpu_seconds_total{instance=\"$host\",mode=\"user\"}) or (1-absent(node_cpu_seconds_total{instance=\"$host\",mode=\"user\"}))) + sum(rdsosmetrics_General_numVCPUs{instance=\"$host\"} or up * 0)",
-          "format": "time_series",
-          "interval": "5m",
-          "intervalFactor": 1,
-          "refId": "A",
-          "step": 300
-        }
-      ],
-      "thresholds": "",
-      "title": "Virtual CPUs",
-      "type": "singlestat",
-      "valueFontSize": "50%",
-      "valueMaps": [
-        {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
-        }
-      ],
       "valueName": "current"
     },
     {
@@ -297,10 +213,11 @@
       "gridPos": {
         "h": 2,
         "w": 5,
-        "x": 4,
+        "x": 2,
         "y": 0
       },
       "height": "125px",
+      "hideTimeOverride": true,
       "id": 64,
       "interval": "$interval",
       "links": [],
@@ -320,9 +237,9 @@
       "nullText": null,
       "options": {},
       "postfix": "",
-      "postfixFontSize": "50%",
+      "postfixFontSize": "30%",
       "prefix": "",
-      "prefixFontSize": "80%",
+      "prefixFontSize": "30%",
       "rangeMaps": [
         {
           "from": "null",
@@ -350,6 +267,7 @@
         }
       ],
       "thresholds": "",
+      "timeFrom": "$interval\t",
       "title": "Operating System",
       "type": "singlestat",
       "valueFontSize": "50%",
@@ -361,6 +279,94 @@
         }
       ],
       "valueName": "name"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "rgba(245, 54, 54, 0.9)",
+        "rgba(237, 129, 40, 0.89)",
+        "rgba(50, 172, 45, 0.97)"
+      ],
+      "datasource": "DS_PROMETHEUS",
+      "editable": true,
+      "error": false,
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 2,
+        "x": 7,
+        "y": 0
+      },
+      "height": "125px",
+      "hideTimeOverride": true,
+      "id": 25,
+      "interval": "$interval",
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "30%",
+      "prefix": "",
+      "prefixFontSize": "30%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "(count(node_cpu_seconds_total{instance=\"$host\",mode=\"user\"}) or (1-absent(node_cpu_seconds_total{instance=\"$host\",mode=\"user\"}))) + sum(rdsosmetrics_General_numVCPUs{instance=\"$host\"} or up * 0)",
+          "format": "time_series",
+          "interval": "5m",
+          "intervalFactor": 1,
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": "$interval\t",
+      "title": "VCores",
+      "type": "singlestat",
+      "valueFontSize": "50%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
     },
     {
       "cacheTimeout": null,
@@ -390,6 +396,7 @@
         "y": 0
       },
       "height": "125px",
+      "hideTimeOverride": true,
       "id": 26,
       "interval": "$interval",
       "links": [],
@@ -409,9 +416,9 @@
       "nullText": null,
       "options": {},
       "postfix": "",
-      "postfixFontSize": "50%",
+      "postfixFontSize": "30%",
       "prefix": "",
-      "prefixFontSize": "80%",
+      "prefixFontSize": "30%",
       "rangeMaps": [
         {
           "from": "null",
@@ -437,7 +444,8 @@
         }
       ],
       "thresholds": "",
-      "title": "Physical Memory Space",
+      "timeFrom": "$interval\t",
+      "title": "Physical Memory",
       "type": "singlestat",
       "valueFontSize": "50%",
       "valueMaps": [
@@ -478,6 +486,7 @@
         "y": 0
       },
       "height": "125px",
+      "hideTimeOverride": true,
       "id": 62,
       "interval": "$interval",
       "links": [],
@@ -525,7 +534,8 @@
         }
       ],
       "thresholds": "",
-      "title": "Physical Memory Available",
+      "timeFrom": "$interval\t",
+      "title": "Memory Available",
       "type": "singlestat",
       "valueFontSize": "50%",
       "valueMaps": [
@@ -566,6 +576,7 @@
         "y": 0
       },
       "height": "125px",
+      "hideTimeOverride": true,
       "id": 37,
       "interval": "$interval",
       "links": [],
@@ -613,6 +624,7 @@
         }
       ],
       "thresholds": "",
+      "timeFrom": "$interval\t",
       "title": "Virtual Memory",
       "type": "singlestat",
       "valueFontSize": "50%",
@@ -654,6 +666,7 @@
         "y": 0
       },
       "height": "125px",
+      "hideTimeOverride": true,
       "id": 38,
       "interval": "$interval",
       "links": [
@@ -707,6 +720,7 @@
         }
       ],
       "thresholds": "",
+      "timeFrom": "$interval\t",
       "title": "Disk Space",
       "type": "singlestat",
       "valueFontSize": "50%",
@@ -748,6 +762,7 @@
         "y": 0
       },
       "height": "125px",
+      "hideTimeOverride": true,
       "id": 63,
       "interval": "$interval",
       "links": [
@@ -801,6 +816,7 @@
         }
       ],
       "thresholds": "",
+      "timeFrom": "$interval\t",
       "title": "Disk Available",
       "type": "singlestat",
       "valueFontSize": "50%",
@@ -854,6 +870,7 @@
         "y": 3
       },
       "height": "",
+      "hiddenSeries": false,
       "id": 2,
       "legend": {
         "alignAsTable": true,
@@ -981,6 +998,7 @@
         "x": 12,
         "y": 3
       },
+      "hiddenSeries": false,
       "id": 33,
       "legend": {
         "alignAsTable": true,
@@ -1109,6 +1127,7 @@
         "x": 0,
         "y": 11
       },
+      "hiddenSeries": false,
       "id": 27,
       "legend": {
         "alignAsTable": true,
@@ -1242,6 +1261,7 @@
         "x": 12,
         "y": 11
       },
+      "hiddenSeries": false,
       "id": 43,
       "legend": {
         "alignAsTable": true,
@@ -1392,6 +1412,7 @@
         "y": 19
       },
       "height": "",
+      "hiddenSeries": false,
       "id": 29,
       "legend": {
         "alignAsTable": true,
@@ -1558,6 +1579,7 @@
         "y": 19
       },
       "height": "",
+      "hiddenSeries": false,
       "id": 6,
       "legend": {
         "alignAsTable": true,
@@ -1702,6 +1724,7 @@
         "x": 0,
         "y": 26
       },
+      "hiddenSeries": false,
       "id": 23,
       "legend": {
         "alignAsTable": true,
@@ -1839,6 +1862,7 @@
         "x": 12,
         "y": 26
       },
+      "hiddenSeries": false,
       "id": 30,
       "legend": {
         "alignAsTable": true,
@@ -1992,6 +2016,7 @@
         "x": 0,
         "y": 34
       },
+      "hiddenSeries": false,
       "id": 31,
       "legend": {
         "alignAsTable": true,
@@ -2138,6 +2163,7 @@
         "x": 12,
         "y": 34
       },
+      "hiddenSeries": false,
       "id": 32,
       "legend": {
         "alignAsTable": true,
@@ -2263,6 +2289,7 @@
         "x": 0,
         "y": 41
       },
+      "hiddenSeries": false,
       "id": 61,
       "legend": {
         "alignAsTable": true,
@@ -2405,6 +2432,7 @@
         "x": 12,
         "y": 41
       },
+      "hiddenSeries": false,
       "id": 51,
       "legend": {
         "alignAsTable": true,
@@ -2564,6 +2592,7 @@
         "x": 0,
         "y": 49
       },
+      "hiddenSeries": false,
       "id": 21,
       "legend": {
         "alignAsTable": true,
@@ -2690,6 +2719,7 @@
         "x": 12,
         "y": 49
       },
+      "hiddenSeries": false,
       "id": 22,
       "legend": {
         "alignAsTable": true,
@@ -2831,6 +2861,7 @@
         "x": 0,
         "y": 56
       },
+      "hiddenSeries": false,
       "id": 52,
       "legend": {
         "alignAsTable": true,
@@ -2963,6 +2994,7 @@
         "x": 12,
         "y": 56
       },
+      "hiddenSeries": false,
       "id": 53,
       "legend": {
         "alignAsTable": true,
@@ -3076,7 +3108,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 20,
+  "schemaVersion": 21,
   "style": "dark",
   "tags": [
     "OS",
@@ -3090,7 +3122,7 @@
         "auto_count": 200,
         "auto_min": "1s",
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },

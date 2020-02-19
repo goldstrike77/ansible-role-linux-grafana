@@ -2,7 +2,7 @@
   "__inputs": [
     {
       "name": "DS_PROMETHEUS",
-      "label": "Prometheus",
+      "label": "DS_PROMETHEUS",
       "description": "",
       "type": "datasource",
       "pluginId": "prometheus",
@@ -14,25 +14,25 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "5.4.2"
+      "version": "6.5.2"
     },
     {
       "type": "panel",
       "id": "graph",
       "name": "Graph",
-      "version": "5.0.0"
+      "version": ""
     },
     {
       "type": "datasource",
       "id": "prometheus",
       "name": "Prometheus",
-      "version": "5.0.0"
+      "version": "1.0.0"
     },
     {
       "type": "panel",
       "id": "singlestat",
       "name": "Singlestat",
-      "version": "5.0.0"
+      "version": ""
     }
   ],
   "annotations": {
@@ -53,7 +53,7 @@
   "gnetId": 763,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1552454900221,
+  "iteration": 1582092216951,
   "links": [
     {
       "asDropdown": true,
@@ -128,6 +128,7 @@
         "x": 0,
         "y": 0
       },
+      "hideTimeOverride": true,
       "id": 9,
       "interval": null,
       "isNew": true,
@@ -146,6 +147,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "s",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -176,6 +178,7 @@
         }
       ],
       "thresholds": "300,3600",
+      "timeFrom": "$interval",
       "title": "Uptime",
       "type": "singlestat",
       "valueFontSize": "70%",
@@ -197,6 +200,7 @@
       "editable": true,
       "error": false,
       "fill": 1,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 6,
@@ -204,6 +208,7 @@
         "x": 2,
         "y": 0
       },
+      "hiddenSeries": false,
       "id": 2,
       "isNew": true,
       "legend": {
@@ -219,6 +224,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -292,6 +300,7 @@
       "editable": true,
       "error": false,
       "fill": 1,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 6,
@@ -299,6 +308,7 @@
         "x": 10,
         "y": 0
       },
+      "hiddenSeries": false,
       "id": 1,
       "isNew": true,
       "legend": {
@@ -314,6 +324,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": true,
       "pointradius": 5,
       "points": false,
@@ -436,6 +449,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -467,7 +481,7 @@
         }
       ],
       "thresholds": "80,95",
-      "timeFrom": "1m",
+      "timeFrom": "$interval",
       "timeShift": null,
       "title": "Memory Usage",
       "type": "singlestat",
@@ -491,7 +505,7 @@
         "rgba(50, 172, 45, 0.97)"
       ],
       "datasource": "DS_PROMETHEUS",
-      "decimals": 1,
+      "decimals": 0,
       "editable": true,
       "error": false,
       "format": "bytes",
@@ -527,6 +541,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -558,7 +573,7 @@
         }
       ],
       "thresholds": "",
-      "timeFrom": "1m",
+      "timeFrom": "$interval",
       "timeShift": null,
       "title": "Used",
       "type": "singlestat",
@@ -618,6 +633,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -648,7 +664,7 @@
         }
       ],
       "thresholds": "",
-      "timeFrom": "1m",
+      "timeFrom": "$interval",
       "timeShift": null,
       "title": "Clients",
       "type": "singlestat",
@@ -672,7 +688,7 @@
         "rgba(50, 172, 45, 0.97)"
       ],
       "datasource": "DS_PROMETHEUS",
-      "decimals": 1,
+      "decimals": 0,
       "editable": true,
       "error": false,
       "format": "bytes",
@@ -708,6 +724,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -739,7 +756,7 @@
         }
       ],
       "thresholds": "",
-      "timeFrom": "1m",
+      "timeFrom": "$interval",
       "timeShift": null,
       "title": "Max",
       "type": "singlestat",
@@ -764,6 +781,7 @@
       "editable": true,
       "error": false,
       "fill": 1,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -771,6 +789,7 @@
         "x": 0,
         "y": 6
       },
+      "hiddenSeries": false,
       "id": 7,
       "isNew": true,
       "legend": {
@@ -788,6 +807,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null as zero",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -870,6 +892,7 @@
       "editable": true,
       "error": false,
       "fill": 1,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -877,6 +900,7 @@
         "x": 12,
         "y": 6
       },
+      "hiddenSeries": false,
       "id": 10,
       "isNew": true,
       "legend": {
@@ -892,6 +916,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -971,6 +998,7 @@
       "editable": true,
       "error": false,
       "fill": 7,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -978,6 +1006,7 @@
         "x": 0,
         "y": 13
       },
+      "hiddenSeries": false,
       "id": 5,
       "isNew": true,
       "legend": {
@@ -997,6 +1026,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1068,6 +1100,7 @@
       "editable": true,
       "error": false,
       "fill": 7,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -1075,6 +1108,7 @@
         "x": 12,
         "y": 13
       },
+      "hiddenSeries": false,
       "id": 13,
       "isNew": true,
       "legend": {
@@ -1090,6 +1124,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1175,6 +1212,7 @@
       "editable": true,
       "error": false,
       "fill": 1,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -1182,6 +1220,7 @@
         "x": 0,
         "y": 20
       },
+      "hiddenSeries": false,
       "id": 8,
       "isNew": true,
       "legend": {
@@ -1197,6 +1236,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1283,6 +1325,7 @@
       "editable": true,
       "error": false,
       "fill": 8,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -1290,6 +1333,7 @@
         "x": 12,
         "y": 20
       },
+      "hiddenSeries": false,
       "id": 14,
       "isNew": true,
       "legend": {
@@ -1305,6 +1349,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "connected",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1369,7 +1416,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 16,
+  "schemaVersion": 21,
   "style": "dark",
   "tags": [
     "Insight"
@@ -1381,7 +1428,7 @@
         "auto_count": 200,
         "auto_min": "1s",
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },

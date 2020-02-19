@@ -64,7 +64,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1581926719686,
+  "iteration": 1582088442474,
   "links": [
     {
       "asDropdown": true,
@@ -192,7 +192,7 @@
           "refId": "D"
         }
       ],
-      "timeFrom": null,
+      "timeFrom": "$interval",
       "timeShift": null,
       "title": "Summary",
       "type": "bargauge"
@@ -206,6 +206,7 @@
         "x": 12,
         "y": 0
       },
+      "hideTimeOverride": true,
       "id": 17,
       "links": [],
       "options": {
@@ -258,7 +259,7 @@
           "refId": "A"
         }
       ],
-      "timeFrom": null,
+      "timeFrom": "$interval",
       "timeShift": null,
       "title": "Combine CPU Usage",
       "type": "gauge"
@@ -272,6 +273,7 @@
         "x": 16,
         "y": 0
       },
+      "hideTimeOverride": true,
       "id": 18,
       "links": [],
       "options": {
@@ -324,7 +326,7 @@
           "refId": "A"
         }
       ],
-      "timeFrom": null,
+      "timeFrom": "$interval",
       "timeShift": null,
       "title": "Memory Usage",
       "type": "gauge"
@@ -338,6 +340,7 @@
         "x": 20,
         "y": 0
       },
+      "hideTimeOverride": true,
       "id": 19,
       "links": [],
       "options": {
@@ -390,7 +393,7 @@
           "refId": "A"
         }
       ],
-      "timeFrom": null,
+      "timeFrom": "$interval",
       "timeShift": null,
       "title": "Disc Usage",
       "type": "gauge"

@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.4.5"
+      "version": "6.5.2"
     },
     {
       "type": "panel",
@@ -53,7 +53,7 @@
   "gnetId": 5756,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1578381596103,
+  "iteration": 1582091941518,
   "links": [
     {
       "asDropdown": true,
@@ -125,6 +125,7 @@
         "x": 0,
         "y": 0
       },
+      "hideTimeOverride": true,
       "id": 47,
       "interval": null,
       "links": [],
@@ -175,7 +176,7 @@
         }
       ],
       "thresholds": "",
-      "timeFrom": null,
+      "timeFrom": "$interval",
       "timeShift": null,
       "title": "Memory Cache",
       "type": "singlestat",
@@ -206,6 +207,7 @@
         "x": 3,
         "y": 0
       },
+      "hiddenSeries": false,
       "id": 29,
       "legend": {
         "avg": true,
@@ -306,6 +308,7 @@
         "x": 10,
         "y": 0
       },
+      "hiddenSeries": false,
       "id": 31,
       "legend": {
         "avg": false,
@@ -413,6 +416,7 @@
         "x": 17,
         "y": 0
       },
+      "hiddenSeries": false,
       "id": 32,
       "legend": {
         "avg": false,
@@ -584,7 +588,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 20,
+  "schemaVersion": 21,
   "style": "dark",
   "tags": [
     "Insight"
@@ -596,6 +600,7 @@
         "auto_count": 200,
         "auto_min": "1s",
         "current": {
+          "selected": true,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -723,5 +728,5 @@
   "timezone": "browser",
   "title": "Trickster Overview",
   "uid": "JBXDP9Wmk",
-  "version": 3
+  "version": 1
 }
