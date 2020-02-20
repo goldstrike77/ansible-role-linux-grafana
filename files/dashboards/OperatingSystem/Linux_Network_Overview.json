@@ -53,7 +53,7 @@
   "gnetId": 1856,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1582091832139,
+  "iteration": 1582167691597,
   "links": [
     {
       "asDropdown": true,
@@ -125,6 +125,7 @@
         "#d44a3a"
       ],
       "datasource": "DS_PROMETHEUS",
+      "decimals": 2,
       "format": "Bps",
       "gauge": {
         "maxValue": 100,
@@ -178,7 +179,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(rate(node_network_receive_bytes_total{device!=\"lo\",instance=\"$host\"}[1h]))",
+          "expr": "sum(rate(node_network_receive_bytes_total{device=\"$device\",instance=\"$host\"}[1h]))",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "",
@@ -189,7 +190,7 @@
       "timeFrom": "$interval",
       "title": "Inbound Speed",
       "type": "singlestat",
-      "valueFontSize": "80%",
+      "valueFontSize": "70%",
       "valueMaps": [
         {
           "op": "=",
@@ -209,6 +210,7 @@
         "#d44a3a"
       ],
       "datasource": "DS_PROMETHEUS",
+      "decimals": 2,
       "format": "Bps",
       "gauge": {
         "maxValue": 100,
@@ -262,7 +264,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(rate(node_network_transmit_bytes_total{device!=\"lo\",instance=\"$host\"}[1h]))",
+          "expr": "sum(rate(node_network_transmit_bytes_total{device=\"$device\",instance=\"$host\"}[1h]))",
           "format": "time_series",
           "intervalFactor": 1,
           "refId": "A"
@@ -272,7 +274,7 @@
       "timeFrom": "$interval",
       "title": "Outbound Speed",
       "type": "singlestat",
-      "valueFontSize": "80%",
+      "valueFontSize": "70%",
       "valueMaps": [
         {
           "op": "=",
@@ -345,7 +347,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(increase(node_network_receive_errs_total{instance=\"$host\", device!=\"lo\"}[1h])) +\nsum(increase(node_network_transmit_errs_total{instance=\"$host\", device!=\"lo\"}[1h])) +\nsum(increase(node_network_receive_drop_total{instance=\"$host\", device!=\"lo\"}[1h])) +\nsum(increase(node_network_transmit_drop_total{instance=\"$host\", device!=\"lo\"}[1h]))",
+          "expr": "sum(increase(node_network_receive_errs_total{instance=\"$host\", device=\"$device\"}[1h])) +\nsum(increase(node_network_transmit_errs_total{instance=\"$host\", device=\"$device\"}[1h])) +\nsum(increase(node_network_receive_drop_total{instance=\"$host\", device=\"$device\"}[1h])) +\nsum(increase(node_network_transmit_drop_total{instance=\"$host\", device=\"$device\"}[1h]))",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -357,7 +359,7 @@
       "timeFrom": "$interval",
       "title": "Traffic Errors and Drops",
       "type": "singlestat",
-      "valueFontSize": "80%",
+      "valueFontSize": "70%",
       "valueMaps": [
         {
           "op": "=",
@@ -443,7 +445,7 @@
       "timeFrom": "$interval",
       "title": "Retransmit rate",
       "type": "singlestat",
-      "valueFontSize": "80%",
+      "valueFontSize": "50%",
       "valueMaps": [
         {
           "op": "=",
@@ -522,20 +524,20 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(node_network_receive_bytes_total{instance=\"$host\", device!=\"lo\"}[$interval])) or \nsum(irate(node_network_receive_bytes_total{instance=\"$host\", device!=\"lo\"}[5m])) or \nsum(max_over_time(rdsosmetrics_network_rx{instance=\"$host\"}[$interval])) or \nsum(max_over_time(rdsosmetrics_network_rx{instance=\"$host\"}[5m])) ",
+          "expr": "sum(rate(node_network_receive_bytes_total{instance=\"$host\", device=\"$device\"}[$interval])) or \nsum(irate(node_network_receive_bytes_total{instance=\"$host\", device=\"$device\"}[5m])) or \nsum(max_over_time(rdsosmetrics_network_rx{instance=\"$host\"}[$interval])) or \nsum(max_over_time(rdsosmetrics_network_rx{instance=\"$host\"}[5m])) ",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
-          "legendFormat": "Inbound",
+          "legendFormat": "{{ $device }}: Inbound",
           "refId": "C"
         },
         {
-          "expr": "sum(rate(node_network_transmit_bytes_total{instance=\"$host\", device!=\"lo\"}[$interval])) or \nsum(irate(node_network_transmit_bytes_total{instance=\"$host\", device!=\"lo\"}[5m])) or\nsum(max_over_time(rdsosmetrics_network_tx{instance=\"$host\"}[$interval])) or \nsum(max_over_time(rdsosmetrics_network_tx{instance=\"$host\"}[5m]))",
+          "expr": "sum(rate(node_network_transmit_bytes_total{instance=\"$host\", device=\"$device\"}[$interval])) or \nsum(irate(node_network_transmit_bytes_total{instance=\"$host\", device=\"$device\"}[5m])) or\nsum(max_over_time(rdsosmetrics_network_tx{instance=\"$host\"}[$interval])) or \nsum(max_over_time(rdsosmetrics_network_tx{instance=\"$host\"}[5m]))",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
           "intervalFactor": 1,
-          "legendFormat": "Outbound",
+          "legendFormat": "{{ $device }}: Outbound",
           "refId": "A"
         }
       ],
@@ -629,22 +631,22 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(increase(node_network_receive_bytes_total{instance=\"$host\", device!=\"lo\"}[1h]))",
+          "expr": "sum(increase(node_network_receive_bytes_total{instance=\"$host\", device=\"$device\"}[1h]))",
           "format": "time_series",
           "interval": "1h",
           "intervalFactor": 1,
-          "legendFormat": "Inbound",
+          "legendFormat": "{{ $device }}: Inbound",
           "metric": "node_nf_conntrack_entries_limit",
           "refId": "A",
           "step": 40,
           "target": ""
         },
         {
-          "expr": "sum(increase(node_network_transmit_bytes_total{instance=\"$host\", device!=\"lo\"}[1h]))",
+          "expr": "sum(increase(node_network_transmit_bytes_total{instance=\"$host\", device=\"$device\"}[1h]))",
           "format": "time_series",
           "interval": "1h",
           "intervalFactor": 1,
-          "legendFormat": "Outbound",
+          "legendFormat": "{{ $device }}: Outbound",
           "metric": "node_nf_conntrack_entries_limit",
           "refId": "B",
           "step": 40
@@ -1754,7 +1756,7 @@
         "auto_count": 200,
         "auto_min": "1s",
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -1851,14 +1853,14 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(node_network_receive_packets_total{instance=\"$host\"},device)",
+        "definition": "label_values(os_info{instance=\"$host\"},interface)",
         "hide": 2,
-        "includeAll": true,
+        "includeAll": false,
         "label": "Device",
-        "multi": true,
+        "multi": false,
         "name": "device",
         "options": [],
-        "query": "label_values(node_network_receive_packets_total{instance=\"$host\"},device)",
+        "query": "label_values(os_info{instance=\"$host\"},interface)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -1872,7 +1874,7 @@
     ]
   },
   "time": {
-    "from": "now-12h",
+    "from": "now-3h",
     "to": "now"
   },
   "timepicker": {
