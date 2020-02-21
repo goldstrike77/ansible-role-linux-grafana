@@ -64,7 +64,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1582166399231,
+  "iteration": 1582273996814,
   "links": [
     {
       "asDropdown": true,
@@ -113,292 +113,6 @@
   ],
   "panels": [
     {
-      "datasource": "DS_PROMETHEUS",
-      "gridPos": {
-        "h": 5,
-        "w": 12,
-        "x": 0,
-        "y": 0
-      },
-      "id": 15,
-      "links": [],
-      "options": {
-        "displayMode": "gradient",
-        "fieldOptions": {
-          "calcs": [
-            "last"
-          ],
-          "defaults": {
-            "decimals": 0,
-            "mappings": [],
-            "max": 100,
-            "min": 0,
-            "thresholds": [
-              {
-                "color": "super-light-orange",
-                "value": null
-              },
-              {
-                "color": "orange",
-                "value": 80
-              }
-            ],
-            "title": "",
-            "unit": "none"
-          },
-          "override": {},
-          "values": false
-        },
-        "orientation": "horizontal"
-      },
-      "pluginVersion": "6.5.2",
-      "targets": [
-        {
-          "expr": "(count(node_memory_MemTotal_bytes{instance=~\"$host\"}) or vector(0)) + (count(wmi_os_visible_memory_bytes{instance=~\"$host\"}) or vector(0))",
-          "format": "time_series",
-          "hide": false,
-          "instant": false,
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Instance",
-          "refId": "A"
-        },
-        {
-          "expr": "(sum(wmi_cs_logical_processors{instance=~\"$host\"}) or vector(0)) + (count(node_cpu_seconds_total{instance=~\"$host\",mode=\"user\"}) or vector(0))",
-          "format": "time_series",
-          "hide": false,
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Processor",
-          "refId": "B"
-        },
-        {
-          "expr": "((sum(node_memory_MemTotal_bytes{instance=~\"$host\"}) or vector(0)) + (sum(wmi_os_visible_memory_bytes{instance=~\"$host\"}) or vector(0))) / 1024 / 1024 / 1005",
-          "format": "time_series",
-          "hide": false,
-          "instant": false,
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Memory in Gigabytes",
-          "refId": "C"
-        },
-        {
-          "expr": "((sum(node_filesystem_size_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) or vector(0)) + (sum(node_memory_SwapTotal_bytes{instance=~\"$host\"}) or vector(0)) + (sum(wmi_logical_disk_size_bytes{instance=~\"$host\"}) or vector(0))) / 1024 / 1024 / 1023.5",
-          "format": "time_series",
-          "hide": false,
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Storage in Gigabytes",
-          "refId": "D"
-        }
-      ],
-      "timeFrom": "$interval",
-      "timeShift": null,
-      "title": "Summary",
-      "type": "bargauge"
-    },
-    {
-      "cacheTimeout": null,
-      "datasource": "DS_PROMETHEUS",
-      "gridPos": {
-        "h": 5,
-        "w": 4,
-        "x": 12,
-        "y": 0
-      },
-      "hideTimeOverride": true,
-      "id": 17,
-      "links": [],
-      "options": {
-        "fieldOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "defaults": {
-            "decimals": 0,
-            "mappings": [
-              {
-                "id": 0,
-                "op": "=",
-                "text": "N/A",
-                "type": 1,
-                "value": "null"
-              }
-            ],
-            "max": 100,
-            "min": 0,
-            "nullValueMode": "connected",
-            "thresholds": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "orange",
-                "value": 80
-              },
-              {
-                "color": "red",
-                "value": 90
-              }
-            ],
-            "unit": "percentunit"
-          },
-          "override": {},
-          "values": false
-        },
-        "orientation": "horizontal",
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true
-      },
-      "pluginVersion": "6.5.2",
-      "targets": [
-        {
-          "expr": "(1 - avg(irate(node_cpu_seconds_total{instance=~\"$host\",mode='idle'}[5m]))) or (1 - avg(irate(wmi_cpu_time_total{mode=\"idle\", instance=~\"$host\"}[5m])))",
-          "interval": "$interval",
-          "refId": "A"
-        }
-      ],
-      "timeFrom": "$interval",
-      "timeShift": null,
-      "title": "Combine CPU Usage",
-      "type": "gauge"
-    },
-    {
-      "cacheTimeout": null,
-      "datasource": "DS_PROMETHEUS",
-      "gridPos": {
-        "h": 5,
-        "w": 4,
-        "x": 16,
-        "y": 0
-      },
-      "hideTimeOverride": true,
-      "id": 18,
-      "links": [],
-      "options": {
-        "fieldOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "defaults": {
-            "decimals": 0,
-            "mappings": [
-              {
-                "id": 0,
-                "op": "=",
-                "text": "N/A",
-                "type": 1,
-                "value": "null"
-              }
-            ],
-            "max": 100,
-            "min": 0,
-            "nullValueMode": "connected",
-            "thresholds": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "orange",
-                "value": 80
-              },
-              {
-                "color": "red",
-                "value": 90
-              }
-            ],
-            "unit": "percentunit"
-          },
-          "override": {},
-          "values": false
-        },
-        "orientation": "horizontal",
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true
-      },
-      "pluginVersion": "6.5.2",
-      "targets": [
-        {
-          "expr": "avg((node_memory_MemTotal_bytes{instance=~\"$host\"} - (node_memory_MemFree_bytes{instance=~\"$host\"} + node_memory_Buffers_bytes{instance=~\"$host\"} + node_memory_Cached_bytes{instance=~\"$host\"})) / node_memory_MemTotal_bytes{instance=~\"$host\"}) or avg((wmi_cs_physical_memory_bytes{instance=~\"$host\"} - wmi_os_physical_memory_free_bytes{instance=~\"$host\"}) / wmi_cs_physical_memory_bytes{instance=~\"$host\"})",
-          "interval": "$interval",
-          "refId": "A"
-        }
-      ],
-      "timeFrom": "$interval",
-      "timeShift": null,
-      "title": "Memory Usage",
-      "type": "gauge"
-    },
-    {
-      "cacheTimeout": null,
-      "datasource": "DS_PROMETHEUS",
-      "gridPos": {
-        "h": 5,
-        "w": 4,
-        "x": 20,
-        "y": 0
-      },
-      "hideTimeOverride": true,
-      "id": 19,
-      "links": [],
-      "options": {
-        "fieldOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "defaults": {
-            "decimals": 0,
-            "mappings": [
-              {
-                "id": 0,
-                "op": "=",
-                "text": "N/A",
-                "type": 1,
-                "value": "null"
-              }
-            ],
-            "max": 100,
-            "min": 0,
-            "nullValueMode": "connected",
-            "thresholds": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "orange",
-                "value": 80
-              },
-              {
-                "color": "red",
-                "value": 90
-              }
-            ],
-            "unit": "percentunit"
-          },
-          "override": {},
-          "values": false
-        },
-        "orientation": "horizontal",
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true
-      },
-      "pluginVersion": "6.5.2",
-      "targets": [
-        {
-          "expr": "(1- sum(node_filesystem_free_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) / sum (node_filesystem_size_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"})) or (1- sum(wmi_logical_disk_free_bytes{instance=~\"$host\"}) / sum(wmi_logical_disk_size_bytes{instance=~\"$host\"}))",
-          "interval": "$interval",
-          "refId": "A"
-        }
-      ],
-      "timeFrom": "$interval",
-      "timeShift": null,
-      "title": "Disc Usage",
-      "type": "gauge"
-    },
-    {
       "columns": [],
       "datasource": "DS_PROMETHEUS",
       "editable": true,
@@ -408,7 +122,7 @@
         "h": 9,
         "w": 24,
         "x": 0,
-        "y": 5
+        "y": 0
       },
       "height": "",
       "hideTimeOverride": false,
@@ -693,6 +407,297 @@
       "title": "Specifications",
       "transform": "table",
       "type": "table"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "DS_PROMETHEUS",
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 0,
+        "y": 9
+      },
+      "hideTimeOverride": true,
+      "id": 17,
+      "links": [],
+      "options": {
+        "fieldOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "defaults": {
+            "decimals": 0,
+            "mappings": [
+              {
+                "id": 0,
+                "op": "=",
+                "text": "N/A",
+                "type": 1,
+                "value": "null"
+              }
+            ],
+            "max": 100,
+            "min": 0,
+            "nullValueMode": "connected",
+            "thresholds": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 80
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ],
+            "title": "",
+            "unit": "percent"
+          },
+          "override": {},
+          "values": false
+        },
+        "orientation": "horizontal",
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "6.5.2",
+      "targets": [
+        {
+          "expr": "(1 - avg(irate(node_cpu_seconds_total{instance=~\"$host\",mode='idle'}[5m]))) * 100 or (1 - avg(irate(wmi_cpu_time_total{mode=\"idle\", instance=~\"$host\"}[5m]))) * 100",
+          "interval": "$interval",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": "$interval",
+      "timeShift": null,
+      "title": "Combine CPU Usage",
+      "transparent": true,
+      "type": "gauge"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "DS_PROMETHEUS",
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 4,
+        "y": 9
+      },
+      "hideTimeOverride": true,
+      "id": 18,
+      "links": [],
+      "options": {
+        "fieldOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "defaults": {
+            "decimals": 0,
+            "mappings": [
+              {
+                "id": 0,
+                "op": "=",
+                "text": "N/A",
+                "type": 1,
+                "value": "null"
+              }
+            ],
+            "max": 100,
+            "min": 0,
+            "nullValueMode": "connected",
+            "thresholds": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 80
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ],
+            "unit": "percent"
+          },
+          "override": {},
+          "values": false
+        },
+        "orientation": "horizontal",
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "6.5.2",
+      "targets": [
+        {
+          "expr": "avg((node_memory_MemTotal_bytes{instance=~\"$host\"} - (node_memory_MemFree_bytes{instance=~\"$host\"} + node_memory_Buffers_bytes{instance=~\"$host\"} + node_memory_Cached_bytes{instance=~\"$host\"})) / node_memory_MemTotal_bytes{instance=~\"$host\"}) * 100 or avg((wmi_cs_physical_memory_bytes{instance=~\"$host\"} - wmi_os_physical_memory_free_bytes{instance=~\"$host\"}) / wmi_cs_physical_memory_bytes{instance=~\"$host\"}) * 100",
+          "interval": "$interval",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": "$interval",
+      "timeShift": null,
+      "title": "Memory Usage",
+      "transparent": true,
+      "type": "gauge"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "DS_PROMETHEUS",
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 8,
+        "y": 9
+      },
+      "hideTimeOverride": true,
+      "id": 19,
+      "links": [],
+      "options": {
+        "fieldOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "defaults": {
+            "decimals": 0,
+            "mappings": [
+              {
+                "id": 0,
+                "op": "=",
+                "text": "N/A",
+                "type": 1,
+                "value": "null"
+              }
+            ],
+            "max": 100,
+            "min": 0,
+            "nullValueMode": "connected",
+            "thresholds": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 80
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ],
+            "unit": "percent"
+          },
+          "override": {},
+          "values": false
+        },
+        "orientation": "horizontal",
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "6.5.2",
+      "targets": [
+        {
+          "expr": "(1- sum(node_filesystem_free_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) / sum (node_filesystem_size_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"})) * 100 or (1- sum(wmi_logical_disk_free_bytes{instance=~\"$host\"}) / sum(wmi_logical_disk_size_bytes{instance=~\"$host\"})) * 100",
+          "interval": "$interval",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": "$interval",
+      "timeShift": null,
+      "title": "Disc Usage",
+      "transparent": true,
+      "type": "gauge"
+    },
+    {
+      "datasource": "DS_PROMETHEUS",
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 12,
+        "y": 9
+      },
+      "id": 15,
+      "links": [],
+      "options": {
+        "displayMode": "gradient",
+        "fieldOptions": {
+          "calcs": [
+            "last"
+          ],
+          "defaults": {
+            "decimals": 0,
+            "mappings": [],
+            "max": 100,
+            "min": 0,
+            "thresholds": [
+              {
+                "color": "yellow",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 80
+              }
+            ],
+            "title": "",
+            "unit": "none"
+          },
+          "override": {},
+          "values": false
+        },
+        "orientation": "horizontal"
+      },
+      "pluginVersion": "6.5.2",
+      "targets": [
+        {
+          "expr": "(count(node_memory_MemTotal_bytes{instance=~\"$host\"}) or vector(0)) + (count(wmi_os_visible_memory_bytes{instance=~\"$host\"}) or vector(0))",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Instance",
+          "refId": "A"
+        },
+        {
+          "expr": "(sum(wmi_cs_logical_processors{instance=~\"$host\"}) or vector(0)) + (count(node_cpu_seconds_total{instance=~\"$host\",mode=\"user\"}) or vector(0))",
+          "format": "time_series",
+          "hide": false,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Processor",
+          "refId": "B"
+        },
+        {
+          "expr": "((sum(node_memory_MemTotal_bytes{instance=~\"$host\"}) or vector(0)) + (sum(wmi_os_visible_memory_bytes{instance=~\"$host\"}) or vector(0))) / 1024 / 1024 / 1005",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Memory in Gigabytes",
+          "refId": "C"
+        },
+        {
+          "expr": "((sum(node_filesystem_size_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) or vector(0)) + (sum(node_memory_SwapTotal_bytes{instance=~\"$host\"}) or vector(0)) + (sum(wmi_logical_disk_size_bytes{instance=~\"$host\"}) or vector(0))) / 1024 / 1024 / 1023.5",
+          "format": "time_series",
+          "hide": false,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Storage in Gigabytes",
+          "refId": "D"
+        }
+      ],
+      "timeFrom": "$interval",
+      "timeShift": null,
+      "title": "Summary",
+      "transparent": true,
+      "type": "bargauge"
     },
     {
       "aliasColors": {},

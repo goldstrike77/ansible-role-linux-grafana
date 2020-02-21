@@ -53,7 +53,7 @@
   "gnetId": 763,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1582092216951,
+  "iteration": 1582275610499,
   "links": [
     {
       "asDropdown": true,
@@ -181,7 +181,7 @@
       "timeFrom": "$interval",
       "title": "Uptime",
       "type": "singlestat",
-      "valueFontSize": "70%",
+      "valueFontSize": "50%",
       "valueMaps": [
         {
           "op": "=",
@@ -577,7 +577,7 @@
       "timeShift": null,
       "title": "Used",
       "type": "singlestat",
-      "valueFontSize": "70%",
+      "valueFontSize": "50%",
       "valueMaps": [
         {
           "op": "=",
@@ -668,7 +668,7 @@
       "timeShift": null,
       "title": "Clients",
       "type": "singlestat",
-      "valueFontSize": "80%",
+      "valueFontSize": "50%",
       "valueMaps": [
         {
           "op": "=",
@@ -760,7 +760,7 @@
       "timeShift": null,
       "title": "Max",
       "type": "singlestat",
-      "valueFontSize": "70%",
+      "valueFontSize": "50%",
       "valueMaps": [
         {
           "op": "=",

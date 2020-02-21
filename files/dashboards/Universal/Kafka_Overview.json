@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.3.6"
+      "version": "6.5.2"
     },
     {
       "type": "panel",
@@ -53,7 +53,7 @@
   "gnetId": 7589,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1576464589323,
+  "iteration": 1582275560240,
   "links": [
     {
       "asDropdown": true,
@@ -125,6 +125,7 @@
         "x": 0,
         "y": 0
       },
+      "hideTimeOverride": true,
       "id": 20,
       "interval": null,
       "links": [],
@@ -170,7 +171,7 @@
         }
       ],
       "thresholds": "",
-      "timeFrom": null,
+      "timeFrom": "$interval",
       "timeShift": null,
       "title": "Brokers",
       "type": "singlestat",
@@ -198,6 +199,7 @@
         "x": 3,
         "y": 0
       },
+      "hiddenSeries": false,
       "id": 8,
       "legend": {
         "alignAsTable": true,
@@ -302,6 +304,7 @@
         "x": 0,
         "y": 3
       },
+      "hideTimeOverride": true,
       "id": 22,
       "interval": null,
       "links": [],
@@ -347,7 +350,7 @@
         }
       ],
       "thresholds": "",
-      "timeFrom": null,
+      "timeFrom": "$interval",
       "timeShift": null,
       "title": "Topics",
       "type": "singlestat",
@@ -385,6 +388,7 @@
         "x": 0,
         "y": 6
       },
+      "hideTimeOverride": true,
       "id": 24,
       "interval": null,
       "links": [],
@@ -430,7 +434,7 @@
         }
       ],
       "thresholds": "",
-      "timeFrom": null,
+      "timeFrom": "$interval",
       "timeShift": null,
       "title": "Partitions",
       "type": "singlestat",
@@ -458,6 +462,7 @@
         "x": 0,
         "y": 9
       },
+      "hiddenSeries": false,
       "id": 16,
       "legend": {
         "alignAsTable": true,
@@ -550,6 +555,7 @@
         "x": 12,
         "y": 9
       },
+      "hiddenSeries": false,
       "id": 12,
       "legend": {
         "alignAsTable": true,
@@ -645,6 +651,7 @@
         "x": 0,
         "y": 19
       },
+      "hiddenSeries": false,
       "id": 14,
       "legend": {
         "alignAsTable": true,
@@ -739,6 +746,7 @@
         "x": 12,
         "y": 19
       },
+      "hiddenSeries": false,
       "id": 18,
       "legend": {
         "alignAsTable": true,
@@ -821,7 +829,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 19,
+  "schemaVersion": 21,
   "style": "dark",
   "tags": [
     "Insight"
@@ -833,6 +841,7 @@
         "auto_count": 200,
         "auto_min": "10s",
         "current": {
+          "selected": false,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -937,5 +946,5 @@
   "timezone": "browser",
   "title": "Kafka Overview",
   "uid": "jwPKIsniz",
-  "version": 10
+  "version": 1
 }
