@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.5.2"
+      "version": "6.5.3"
     },
     {
       "type": "panel",
@@ -58,7 +58,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1582092084132,
+  "iteration": 1582443353336,
   "links": [
     {
       "asDropdown": true,
@@ -185,7 +185,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "rate(prometheus_tsdb_wal_fsync_duration_seconds_sum{instance=\"$host\"}[6h])/rate(prometheus_tsdb_wal_fsync_duration_seconds_count{instance=\"$host\"}[6h])",
+          "expr": "rate(prometheus_tsdb_wal_fsync_duration_seconds_sum{instance=\"$host\"}[3h])/rate(prometheus_tsdb_wal_fsync_duration_seconds_count{instance=\"$host\"}[3h])",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -270,7 +270,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "rate(prometheus_tsdb_head_gc_duration_seconds_sum{instance=\"$host\"}[6h])/rate(prometheus_tsdb_head_gc_duration_seconds_count{instance=\"$host\"}[6h])",
+          "expr": "rate(prometheus_tsdb_head_gc_duration_seconds_sum{instance=\"$host\"}[3h])/rate(prometheus_tsdb_head_gc_duration_seconds_count{instance=\"$host\"}[3h])",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -491,6 +491,7 @@
         "y": 1
       },
       "height": "125px",
+      "hideTimeOverride": true,
       "id": 98,
       "interval": null,
       "links": [],
@@ -537,6 +538,7 @@
         }
       ],
       "thresholds": "",
+      "timeFrom": "$interval\t",
       "title": "Active Data blocks",
       "type": "singlestat",
       "valueFontSize": "70%",
@@ -575,6 +577,7 @@
         "y": 1
       },
       "height": "125px",
+      "hideTimeOverride": true,
       "id": 100,
       "interval": null,
       "links": [],
@@ -621,6 +624,7 @@
         }
       ],
       "thresholds": "",
+      "timeFrom": "$interval\t",
       "title": "Active Series",
       "type": "singlestat",
       "valueFontSize": "70%",
@@ -643,7 +647,7 @@
         "#299c46"
       ],
       "datasource": "DS_PROMETHEUS",
-      "decimals": 2,
+      "decimals": 1,
       "format": "ms",
       "gauge": {
         "maxValue": 100,
@@ -659,6 +663,7 @@
         "y": 1
       },
       "height": "125px",
+      "hideTimeOverride": true,
       "id": 101,
       "interval": null,
       "links": [],
@@ -697,7 +702,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "prometheus_tsdb_head_max_time - prometheus_tsdb_head_min_time{instance=\"$host\"}",
+          "expr": "prometheus_tsdb_head_max_time{instance=\"$host\"} - prometheus_tsdb_head_min_time{instance=\"$host\"}",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -706,6 +711,7 @@
         }
       ],
       "thresholds": "300,3600",
+      "timeFrom": "$interval\t",
       "title": "Head Block Retention",
       "type": "singlestat",
       "valueFontSize": "70%",
@@ -744,6 +750,7 @@
         "y": 1
       },
       "height": "125px",
+      "hideTimeOverride": true,
       "id": 114,
       "interval": null,
       "links": [],
@@ -782,7 +789,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "rate(prometheus_tsdb_compaction_duration_seconds_sum{instance=\"$host\",service=\"prometheus_exporter\"}[6h])/rate(prometheus_tsdb_compaction_duration_seconds_count{instance=\"$host\",service=\"prometheus_exporter\"}[6h])",
+          "expr": "rate(prometheus_tsdb_compaction_duration_seconds_sum{instance=\"$host\",service=\"prometheus_exporter\"}[6h])/rate(prometheus_tsdb_compaction_duration_seconds_count{instance=\"$host\",service=\"prometheus_exporter\"}[3h])",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -791,6 +798,7 @@
         }
       ],
       "thresholds": "300,3600",
+      "timeFrom": "$interval\t",
       "title": "Avg Compaction Time",
       "type": "singlestat",
       "valueFontSize": "70%",

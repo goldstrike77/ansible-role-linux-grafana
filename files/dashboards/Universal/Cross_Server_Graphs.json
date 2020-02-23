@@ -26,7 +26,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.5.2"
+      "version": "6.5.3"
     },
     {
       "type": "panel",
@@ -64,7 +64,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1582273996814,
+  "iteration": 1582452074774,
   "links": [
     {
       "asDropdown": true,
@@ -463,7 +463,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "6.5.2",
+      "pluginVersion": "6.5.3",
       "targets": [
         {
           "expr": "(1 - avg(irate(node_cpu_seconds_total{instance=~\"$host\",mode='idle'}[5m]))) * 100 or (1 - avg(irate(wmi_cpu_time_total{mode=\"idle\", instance=~\"$host\"}[5m]))) * 100",
@@ -531,7 +531,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "6.5.2",
+      "pluginVersion": "6.5.3",
       "targets": [
         {
           "expr": "avg((node_memory_MemTotal_bytes{instance=~\"$host\"} - (node_memory_MemFree_bytes{instance=~\"$host\"} + node_memory_Buffers_bytes{instance=~\"$host\"} + node_memory_Cached_bytes{instance=~\"$host\"})) / node_memory_MemTotal_bytes{instance=~\"$host\"}) * 100 or avg((wmi_cs_physical_memory_bytes{instance=~\"$host\"} - wmi_os_physical_memory_free_bytes{instance=~\"$host\"}) / wmi_cs_physical_memory_bytes{instance=~\"$host\"}) * 100",
@@ -599,7 +599,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "6.5.2",
+      "pluginVersion": "6.5.3",
       "targets": [
         {
           "expr": "(1- sum(node_filesystem_free_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) / sum (node_filesystem_size_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"})) * 100 or (1- sum(wmi_logical_disk_free_bytes{instance=~\"$host\"}) / sum(wmi_logical_disk_size_bytes{instance=~\"$host\"})) * 100",
@@ -652,7 +652,7 @@
         },
         "orientation": "horizontal"
       },
-      "pluginVersion": "6.5.2",
+      "pluginVersion": "6.5.3",
       "targets": [
         {
           "expr": "(count(node_memory_MemTotal_bytes{instance=~\"$host\"}) or vector(0)) + (count(wmi_os_visible_memory_bytes{instance=~\"$host\"}) or vector(0))",
@@ -1037,6 +1037,7 @@
       "dashes": false,
       "datasource": "DS_PROMETHEUS",
       "decimals": 0,
+      "description": "WMI calculate total traffic because don't know how to calculate variables array of multiple network interfaces.",
       "editable": true,
       "error": false,
       "fill": 2,
@@ -1084,11 +1085,11 @@
           "calculatedInterval": "2s",
           "datasourceErrors": {},
           "errors": {},
-          "expr": "(sum(irate(node_network_receive_bytes_total{instance=~\"$host\", device=~\"$interface\"}[5m]) + irate(node_network_transmit_bytes_total{instance=~\"$host\", device=~\"$interface\"}[5m])) by (instance)) or (sum(rate(wmi_net_bytes_sent_total{instance=~\"$host\"}[5m])) by (instance) + sum(rate(wmi_net_bytes_received_total{instance=~\"$host\"}[5m])) by (instance))",
+          "expr": "(sum(irate(node_network_receive_bytes_total{instance=~\"$host\", device=~\"$interface\"}[5m]) + irate(node_network_transmit_bytes_total{instance=~\"$host\", device=~\"$interface\"}[5m])) by (instance)) or (sum(irate(wmi_net_bytes_sent_total{instance=~\"$host\"}[5m]) + irate(wmi_net_bytes_received_total{instance=~\"$host\"}[5m])) by (instance))",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
-          "legendFormat": "{{ instance }}: {{ $interface }}",
+          "legendFormat": "{{ instance }}",
           "metric": "",
           "refId": "B",
           "step": 300,
