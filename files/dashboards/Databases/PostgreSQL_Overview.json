@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.2.5"
+      "version": "6.5.3"
     },
     {
       "type": "panel",
@@ -59,7 +59,7 @@
   "gnetId": 3300,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1566181684206,
+  "iteration": 1582440155236,
   "links": [
     {
       "asDropdown": true,
@@ -132,6 +132,7 @@
         "x": 0,
         "y": 0
       },
+      "hideTimeOverride": true,
       "id": 63,
       "interval": null,
       "links": [],
@@ -179,9 +180,10 @@
         }
       ],
       "thresholds": "0,1",
+      "timeFrom": "$interval",
       "title": "",
       "type": "singlestat",
-      "valueFontSize": "80%",
+      "valueFontSize": "70%",
       "valueMaps": [
         {
           "op": "=",
@@ -226,6 +228,7 @@
         "x": 2,
         "y": 0
       },
+      "hideTimeOverride": true,
       "id": 65,
       "interval": null,
       "links": [],
@@ -272,9 +275,10 @@
         }
       ],
       "thresholds": "",
+      "timeFrom": "$interval",
       "title": "Version",
       "type": "singlestat",
-      "valueFontSize": "80%",
+      "valueFontSize": "70%",
       "valueMaps": [
         {
           "op": "=",
@@ -310,13 +314,13 @@
         "x": 4,
         "y": 0
       },
+      "hideTimeOverride": true,
       "id": 86,
       "interval": null,
       "links": [
         {
           "targetBlank": true,
           "title": "GUC-MAX-CONNECTIONS",
-          "type": "absolute",
           "url": "https://www.postgresql.org/docs/current/static/runtime-config-connection.html#GUC-MAX-CONNECTIONS"
         }
       ],
@@ -364,9 +368,10 @@
         }
       ],
       "thresholds": "",
+      "timeFrom": "$interval",
       "title": "Max Connections",
       "type": "singlestat",
-      "valueFontSize": "80%",
+      "valueFontSize": "70%",
       "valueMaps": [
         {
           "op": "=",
@@ -386,7 +391,7 @@
         "#d44a3a"
       ],
       "datasource": "DS_PROMETHEUS",
-      "decimals": 2,
+      "decimals": 0,
       "description": "Defines the amount of memory the database server uses for shared memory buffers.  Default is 128MB.  Guidance on tuning is 25% of RAM, but generally doesn't exceed 40%.",
       "format": "bytes",
       "gauge": {
@@ -402,13 +407,13 @@
         "x": 7,
         "y": 0
       },
+      "hideTimeOverride": true,
       "id": 67,
       "interval": null,
       "links": [
         {
           "targetBlank": true,
           "title": "GUC-SHARED-BUFFERS",
-          "type": "absolute",
           "url": "https://www.postgresql.org/docs/current/static/runtime-config-resource.html#GUC-SHARED-BUFFERS"
         }
       ],
@@ -455,9 +460,10 @@
         }
       ],
       "thresholds": "",
+      "timeFrom": "$interval",
       "title": "Shared Buffers",
       "type": "singlestat",
-      "valueFontSize": "80%",
+      "valueFontSize": "70%",
       "valueMaps": [
         {
           "op": "=",
@@ -477,7 +483,7 @@
         "#d44a3a"
       ],
       "datasource": "DS_PROMETHEUS",
-      "decimals": 2,
+      "decimals": 0,
       "description": "The setting wal_buffers defines how much memory is used for caching the write-ahead log entries. Generally this value is small (3% of shared_buffers value), but it may need to be modified for heavily loaded servers.",
       "format": "bytes",
       "gauge": {
@@ -493,18 +499,17 @@
         "x": 11,
         "y": 0
       },
+      "hideTimeOverride": true,
       "id": 68,
       "interval": null,
       "links": [
         {
           "title": "GUC-WAL-BUFFERS",
-          "type": "absolute",
           "url": "https://www.postgresql.org/docs/current/static/runtime-config-wal.html#GUC-WAL-BUFFERS"
         },
         {
           "targetBlank": true,
           "title": "GUC-SHARED-BUFFERS",
-          "type": "absolute",
           "url": "https://www.postgresql.org/docs/current/static/runtime-config-resource.html#GUC-SHARED-BUFFERS"
         }
       ],
@@ -551,9 +556,10 @@
         }
       ],
       "thresholds": "",
+      "timeFrom": "$interval",
       "title": "Disk-Page Buffers",
       "type": "singlestat",
-      "valueFontSize": "80%",
+      "valueFontSize": "70%",
       "valueMaps": [
         {
           "op": "=",
@@ -573,7 +579,7 @@
         "#d44a3a"
       ],
       "datasource": "DS_PROMETHEUS",
-      "decimals": 2,
+      "decimals": 0,
       "description": "The parameter work_mem defines the amount of memory assigned for internal sort operations and hash tables before writing to temporary disk files.  The default is 4MB.",
       "format": "bytes",
       "gauge": {
@@ -589,14 +595,13 @@
         "x": 15,
         "y": 0
       },
+      "hideTimeOverride": true,
       "id": 69,
       "interval": null,
       "links": [
         {
-          "dashboard": "https://www.postgresql.org/docs/current/static/runtime-config-resource.html#GUC-WORK-MEM",
           "targetBlank": true,
           "title": "GUC-WORK-MEM",
-          "type": "absolute",
           "url": "https://www.postgresql.org/docs/current/static/runtime-config-resource.html#GUC-WORK-MEM"
         }
       ],
@@ -643,9 +648,10 @@
         }
       ],
       "thresholds": "",
+      "timeFrom": "$interval",
       "title": "Memory Size for each Sort",
       "type": "singlestat",
-      "valueFontSize": "80%",
+      "valueFontSize": "70%",
       "valueMaps": [
         {
           "op": "=",
@@ -665,7 +671,7 @@
         "#d44a3a"
       ],
       "datasource": "DS_PROMETHEUS",
-      "decimals": 2,
+      "decimals": 0,
       "description": "PostgreSQL's effective_cache_size variable tunes how much RAM you expect to be available for disk caching.  Generally adding Linux free+cached will give you a good idea.  This value is used by the query planner whether plans will fit in memory, and when defined too low, can lead to some plans rejecting certain indexes.",
       "format": "bytes",
       "gauge": {
@@ -681,13 +687,13 @@
         "x": 19,
         "y": 0
       },
+      "hideTimeOverride": true,
       "id": 70,
       "interval": null,
       "links": [
         {
           "targetBlank": true,
           "title": "GUC-EFFECTIVE-CACHE-SIZE",
-          "type": "absolute",
           "url": "https://www.postgresql.org/docs/current/static/runtime-config-query.html#GUC-EFFECTIVE-CACHE-SIZE"
         }
       ],
@@ -735,9 +741,10 @@
         }
       ],
       "thresholds": "",
+      "timeFrom": "$interval",
       "title": "Disk Cache Size",
       "type": "singlestat",
-      "valueFontSize": "80%",
+      "valueFontSize": "70%",
       "valueMaps": [
         {
           "op": "=",
@@ -772,13 +779,13 @@
         "x": 22,
         "y": 0
       },
+      "hideTimeOverride": true,
       "id": 85,
       "interval": null,
       "links": [
         {
           "targetBlank": true,
           "title": "AUTOVACUUM",
-          "type": "absolute",
           "url": "https://www.postgresql.org/docs/current/static/routine-vacuuming.html#AUTOVACUUM"
         }
       ],
@@ -825,9 +832,10 @@
         }
       ],
       "thresholds": "0,1",
+      "timeFrom": "$interval",
       "title": "Autovacuum",
       "type": "singlestat",
-      "valueFontSize": "80%",
+      "valueFontSize": "70%",
       "valueMaps": [
         {
           "op": "=",
@@ -849,6 +857,7 @@
     },
     {
       "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -870,12 +879,14 @@
       "datasource": "DS_PROMETHEUS",
       "decimals": 0,
       "fill": 2,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 0,
         "y": 3
       },
+      "hiddenSeries": false,
       "id": 23,
       "legend": {
         "alignAsTable": true,
@@ -894,7 +905,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -983,12 +996,14 @@
       "datasource": "DS_PROMETHEUS",
       "decimals": 0,
       "fill": 2,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 12,
         "y": 3
       },
+      "hiddenSeries": false,
       "id": 34,
       "legend": {
         "alignAsTable": true,
@@ -1006,7 +1021,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1084,6 +1101,7 @@
     },
     {
       "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1102,12 +1120,14 @@
       "dashes": false,
       "datasource": "DS_PROMETHEUS",
       "fill": 2,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 0,
         "y": 12
       },
+      "hiddenSeries": false,
       "id": 36,
       "legend": {
         "alignAsTable": true,
@@ -1125,7 +1145,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1225,12 +1247,14 @@
       "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "fill": 2,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 12,
         "y": 12
       },
+      "hiddenSeries": false,
       "id": 24,
       "legend": {
         "alignAsTable": true,
@@ -1248,7 +1272,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1328,12 +1354,14 @@
       "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "fill": 2,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 0,
         "y": 20
       },
+      "hiddenSeries": false,
       "id": 25,
       "legend": {
         "alignAsTable": true,
@@ -1351,7 +1379,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1435,6 +1465,7 @@
     },
     {
       "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1454,12 +1485,14 @@
       "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "fill": 2,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 0,
         "y": 29
       },
+      "hiddenSeries": false,
       "id": 26,
       "legend": {
         "alignAsTable": true,
@@ -1477,7 +1510,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1557,12 +1592,14 @@
       "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "fill": 2,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 12,
         "y": 29
       },
+      "hiddenSeries": false,
       "id": 18,
       "legend": {
         "alignAsTable": true,
@@ -1580,7 +1617,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1644,6 +1683,7 @@
     },
     {
       "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1663,12 +1703,14 @@
       "datasource": "DS_PROMETHEUS",
       "decimals": 0,
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 0,
         "y": 38
       },
+      "hiddenSeries": false,
       "id": 48,
       "legend": {
         "alignAsTable": true,
@@ -1686,7 +1728,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1755,12 +1799,14 @@
       "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 12,
         "y": 38
       },
+      "hiddenSeries": false,
       "id": 49,
       "legend": {
         "alignAsTable": true,
@@ -1778,7 +1824,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1857,6 +1905,7 @@
     },
     {
       "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1878,6 +1927,7 @@
       "editable": true,
       "error": false,
       "fill": 1,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 8,
@@ -1885,6 +1935,7 @@
         "x": 0,
         "y": 47
       },
+      "hiddenSeries": false,
       "id": 3,
       "legend": {
         "alignAsTable": true,
@@ -1902,7 +1953,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -2071,6 +2124,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 8,
@@ -2078,6 +2132,7 @@
         "x": 12,
         "y": 47
       },
+      "hiddenSeries": false,
       "id": 61,
       "legend": {
         "alignAsTable": true,
@@ -2095,7 +2150,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -2204,6 +2261,7 @@
     },
     {
       "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -2223,12 +2281,14 @@
       "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "fill": 2,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 0,
         "y": 56
       },
+      "hiddenSeries": false,
       "id": 50,
       "legend": {
         "alignAsTable": true,
@@ -2246,7 +2306,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -2331,6 +2393,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 8,
@@ -2338,6 +2401,7 @@
         "x": 12,
         "y": 56
       },
+      "hiddenSeries": false,
       "id": 2,
       "legend": {
         "alignAsTable": true,
@@ -2357,7 +2421,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -2677,6 +2743,7 @@
     },
     {
       "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -2697,12 +2764,14 @@
       "decimals": 0,
       "description": "Based on pg_stat_database_conflicts view",
       "fill": 2,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 0,
         "y": 65
       },
+      "hiddenSeries": false,
       "id": 28,
       "legend": {
         "alignAsTable": true,
@@ -2720,7 +2789,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -2833,6 +2904,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 8,
@@ -2840,6 +2912,7 @@
         "x": 12,
         "y": 65
       },
+      "hiddenSeries": false,
       "id": 14,
       "legend": {
         "alignAsTable": true,
@@ -2858,7 +2931,9 @@
       "links": [],
       "maxPerRow": 6,
       "nullPointMode": "connected",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": true,
       "pointradius": 1,
       "points": false,
@@ -2927,12 +3002,14 @@
       "dashes": false,
       "datasource": "DS_PROMETHEUS",
       "fill": 2,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 0,
         "y": 73
       },
+      "hiddenSeries": false,
       "id": 22,
       "legend": {
         "alignAsTable": true,
@@ -2952,7 +3029,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -3028,6 +3107,7 @@
     },
     {
       "collapsed": true,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -3056,6 +3136,7 @@
     },
     {
       "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -3075,12 +3156,14 @@
       "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "fill": 5,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 0,
         "y": 83
       },
+      "hiddenSeries": false,
       "id": 90,
       "legend": {
         "alignAsTable": true,
@@ -3100,7 +3183,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -3176,12 +3261,14 @@
       "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "fill": 2,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 12,
         "y": 83
       },
+      "hiddenSeries": false,
       "id": 92,
       "legend": {
         "alignAsTable": true,
@@ -3199,7 +3286,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -3291,12 +3380,14 @@
       "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "fill": 2,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 0,
         "y": 91
       },
+      "hiddenSeries": false,
       "id": 94,
       "legend": {
         "alignAsTable": true,
@@ -3312,7 +3403,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -3426,12 +3519,14 @@
       "datasource": "DS_PROMETHEUS",
       "decimals": 2,
       "fill": 2,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 12,
         "y": 91
       },
+      "hiddenSeries": false,
       "id": 96,
       "legend": {
         "alignAsTable": true,
@@ -3447,7 +3542,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -3522,7 +3619,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 18,
+  "schemaVersion": 21,
   "style": "dark",
   "tags": [
     "Databases"
@@ -3534,6 +3631,7 @@
         "auto_count": 200,
         "auto_min": "1s",
         "current": {
+          "selected": false,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -4541,5 +4639,5 @@
   "timezone": "browser",
   "title": "PostgreSQL Overview",
   "uid": "IvhES05ik",
-  "version": 2
+  "version": 1
 }

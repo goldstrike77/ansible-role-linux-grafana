@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.3.6"
+      "version": "6.5.3"
     },
     {
       "type": "panel",
@@ -53,7 +53,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1574303530109,
+  "iteration": 1582442090876,
   "links": [
     {
       "asDropdown": true,
@@ -126,6 +126,7 @@
         "x": 0,
         "y": 0
       },
+      "hideTimeOverride": true,
       "id": 2,
       "interval": null,
       "links": [],
@@ -171,6 +172,7 @@
         }
       ],
       "thresholds": "300,3600",
+      "timeFrom": "$interval",
       "title": "Uptime",
       "type": "singlestat",
       "valueFontSize": "50%",
@@ -207,6 +209,7 @@
         "x": 2,
         "y": 0
       },
+      "hideTimeOverride": true,
       "id": 4,
       "interval": null,
       "links": [],
@@ -252,6 +255,7 @@
         }
       ],
       "thresholds": "",
+      "timeFrom": "$interval",
       "title": "Virtual CPUs",
       "type": "singlestat",
       "valueFontSize": "50%",
@@ -288,7 +292,7 @@
         "x": 4,
         "y": 0
       },
-      "hideTimeOverride": false,
+      "hideTimeOverride": true,
       "id": 6,
       "interval": null,
       "links": [],
@@ -339,6 +343,7 @@
         }
       ],
       "thresholds": "",
+      "timeFrom": "$interval",
       "title": "Operating System",
       "type": "singlestat",
       "valueFontSize": "50%",
@@ -370,6 +375,7 @@
         "x": 9,
         "y": 0
       },
+      "hideTimeOverride": true,
       "id": 8,
       "interval": null,
       "links": [],
@@ -415,6 +421,7 @@
         }
       ],
       "thresholds": "",
+      "timeFrom": "$interval",
       "title": "Physical Memory Space",
       "type": "singlestat",
       "valueFontSize": "50%",
@@ -452,6 +459,7 @@
         "x": 12,
         "y": 0
       },
+      "hideTimeOverride": true,
       "id": 10,
       "interval": null,
       "links": [],
@@ -497,6 +505,7 @@
         }
       ],
       "thresholds": "",
+      "timeFrom": "$interval",
       "title": "Physical Memory Available",
       "type": "singlestat",
       "valueFontSize": "50%",
@@ -535,6 +544,7 @@
         "x": 15,
         "y": 0
       },
+      "hideTimeOverride": true,
       "id": 12,
       "interval": null,
       "links": [],
@@ -580,6 +590,8 @@
         }
       ],
       "thresholds": "",
+      "timeFrom": "$interval",
+      "timeShift": null,
       "title": "Virtual Memory",
       "type": "singlestat",
       "valueFontSize": "50%",
@@ -618,6 +630,7 @@
         "x": 18,
         "y": 0
       },
+      "hideTimeOverride": true,
       "id": 14,
       "interval": null,
       "links": [],
@@ -663,6 +676,7 @@
         }
       ],
       "thresholds": "",
+      "timeFrom": "$interval",
       "title": "Disk Space",
       "type": "singlestat",
       "valueFontSize": "50%",
@@ -701,6 +715,7 @@
         "x": 21,
         "y": 0
       },
+      "hideTimeOverride": true,
       "id": 15,
       "interval": null,
       "links": [],
@@ -746,6 +761,7 @@
         }
       ],
       "thresholds": "",
+      "timeFrom": "$interval",
       "title": "Disk Available",
       "type": "singlestat",
       "valueFontSize": "50%",
@@ -760,6 +776,7 @@
     },
     {
       "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -785,6 +802,7 @@
         "x": 0,
         "y": 3
       },
+      "hiddenSeries": false,
       "id": 19,
       "legend": {
         "alignAsTable": true,
@@ -876,6 +894,7 @@
         "x": 12,
         "y": 3
       },
+      "hiddenSeries": false,
       "id": 21,
       "legend": {
         "avg": false,
@@ -954,6 +973,7 @@
     },
     {
       "collapsed": true,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -979,6 +999,7 @@
         "x": 0,
         "y": 13
       },
+      "hiddenSeries": false,
       "id": 25,
       "legend": {
         "alignAsTable": true,
@@ -1083,6 +1104,7 @@
         "x": 12,
         "y": 13
       },
+      "hiddenSeries": false,
       "id": 27,
       "legend": {
         "avg": false,
@@ -1160,6 +1182,7 @@
     },
     {
       "collapsed": true,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1185,6 +1208,7 @@
         "x": 0,
         "y": 23
       },
+      "hiddenSeries": false,
       "id": 35,
       "legend": {
         "avg": false,
@@ -1274,6 +1298,7 @@
         "x": 12,
         "y": 23
       },
+      "hiddenSeries": false,
       "id": 36,
       "legend": {
         "alignAsTable": true,
@@ -1353,6 +1378,7 @@
     },
     {
       "collapsed": true,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1371,12 +1397,14 @@
       "dashes": false,
       "datasource": "DS_PROMETHEUS",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 9,
         "w": 12,
         "x": 0,
         "y": 33
       },
+      "hiddenSeries": false,
       "id": 40,
       "legend": {
         "alignAsTable": true,
@@ -1392,7 +1420,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null as zero",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1465,12 +1495,14 @@
       "dashes": false,
       "datasource": "DS_PROMETHEUS",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 9,
         "w": 12,
         "x": 12,
         "y": 33
       },
+      "hiddenSeries": false,
       "id": 38,
       "legend": {
         "alignAsTable": true,
@@ -1486,7 +1518,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1554,6 +1588,7 @@
     },
     {
       "collapsed": true,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1572,12 +1607,14 @@
       "dashes": false,
       "datasource": "DS_PROMETHEUS",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 9,
         "w": 12,
         "x": 0,
         "y": 43
       },
+      "hiddenSeries": false,
       "id": 51,
       "legend": {
         "avg": false,
@@ -1592,7 +1629,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1665,12 +1704,14 @@
       "dashes": false,
       "datasource": "DS_PROMETHEUS",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 9,
         "w": 12,
         "x": 12,
         "y": 43
       },
+      "hiddenSeries": false,
       "id": 50,
       "legend": {
         "avg": false,
@@ -1685,7 +1726,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1752,12 +1795,14 @@
       "dashes": false,
       "datasource": "DS_PROMETHEUS",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 9,
         "w": 12,
         "x": 0,
         "y": 52
       },
+      "hiddenSeries": false,
       "id": 48,
       "legend": {
         "avg": false,
@@ -1772,7 +1817,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1838,12 +1885,14 @@
       "dashes": false,
       "datasource": "DS_PROMETHEUS",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 9,
         "w": 12,
         "x": 12,
         "y": 52
       },
+      "hiddenSeries": false,
       "id": 49,
       "legend": {
         "avg": false,
@@ -1858,7 +1907,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1896,16 +1947,18 @@
       },
       "yaxes": [
         {
+          "decimals": 0,
           "format": "percentunit",
-          "label": null,
+          "label": "",
           "logBase": 1,
           "max": "1",
           "min": "0",
           "show": true
         },
         {
+          "decimals": 0,
           "format": "short",
-          "label": null,
+          "label": "",
           "logBase": 1,
           "max": null,
           "min": null,
@@ -1919,7 +1972,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 19,
+  "schemaVersion": 21,
   "style": "dark",
   "tags": [
     "OS",
@@ -1932,6 +1985,7 @@
         "auto_count": 200,
         "auto_min": "1s",
         "current": {
+          "selected": false,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
