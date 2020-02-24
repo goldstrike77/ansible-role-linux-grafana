@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.2.5"
+      "version": "6.5.2"
     },
     {
       "type": "panel",
@@ -53,7 +53,7 @@
   "gnetId": 9965,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1566956354728,
+  "iteration": 1582515934182,
   "links": [
     {
       "asDropdown": true,
@@ -167,7 +167,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "probe_http_status_code{target=\"$target\"}",
+          "expr": "avg(probe_http_status_code{target=\"$target\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -198,12 +198,14 @@
       "datasource": "DS_PROMETHEUS",
       "decimals": 0,
       "fill": 0,
+      "fillGradient": 0,
       "gridPos": {
         "h": 12,
         "w": 21,
         "x": 3,
         "y": 0
       },
+      "hiddenSeries": false,
       "id": 28,
       "legend": {
         "alignAsTable": true,
@@ -223,7 +225,9 @@
       "links": [],
       "maxPerRow": 3,
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -352,7 +356,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "(probe_ssl_earliest_cert_expiry{target=\"$target\"}-time()) / 86400",
+          "expr": "avg((probe_ssl_earliest_cert_expiry{target=\"$target\"}-time()) / 86400)",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "",
@@ -440,7 +444,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "probe_ip_protocol{target=\"$target\"}",
+          "expr": "avg(probe_ip_protocol{target=\"$target\"})",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "",
@@ -538,7 +542,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "probe_http_version{target=\"$target\"}",
+          "expr": "avg(probe_http_version{target=\"$target\"})",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "",
@@ -562,7 +566,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 18,
+  "schemaVersion": 21,
   "style": "dark",
   "tags": [
     "Insight"
@@ -574,6 +578,7 @@
         "auto_count": 200,
         "auto_min": "10s",
         "current": {
+          "selected": false,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
