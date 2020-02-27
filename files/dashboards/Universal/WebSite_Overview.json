@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.5.2"
+      "version": "6.5.3"
     },
     {
       "type": "panel",
@@ -53,7 +53,7 @@
   "gnetId": 9965,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1582516571702,
+  "iteration": 1582596533496,
   "links": [
     {
       "asDropdown": true,
@@ -180,7 +180,7 @@
       "timeShift": null,
       "title": "Status code",
       "type": "singlestat",
-      "valueFontSize": "80%",
+      "valueFontSize": "70%",
       "valueMaps": [
         {
           "op": "=",
@@ -368,7 +368,7 @@
       "timeShift": null,
       "title": "SSL cert expiry",
       "type": "singlestat",
-      "valueFontSize": "80%",
+      "valueFontSize": "70%",
       "valueMaps": [
         {
           "op": "=",
@@ -456,7 +456,7 @@
       "timeShift": null,
       "title": "Protocol",
       "type": "singlestat",
-      "valueFontSize": "80%",
+      "valueFontSize": "70%",
       "valueMaps": [
         {
           "op": "=",
@@ -542,19 +542,19 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "avg(probe_http_version{target=\"$target\"})",
+          "expr": "avg by (version) (probe_tls_version_info{target=\"$target\"})",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "",
+          "legendFormat": "{{ version }}",
           "refId": "A"
         }
       ],
       "thresholds": "",
       "timeFrom": "$interval",
       "timeShift": null,
-      "title": "Version of HTTP",
+      "title": "Version of SSL",
       "type": "singlestat",
-      "valueFontSize": "80%",
+      "valueFontSize": "70%",
       "valueMaps": [
         {
           "op": "=",
@@ -562,7 +562,7 @@
           "value": "null"
         }
       ],
-      "valueName": "current"
+      "valueName": "name"
     }
   ],
   "refresh": "1m",
@@ -578,7 +578,7 @@
         "auto_count": 200,
         "auto_min": "10s",
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
