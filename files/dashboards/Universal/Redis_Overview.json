@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.5.2"
+      "version": "6.5.3"
     },
     {
       "type": "panel",
@@ -53,7 +53,7 @@
   "gnetId": 763,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1582275610499,
+  "iteration": 1582873601663,
   "links": [
     {
       "asDropdown": true,
@@ -124,7 +124,7 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 2,
+        "w": 3,
         "x": 0,
         "y": 0
       },
@@ -151,7 +151,7 @@
       "postfix": "s",
       "postfixFontSize": "50%",
       "prefix": "",
-      "prefixFontSize": "50%",
+      "prefixFontSize": "70%",
       "rangeMaps": [
         {
           "from": "null",
@@ -181,7 +181,7 @@
       "timeFrom": "$interval",
       "title": "Uptime",
       "type": "singlestat",
-      "valueFontSize": "50%",
+      "valueFontSize": "70%",
       "valueMaps": [
         {
           "op": "=",
@@ -190,6 +190,90 @@
         }
       ],
       "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": true,
+      "colors": [
+        "rgba(245, 54, 54, 0.9)",
+        "rgba(237, 129, 40, 0.89)",
+        "rgba(50, 172, 45, 0.97)"
+      ],
+      "datasource": "DS_PROMETHEUS",
+      "decimals": 1,
+      "editable": true,
+      "error": false,
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 3,
+        "y": 0
+      },
+      "hideTimeOverride": true,
+      "id": 17,
+      "interval": null,
+      "isNew": true,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "70%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "redis_instance_info{instance=\"$host\"}",
+          "format": "time_series",
+          "intervalFactor": 2,
+          "legendFormat": "{{ role }}",
+          "metric": "",
+          "refId": "A",
+          "step": 1800
+        }
+      ],
+      "thresholds": "300,3600",
+      "timeFrom": "$interval",
+      "title": "Role",
+      "type": "singlestat",
+      "valueFontSize": "70%",
+      "valueMaps": [],
+      "valueName": "name"
     },
     {
       "aliasColors": {},
@@ -204,8 +288,8 @@
       "grid": {},
       "gridPos": {
         "h": 6,
-        "w": 8,
-        "x": 2,
+        "w": 6,
+        "x": 5,
         "y": 0
       },
       "hiddenSeries": false,
@@ -304,8 +388,8 @@
       "grid": {},
       "gridPos": {
         "h": 6,
-        "w": 8,
-        "x": 10,
+        "w": 6,
+        "x": 11,
         "y": 0
       },
       "hiddenSeries": false,
@@ -427,7 +511,7 @@
       "gridPos": {
         "h": 6,
         "w": 4,
-        "x": 18,
+        "x": 17,
         "y": 0
       },
       "hideTimeOverride": true,
@@ -485,7 +569,7 @@
       "timeShift": null,
       "title": "Memory Usage",
       "type": "singlestat",
-      "valueFontSize": "80%",
+      "valueFontSize": "70%",
       "valueMaps": [
         {
           "op": "=",
@@ -518,8 +602,8 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 2,
-        "x": 22,
+        "w": 3,
+        "x": 21,
         "y": 0
       },
       "hideTimeOverride": true,
@@ -577,7 +661,7 @@
       "timeShift": null,
       "title": "Used",
       "type": "singlestat",
-      "valueFontSize": "50%",
+      "valueFontSize": "70%",
       "valueMaps": [
         {
           "op": "=",
@@ -585,6 +669,91 @@
           "value": "null"
         }
       ],
+      "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "rgba(245, 54, 54, 0.9)",
+        "rgba(237, 129, 40, 0.89)",
+        "rgba(50, 172, 45, 0.97)"
+      ],
+      "datasource": "DS_PROMETHEUS",
+      "decimals": 0,
+      "description": "Redis sentinel connected clients.",
+      "editable": true,
+      "error": false,
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 0,
+        "y": 3
+      },
+      "hideTimeOverride": true,
+      "id": 18,
+      "interval": null,
+      "isNew": true,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "70%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "redis_sentinel_connected_clients{instance=\"$host\"}",
+          "format": "time_series",
+          "intervalFactor": 2,
+          "legendFormat": "{{ role }}",
+          "metric": "",
+          "refId": "A",
+          "step": 1800
+        }
+      ],
+      "thresholds": "300,3600",
+      "timeFrom": "$interval",
+      "title": "Sentinel Members",
+      "type": "singlestat",
+      "valueFontSize": "70%",
+      "valueMaps": [],
       "valueName": "current"
     },
     {
@@ -611,7 +780,7 @@
       "gridPos": {
         "h": 3,
         "w": 2,
-        "x": 0,
+        "x": 3,
         "y": 3
       },
       "hideTimeOverride": true,
@@ -637,7 +806,7 @@
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
-      "prefixFontSize": "50%",
+      "prefixFontSize": "70%",
       "rangeMaps": [
         {
           "from": "null",
@@ -668,7 +837,7 @@
       "timeShift": null,
       "title": "Clients",
       "type": "singlestat",
-      "valueFontSize": "50%",
+      "valueFontSize": "70%",
       "valueMaps": [
         {
           "op": "=",
@@ -701,8 +870,8 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 2,
-        "x": 22,
+        "w": 3,
+        "x": 21,
         "y": 3
       },
       "hideTimeOverride": true,
@@ -760,7 +929,7 @@
       "timeShift": null,
       "title": "Max",
       "type": "singlestat",
-      "valueFontSize": "50%",
+      "valueFontSize": "70%",
       "valueMaps": [
         {
           "op": "=",
@@ -1362,7 +1531,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "topk(5, irate(redis_command_call_duration_seconds_count{instance=\"$host\"} [5m]))",
+          "expr": "topk(5, irate(redis_commands_duration_seconds_total{instance=\"$host\"} [5m]))",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 2,
