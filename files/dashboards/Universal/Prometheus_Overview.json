@@ -58,7 +58,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1582443353336,
+  "iteration": 1583138824649,
   "links": [
     {
       "asDropdown": true,
@@ -886,7 +886,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(process_cpu_seconds_total{instance=\"$host\"}[$interval]) or irate(process_cpu_seconds_total{instance=\"$host\"}[5m])",
+          "expr": "rate(process_cpu_seconds_total{instance=\"$host\",service=\"prometheus_exporter\"}[$interval]) or irate(process_cpu_seconds_total{instance=\"$host\",service=\"prometheus_exporter\"}[5m])",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -897,7 +897,7 @@
           "step": 60
         },
         {
-          "expr": "count(node_cpu{mode=\"user\", instance=\"$host\"})",
+          "expr": "count(node_cpu{mode=\"user\", instance=\"$host\",service=\"prometheus_exporter\"})",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -906,7 +906,7 @@
           "step": 40
         },
         {
-          "expr": "count(node_cpu{mode=\"user\", instance=\"$host\"})*0.75",
+          "expr": "count(node_cpu{mode=\"user\", instance=\"$host\",service=\"prometheus_exporter\"})*0.75",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -1019,7 +1019,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "process_resident_memory_bytes{instance=\"$host\"}",
+          "expr": "process_resident_memory_bytes{instance=\"$host\",service=\"prometheus_exporter\"}",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -1030,7 +1030,7 @@
           "step": 60
         },
         {
-          "expr": "process_virtual_memory_bytes{instance=\"$host\"}",
+          "expr": "process_virtual_memory_bytes{instance=\"$host\",service=\"prometheus_exporter\"}",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -1040,7 +1040,7 @@
           "step": 60
         },
         {
-          "expr": "go_memstats_alloc_bytes{instance=\"$host\"}+go_memstats_stack_inuse_bytes{instance=\"$host\"}",
+          "expr": "go_memstats_alloc_bytes{instance=\"$host\",service=\"prometheus_exporter\"}+go_memstats_stack_inuse_bytes{instance=\"$host\",service=\"prometheus_exporter\"}",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -1050,7 +1050,7 @@
           "step": 60
         },
         {
-          "expr": "node_memory_MemTotal{instance=\"$host\"}",
+          "expr": "node_memory_MemTotal{instance=\"$host\",service=\"prometheus_exporter\"}",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
