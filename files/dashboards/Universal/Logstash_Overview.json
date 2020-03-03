@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.3.6"
+      "version": "6.5.3"
     },
     {
       "type": "panel",
@@ -47,7 +47,7 @@
   "gnetId": 2525,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1576988550933,
+  "iteration": 1583216590004,
   "links": [
     {
       "asDropdown": true,
@@ -97,6 +97,7 @@
   "panels": [
     {
       "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -124,6 +125,7 @@
         "y": 1
       },
       "height": "400",
+      "hiddenSeries": false,
       "id": 9,
       "legend": {
         "alignAsTable": true,
@@ -152,7 +154,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(logstash_node_pipeline_duration_seconds_total{cluster=\"$cluster\"}[$interval])",
+          "expr": "rate(logstash_node_pipeline_duration_seconds_total{cluster=\"$cluster\"}[5m])",
           "intervalFactor": 2,
           "legendFormat": "{{instance}}",
           "refId": "A",
@@ -215,6 +217,7 @@
         "y": 1
       },
       "height": "400",
+      "hiddenSeries": false,
       "id": 11,
       "legend": {
         "alignAsTable": true,
@@ -243,7 +246,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(logstash_node_pipeline_events_in_total{cluster=\"$cluster\"}[$interval])",
+          "expr": "rate(logstash_node_pipeline_events_in_total{cluster=\"$cluster\"}[5m])",
           "intervalFactor": 2,
           "legendFormat": "{{instance}}",
           "refId": "A",
@@ -306,6 +309,7 @@
         "y": 1
       },
       "height": "400",
+      "hiddenSeries": false,
       "id": 10,
       "legend": {
         "alignAsTable": true,
@@ -334,7 +338,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(logstash_node_pipeline_events_filtered_total{cluster=\"$cluster\"}[$interval])",
+          "expr": "rate(logstash_node_pipeline_events_filtered_total{cluster=\"$cluster\"}[5m])",
           "intervalFactor": 2,
           "legendFormat": "{{instance}}",
           "refId": "A",
@@ -397,6 +401,7 @@
         "y": 1
       },
       "height": "400",
+      "hiddenSeries": false,
       "id": 12,
       "legend": {
         "alignAsTable": true,
@@ -425,7 +430,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(logstash_node_pipeline_events_out_total{cluster=\"$cluster\"}[$interval])",
+          "expr": "rate(logstash_node_pipeline_events_out_total{cluster=\"$cluster\"}[5m])",
           "intervalFactor": 2,
           "legendFormat": "{{instance}}",
           "refId": "A",
@@ -475,6 +480,7 @@
     },
     {
       "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -502,6 +508,7 @@
         "y": 12
       },
       "height": "300",
+      "hiddenSeries": false,
       "id": 5,
       "legend": {
         "avg": false,
@@ -529,7 +536,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(logstash_node_plugin_duration_seconds_total{cluster=\"$cluster\"}[$interval])) by (plugin)",
+          "expr": "sum(rate(logstash_node_plugin_duration_seconds_total{cluster=\"$cluster\"}[5m])) by (plugin)",
           "intervalFactor": 2,
           "legendFormat": "{{plugin}}",
           "refId": "A",
@@ -592,6 +599,7 @@
         "y": 12
       },
       "height": "300",
+      "hiddenSeries": false,
       "id": 6,
       "legend": {
         "avg": false,
@@ -619,7 +627,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(logstash_node_plugin_failures_total{cluster=\"$cluster\"}[$interval])) by (plugin)",
+          "expr": "sum(rate(logstash_node_plugin_failures_total{cluster=\"$cluster\"}[5m])) by (plugin)",
           "intervalFactor": 2,
           "legendFormat": "{{plugin}}",
           "refId": "A",
@@ -682,6 +690,7 @@
         "y": 12
       },
       "height": "300",
+      "hiddenSeries": false,
       "id": 7,
       "legend": {
         "avg": false,
@@ -709,7 +718,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(logstash_node_plugin_events_in_total{cluster=\"$cluster\"}[$interval])) by (plugin)",
+          "expr": "sum(rate(logstash_node_plugin_events_in_total{cluster=\"$cluster\"}[5m])) by (plugin)",
           "intervalFactor": 2,
           "legendFormat": "{{plugin}}",
           "refId": "A",
@@ -772,6 +781,7 @@
         "y": 12
       },
       "height": "300",
+      "hiddenSeries": false,
       "id": 8,
       "legend": {
         "avg": false,
@@ -799,7 +809,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(logstash_node_plugin_events_out_total{cluster=\"$cluster\"}[$interval])) by (plugin)",
+          "expr": "sum(rate(logstash_node_plugin_events_out_total{cluster=\"$cluster\"}[5m])) by (plugin)",
           "intervalFactor": 2,
           "legendFormat": "{{plugin}}",
           "refId": "A",
@@ -849,6 +859,7 @@
     },
     {
       "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -876,6 +887,7 @@
         "y": 21
       },
       "height": "400px",
+      "hiddenSeries": false,
       "id": 1,
       "legend": {
         "alignAsTable": true,
@@ -971,6 +983,7 @@
         "y": 21
       },
       "height": "400px",
+      "hiddenSeries": false,
       "id": 4,
       "legend": {
         "alignAsTable": true,
@@ -1066,6 +1079,7 @@
         "y": 21
       },
       "height": "400px",
+      "hiddenSeries": false,
       "id": 2,
       "legend": {
         "alignAsTable": true,
@@ -1097,7 +1111,7 @@
           "aggregator": "sum",
           "downsampleAggregator": "avg",
           "downsampleFillPolicy": "none",
-          "expr": "rate(logstash_node_gc_collection_total{cluster=\"$cluster\"}[$interval])",
+          "expr": "rate(logstash_node_gc_collection_total{cluster=\"$cluster\"}[5m])",
           "intervalFactor": 2,
           "legendFormat": "{{instance}} - {{collector}}",
           "metric": "logstash_node_mem_heap_used_bytes",
@@ -1161,6 +1175,7 @@
         "y": 21
       },
       "height": "400px",
+      "hiddenSeries": false,
       "id": 3,
       "legend": {
         "alignAsTable": true,
@@ -1192,7 +1207,7 @@
           "aggregator": "sum",
           "downsampleAggregator": "avg",
           "downsampleFillPolicy": "none",
-          "expr": "rate(logstash_node_gc_collection_duration_seconds_total{cluster=\"$cluster\"}[$interval])",
+          "expr": "rate(logstash_node_gc_collection_duration_seconds_total{cluster=\"$cluster\"}[5m])",
           "intervalFactor": 2,
           "legendFormat": "{{instance}} - {{collector}}",
           "metric": "logstash_node_mem_heap_used_bytes",
@@ -1243,7 +1258,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 19,
+  "schemaVersion": 21,
   "style": "dark",
   "tags": [
     "Insight"
@@ -1255,6 +1270,7 @@
         "auto_count": 200,
         "auto_min": "10s",
         "current": {
+          "selected": false,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -1359,5 +1375,5 @@
   "timezone": "browser",
   "title": "Logstash Overview",
   "uid": "1OtsYUBWk",
-  "version": 4
+  "version": 1
 }
