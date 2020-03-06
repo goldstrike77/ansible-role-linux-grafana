@@ -94,9 +94,9 @@
       "includeVars": true,
       "keepTime": true,
       "tags": [
-        "Cloud"
+        "Platform"
       ],
-      "title": "Cloud",
+      "title": "Platform",
       "type": "dashboards"
     }
   ],
@@ -3043,7 +3043,7 @@
   "schemaVersion": 21,
   "style": "dark",
   "tags": [
-    "Cloud",
+    "Platform",
     "Kubernetes"
   ],
   "templating": {

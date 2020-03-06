@@ -92,10 +92,10 @@
       "includeVars": true,
       "keepTime": true,
       "tags": [
-        "Cloud"
+        "Platform"
       ],
       "targetBlank": false,
-      "title": "Cloud",
+      "title": "Platform",
       "type": "dashboards"
     }
   ],

@@ -107,7 +107,7 @@ grafana_ldap_arg:
 
 # Dashboard #
 grafana_dashboard_arg:
-  - category: 'Cloud'
+  - category: 'Platform'
     title:
       - 'Dell_PowerEdge'
       - 'Kubernetes_Cluster'

@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.4.5"
+      "version": "6.5.2"
     },
     {
       "type": "panel",
@@ -53,7 +53,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1578366360550,
+  "iteration": 1583477660480,
   "links": [
     {
       "asDropdown": true,
@@ -94,9 +94,9 @@
       "includeVars": true,
       "keepTime": true,
       "tags": [
-        "Cloud"
+        "Platform"
       ],
-      "title": "Cloud",
+      "title": "Platform",
       "type": "dashboards"
     }
   ],
@@ -582,6 +582,7 @@
         "x": 0,
         "y": 8
       },
+      "hiddenSeries": false,
       "id": 4,
       "legend": {
         "alignAsTable": true,
@@ -674,6 +675,7 @@
         "x": 0,
         "y": 16
       },
+      "hiddenSeries": false,
       "id": 5,
       "legend": {
         "alignAsTable": true,
@@ -754,10 +756,10 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 20,
+  "schemaVersion": 21,
   "style": "dark",
   "tags": [
-    "Cloud"
+    "Platform"
   ],
   "templating": {
     "list": [
@@ -766,6 +768,7 @@
         "auto_count": 200,
         "auto_min": "10s",
         "current": {
+          "selected": true,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -820,7 +823,7 @@
         "datasource": "DS_PROMETHEUS",
         "definition": "label_values(dell_hw_chassis_current_reading, group)",
         "hide": 0,
-        "includeAll": true,
+        "includeAll": false,
         "label": "Group",
         "multi": true,
         "name": "group",
