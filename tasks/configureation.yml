@@ -139,7 +139,7 @@
   with_items:
     - { regexp: '^default_theme =', line: 'default_theme = {{ grafana_arg.default_theme }}' }
 
-- name: Grafana reverse proxy configuration
+- name: Grafana reverse proxy and port configuration
   lineinfile:
     state: 'present'
     dest: '/etc/grafana/grafana.ini'
@@ -147,5 +147,6 @@
     regexp: '{{ item.regexp }}'
     line: '{{ item.line }}'
   with_items:
-    - { regexp: '^root_url =', line: 'root_url = %(protocol)s://%(domain)s/grafana/' }
+    - { regexp: '^root_url =',  line: 'root_url = %(protocol)s://%(domain)s/grafana/' }
+    - { regexp: '^http_port =', line: 'http_port = {{ grafana_port | default("3000") }}' }
   when: grafana_proxy | bool 
