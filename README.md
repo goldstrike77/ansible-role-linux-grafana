@@ -102,6 +102,7 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 
 ## Dependencies
 - Ansible versions >= 2.8 are supported.
+- Python >= 2.7.5
 - [NGinx](https://github.com/goldstrike77/ansible-role-linux-nginx.git)
 - [Redis](https://github.com/goldstrike77/ansible-role-linux-redis.git)
 
