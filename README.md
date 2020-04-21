@@ -111,9 +111,7 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 ### Hosts inventory file
 See tests/inventory for an example.
 
-    node01 ansible_host='192.168.1.10' grafana_is_install='true'
-    node02 ansible_host='192.168.1.11' grafana_is_install='true'
-    node03 ansible_host='192.168.1.12' grafana_is_install='true'
+    node01 ansible_host='192.168.1.10' grafana_version='6.2'
 
 ### Vars in role configuration
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
@@ -121,7 +119,7 @@ Including an example of how to use your role (for instance, with variables passe
     - hosts: all
       roles:
          - role: ansible-role-linux-grafana
-           grafana_is_install: true
+           grafana_version: '6.2'
 
 ### Combination of group vars and playbook
 You can also use the group_vars or the host_vars files for setting the variables needed for this role. File you should change: group_vars/all or host_vars/`group_name`
