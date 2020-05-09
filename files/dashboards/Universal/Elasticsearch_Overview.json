@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.5.2"
+      "version": "6.5.3"
     },
     {
       "type": "panel",
@@ -32,6 +32,12 @@
       "type": "panel",
       "id": "singlestat",
       "name": "Singlestat",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
       "version": ""
     }
   ],
@@ -52,7 +58,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1582091972771,
+  "iteration": 1589015837135,
   "links": [
     {
       "asDropdown": true,
@@ -133,8 +139,8 @@
         "thresholdMarkers": true
       },
       "gridPos": {
-        "h": 3,
-        "w": 6,
+        "h": 4,
+        "w": 2,
         "x": 0,
         "y": 1
       },
@@ -225,7 +231,7 @@
       ],
       "datasource": "DS_PROMETHEUS",
       "decimals": 1,
-      "format": "decbytes",
+      "format": "bytes",
       "gauge": {
         "maxValue": 100,
         "minValue": 0,
@@ -234,9 +240,9 @@
         "thresholdMarkers": true
       },
       "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 6,
+        "h": 4,
+        "w": 2,
+        "x": 2,
         "y": 1
       },
       "hideTimeOverride": true,
@@ -287,7 +293,7 @@
       ],
       "thresholds": "",
       "timeFrom": "$interval",
-      "title": "JVM memory Total",
+      "title": "Total Heap",
       "type": "singlestat",
       "valueFontSize": "70%",
       "valueMaps": [
@@ -320,9 +326,9 @@
         "thresholdMarkers": true
       },
       "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 9,
+        "h": 4,
+        "w": 2,
+        "x": 4,
         "y": 1
       },
       "hideTimeOverride": true,
@@ -408,9 +414,9 @@
         "thresholdMarkers": true
       },
       "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 12,
+        "h": 4,
+        "w": 2,
+        "x": 6,
         "y": 1
       },
       "hideTimeOverride": true,
@@ -460,7 +466,7 @@
       ],
       "thresholds": "",
       "timeFrom": "$interval",
-      "title": "Active Data Nodes",
+      "title": "Data Nodes",
       "type": "singlestat",
       "valueFontSize": "70%",
       "valueMaps": [
@@ -471,6 +477,135 @@
         }
       ],
       "valueName": "current"
+    },
+    {
+      "columns": [],
+      "datasource": "DS_PROMETHEUS",
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 4,
+        "w": 8,
+        "x": 8,
+        "y": 1
+      },
+      "hideTimeOverride": true,
+      "id": 100,
+      "interval": "",
+      "options": {},
+      "pageSize": null,
+      "repeat": null,
+      "showHeader": true,
+      "sort": {
+        "col": 0,
+        "desc": true
+      },
+      "styles": [
+        {
+          "alias": "Node",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "instance",
+          "thresholds": [],
+          "type": "string",
+          "unit": "short"
+        },
+        {
+          "alias": "IP",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "ipaddress",
+          "thresholds": [],
+          "type": "string",
+          "unit": "short"
+        },
+        {
+          "alias": "Version",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "version",
+          "thresholds": [],
+          "type": "string",
+          "unit": "short"
+        },
+        {
+          "alias": "Heap",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "mappingType": 1,
+          "pattern": "Value #B",
+          "thresholds": [],
+          "type": "number",
+          "unit": "bytes"
+        },
+        {
+          "alias": "",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "/.*/",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "elasticsearch_clusterinfo_version_info{cluster=\"$cluster\"}",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "$interval",
+          "legendFormat": "",
+          "refId": "A"
+        },
+        {
+          "expr": "avg by (instance)(elasticsearch_jvm_memory_max_bytes{cluster=\"$cluster\",area=\"heap\"})",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "$interval",
+          "legendFormat": "",
+          "refId": "B"
+        }
+      ],
+      "timeFrom": "$interval",
+      "timeShift": null,
+      "title": "",
+      "transform": "table",
+      "type": "table"
     },
     {
       "cacheTimeout": null,
@@ -491,9 +626,9 @@
         "thresholdMarkers": true
       },
       "gridPos": {
-        "h": 3,
+        "h": 4,
         "w": 3,
-        "x": 15,
+        "x": 16,
         "y": 1
       },
       "hideTimeOverride": true,
@@ -574,9 +709,9 @@
         "thresholdMarkers": true
       },
       "gridPos": {
-        "h": 3,
+        "h": 4,
         "w": 3,
-        "x": 18,
+        "x": 19,
         "y": 1
       },
       "hideTimeOverride": true,
@@ -657,9 +792,9 @@
         "thresholdMarkers": true
       },
       "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 21,
+        "h": 4,
+        "w": 2,
+        "x": 22,
         "y": 1
       },
       "hideTimeOverride": true,
@@ -728,7 +863,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 4
+        "y": 5
       },
       "id": 70,
       "panels": [],
@@ -751,7 +886,7 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 5
+        "y": 6
       },
       "hiddenSeries": false,
       "id": 3,
@@ -848,7 +983,7 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 5
+        "y": 6
       },
       "hiddenSeries": false,
       "id": 4,
@@ -942,7 +1077,7 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 14
+        "y": 15
       },
       "hiddenSeries": false,
       "id": 72,
@@ -1036,7 +1171,7 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 14
+        "y": 15
       },
       "hiddenSeries": false,
       "id": 74,
@@ -1131,7 +1266,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 23
+        "y": 24
       },
       "height": "",
       "hiddenSeries": false,
@@ -1218,7 +1353,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 31
+        "y": 32
       },
       "id": 68,
       "panels": [],
@@ -1241,7 +1376,7 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 32
+        "y": 33
       },
       "hiddenSeries": false,
       "id": 1,
@@ -1337,7 +1472,7 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 32
+        "y": 33
       },
       "hiddenSeries": false,
       "id": 66,
@@ -1432,7 +1567,7 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 41
+        "y": 42
       },
       "hiddenSeries": false,
       "id": 5,
@@ -1545,7 +1680,7 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 41
+        "y": 42
       },
       "hiddenSeries": false,
       "id": 28,

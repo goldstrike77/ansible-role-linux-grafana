@@ -101,7 +101,7 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `consul_public_http_port`: The consul HTTP API port.
 
 ## Dependencies
-- Ansible versions >= 2.8 are supported.
+- Ansible versions >= 2.8
 - Python >= 2.7.5
 - [NGinx](https://github.com/goldstrike77/ansible-role-linux-nginx.git)
 - [Redis](https://github.com/goldstrike77/ansible-role-linux-redis.git)
