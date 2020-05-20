@@ -58,7 +58,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1589015837135,
+  "iteration": 1589945554258,
   "links": [
     {
       "asDropdown": true,
@@ -139,7 +139,7 @@
         "thresholdMarkers": true
       },
       "gridPos": {
-        "h": 4,
+        "h": 3,
         "w": 2,
         "x": 0,
         "y": 1
@@ -240,7 +240,7 @@
         "thresholdMarkers": true
       },
       "gridPos": {
-        "h": 4,
+        "h": 3,
         "w": 2,
         "x": 2,
         "y": 1
@@ -326,7 +326,7 @@
         "thresholdMarkers": true
       },
       "gridPos": {
-        "h": 4,
+        "h": 3,
         "w": 2,
         "x": 4,
         "y": 1
@@ -414,7 +414,7 @@
         "thresholdMarkers": true
       },
       "gridPos": {
-        "h": 4,
+        "h": 3,
         "w": 2,
         "x": 6,
         "y": 1
@@ -481,9 +481,9 @@
     {
       "columns": [],
       "datasource": "DS_PROMETHEUS",
-      "fontSize": "100%",
+      "fontSize": "80%",
       "gridPos": {
-        "h": 4,
+        "h": 3,
         "w": 8,
         "x": 8,
         "y": 1
@@ -626,7 +626,7 @@
         "thresholdMarkers": true
       },
       "gridPos": {
-        "h": 4,
+        "h": 3,
         "w": 3,
         "x": 16,
         "y": 1
@@ -709,7 +709,7 @@
         "thresholdMarkers": true
       },
       "gridPos": {
-        "h": 4,
+        "h": 3,
         "w": 3,
         "x": 19,
         "y": 1
@@ -792,7 +792,7 @@
         "thresholdMarkers": true
       },
       "gridPos": {
-        "h": 4,
+        "h": 3,
         "w": 2,
         "x": 22,
         "y": 1
@@ -863,7 +863,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 5
+        "y": 4
       },
       "id": 70,
       "panels": [],
@@ -886,7 +886,7 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 6
+        "y": 5
       },
       "hiddenSeries": false,
       "id": 3,
@@ -983,7 +983,7 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 6
+        "y": 5
       },
       "hiddenSeries": false,
       "id": 4,
@@ -1077,7 +1077,7 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 15
+        "y": 14
       },
       "hiddenSeries": false,
       "id": 72,
@@ -1171,7 +1171,7 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 15
+        "y": 14
       },
       "hiddenSeries": false,
       "id": 74,
@@ -1266,7 +1266,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 24
+        "y": 23
       },
       "height": "",
       "hiddenSeries": false,
@@ -1353,7 +1353,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 32
+        "y": 31
       },
       "id": 68,
       "panels": [],
@@ -1376,7 +1376,7 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 33
+        "y": 32
       },
       "hiddenSeries": false,
       "id": 1,
@@ -1472,7 +1472,7 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 33
+        "y": 32
       },
       "hiddenSeries": false,
       "id": 66,
@@ -1567,7 +1567,7 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 42
+        "y": 41
       },
       "hiddenSeries": false,
       "id": 5,
@@ -1680,7 +1680,7 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 42
+        "y": 41
       },
       "hiddenSeries": false,
       "id": 28,
@@ -1883,5 +1883,5 @@
   "timezone": "browser",
   "title": "Elasticsearch Overview",
   "uid": "1111",
-  "version": 1
+  "version": 2
 }
