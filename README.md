@@ -26,11 +26,11 @@ __Table of Contents__
 - [Contributors](#Contributors)
 
 ## Overview
-This Ansible role installs Grafana on linux operating system, including establishing a filesystem structure and server configuration with some common operational features.
+Grafana is multi-platform open-source analytics and interactive visualization web application. It provides charts, graphs, and alerts for the web when connected to supported data sources. It is expandable through a plug-in system. End users can create complex monitoring dashboards using interactive query builders.
 
 ## Requirements
 ### Operating systems
-This role will work on the following operating systems:
+This Ansible role installs Grafana on the Linux operating system, including establishing a filesystem structure and server configuration with some common operational features, Will works on the following operating systems:
 
   * CentOS 7
 
@@ -94,7 +94,7 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `environments`: Define the service environment.
 * `tags`: Define the service custom label.
 * `exporter_is_install`: Whether to install prometheus exporter.
-* `consul_public_register`: false Whether register a exporter service with public consul client.
+* `consul_public_register`: Whether register a exporter service with public consul client.
 * `consul_public_exporter_token`: Public Consul client ACL token.
 * `consul_public_http_prot`: The consul Hypertext Transfer Protocol.
 * `consul_public_clients`: List of public consul clients.
@@ -116,84 +116,88 @@ See tests/inventory for an example.
 ### Vars in role configuration
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
-    - hosts: all
-      roles:
-         - role: ansible-role-linux-grafana
-           grafana_version: '6.2'
+```yaml
+- hosts: all
+  roles:
+     - role: ansible-role-linux-grafana
+       grafana_version: '6.2'
+```
 
 ### Combination of group vars and playbook
 You can also use the group_vars or the host_vars files for setting the variables needed for this role. File you should change: group_vars/all or host_vars/`group_name`
 
-    grafana_path: '/data'
-    grafana_version: '6.2'
-    grafana_admin_user: 'admin'
-    grafana_admin_password: 'password'
-    grafana_session_share: false
-    grafana_proxy: false
-    grafana_port: '3000'
-    grafana_redis_dept: false
-    grafana_redis_path: '/data'
-    grafana_redis_requirepass: 'password'
-    grafana_redis_maxmemory: '1'
-    grafana_redis_hosts: 'localhost'
-    grafana_redis_port: '6379'
-    grafana_ngx_dept: false
-    grafana_ngx_block_agents: false
-    grafana_ngx_block_string: false
-    grafana_ngx_compress: false
-    grafana_ngx_domain: 'visual.example.com
-    grafana_ngx_pagespeed: false
-    grafana_ngx_port_http: '80'
-    grafana_ngx_port_https: '443'
-    grafana_ngx_ssl_protocols: 'modern'
-    grafana_ngx_version: 'extras'
-    grafana_ngx_backend:
-      - '127.0.0.1'
-    grafana_ngx_site:
-      - domain: 'visual.example.com'
-        type: 'proxy'
-        location: '/'
-        syntax:
-          - 'expires off'
-          - 'proxy_set_header Host $http_host'
-        backend_address: '127.0.0.1'
-        backend_port: '3000'
-        sticky: 'ip_hash'
-        keepalive: '32'
-    grafana_arg:
-      default_theme: 'light'
-      reporting_enabled: 'false'
-      check_for_updates: 'false'
-      timeout: '60'
-    grafana_ds_arg:
-      - name: 'prometheus'
-        settings:  
-          - server: '127.0.0.1'
-            port: '19090'
-    grafana_plugins:
-      - 'grafana-piechart-panel'
-    grafana_dashboard_arg:
-      - category: 'OperatingSystem'
-        title:
-          - 'Linux_Disk_Performance'
-          - 'Linux_Disk_Space'
-          - 'Linux_Network_Overview'
-          - 'Linux_System_Overview'
-          - 'Windows_System_Overview'
-    environments: 'Development'
-    tags:
-      subscription: 'default'
-      owner: 'nobody'
-      department: 'Infrastructure'
-      organization: 'The Company'
-      region: 'IDC01'
-    exporter_is_install: false
-    consul_public_register: false
-    consul_public_exporter_token: '00000000-0000-0000-0000-000000000000'
-    consul_public_http_prot: 'https'
-    consul_public_http_port: '8500'
-    consul_public_clients:
-      - '127.0.0.1'
+```yaml
+grafana_path: '/data'
+grafana_version: '6.2'
+grafana_admin_user: 'admin'
+grafana_admin_password: 'changeme'
+grafana_session_share: false
+grafana_proxy: false
+grafana_port: '3000'
+grafana_redis_dept: false
+grafana_redis_path: '/data'
+grafana_redis_requirepass: 'password'
+grafana_redis_maxmemory: '1'
+grafana_redis_hosts: 'localhost'
+grafana_redis_port: '6379'
+grafana_ngx_dept: false
+grafana_ngx_block_agents: false
+grafana_ngx_block_string: false
+grafana_ngx_compress: false
+grafana_ngx_domain: 'visual.example.com
+grafana_ngx_pagespeed: false
+grafana_ngx_port_http: '80'
+grafana_ngx_port_https: '443'
+grafana_ngx_ssl_protocols: 'modern'
+grafana_ngx_version: 'extras'
+grafana_ngx_backend:
+  - '127.0.0.1'
+grafana_ngx_site:
+  - domain: 'visual.example.com'
+    type: 'proxy'
+    location: '/'
+    syntax:
+      - 'expires off'
+      - 'proxy_set_header Host $http_host'
+    backend_address: '127.0.0.1'
+    backend_port: '3000'
+    sticky: 'ip_hash'
+    keepalive: '32'
+grafana_arg:
+  default_theme: 'light'
+  reporting_enabled: 'false'
+  check_for_updates: 'false'
+  timeout: '60'
+grafana_ds_arg:
+  - name: 'prometheus'
+    settings:  
+      - server: '127.0.0.1'
+        port: '19090'
+grafana_plugins:
+  - 'grafana-piechart-panel'
+grafana_dashboard_arg:
+  - category: 'OperatingSystem'
+    title:
+      - 'Linux_Disk_Performance'
+      - 'Linux_Disk_Space'
+      - 'Linux_Network_Overview'
+      - 'Linux_System_Overview'
+      - 'Windows_System_Overview'
+environments: 'Development'
+tags:
+  subscription: 'default'
+  owner: 'nobody'
+  department: 'Infrastructure'
+  organization: 'The Company'
+  region: 'IDC01'
+exporter_is_install: false
+consul_public_register: false
+consul_public_exporter_token: '00000000-0000-0000-0000-000000000000'
+consul_public_http_prot: 'https'
+consul_public_http_port: '8500'
+consul_public_clients:
+  - '127.0.0.1'
+```
 
 ## License
 ![](https://img.shields.io/badge/MIT-purple.svg?style=for-the-badge)
