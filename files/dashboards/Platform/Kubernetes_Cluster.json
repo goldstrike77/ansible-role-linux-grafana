@@ -53,7 +53,7 @@
   "gnetId": 9873,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1593407670093,
+  "iteration": 1593411082386,
   "links": [
     {
       "asDropdown": true,
@@ -1686,7 +1686,7 @@
       "grid": {},
       "gridPos": {
         "h": 7,
-        "w": 12,
+        "w": 24,
         "x": 0,
         "y": 19
       },
@@ -1701,13 +1701,13 @@
         "min": false,
         "rightSide": true,
         "show": true,
-        "sort": "current",
-        "sortDesc": true,
+        "sort": null,
+        "sortDesc": null,
         "total": false,
         "values": true
       },
       "lines": true,
-      "linewidth": 2,
+      "linewidth": 1,
       "links": [],
       "nullPointMode": "connected",
       "options": {
@@ -1790,9 +1790,9 @@
       "grid": {},
       "gridPos": {
         "h": 7,
-        "w": 12,
-        "x": 12,
-        "y": 19
+        "w": 24,
+        "x": 0,
+        "y": 26
       },
       "hiddenSeries": false,
       "id": 25,
@@ -1861,7 +1861,7 @@
       "yaxes": [
         {
           "decimals": 1,
-          "format": "decbytes",
+          "format": "bytes",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -1898,7 +1898,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 26
+        "y": 33
       },
       "hiddenSeries": false,
       "id": 16,
@@ -2002,7 +2002,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 33
+        "y": 40
       },
       "id": 36,
       "panels": [
@@ -2022,7 +2022,7 @@
             "h": 6,
             "w": 24,
             "x": 0,
-            "y": 22
+            "y": 41
           },
           "height": "",
           "hiddenSeries": false,
@@ -2127,7 +2127,7 @@
             "h": 6,
             "w": 24,
             "x": 0,
-            "y": 28
+            "y": 47
           },
           "hiddenSeries": false,
           "id": 26,
@@ -2227,7 +2227,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 34
+        "y": 41
       },
       "id": 38,
       "panels": [
@@ -2247,7 +2247,7 @@
             "h": 9,
             "w": 24,
             "x": 0,
-            "y": 21
+            "y": 42
           },
           "hiddenSeries": false,
           "id": 20,
@@ -2351,7 +2351,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 30
+            "y": 51
           },
           "hiddenSeries": false,
           "id": 28,
@@ -2454,7 +2454,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 38
+            "y": 59
           },
           "hiddenSeries": false,
           "id": 29,
@@ -2721,5 +2721,5 @@
   "timezone": "browser",
   "title": "Kubernetes Cluster",
   "uid": "U_gA5P2mz",
-  "version": 2
+  "version": 3
 }
