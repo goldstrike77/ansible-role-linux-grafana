@@ -148,7 +148,7 @@ grafana_ngx_dept: false
 grafana_ngx_block_agents: false
 grafana_ngx_block_string: false
 grafana_ngx_compress: false
-grafana_ngx_domain: 'visual.example.com
+grafana_ngx_domain: 'visual.example.com'
 grafana_ngx_pagespeed: false
 grafana_ngx_port_http: '80'
 grafana_ngx_port_https: '443'
