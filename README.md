@@ -38,7 +38,7 @@ This Ansible role installs Grafana on the Linux operating system, including esta
 
 The following list of supported the Grafana releases:
 
-* Grafana 5,6
+* Grafana 5, 6
 
 ## Role variables
 ### Main parameters
@@ -49,6 +49,7 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `grafana_version`: Specify the Grafana version.
 * `grafana_admin_user`: The name of the default Grafana admin user.
 * `grafana_admin_password`: The password of the default Grafana admin.
+* `grafana_https`: A boolean value, whether Encrypting HTTP client communications.
 * `grafana_session_share`: Whether store the session data on Redis.
 * `grafana_proxy`: Whether running behind a HaProxy.
 
@@ -92,6 +93,8 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 
 ##### Service Mesh
 * `environments`: Define the service environment.
+* `datacenter`: Define the DataCenter.
+* `domain`: Define the Domain.
 * `tags`: Define the service custom label.
 * `exporter_is_install`: Whether to install prometheus exporter.
 * `consul_public_register`: Whether register a exporter service with public consul client.
@@ -111,7 +114,7 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 ### Hosts inventory file
 See tests/inventory for an example.
 
-    node01 ansible_host='192.168.1.10' grafana_version='6.2'
+    node01 ansible_host='192.168.1.10' grafana_version='6.4'
 
 ### Vars in role configuration
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
@@ -120,17 +123,18 @@ Including an example of how to use your role (for instance, with variables passe
 - hosts: all
   roles:
      - role: ansible-role-linux-grafana
-       grafana_version: '6.2'
+       grafana_version: '6.4'
 ```
 
 ### Combination of group vars and playbook
-You can also use the group_vars or the host_vars files for setting the variables needed for this role. File you should change: group_vars/all or host_vars/`group_name`
+You can also use the group_vars or the host_vars files for setting the variables needed for this role. File you should change: group_vars/all or host_vars/`group_name`.
 
 ```yaml
 grafana_path: '/data'
-grafana_version: '6.2'
+grafana_version: '6.4'
 grafana_admin_user: 'admin'
 grafana_admin_password: 'changeme'
+grafana_https: true
 grafana_session_share: false
 grafana_proxy: false
 grafana_port: '3000'
@@ -184,12 +188,14 @@ grafana_dashboard_arg:
       - 'Linux_System_Overview'
       - 'Windows_System_Overview'
 environments: 'Development'
+datacenter: 'dc01'
+domain: 'local'
 tags:
   subscription: 'default'
   owner: 'nobody'
   department: 'Infrastructure'
   organization: 'The Company'
-  region: 'IDC01'
+  region: 'China'
 exporter_is_install: false
 consul_public_register: false
 consul_public_exporter_token: '00000000-0000-0000-0000-000000000000'

@@ -68,7 +68,7 @@
 
 - name: Grafana Data proxy configuration
   lineinfile:
-    state: present
+    state: 'present'
     dest: '/etc/grafana/grafana.ini'
     insertafter: '\[dataproxy\]'
     regexp: '{{ item.regexp }}'
@@ -78,7 +78,7 @@
 
 - name: Grafana Analytics configuration
   lineinfile:
-    state: present
+    state: 'present'
     dest: '/etc/grafana/grafana.ini'
     insertafter: '\[analytics\]'
     regexp: '{{ item.regexp }}'
@@ -89,7 +89,7 @@
 
 - name: Grafana Security configuration
   lineinfile:
-    state: present
+    state: 'present'
     dest: '/etc/grafana/grafana.ini'
     insertafter: '\[security\]'
     regexp: '{{ item.regexp }}'
@@ -147,6 +147,9 @@
     regexp: '{{ item.regexp }}'
     line: '{{ item.line }}'
   with_items:
-    - { regexp: '^root_url =',  line: 'root_url = %(protocol)s://%(domain)s/grafana/' }
     - { regexp: '^http_port =', line: 'http_port = {{ grafana_port | default("3000") }}' }
-  when: grafana_proxy | bool 
+    - { regexp: '^root_url =',  line: 'root_url = %(protocol)s://%(domain)s/grafana/', create: '{{ grafana_proxy | bool }}' }
+    - { regexp: '^protocol =',  line: 'protocol = https', create: '{{ grafana_https | bool }}' }
+    - { regexp: '^cert_file =', line: 'cert_file = {{ grafana_cert_path }}/certificate.pem', create: '{{ grafana_https | bool }}' }
+    - { regexp: '^cert_key =',  line: 'cert_key = {{ grafana_cert_path }}/server.key', create: '{{ grafana_https | bool }}' }
+  when: item.create | default(true) | bool

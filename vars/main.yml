@@ -1,1 +1,8 @@
 ---
+grafana_python_dependent_packages:
+  - 'pip'
+  - 'cryptography'
+
+grafana_pypi_url: 'pypi.tuna.tsinghua.edu.cn'
+
+grafana_cert_path: '/etc/grafana/ssl'

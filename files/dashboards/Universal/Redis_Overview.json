@@ -739,7 +739,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "redis_sentinel_connected_clients{instance=\"$host\"}",
+          "expr": "redis_sentinel_master_sentinels{instance=\"$host\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{ role }}",

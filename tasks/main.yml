@@ -8,6 +8,9 @@
 - name: Straight to getenforce selinux status
   include: 'selinux.yml'
 
+- name: Include certificate tasks
+  include: 'certificates.yml'
+
 - name: Configuration the grafana
   include: 'configureation.yml'
 
