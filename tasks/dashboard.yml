@@ -19,8 +19,7 @@
     owner: 'grafana'
     group: 'grafana'
     mode: '0755'
-  loop:
-    - '{{ grafana_dashboard_arg }}'
+  loop: '{{ grafana_dashboard_arg }}'
   no_log: true
 
 - name: Grafana dashboard file transfer
