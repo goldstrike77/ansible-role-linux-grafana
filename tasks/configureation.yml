@@ -15,7 +15,6 @@
     owner: 'root'
     group: 'root'
     mode: '0664'
-  register: conf_updated
 
 - name: Grafana Dashboards provisioning files discover
   find:
@@ -28,7 +27,7 @@
   file:
     path: '{{ item.path }}'
     state: 'absent'
-  with_items: '{{ grafana_provisioning_dashboard_wildcard_files_to_delete.files }}'
+  loop: '{{ grafana_provisioning_dashboard_wildcard_files_to_delete.files }}'
 
 - name: Grafana Dashboards provisioning structure establish
   template:
@@ -37,9 +36,7 @@
     owner: 'root'
     group: 'grafana'
     mode: '0640'
-  with_items:
-    - '{{ grafana_dashboard_arg }}'
-  register: dash_updated
+  loop: '{{ grafana_dashboard_arg }}'
 
 - name: Grafana Datasources provisioning files discover
   find:
@@ -52,7 +49,7 @@
   file:
     path: '{{ item.path }}'
     state: 'absent'
-  with_items: '{{ grafana_provisioning_datasources_wildcard_files_to_delete.files }}'
+  loop: '{{ grafana_provisioning_datasources_wildcard_files_to_delete.files }}'
 
 - name: Grafana Datasources configuration
   template:
@@ -61,10 +58,7 @@
     owner: 'root'
     group: 'grafana'
     mode: '0640'
-  with_subelements:
-    - '{{ grafana_ds_arg }}'
-    - 'settings'
-  register: ds_updated
+  loop: "{{ grafana_ds_arg|subelements('settings') }}"
 
 - name: Grafana Data proxy configuration
   lineinfile:
@@ -73,7 +67,7 @@
     insertafter: '\[dataproxy\]'
     regexp: '{{ item.regexp }}'
     line: '{{ item.line }}'
-  with_items:
+  loop:
     - { regexp: '^timeout =', line: 'timeout = {{ grafana_arg.timeout }}' }
 
 - name: Grafana Analytics configuration
@@ -83,7 +77,7 @@
     insertafter: '\[analytics\]'
     regexp: '{{ item.regexp }}'
     line: '{{ item.line }}'
-  with_items:
+  loop:
     - { regexp: '^reporting_enabled =', line: 'reporting_enabled = {{ grafana_arg.reporting_enabled }}' }
     - { regexp: '^check_for_updates =', line: 'check_for_updates = {{ grafana_arg.check_for_updates }}' }
 
@@ -94,10 +88,9 @@
     insertafter: '\[security\]'
     regexp: '{{ item.regexp }}'
     line: '{{ item.line }}'
-  with_items:
+  loop:
     - { regexp: '^admin_user =',     line: 'admin_user = {{ grafana_admin_user }}' }
     - { regexp: '^admin_password =', line: 'admin_password = {{ grafana_admin_password }}' }
-  register: secu_updated
 
 - name: Grafana session configuration
   lineinfile:
@@ -106,13 +99,12 @@
     insertafter: '\[session\]'
     regexp: '{{ item.regexp }}'
     line: '{{ item.line }}'
-  with_items:
+  loop:
     - { regexp: '^provider =',        line: 'provider = redis' }
     - { regexp: '^provider_config =', line: 'provider_config = addr={{ grafana_redis_hosts }}:{{ grafana_redis_port }},pool_size=100,db=0,password={{ grafana_redis_requirepass }}' }
   when:
     - grafana_session_share | bool or grafana_redis_dept | bool
     - grafana_version < 6.2
-  register: sess_updated
 
 - name: Grafana remote cache configuration
   lineinfile:
@@ -121,13 +113,12 @@
     insertafter: '\[remote_cache\]'
     regexp: '{{ item.regexp }}'
     line: '{{ item.line }}'
-  with_items:
+  loop:
     - { regexp: '^type =',    line: 'type = redis' }
     - { regexp: '^connstr =', line: 'connstr = addr={{ grafana_redis_hosts }}:{{ grafana_redis_port }},pool_size=100,db=0,password={{ grafana_redis_requirepass }}' }
   when:
     - grafana_session_share | bool or grafana_redis_dept | bool
     - grafana_version >= 6.2
-  register: sess_updated
 
 - name: Grafana UI theme configuration
   lineinfile:
@@ -136,7 +127,7 @@
     insertafter: '\[users\]'
     regexp: '{{ item.regexp }}'
     line: '{{ item.line }}'
-  with_items:
+  loop:
     - { regexp: '^default_theme =', line: 'default_theme = {{ grafana_arg.default_theme }}' }
 
 - name: Grafana reverse proxy and port configuration
@@ -146,7 +137,7 @@
     insertafter: '\[server\]'
     regexp: '{{ item.regexp }}'
     line: '{{ item.line }}'
-  with_items:
+  loop:
     - { regexp: '^http_port =', line: 'http_port = {{ grafana_port | default("3000") }}' }
     - { regexp: '^root_url =',  line: 'root_url = %(protocol)s://%(domain)s/grafana/', create: '{{ grafana_proxy | bool }}' }
     - { regexp: '^protocol =',  line: 'protocol = https', create: '{{ grafana_https | bool }}' }

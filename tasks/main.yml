@@ -26,7 +26,6 @@
 - name: Reload the grafana service
   shell: echo ''
   notify: 'Ensure grafana service is enabled'
-  when: soft_updated is changed or conf_updated is changed or secu_updated is changed or sess_updated is changed or ds_updated is changed or dash_updated is changed or plug_updated is changed or ldap_enable is changed or ldap_config is changed
 
 - name: Force the handler to run immediately
   meta: flush_handlers

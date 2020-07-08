@@ -10,7 +10,7 @@
     path: '{{ item.path }}'
     state: 'absent'
   no_log: true
-  with_items: '{{ grafana_dashboard_wildcard_files_to_delete.files }}'
+  loop: '{{ grafana_dashboard_wildcard_files_to_delete.files }}'
 
 - name: Grafana Dashboards structure establish
   file:
@@ -19,9 +19,9 @@
     owner: 'grafana'
     group: 'grafana'
     mode: '0755'
-  no_log: true
-  with_items:
+  loop:
     - '{{ grafana_dashboard_arg }}'
+  no_log: true
 
 - name: Grafana dashboard file transfer
   copy:
@@ -30,9 +30,7 @@
     owner: 'grafana'
     group: 'grafana'
     mode: '0644'
-  with_subelements:
-    - '{{ grafana_dashboard_arg }}'
-    - 'title'
+  loop: "{{ grafana_dashboard_arg|subelements('title') }}"
 
 - name: Set default home dashboard
   file:
