@@ -53,7 +53,7 @@
   "gnetId": 9873,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1593411082386,
+  "iteration": 1594870750625,
   "links": [
     {
       "asDropdown": true,
@@ -1637,7 +1637,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(kubelet_running_container_count{group=\"$group\",environment=\"$environment\"})",
+          "expr": "sum(kubelet_running_container_count{container_state=\"running\",group=\"$group\",environment=\"$environment\"})",
           "format": "time_series",
           "intervalFactor": 1,
           "refId": "A"
@@ -1707,7 +1707,7 @@
         "values": true
       },
       "lines": true,
-      "linewidth": 1,
+      "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
       "options": {
@@ -1723,12 +1723,12 @@
       "steppedLine": true,
       "targets": [
         {
-          "expr": "sum (rate (container_cpu_usage_seconds_total{pod_name!~\"^dashboard-.*|^metrics-.*|^kubernetes-.*|^kube-.*|^fluentd-.*|^coredns-.*|^canal-.*|^etcd-.*|^calico-.*\",pod_name!=\"\",group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"$Node\"}[5m])) by (pod_name)",
+          "expr": "sum (rate (container_cpu_usage_seconds_total{namespace!~\"kube-system|kubernetes-dashboard\",pod!=\"\",group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"$Node\"}[5m])) by (pod)",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
           "intervalFactor": 1,
-          "legendFormat": "{{ pod_name }}",
+          "legendFormat": "{{ pod }}",
           "metric": "container_cpu",
           "refId": "A",
           "step": 10
@@ -1811,7 +1811,7 @@
         "values": true
       },
       "lines": true,
-      "linewidth": 1,
+      "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
       "options": {
@@ -1827,13 +1827,13 @@
       "steppedLine": true,
       "targets": [
         {
-          "expr": "sum (container_memory_working_set_bytes{pod_name!~\"^dashboard-.*|^metrics-.*|^kubernetes-.*|^kube-.*|^fluentd-.*|^coredns-.*|^canal-.*|^etcd-.*|^calico-.*\",pod_name!=\"\",group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"}) by (pod_name)",
+          "expr": "sum (container_memory_working_set_bytes{namespace!~\"kube-system|kubernetes-dashboard\",pod!=\"\",group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"}) by (pod)",
           "format": "time_series",
           "hide": false,
           "instant": false,
           "interval": "$interval",
           "intervalFactor": 1,
-          "legendFormat": "{{ pod_name }}",
+          "legendFormat": "{{ pod }}",
           "metric": "container_memory_usage:sort_desc",
           "refId": "A",
           "step": 10
@@ -1917,7 +1917,7 @@
         "values": true
       },
       "lines": true,
-      "linewidth": 1,
+      "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
       "options": {
@@ -1933,21 +1933,21 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum (rate (container_network_receive_bytes_total{pod_name!~\"^dashboard-.*|^metrics-.*|^kubernetes-.*|^kube-.*|^fluentd-.*|^coredns-.*|^canal-.*|^etcd-.*|^calico-.*\",pod_name!=\"\",group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"}[5m])) by (pod_name)",
+          "expr": "sum (rate (container_network_receive_bytes_total{namespace!~\"kube-system|kubernetes-dashboard\",pod!=\"\",group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"}[5m])) by (pod)",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
-          "legendFormat": "-> {{ pod_name }}",
+          "legendFormat": "-> {{ pod }}",
           "metric": "network",
           "refId": "A",
           "step": 10
         },
         {
-          "expr": "- sum (rate (container_network_transmit_bytes_total{pod_name!~\"^dashboard-.*|^metrics-.*|^kubernetes-.*|^kube-.*|^fluentd-.*|^coredns-.*|^canal-.*|^etcd-.*|^calico-.*\",pod_name!=\"\",group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"}[5m])) by (pod_name)",
+          "expr": "- sum (rate (container_network_transmit_bytes_total{namespace!~\"kube-system|kubernetes-dashboard\",pod!=\"\",group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"}[5m])) by (pod)",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
-          "legendFormat": "<- {{ pod_name }}",
+          "legendFormat": "<- {{ pod }}",
           "metric": "network",
           "refId": "B",
           "step": 10
@@ -2012,7 +2012,7 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": "DS_PROMETHEUS",
-          "decimals": 3,
+          "decimals": 1,
           "editable": true,
           "error": false,
           "fill": 0,
@@ -2058,12 +2058,12 @@
           "steppedLine": true,
           "targets": [
             {
-              "expr": "sum (rate (container_cpu_usage_seconds_total{namespace=\"kube-system\",pod_name!=\"\",group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"}[5m])) by (name)",
+              "expr": "sum (rate (container_cpu_usage_seconds_total{namespace=~\"kube-system|kubernetes-dashboard\",pod!=\"\",group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"$Node\"}[5m])) by (pod)",
               "format": "time_series",
               "hide": false,
               "interval": "$interval",
               "intervalFactor": 1,
-              "legendFormat": "{{ name }}",
+              "legendFormat": "{{ pod }}",
               "metric": "container_cpu",
               "refId": "A",
               "step": 10
@@ -2073,7 +2073,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "System services CPU usage ($interval avg)",
+          "title": "System services CPU usage",
           "tooltip": {
             "msResolution": true,
             "shared": true,
@@ -2090,6 +2090,7 @@
           },
           "yaxes": [
             {
+              "decimals": null,
               "format": "none",
               "label": "cores",
               "logBase": 1,
@@ -2162,11 +2163,11 @@
           "steppedLine": true,
           "targets": [
             {
-              "expr": "sum (container_memory_working_set_bytes{namespace=\"kube-system\",pod_name!=\"\",group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"}) by (name)",
+              "expr": "sum (container_memory_working_set_bytes{namespace=~\"kube-system|kubernetes-dashboard\",pod!=\"\",group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"}) by (pod)",
               "format": "time_series",
               "interval": "$interval",
               "intervalFactor": 1,
-              "legendFormat": "{{ name }}",
+              "legendFormat": "{{ pod }}",
               "metric": "container_memory_usage:sort_desc",
               "refId": "A",
               "step": 10
@@ -2237,7 +2238,7 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": "DS_PROMETHEUS",
-          "decimals": 3,
+          "decimals": 1,
           "editable": true,
           "error": false,
           "fill": 0,
@@ -2247,7 +2248,7 @@
             "h": 9,
             "w": 24,
             "x": 0,
-            "y": 42
+            "y": 54
           },
           "hiddenSeries": false,
           "id": 20,
@@ -2341,7 +2342,7 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": "DS_PROMETHEUS",
-          "decimals": 2,
+          "decimals": 1,
           "editable": true,
           "error": false,
           "fill": 0,
@@ -2351,7 +2352,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 51
+            "y": 63
           },
           "hiddenSeries": false,
           "id": 28,
@@ -2454,7 +2455,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 59
+            "y": 71
           },
           "hiddenSeries": false,
           "id": 29,
@@ -2513,7 +2514,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "All processes network I/O ($interval avg)",
+          "title": "All processes network I/O",
           "tooltip": {
             "msResolution": false,
             "shared": true,
@@ -2721,5 +2722,5 @@
   "timezone": "browser",
   "title": "Kubernetes Cluster",
   "uid": "U_gA5P2mz",
-  "version": 3
+  "version": 1
 }
