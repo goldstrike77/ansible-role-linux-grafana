@@ -138,6 +138,7 @@
     regexp: '{{ item.regexp }}'
     line: '{{ item.line }}'
   loop:
+    - { regexp: '^http_addr =', line: 'http_addr = {{ ansible_default_ipv4.address }}' }
     - { regexp: '^http_port =', line: 'http_port = {{ grafana_port | default("3000") }}' }
     - { regexp: '^root_url =',  line: 'root_url = %(protocol)s://%(domain)s/grafana/', create: '{{ grafana_proxy | bool }}' }
     - { regexp: '^protocol =',  line: 'protocol = https', create: '{{ grafana_https | bool }}' }
