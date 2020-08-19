@@ -1,14 +1,4 @@
 ---
-- name: Install requirement python package.
-  pip:
-    name: '{{ grafana_python_dependent_packages }}'
-    state: 'forcereinstall'
-    extra_args: '--default-timeout=120 --ignore-installed -i https://{{ grafana_pypi_url }}/simple --trusted-host {{ grafana_pypi_url }}'
-  register: grafana_python_status
-  until: grafana_python_status is succeeded
-  retries: 5
-  delay: 2
-
 - name: Check private key exists.
   stat:
     path: '{{ grafana_cert_path }}/server.key'
@@ -16,6 +6,15 @@
 
 - name: Certificate Signing operation.
   block:
+    - name: Install requirement python package.
+      pip:
+        name: '{{ grafana_python_dependent_packages }}'
+        state: 'forcereinstall'
+        extra_args: '--default-timeout=120 --ignore-installed -i https://{{ grafana_pypi_url }}/simple --trusted-host {{ grafana_pypi_url }}'
+      register: grafana_python_status
+      until: grafana_python_status is succeeded
+      retries: 5
+      delay: 2
     - name: Creating Certificate folder.
       file:
         dest: '{{ grafana_cert_path }}'
