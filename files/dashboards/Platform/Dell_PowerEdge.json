@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.5.2"
+      "version": "6.5.3"
     },
     {
       "type": "panel",
@@ -53,7 +53,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1583477660480,
+  "iteration": 1598768167569,
   "links": [
     {
       "asDropdown": true,
@@ -174,9 +174,9 @@
           "alias": "Batteries",
           "colorMode": "cell",
           "colors": [
-            "rgba(50, 172, 45, 0.97)",
-            "#56A64B",
-            "rgba(245, 54, 54, 0.9)"
+            "#37872D",
+            "#C4162A",
+            "#E0B400"
           ],
           "dateFormat": "YYYY-MM-DD HH:mm:ss",
           "decimals": 2,
@@ -184,58 +184,99 @@
           "pattern": "Value #A",
           "preserveFormat": false,
           "thresholds": [
-            "0",
-            "1"
+            "1",
+            "2"
           ],
           "type": "string",
           "unit": "short",
-          "valueMaps": []
+          "valueMaps": [
+            {
+              "text": "OK",
+              "value": "0"
+            },
+            {
+              "text": "Critical",
+              "value": "1"
+            },
+            {
+              "text": "Non-Critical",
+              "value": "2"
+            }
+          ]
         },
         {
           "alias": "Fans",
           "colorMode": "cell",
           "colors": [
-            "rgba(50, 172, 45, 0.97)",
-            "#56A64B",
-            "rgba(245, 54, 54, 0.9)"
+            "#37872D",
+            "#C4162A",
+            "#E0B400"
           ],
           "dateFormat": "YYYY-MM-DD HH:mm:ss",
           "decimals": 2,
           "mappingType": 1,
           "pattern": "Value #B",
           "thresholds": [
-            "0",
-            "1"
+            "1",
+            "2"
           ],
           "type": "string",
-          "unit": "short"
+          "unit": "short",
+          "valueMaps": [
+            {
+              "text": "OK",
+              "value": "0"
+            },
+            {
+              "text": "Critical",
+              "value": "1"
+            },
+            {
+              "text": "Non-Critical",
+              "value": "2"
+            }
+          ]
         },
         {
           "alias": "Intrusion",
           "colorMode": "cell",
           "colors": [
-            "rgba(50, 172, 45, 0.97)",
-            "#56A64B",
-            "rgba(245, 54, 54, 0.9)"
+            "#37872D",
+            "#C4162A",
+            "#E0B400"
           ],
           "dateFormat": "YYYY-MM-DD HH:mm:ss",
           "decimals": 2,
           "mappingType": 1,
           "pattern": "Value #C",
           "thresholds": [
-            "0",
-            "1"
+            "1",
+            "2"
           ],
           "type": "string",
-          "unit": "short"
+          "unit": "short",
+          "valueMaps": [
+            {
+              "text": "OK",
+              "value": "0"
+            },
+            {
+              "text": "Critical",
+              "value": "1"
+            },
+            {
+              "text": "Non-Critical",
+              "value": "2"
+            }
+          ]
         },
         {
           "alias": "Memory",
           "colorMode": "cell",
           "colors": [
-            "rgba(50, 172, 45, 0.97)",
-            "#56A64B",
-            "rgba(245, 54, 54, 0.9)"
+            "#37872D",
+            "#C4162A",
+            "#E0B400"
           ],
           "dateFormat": "YYYY-MM-DD HH:mm:ss",
           "decimals": 2,
@@ -243,57 +284,99 @@
           "pattern": "Value #D",
           "sanitize": false,
           "thresholds": [
-            "0",
-            "1"
+            "1",
+            "2"
           ],
           "type": "string",
-          "unit": "short"
+          "unit": "short",
+          "valueMaps": [
+            {
+              "text": "OK",
+              "value": "0"
+            },
+            {
+              "text": "Critical",
+              "value": "1"
+            },
+            {
+              "text": "Non-Critical",
+              "value": "2"
+            }
+          ]
         },
         {
           "alias": "Power",
           "colorMode": "cell",
           "colors": [
-            "rgba(50, 172, 45, 0.97)",
-            "#56A64B",
-            "rgba(245, 54, 54, 0.9)"
+            "#37872D",
+            "#C4162A",
+            "#E0B400"
           ],
           "dateFormat": "YYYY-MM-DD HH:mm:ss",
           "decimals": null,
           "mappingType": 1,
           "pattern": "Value #F",
           "thresholds": [
-            "0",
-            "1"
+            "1",
+            "2"
           ],
           "type": "string",
-          "unit": "none"
+          "unit": "none",
+          "valueMaps": [
+            {
+              "text": "OK",
+              "value": "0"
+            },
+            {
+              "text": "Critical",
+              "value": "1"
+            },
+            {
+              "text": "Non-Critical",
+              "value": "2"
+            }
+          ]
         },
         {
           "alias": "Processors",
           "colorMode": "cell",
           "colors": [
-            "rgba(50, 172, 45, 0.97)",
-            "#56A64B",
-            "rgba(245, 54, 54, 0.9)"
+            "#37872D",
+            "#C4162A",
+            "#E0B400"
           ],
           "dateFormat": "YYYY-MM-DD HH:mm:ss",
           "decimals": 2,
           "mappingType": 1,
           "pattern": "Value #G",
           "thresholds": [
-            "0",
-            "1"
+            "1",
+            "2"
           ],
           "type": "string",
-          "unit": "short"
+          "unit": "short",
+          "valueMaps": [
+            {
+              "text": "OK",
+              "value": "0"
+            },
+            {
+              "text": "Critical",
+              "value": "1"
+            },
+            {
+              "text": "Non-Critical",
+              "value": "2"
+            }
+          ]
         },
         {
           "alias": "Temperatures",
           "colorMode": "cell",
           "colors": [
-            "rgba(50, 172, 45, 0.97)",
-            "#56A64B",
-            "rgba(245, 54, 54, 0.9)"
+            "#37872D",
+            "#C4162A",
+            "#E0B400"
           ],
           "dateFormat": "YYYY-MM-DD HH:mm:ss",
           "decimals": 2,
@@ -303,30 +386,58 @@
           "preserveFormat": false,
           "sanitize": false,
           "thresholds": [
-            "0",
-            "1"
+            "1",
+            "2"
           ],
           "type": "string",
-          "unit": "short"
+          "unit": "short",
+          "valueMaps": [
+            {
+              "text": "OK",
+              "value": "0"
+            },
+            {
+              "text": "Critical",
+              "value": "1"
+            },
+            {
+              "text": "Non-Critical",
+              "value": "2"
+            }
+          ]
         },
         {
           "alias": "Voltages",
           "colorMode": "cell",
           "colors": [
-            "rgba(50, 172, 45, 0.97)",
-            "#56A64B",
-            "rgba(245, 54, 54, 0.9)"
+            "#37872D",
+            "#C4162A",
+            "#E0B400"
           ],
           "dateFormat": "YYYY-MM-DD HH:mm:ss",
           "decimals": 2,
           "mappingType": 1,
           "pattern": "Value #I",
           "thresholds": [
-            "0",
-            "1"
+            "1",
+            "2"
           ],
           "type": "string",
-          "unit": "short"
+          "unit": "short",
+          "valueMaps": [
+            {
+              "text": "OK",
+              "value": "0"
+            },
+            {
+              "text": "Critical",
+              "value": "1"
+            },
+            {
+              "text": "Non-Critical",
+              "value": "2"
+            }
+          ]
         },
         {
           "alias": "Service Code",
@@ -364,20 +475,34 @@
           "alias": "P.Disk",
           "colorMode": "cell",
           "colors": [
-            "#56A64B",
-            "#56A64B",
-            "#E02F44"
+            "#37872D",
+            "#C4162A",
+            "#E0B400"
           ],
           "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
+          "decimals": 0,
           "mappingType": 1,
           "pattern": "Value #K",
           "thresholds": [
-            "0",
-            "1"
+            "1",
+            "2"
           ],
           "type": "string",
-          "unit": "short"
+          "unit": "none",
+          "valueMaps": [
+            {
+              "text": "Non-Critical",
+              "value": "2"
+            },
+            {
+              "text": "Critical",
+              "value": "1"
+            },
+            {
+              "text": "OK",
+              "value": "0"
+            }
+          ]
         },
         {
           "alias": "Inlet",
@@ -421,20 +546,34 @@
           "alias": "V.Disk",
           "colorMode": "cell",
           "colors": [
-            "rgba(50, 172, 45, 0.97)",
-            "#56A64B",
-            "rgba(245, 54, 54, 0.9)"
+            "#37872D",
+            "#C4162A",
+            "#E0B400"
           ],
           "dateFormat": "YYYY-MM-DD HH:mm:ss",
           "decimals": 2,
           "mappingType": 1,
           "pattern": "Value #L",
           "thresholds": [
-            "0",
-            "1"
+            "1",
+            "2"
           ],
           "type": "string",
-          "unit": "short"
+          "unit": "short",
+          "valueMaps": [
+            {
+              "text": "OK",
+              "value": "0"
+            },
+            {
+              "text": "Critical",
+              "value": "1"
+            },
+            {
+              "text": "Non-Critical",
+              "value": "2"
+            }
+          ]
         },
         {
           "alias": "Cabinet",
@@ -471,7 +610,7 @@
       ],
       "targets": [
         {
-          "expr": "sum by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Batteries\",instance=~\"$host\"})",
+          "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Batteries\",instance=~\"$host\"})",
           "format": "table",
           "instant": true,
           "interval": "$interval",
@@ -479,7 +618,7 @@
           "refId": "A"
         },
         {
-          "expr": "sum by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Fans\",instance=~\"$host\"})",
+          "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Fans\",instance=~\"$host\"})",
           "format": "table",
           "instant": true,
           "interval": "$interval",
@@ -487,7 +626,7 @@
           "refId": "B"
         },
         {
-          "expr": "sum by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Intrusion\",instance=~\"$host\"})",
+          "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Intrusion\",instance=~\"$host\"})",
           "format": "table",
           "instant": true,
           "interval": "$interval",
@@ -495,7 +634,7 @@
           "refId": "C"
         },
         {
-          "expr": "sum by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Memory\",instance=~\"$host\"})",
+          "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Memory\",instance=~\"$host\"})",
           "format": "table",
           "instant": true,
           "interval": "$interval",
@@ -503,7 +642,7 @@
           "refId": "D"
         },
         {
-          "expr": "sum by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Power_Supplies\",instance=~\"$host\"})",
+          "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Power_Supplies\",instance=~\"$host\"})",
           "format": "table",
           "instant": true,
           "interval": "$interval",
@@ -511,7 +650,7 @@
           "refId": "F"
         },
         {
-          "expr": "sum by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Processors\",instance=~\"$host\"})",
+          "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Processors\",instance=~\"$host\"})",
           "format": "table",
           "instant": true,
           "interval": "$interval",
@@ -519,7 +658,7 @@
           "refId": "G"
         },
         {
-          "expr": "sum by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Temperatures\",instance=~\"$host\"})",
+          "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Temperatures\",instance=~\"$host\"})",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -528,7 +667,7 @@
           "refId": "H"
         },
         {
-          "expr": "sum by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Voltages\",instance=~\"$host\"})",
+          "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Voltages\",instance=~\"$host\"})",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -537,13 +676,13 @@
           "refId": "I"
         },
         {
-          "expr": "sum by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_storage_pdisk_status{instance=~\"$host\"})",
+          "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_storage_pdisk_status{instance=~\"$host\"})",
           "format": "table",
           "instant": true,
           "refId": "K"
         },
         {
-          "expr": "sum by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_storage_vdisk_status{instance=~\"$host\"})",
+          "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_storage_vdisk_status{instance=~\"$host\"})",
           "format": "table",
           "instant": true,
           "refId": "L"
@@ -768,7 +907,7 @@
         "auto_count": 200,
         "auto_min": "10s",
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
