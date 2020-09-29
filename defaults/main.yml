@@ -6,19 +6,10 @@ grafana_version: '6.7'
 grafana_admin_user: 'admin'
 grafana_admin_password: 'changeme'
 grafana_https: true # A boolean value, whether Encrypting HTTP client communications.
-grafana_session_share: false # 6.2+移除了会话共享存储，目前[remote_cache]实际功能未知。
 grafana_proxy: false # Whether running behind a HaProxy.
 
 # Listen port #
 grafana_port: '3000'
-
-# Redis parameters #
-grafana_redis_dept: false # A boolean value, whether installs Redis.
-grafana_redis_path: '{{ grafana_path }}' # Specify the Redis data directory.
-grafana_redis_requirepass: 'changeme' # Authorization clients password.
-grafana_redis_maxmemory: '1' # A memory usage limit to the specified amount in MB.
-grafana_redis_hosts: 'localhost' # Redis hosts address.
-grafana_redis_port: '6379' # Redis listen port.
 
 # NGinx parameters #
 grafana_ngx_dept: false # A boolean value, whether proxy web interface and API traffic using NGinx.

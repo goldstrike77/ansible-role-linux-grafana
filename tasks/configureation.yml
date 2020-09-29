@@ -1,5 +1,5 @@
 ---
-- name: Creating Grafana folder
+- name: Creating Grafana folder.
   file:
     dest: '{{ grafana_path }}/grafana/dashboards'
     state: 'directory'
@@ -7,7 +7,7 @@
     group: 'grafana'
     mode: '0755'
 
-- name: Grafana sysconfig file transfer
+- name: Grafana sysconfig file transfer.
   template:
     src: 'grafana-server.j2'
     dest: '/etc/sysconfig/grafana-server'
@@ -16,20 +16,20 @@
     group: 'root'
     mode: '0664'
 
-- name: Grafana Dashboards provisioning files discover
+- name: Grafana Dashboards provisioning files discover.
   find:
     paths: '/etc/grafana/provisioning/dashboards/'
     patterns: "^.*.yaml"
     use_regex: 'yes'
   register: grafana_provisioning_dashboard_wildcard_files_to_delete
 
-- name: Grafana Dashboards provisioning structure cleanup
+- name: Grafana Dashboards provisioning structure cleanup.
   file:
     path: '{{ item.path }}'
     state: 'absent'
   loop: '{{ grafana_provisioning_dashboard_wildcard_files_to_delete.files }}'
 
-- name: Grafana Dashboards provisioning structure establish
+- name: Grafana Dashboards provisioning structure establish.
   template:
     src: 'dashboards.yaml.j2'
     dest: '/etc/grafana/provisioning/dashboards/{{ item.category }}.yaml'
@@ -38,20 +38,20 @@
     mode: '0640'
   loop: '{{ grafana_dashboard_arg }}'
 
-- name: Grafana Datasources provisioning files discover
+- name: Grafana Datasources provisioning files discover.
   find:
     paths: '/etc/grafana/provisioning/datasources/'
     patterns: "^.*.yaml"
     use_regex: 'yes'
   register: grafana_provisioning_datasources_wildcard_files_to_delete
 
-- name: Grafana Datasources provisioning structure cleanup
+- name: Grafana Datasources provisioning structure cleanup.
   file:
     path: '{{ item.path }}'
     state: 'absent'
   loop: '{{ grafana_provisioning_datasources_wildcard_files_to_delete.files }}'
 
-- name: Grafana Datasources configuration
+- name: Grafana Datasources configuration.
   template:
     src: 'datasources/{{ item.0.name }}.yaml.j2'
     dest: '/etc/grafana/provisioning/datasources/{{ item.0.name }}.yaml'
@@ -60,7 +60,7 @@
     mode: '0640'
   loop: "{{ grafana_ds_arg|subelements('settings') }}"
 
-- name: Grafana Data proxy configuration
+- name: Grafana Data proxy configuration.
   lineinfile:
     state: 'present'
     dest: '/etc/grafana/grafana.ini'
@@ -70,7 +70,7 @@
   loop:
     - { regexp: '^timeout =', line: 'timeout = {{ grafana_arg.timeout }}' }
 
-- name: Grafana Analytics configuration
+- name: Grafana Analytics configuration.
   lineinfile:
     state: 'present'
     dest: '/etc/grafana/grafana.ini'
@@ -81,7 +81,7 @@
     - { regexp: '^reporting_enabled =', line: 'reporting_enabled = {{ grafana_arg.reporting_enabled }}' }
     - { regexp: '^check_for_updates =', line: 'check_for_updates = {{ grafana_arg.check_for_updates }}' }
 
-- name: Grafana Security configuration
+- name: Grafana Security configuration.
   lineinfile:
     state: 'present'
     dest: '/etc/grafana/grafana.ini'
@@ -92,35 +92,7 @@
     - { regexp: '^admin_user =',     line: 'admin_user = {{ grafana_admin_user }}' }
     - { regexp: '^admin_password =', line: 'admin_password = {{ grafana_admin_password }}' }
 
-- name: Grafana session configuration
-  lineinfile:
-    state: 'present'
-    dest: '/etc/grafana/grafana.ini'
-    insertafter: '\[session\]'
-    regexp: '{{ item.regexp }}'
-    line: '{{ item.line }}'
-  loop:
-    - { regexp: '^provider =',        line: 'provider = redis' }
-    - { regexp: '^provider_config =', line: 'provider_config = addr={{ grafana_redis_hosts }}:{{ grafana_redis_port }},pool_size=100,db=0,password={{ grafana_redis_requirepass }}' }
-  when:
-    - grafana_session_share | bool or grafana_redis_dept | bool
-    - grafana_version < 6.2
-
-- name: Grafana remote cache configuration
-  lineinfile:
-    state: 'present'
-    dest: '/etc/grafana/grafana.ini'
-    insertafter: '\[remote_cache\]'
-    regexp: '{{ item.regexp }}'
-    line: '{{ item.line }}'
-  loop:
-    - { regexp: '^type =',    line: 'type = redis' }
-    - { regexp: '^connstr =', line: 'connstr = addr={{ grafana_redis_hosts }}:{{ grafana_redis_port }},pool_size=100,db=0,password={{ grafana_redis_requirepass }}' }
-  when:
-    - grafana_session_share | bool or grafana_redis_dept | bool
-    - grafana_version >= 6.2
-
-- name: Grafana UI theme configuration
+- name: Grafana UI theme configuration.
   lineinfile:
     state: 'present'
     dest: '/etc/grafana/grafana.ini'
@@ -130,7 +102,7 @@
   loop:
     - { regexp: '^default_theme =', line: 'default_theme = {{ grafana_arg.default_theme }}' }
 
-- name: Grafana reverse proxy and port configuration
+- name: Grafana reverse proxy and port configuration.
   lineinfile:
     state: 'present'
     dest: '/etc/grafana/grafana.ini'

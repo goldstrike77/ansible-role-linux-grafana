@@ -1,9 +1,9 @@
 ---
-- name: Gathering service facts
+- name: Gathering service facts.
   service_facts:
   register: services_state
 
-- name: Allow grafana service port
+- name: Allow grafana service port.
   firewalld:
     port: '{{ grafana_port }}/tcp'
     permanent: 'true'

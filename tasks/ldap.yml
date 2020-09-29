@@ -1,5 +1,5 @@
 ---
-- name: Grafana LDAP configuration
+- name: Grafana LDAP configuration.
   lineinfile:
     state: present
     dest: '/etc/grafana/grafana.ini'
@@ -10,7 +10,7 @@
     - { regexp: '^enabled =',       line: 'enabled = {{ grafana_ldap_enabled | bool | to_json }}' }
     - { regexp: '^allow_sign_up =', line: 'allow_sign_up = {{ grafana_ldap_allow_sign_up | bool | to_json  }}' }
 
-- name: Grafana LDAP configuration file transfer
+- name: Grafana LDAP configuration file transfer.
   template:
     src: 'ldap.toml.j2'
     dest: '/etc/grafana/ldap.toml'

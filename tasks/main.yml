@@ -1,42 +1,39 @@
 ---
-- name: Include tasks for specific OS
+- name: Include tasks for specific OS.
   include: '{{ ansible_os_family }}.yml'
 
-- name: Configure the grafana firewall
+- name: Configure the grafana firewall.
   include: 'firewall.yml'
 
-- name: Straight to getenforce selinux status
-  include: 'selinux.yml'
-
-- name: Include certificate tasks
+- name: Include certificate tasks.
   include: 'certificates.yml'
 
-- name: Configuration the grafana
+- name: Configuration the grafana.
   include: 'configureation.yml'
 
-- name: Install the Grafana plugins
+- name: Install the Grafana plugins.
   include: 'plugin.yml'
 
-- name: Enable LDAP Authentication
+- name: Enable LDAP Authentication.
   include: 'ldap.yml'
 
-- name: Manage Grafana dashboards
+- name: Manage Grafana dashboards.
   include: 'dashboard.yml'
 
-- name: Reload the grafana service
+- name: Reload the grafana service.
   shell: echo ''
   notify: 'Ensure grafana service is enabled'
 
-- name: Force the handler to run immediately
+- name: Force the handler to run immediately.
   meta: flush_handlers
 
-- name: Registered with HashiCorp Consul
+- name: Registered with HashiCorp Consul.
   include: 'register.yml'
   when:
     - exporter_is_install | bool
     - consul_public_register | bool
 
-- name: Disable Getting Started Panel
+- name: Disable Getting Started Panel.
   shell: 'sqlite3 {{ grafana_path }}/grafana/grafana.db "update user set help_flags1 = 1;"'
   no_log: true
   failed_when: false

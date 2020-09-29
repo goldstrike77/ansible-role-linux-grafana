@@ -1,5 +1,5 @@
 ---
-- name: Install Grafana plugins
+- name: Install Grafana plugins.
   grafana_plugin:
     name: '{{ item }}'
     grafana_repo: 'http://grafana.com/api/plugins'

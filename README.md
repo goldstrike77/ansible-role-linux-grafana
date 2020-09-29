@@ -50,19 +50,10 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `grafana_admin_user`: The name of the default Grafana admin user.
 * `grafana_admin_password`: The password of the default Grafana admin.
 * `grafana_https`: A boolean value, whether Encrypting HTTP client communications.
-* `grafana_session_share`: Whether store the session data on Redis.
 * `grafana_proxy`: Whether running behind a HaProxy.
 
 ##### Listen port
 * `grafana_port`: Grafana instance listen port.
-
-##### Redis parameters
-* `grafana_redis_dept`: A boolean value, whether installs Redis.
-* `grafana_redis_path`: Specify the Redis data directory.
-* `grafana_redis_requirepass`: Authorization clients password.
-* `grafana_redis_maxmemory`: A memory usage limit to the specified amount in MB.
-* `grafana_redis_hosts`: Redis hosts address.
-* `grafana_redis_port`: Redis listen port.
 
 ##### NGinx parameters
 * `grafana_ngx_dept`: A boolean value, whether proxy web interface using NGinx.
@@ -107,7 +98,6 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 - Ansible versions >= 2.8
 - Python >= 2.7.5
 - [NGinx](https://github.com/goldstrike77/ansible-role-linux-nginx.git)
-- [Redis](https://github.com/goldstrike77/ansible-role-linux-redis.git)
 
 ## Example
 
@@ -135,15 +125,8 @@ grafana_version: '6.7'
 grafana_admin_user: 'admin'
 grafana_admin_password: 'changeme'
 grafana_https: true
-grafana_session_share: false
 grafana_proxy: false
 grafana_port: '3000'
-grafana_redis_dept: false
-grafana_redis_path: '/data'
-grafana_redis_requirepass: 'password'
-grafana_redis_maxmemory: '1'
-grafana_redis_hosts: 'localhost'
-grafana_redis_port: '6379'
 grafana_ngx_dept: false
 grafana_ngx_block_agents: false
 grafana_ngx_block_string: false
