@@ -140,6 +140,7 @@ grafana_dashboard_arg:
       - 'Cross_Server_Graphs'
       - 'Elasticsearch_Overview'
       - 'Graylog_Overview'
+      - 'Home_Dashboard'
       - 'JMX_Overview'
       - 'Kafka_Overview'
       - 'Kibana_Overview'

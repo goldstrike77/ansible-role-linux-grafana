@@ -33,7 +33,7 @@
 
 - name: Set default home dashboard.
   file:
-    src: '{{ grafana_path }}/grafana/dashboards/Universal/Cross_Server_Graphs.json'
+    src: '{{ grafana_path }}/grafana/dashboards/Universal/Home_Dashboard.json'
     dest: '/usr/share/grafana/public/dashboards/home.json'
     state: 'link'
     force: 'yes'
