@@ -78,8 +78,8 @@
     regexp: '{{ item.regexp }}'
     line: '{{ item.line }}'
   loop:
-    - { regexp: '^reporting_enabled =', line: 'reporting_enabled = {{ grafana_arg.reporting_enabled }}' }
-    - { regexp: '^check_for_updates =', line: 'check_for_updates = {{ grafana_arg.check_for_updates }}' }
+    - { regexp: '^reporting_enabled =', line: 'reporting_enabled = {{ grafana_arg.reporting_enabled | bool | to_json }}' }
+    - { regexp: '^check_for_updates =', line: 'check_for_updates = {{ grafana_arg.check_for_updates | bool | to_json }}' }
 
 - name: Grafana Security configuration.
   lineinfile:

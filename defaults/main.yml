@@ -1,6 +1,6 @@
 ---
 # General parameters #
-grafana_is_install: 'false'
+grafana_is_install: false
 grafana_path: '/data'
 grafana_version: '6.7'
 grafana_admin_user: 'admin'
@@ -41,10 +41,15 @@ grafana_ngx_site: # Define backend traffic context.
 
 # Server System Variables #
 grafana_arg:
-  default_theme: 'light' # dark or light
-  reporting_enabled: 'false'
-  check_for_updates: 'false'
+  default_theme: 'dark' # dark or light
+  reporting_enabled: false
+  check_for_updates: false
   timeout: '60'
+grafana_incident_levels_map: # Defines the display mode of incident alarm.
+  critical: 'critical'
+  high: 'high'
+  warning: 'warning'
+  info: 'info'
 
 # Datasource #
 grafana_ds_arg:
@@ -52,10 +57,15 @@ grafana_ds_arg:
     settings:
       - server: '{{ ansible_default_ipv4.address }}'
         port: '19090'
+  - name: 'alertmanager'
+    settings:
+      - server: '{{ ansible_default_ipv4.address }}'
+        port: '9093'
 
 # Plugins #
 grafana_plugins:
-  - 'grafana-piechart-panel'
+  - 'https://github.com/grafana/piechart-panel.git'
+  - 'https://github.com/camptocamp/grafana-prometheus-alertmanager-datasource.git'
 
 # LDAP Authentication #
 grafana_ldap_enabled: false # Enable LDAP integration.

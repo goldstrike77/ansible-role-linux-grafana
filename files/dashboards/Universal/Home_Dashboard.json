@@ -7,9 +7,23 @@
       "type": "datasource",
       "pluginId": "prometheus",
       "pluginName": "Prometheus"
+    },
+    {
+      "name": "DS_ALERTMANAGER",
+      "label": "DS_ALERTMANAGER",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "camptocamp-prometheus-alertmanager-datasource",
+      "pluginName": "Prometheus AlertManager"
     }
   ],
   "__requires": [
+    {
+      "type": "datasource",
+      "id": "camptocamp-prometheus-alertmanager-datasource",
+      "name": "Prometheus AlertManager",
+      "version": "0.0.8"
+    },
     {
       "type": "panel",
       "id": "dashlist",
@@ -27,6 +41,12 @@
       "id": "prometheus",
       "name": "Prometheus",
       "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "singlestat",
+      "name": "Singlestat",
+      "version": ""
     },
     {
       "type": "panel",
@@ -55,11 +75,11 @@
       }
     ]
   },
-  "editable": false,
+  "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1602750182242,
+  "iteration": 1602836984251,
   "links": [
     {
       "$$hashKey": "object:7698",
@@ -129,10 +149,10 @@
       "type": "text"
     },
     {
-      "content": "**Overview**  \nMonitoring and Management is a free and open-source platform for managing and monitoring system performance, and provides time-based metrics to ensure that your data works as efficiently as possible.\n\n**Usage**  \nYou can use the menu in the upper right corner to select specific objects dashboard.\n\n**Get Help**  \nAre you looking for assistance that comes with a response-time guarantee? Let our Support team help you.",
+      "content": "**Overview**  \nMonitoring and Management is a platform for managing and monitoring system performance, and provides time-based metrics to ensure that your IT system works as efficiently as possible.\n\n**Get Help**  \nAre you looking for assistance that comes with a response-time guarantee? Let our Support team help you.",
       "datasource": null,
       "gridPos": {
-        "h": 11,
+        "h": 7,
         "w": 7,
         "x": 0,
         "y": 3
@@ -243,7 +263,7 @@
           "valueMaps": [
             {
               "$$hashKey": "object:6183",
-              "text": "Warning",
+              "text": "Issue",
               "value": "0"
             },
             {
@@ -300,6 +320,7 @@
     },
     {
       "datasource": null,
+      "folderId": null,
       "gridPos": {
         "h": 11,
         "w": 5,
@@ -318,8 +339,220 @@
       "timeShift": null,
       "title": "Starred and Recently used Dashboards",
       "type": "dashlist"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": true,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "DS_ALERTMANAGER",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 7,
+        "x": 0,
+        "y": 10
+      },
+      "hideTimeOverride": true,
+      "id": 16,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "$$hashKey": "object:7672",
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "$$hashKey": "object:7673",
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "annotations": false,
+          "expr": "environment=~\"$environment\",group=~\"$group\"",
+          "labelSelector": "*",
+          "legendFormat": "",
+          "refId": "A",
+          "target": "Query",
+          "type": "single"
+        }
+      ],
+      "thresholds": "1,5",
+      "timeFrom": "1m",
+      "timeShift": null,
+      "title": "All alerts",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "$$hashKey": "object:7675",
+          "op": "=",
+          "text": "0",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 14
+      },
+      "id": 18,
+      "panels": [],
+      "title": "",
+      "type": "row"
+    },
+    {
+      "columns": [],
+      "datasource": "DS_ALERTMANAGER",
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 15
+      },
+      "hideTimeOverride": true,
+      "id": 14,
+      "pageSize": null,
+      "showHeader": true,
+      "sort": {
+        "col": 12,
+        "desc": false
+      },
+      "styles": [
+        {
+          "$$hashKey": "object:500",
+          "alias": "Time",
+          "align": "auto",
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "pattern": "Time",
+          "type": "date"
+        },
+        {
+          "$$hashKey": "object:654",
+          "alias": "",
+          "align": "auto",
+          "colorMode": "row",
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "severity",
+          "thresholds": [
+            "1",
+            "2"
+          ],
+          "type": "string",
+          "unit": "short",
+          "valueMaps": [
+            {
+              "$$hashKey": "object:854",
+              "text": "P1 - Critical",
+              "value": "4"
+            },
+            {
+              "$$hashKey": "object:858",
+              "text": "P2 - High",
+              "value": "3"
+            },
+            {
+              "$$hashKey": "object:864",
+              "text": "P3 - Warning",
+              "value": "2"
+            },
+            {
+              "$$hashKey": "object:868",
+              "text": "P4 - Info",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "$$hashKey": "object:1210",
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "/.*/",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "annotations": false,
+          "expr": "environment=~\"$environment\",group=~\"$group\"",
+          "labelSelector": "*",
+          "legendFormat": "{{ instance }}",
+          "refId": "A",
+          "target": "Query",
+          "type": "table"
+        }
+      ],
+      "timeFrom": "1m",
+      "timeShift": null,
+      "title": "Alerts Info",
+      "transform": "table",
+      "type": "table"
     }
   ],
+  "refresh": "1m",
   "schemaVersion": 22,
   "style": "dark",
   "tags": [
@@ -399,5 +632,5 @@
   "variables": {
     "list": []
   },
-  "version": 19
+  "version": 3
 }

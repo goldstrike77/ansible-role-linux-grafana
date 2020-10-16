@@ -72,6 +72,7 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `grafana_arg.reporting_enabled`: Sends usage counters to stats.grafana.org every 24 hours.
 * `grafana_arg.check_for_updates`: Enable or disable all checks to https://grafana.net for new vesions.
 * `grafana_arg.timeout`: How long the data proxy should wait before timing out.
+* `grafana_incident_levels_map`: Defines the display mode of incident alarm.
 
 ##### Datasource
 * `grafana_ds_arg`: DataSource settings.
@@ -151,10 +152,15 @@ grafana_ngx_site:
     sticky: 'ip_hash'
     keepalive: '32'
 grafana_arg:
-  default_theme: 'light'
-  reporting_enabled: 'false'
-  check_for_updates: 'false'
+  default_theme: 'dark'
+  reporting_enabled: false
+  check_for_updates: false
   timeout: '60'
+grafana_incident_levels_map:
+  critical: 'critical'
+  high: 'high'
+  warning: 'warning'
+  info: 'info'
 grafana_ds_arg:
   - name: 'prometheus'
     settings:  
