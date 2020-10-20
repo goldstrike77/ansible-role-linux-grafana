@@ -15,7 +15,7 @@
   uri:
     url: '{{ consul_public_http_prot }}://{{ ansible_default_ipv4.address }}:{{ consul_public_http_port }}/v1/agent/service/register'
     method: 'PUT'
-    body: '{"tags":["grafana"],"ID":"{{ group_names[-1] | upper | regex_replace("_", "-") }}-{{ environments | upper | regex_replace("_", "-") }}-grafana","name":"{{ group_names[-1] | upper | regex_replace("_", "-") }}-{{ environments | upper | regex_replace("_", "-") }}-grafana","address":"{{ ansible_default_ipv4.address }}","port":{{ grafana_port }},"checks":[{"http":"{% if grafana_https | bool %}https{% else %}http{% endif %}://{{ ansible_default_ipv4.address }}:{{ grafana_port }}/login","interval":"60s","tls_skip_verify":true,"method":"HEAD","timeout":"10s"}]}'
+    body: '{"tags":["grafana"],"ID":"{{ group_names[0] | title | regex_replace("_", "-") }}-{{ group_names[-1] | title | regex_replace("_", "-") }}-{{ environments | upper | regex_replace("_", "-") }}-grafana","name":"{{ group_names[0] | title | regex_replace("_", "-") }}-{{ group_names[-1] | title | regex_replace("_", "-") }}-{{ environments | upper | regex_replace("_", "-") }}-grafana","address":"{{ ansible_default_ipv4.address }}","port":{{ grafana_port }},"checks":[{"http":"{% if grafana_https | bool %}https{% else %}http{% endif %}://{{ ansible_default_ipv4.address }}:{{ grafana_port }}/login","interval":"60s","tls_skip_verify":true,"method":"HEAD","timeout":"10s"}]}'
     body_format: 'json'
     status_code: '200'
     headers:
@@ -51,7 +51,7 @@
   uri:
     url: '{{ consul_public_http_prot }}://{{ item.client }}:{{ consul_public_http_port }}/v1/agent/service/register'
     method: 'PUT'
-    body: '{"tags":["prometheus","exporter"],"ID":"{{ inventory_hostname | upper }}_grafana_exporter","name":"grafana_exporter","address":"{{ ansible_default_ipv4.address }}","port":{{ grafana_port }},"meta":{"application":"Visualization","scheme":"{% if grafana_https | bool %}https{% else %}http{% endif %}","metrics_path":"/metrics","instance":"{{ inventory_hostname | upper }}","group":"{{ group_names[-1] | upper }}","datacenter": "{{ datacenter | lower }}","domain":"{{ domain | lower }}","environment":"{{ environments | upper }}"{% if tags is defined %},{{ tags | to_json | regex_replace("{") | regex_replace("}") }}{% endif %}},"checks":[{"http":"{% if grafana_https | bool %}https{% else %}http{% endif %}://{{ ansible_default_ipv4.address }}:{{ grafana_port }}/login","interval":"60s","tls_skip_verify":true,"method":"HEAD","timeout":"10s"}]}'
+    body: '{"tags":["prometheus","exporter"],"ID":"{{ inventory_hostname | upper }}_grafana_exporter","name":"grafana_exporter","address":"{{ ansible_default_ipv4.address }}","port":{{ grafana_port }},"meta":{"application":"Visualization","scheme":"{% if grafana_https | bool %}https{% else %}http{% endif %}","metrics_path":"/metrics","instance":"{{ inventory_hostname | upper }}","project":"{{ group_names[0] | title | regex_replace("_", "-") }}","group":"{{ group_names[-1] | title }}","datacenter": "{{ datacenter | lower }}","domain":"{{ domain | lower }}","environment":"{{ environments | upper }}"{% if tags is defined %},{{ tags | to_json | regex_replace("{") | regex_replace("}") }}{% endif %}},"checks":[{"http":"{% if grafana_https | bool %}https{% else %}http{% endif %}://{{ ansible_default_ipv4.address }}:{{ grafana_port }}/login","interval":"60s","tls_skip_verify":true,"method":"HEAD","timeout":"10s"}]}'
     body_format: 'json'
     status_code: '200'
     headers:
