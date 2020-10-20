@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.4.5"
+      "version": "6.7.4"
     },
     {
       "type": "panel",
@@ -38,6 +38,7 @@
   "annotations": {
     "list": [
       {
+        "$$hashKey": "object:21020",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -53,9 +54,10 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1577328834737,
+  "iteration": 1603175814076,
   "links": [
     {
+      "$$hashKey": "object:21185",
       "asDropdown": true,
       "includeVars": true,
       "keepTime": true,
@@ -67,6 +69,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:21186",
       "asDropdown": true,
       "includeVars": true,
       "keepTime": true,
@@ -78,6 +81,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:21187",
       "asDropdown": true,
       "includeVars": true,
       "keepTime": true,
@@ -89,6 +93,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:21188",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -123,6 +128,7 @@
         "x": 0,
         "y": 0
       },
+      "hiddenSeries": false,
       "id": 9,
       "legend": {
         "alignAsTable": true,
@@ -227,7 +233,6 @@
       "id": 7,
       "links": [],
       "mode": "markdown",
-      "options": {},
       "style": {},
       "title": "",
       "transparent": true,
@@ -255,6 +260,7 @@
         "x": 0,
         "y": 10
       },
+      "hiddenSeries": false,
       "id": 4,
       "legend": {
         "alignAsTable": true,
@@ -367,7 +373,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 20,
+  "schemaVersion": 22,
   "style": "dark",
   "tags": [
     "OS",
@@ -381,7 +387,7 @@
         "auto_count": 200,
         "auto_min": "1s",
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -438,14 +444,61 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "",
+        "definition": "label_values(node_filesystem_avail_bytes, environment)",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
+        "label": "Environment",
+        "multi": false,
+        "name": "environment",
+        "options": [],
+        "query": "label_values(node_filesystem_avail_bytes, environment)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(node_filesystem_avail_bytes{environment=\"$environment\"}, project)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Project",
+        "multi": false,
+        "name": "project",
+        "options": [],
+        "query": "label_values(node_filesystem_avail_bytes{environment=\"$environment\"}, project)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(node_filesystem_avail_bytes{project=\"$project\",environment=\"$environment\"}, group)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
         "label": "Group",
         "multi": false,
         "name": "group",
         "options": [],
-        "query": "label_values(node_filesystem_avail_bytes, group)",
+        "query": "label_values(node_filesystem_avail_bytes{project=\"$project\",environment=\"$environment\"}, group)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -461,18 +514,19 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "",
+        "definition": "label_values(node_filesystem_avail_bytes{project=\"$project\",group=\"$group\",environment=\"$environment\"},instance)",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
         "label": "Host",
         "multi": false,
         "multiFormat": "regex values",
         "name": "host",
         "options": [],
-        "query": "node_filesystem_avail_bytes{group=\"$group\"}",
+        "query": "label_values(node_filesystem_avail_bytes{project=\"$project\",group=\"$group\",environment=\"$environment\"},instance)",
         "refresh": 1,
         "refresh_on_load": false,
-        "regex": "/instance=\"(.+?)\"/",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "instance",
@@ -490,6 +544,7 @@
         "hide": 2,
         "hideLabel": false,
         "includeAll": true,
+        "index": -1,
         "label": "Mountpoint",
         "multi": false,
         "multiFormat": "regex values",
@@ -548,5 +603,8 @@
   "timezone": "browser",
   "title": "Linux Disk Space",
   "uid": "80k9wMHmk",
-  "version": 1
+  "variables": {
+    "list": []
+  },
+  "version": 2
 }

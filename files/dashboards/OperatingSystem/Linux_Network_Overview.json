@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.5.2"
+      "version": "6.7.4"
     },
     {
       "type": "panel",
@@ -38,6 +38,7 @@
   "annotations": {
     "list": [
       {
+        "$$hashKey": "object:21468",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -53,9 +54,10 @@
   "gnetId": 1856,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1582167691597,
+  "iteration": 1603175935364,
   "links": [
     {
+      "$$hashKey": "object:21641",
       "asDropdown": true,
       "includeVars": true,
       "keepTime": true,
@@ -67,6 +69,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:21642",
       "asDropdown": true,
       "includeVars": true,
       "keepTime": true,
@@ -78,6 +81,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:21643",
       "asDropdown": true,
       "includeVars": true,
       "keepTime": true,
@@ -89,6 +93,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:21644",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -158,7 +163,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -243,7 +247,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -326,7 +329,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -411,7 +413,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1743,7 +1744,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 21,
+  "schemaVersion": 22,
   "style": "dark",
   "tags": [
     "OS",
@@ -1809,14 +1810,61 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(node_network_receive_packets_total, group)",
+        "definition": "label_values(node_network_receive_packets_total, environment)",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
+        "label": "Environment",
+        "multi": false,
+        "name": "environment",
+        "options": [],
+        "query": "label_values(node_network_receive_packets_total, environment)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(node_network_receive_packets_total{environment=\"$environment\"}, project)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Project",
+        "multi": false,
+        "name": "project",
+        "options": [],
+        "query": "label_values(node_network_receive_packets_total{environment=\"$environment\"}, project)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(node_network_receive_packets_total{project=\"$project\",environment=\"$environment\"}, group)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
         "label": "Group",
         "multi": false,
         "name": "group",
         "options": [],
-        "query": "label_values(node_network_receive_packets_total, group)",
+        "query": "label_values(node_network_receive_packets_total{project=\"$project\",environment=\"$environment\"}, group)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -1831,16 +1879,17 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "node_boot_time_seconds{group=\"$group\"}",
+        "definition": "label_values(node_network_receive_packets_total{group=\"$group\",project=\"$project\",environment=\"$environment\"},instance)",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
         "label": "Host",
         "multi": false,
         "name": "host",
         "options": [],
-        "query": "node_boot_time_seconds{group=\"$group\"}",
+        "query": "label_values(node_network_receive_packets_total{group=\"$group\",project=\"$project\",environment=\"$environment\"},instance)",
         "refresh": 1,
-        "regex": "/instance=\"(.+?)\"/",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
@@ -1856,6 +1905,7 @@
         "definition": "label_values(os_info{instance=\"$host\"},interface)",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": "Device",
         "multi": false,
         "name": "device",
@@ -1907,5 +1957,8 @@
   "timezone": "browser",
   "title": "Linux Network Overview",
   "uid": "000000193",
-  "version": 1
+  "variables": {
+    "list": []
+  },
+  "version": 2
 }

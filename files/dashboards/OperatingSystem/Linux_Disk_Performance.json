@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.4.5"
+      "version": "6.7.4"
     },
     {
       "type": "panel",
@@ -32,6 +32,7 @@
   "annotations": {
     "list": [
       {
+        "$$hashKey": "object:20457",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -47,9 +48,10 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1577328814432,
+  "iteration": 1603175615440,
   "links": [
     {
+      "$$hashKey": "object:20543",
       "asDropdown": true,
       "includeVars": true,
       "keepTime": true,
@@ -61,6 +63,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:20544",
       "asDropdown": true,
       "includeVars": true,
       "keepTime": true,
@@ -72,6 +75,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:20545",
       "asDropdown": true,
       "includeVars": true,
       "keepTime": true,
@@ -83,6 +87,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:20546",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -114,6 +119,7 @@
         "x": 0,
         "y": 0
       },
+      "hiddenSeries": false,
       "id": 11,
       "legend": {
         "alignAsTable": true,
@@ -236,6 +242,7 @@
         "x": 0,
         "y": 7
       },
+      "hiddenSeries": false,
       "id": 15,
       "legend": {
         "alignAsTable": true,
@@ -358,6 +365,7 @@
         "x": 0,
         "y": 14
       },
+      "hiddenSeries": false,
       "id": 16,
       "legend": {
         "alignAsTable": true,
@@ -480,6 +488,7 @@
         "x": 0,
         "y": 21
       },
+      "hiddenSeries": false,
       "id": 14,
       "legend": {
         "alignAsTable": true,
@@ -600,6 +609,7 @@
         "x": 0,
         "y": 28
       },
+      "hiddenSeries": false,
       "id": 17,
       "legend": {
         "alignAsTable": true,
@@ -812,7 +822,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 20,
+  "schemaVersion": 22,
   "style": "dark",
   "tags": [
     "OS",
@@ -826,7 +836,7 @@
         "auto_count": 200,
         "auto_min": "1s",
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -883,14 +893,61 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "",
+        "definition": "label_values(node_disk_reads_completed_total, environment)",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
+        "label": "Environment",
+        "multi": false,
+        "name": "environment",
+        "options": [],
+        "query": "label_values(node_disk_reads_completed_total, environment)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(node_disk_reads_completed_total{environment=\"$environment\"}, project)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Project",
+        "multi": false,
+        "name": "project",
+        "options": [],
+        "query": "label_values(node_disk_reads_completed_total{environment=\"$environment\"}, project)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(node_disk_reads_completed_total{project=\"$project\",environment=\"$environment\"}, group)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
         "label": "Group",
         "multi": false,
         "name": "group",
         "options": [],
-        "query": "label_values(node_disk_reads_completed_total, group)",
+        "query": "label_values(node_disk_reads_completed_total{project=\"$project\",environment=\"$environment\"}, group)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -906,18 +963,19 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "",
+        "definition": "label_values(node_disk_reads_completed_total{project=\"$project\",group=\"$group\",environment=\"$environment\"}, instance)",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
         "label": "Host",
         "multi": false,
         "multiFormat": "regex values",
         "name": "host",
         "options": [],
-        "query": "node_disk_reads_completed_total{group=\"$group\"}",
+        "query": "label_values(node_disk_reads_completed_total{project=\"$project\",group=\"$group\",environment=\"$environment\"}, instance)",
         "refresh": 1,
         "refresh_on_load": false,
-        "regex": "/instance=\"(.+?)\"/",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "instance",
@@ -934,6 +992,7 @@
         "definition": "",
         "hide": 0,
         "includeAll": true,
+        "index": -1,
         "label": "Device",
         "multi": true,
         "multiFormat": "regex values",
@@ -992,5 +1051,8 @@
   "timezone": "browser",
   "title": "Linux Disk Performance",
   "uid": "oxkrQMNmz",
-  "version": 1
+  "variables": {
+    "list": []
+  },
+  "version": 2
 }

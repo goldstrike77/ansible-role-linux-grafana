@@ -79,7 +79,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1602836984251,
+  "iteration": 1603163529346,
   "links": [
     {
       "$$hashKey": "object:7698",
@@ -153,7 +153,7 @@
       "datasource": null,
       "gridPos": {
         "h": 7,
-        "w": 7,
+        "w": 6,
         "x": 0,
         "y": 3
       },
@@ -170,9 +170,9 @@
       "datasource": "DS_PROMETHEUS",
       "fontSize": "120%",
       "gridPos": {
-        "h": 11,
+        "h": 10,
         "w": 12,
-        "x": 7,
+        "x": 6,
         "y": 3
       },
       "hideTimeOverride": true,
@@ -294,7 +294,7 @@
       ],
       "targets": [
         {
-          "expr": "sum(up{environment=~\"$environment\",group=~\"$group\",application!=\"\",service!=\"\"}) by (application,service)",
+          "expr": "sum(up{environment=~\"$environment\",project=~\"$project\",application!=\"\",service!=\"\"}) by (application,service)",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -303,7 +303,7 @@
           "refId": "B"
         },
         {
-          "expr": "sum(up{environment=~\"$environment\",group=~\"$group\",application!=\"\",service!=\"\"}==0) by (application,service)",
+          "expr": "sum(up{environment=~\"$environment\",project=~\"$project\",application!=\"\",service!=\"\"}==0) by (application,service)",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -320,11 +320,10 @@
     },
     {
       "datasource": null,
-      "folderId": null,
       "gridPos": {
-        "h": 11,
-        "w": 5,
-        "x": 19,
+        "h": 10,
+        "w": 6,
+        "x": 18,
         "y": 3
       },
       "headings": false,
@@ -359,8 +358,8 @@
         "thresholdMarkers": true
       },
       "gridPos": {
-        "h": 4,
-        "w": 7,
+        "h": 3,
+        "w": 6,
         "x": 0,
         "y": 10
       },
@@ -407,7 +406,7 @@
       "targets": [
         {
           "annotations": false,
-          "expr": "environment=~\"$environment\",group=~\"$group\"",
+          "expr": "environment=~\"$environment\",project=~\"$project\"",
           "labelSelector": "*",
           "legendFormat": "",
           "refId": "A",
@@ -438,7 +437,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 14
+        "y": 13
       },
       "id": 18,
       "panels": [],
@@ -453,7 +452,7 @@
         "h": 9,
         "w": 24,
         "x": 0,
-        "y": 15
+        "y": 14
       },
       "hideTimeOverride": true,
       "id": 14,
@@ -537,7 +536,7 @@
       "targets": [
         {
           "annotations": false,
-          "expr": "environment=~\"$environment\",group=~\"$group\"",
+          "expr": "environment=~\"$environment\",project=~\"$project\"",
           "labelSelector": "*",
           "legendFormat": "{{ instance }}",
           "refId": "A",
@@ -587,17 +586,17 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "up{environment=~\"$environment\"}",
+        "definition": "label_values(up{environment=~\"$environment\"}, project)",
         "hide": 0,
         "includeAll": true,
         "index": -1,
-        "label": "Group",
+        "label": "Project",
         "multi": true,
-        "name": "group",
+        "name": "project",
         "options": [],
-        "query": "up{environment=~\"$environment\"}",
+        "query": "label_values(up{environment=~\"$environment\"}, project)",
         "refresh": 1,
-        "regex": "/group=\"(.+?)\"/",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
@@ -632,5 +631,5 @@
   "variables": {
     "list": []
   },
-  "version": 3
+  "version": 1
 }
