@@ -26,7 +26,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.5.2"
+      "version": "6.7.4"
     },
     {
       "type": "panel",
@@ -50,6 +50,7 @@
   "annotations": {
     "list": [
       {
+        "$$hashKey": "object:2265",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -62,11 +63,12 @@
   },
   "editable": true,
   "gnetId": null,
-  "graphTooltip": 1,
+  "graphTooltip": 0,
   "id": null,
-  "iteration": 1583477456132,
+  "iteration": 1603350412510,
   "links": [
     {
+      "$$hashKey": "object:2587",
       "asDropdown": true,
       "includeVars": true,
       "keepTime": true,
@@ -78,6 +80,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:2588",
       "asDropdown": true,
       "includeVars": true,
       "keepTime": true,
@@ -89,6 +92,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:2589",
       "asDropdown": true,
       "includeVars": true,
       "keepTime": true,
@@ -100,6 +104,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:2590",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -128,7 +133,6 @@
       "hideTimeOverride": false,
       "id": 12,
       "links": [],
-      "options": {},
       "pageSize": null,
       "repeat": null,
       "repeatDirection": "h",
@@ -140,7 +144,9 @@
       },
       "styles": [
         {
+          "$$hashKey": "object:6839",
           "alias": "Kernel / Build",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -158,7 +164,9 @@
           "unit": "short"
         },
         {
+          "$$hashKey": "object:6840",
           "alias": "Hostname",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -175,7 +183,9 @@
           "unit": "short"
         },
         {
+          "$$hashKey": "object:6841",
           "alias": "VCores",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -191,7 +201,9 @@
           "unit": "short"
         },
         {
+          "$$hashKey": "object:6842",
           "alias": "Memory",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -207,7 +219,9 @@
           "unit": "bytes"
         },
         {
+          "$$hashKey": "object:6843",
           "alias": "Disc",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -223,7 +237,9 @@
           "unit": "bytes"
         },
         {
+          "$$hashKey": "object:6844",
           "alias": "Uptime",
+          "align": "auto",
           "colorMode": "value",
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -242,7 +258,9 @@
           "unit": "s"
         },
         {
+          "$$hashKey": "object:6845",
           "alias": "Group",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -258,7 +276,9 @@
           "unit": "short"
         },
         {
+          "$$hashKey": "object:6846",
           "alias": "Environment",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -274,7 +294,9 @@
           "unit": "short"
         },
         {
+          "$$hashKey": "object:6847",
           "alias": "Address",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -290,7 +312,9 @@
           "unit": "short"
         },
         {
+          "$$hashKey": "object:6848",
           "alias": "Operating System",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -307,7 +331,9 @@
           "unit": "short"
         },
         {
+          "$$hashKey": "object:6849",
           "alias": "Vendor",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -323,21 +349,44 @@
           "unit": "short",
           "valueMaps": [
             {
+              "$$hashKey": "object:7031",
               "text": "Azure",
               "value": "Virtual Machine"
             },
             {
+              "$$hashKey": "object:7032",
               "text": "VMware",
               "value": "VMware Virtual Platform"
             },
             {
+              "$$hashKey": "object:7033",
               "text": "Tencent",
               "value": "Bochs"
             }
           ]
         },
         {
+          "$$hashKey": "object:7105",
+          "alias": "Project",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "project",
+          "thresholds": [],
+          "type": "string",
+          "unit": "short"
+        },
+        {
+          "$$hashKey": "object:7127",
           "alias": "",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -426,6 +475,9 @@
             "lastNotNull"
           ],
           "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
             "decimals": 0,
             "mappings": [
               {
@@ -439,31 +491,34 @@
             "max": 100,
             "min": 0,
             "nullValueMode": "connected",
-            "thresholds": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "orange",
-                "value": 80
-              },
-              {
-                "color": "red",
-                "value": 90
-              }
-            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "orange",
+                  "value": 80
+                },
+                {
+                  "color": "red",
+                  "value": 90
+                }
+              ]
+            },
             "title": "",
             "unit": "percent"
           },
-          "override": {},
+          "overrides": [],
           "values": false
         },
         "orientation": "horizontal",
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "6.5.2",
+      "pluginVersion": "6.7.4",
       "targets": [
         {
           "expr": "(1 - avg(irate(node_cpu_seconds_total{instance=~\"$host\",mode='idle'}[5m]))) * 100 or (1 - avg(irate(wmi_cpu_time_total{mode=\"idle\", instance=~\"$host\"}[5m]))) * 100",
@@ -495,6 +550,9 @@
             "lastNotNull"
           ],
           "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
             "decimals": 0,
             "mappings": [
               {
@@ -508,30 +566,33 @@
             "max": 100,
             "min": 0,
             "nullValueMode": "connected",
-            "thresholds": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "orange",
-                "value": 80
-              },
-              {
-                "color": "red",
-                "value": 90
-              }
-            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "orange",
+                  "value": 80
+                },
+                {
+                  "color": "red",
+                  "value": 90
+                }
+              ]
+            },
             "unit": "percent"
           },
-          "override": {},
+          "overrides": [],
           "values": false
         },
         "orientation": "horizontal",
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "6.5.2",
+      "pluginVersion": "6.7.4",
       "targets": [
         {
           "expr": "avg((node_memory_MemTotal_bytes{instance=~\"$host\"} - (node_memory_MemFree_bytes{instance=~\"$host\"} + node_memory_Buffers_bytes{instance=~\"$host\"} + node_memory_Cached_bytes{instance=~\"$host\"})) / node_memory_MemTotal_bytes{instance=~\"$host\"}) * 100 or avg((wmi_cs_physical_memory_bytes{instance=~\"$host\"} - wmi_os_physical_memory_free_bytes{instance=~\"$host\"}) / wmi_cs_physical_memory_bytes{instance=~\"$host\"}) * 100",
@@ -563,6 +624,9 @@
             "lastNotNull"
           ],
           "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
             "decimals": 0,
             "mappings": [
               {
@@ -576,30 +640,33 @@
             "max": 100,
             "min": 0,
             "nullValueMode": "connected",
-            "thresholds": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "orange",
-                "value": 80
-              },
-              {
-                "color": "red",
-                "value": 90
-              }
-            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "orange",
+                  "value": 80
+                },
+                {
+                  "color": "red",
+                  "value": 90
+                }
+              ]
+            },
             "unit": "percent"
           },
-          "override": {},
+          "overrides": [],
           "values": false
         },
         "orientation": "horizontal",
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "6.5.2",
+      "pluginVersion": "6.7.4",
       "targets": [
         {
           "expr": "(1- sum(node_filesystem_free_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) / sum (node_filesystem_size_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"})) * 100 or (1- sum(wmi_logical_disk_free_bytes{instance=~\"$host\"}) / sum(wmi_logical_disk_size_bytes{instance=~\"$host\"})) * 100",
@@ -630,29 +697,36 @@
             "last"
           ],
           "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
             "decimals": 0,
             "mappings": [],
             "max": 100,
             "min": 0,
-            "thresholds": [
-              {
-                "color": "yellow",
-                "value": null
-              },
-              {
-                "color": "orange",
-                "value": 80
-              }
-            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "yellow",
+                  "value": null
+                },
+                {
+                  "color": "orange",
+                  "value": 80
+                }
+              ]
+            },
             "title": "",
             "unit": "none"
           },
-          "override": {},
+          "overrides": [],
           "values": false
         },
-        "orientation": "horizontal"
+        "orientation": "horizontal",
+        "showUnfilled": true
       },
-      "pluginVersion": "6.5.2",
+      "pluginVersion": "6.7.4",
       "targets": [
         {
           "expr": "(count(node_memory_MemTotal_bytes{instance=~\"$host\"}) or vector(0)) + (count(wmi_os_visible_memory_bytes{instance=~\"$host\"}) or vector(0))",
@@ -1140,10 +1214,10 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 21,
+  "schemaVersion": 22,
   "style": "dark",
   "tags": [
-    "Insight"
+    "OS"
   ],
   "templating": {
     "list": [
@@ -1214,6 +1288,7 @@
         "definition": "label_values(os_info, environment)",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
         "label": "Environment",
         "multi": true,
         "name": "environment",
@@ -1233,16 +1308,40 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "os_info{environment=~\"$environment\"}",
+        "definition": "label_values(os_info{environment=~\"$environment\"}, project)",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
+        "label": "Project",
+        "multi": true,
+        "name": "project",
+        "options": [],
+        "query": "label_values(os_info{environment=~\"$environment\"}, project)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(os_info{environment=~\"$environment\",project=~\"$project\"},group)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
         "label": "Group",
         "multi": true,
         "name": "group",
         "options": [],
-        "query": "os_info{environment=~\"$environment\"}",
+        "query": "label_values(os_info{environment=~\"$environment\",project=~\"$project\"},group)",
         "refresh": 1,
-        "regex": "/group=\"(.+?)\"/",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
@@ -1256,17 +1355,18 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "os_info{group=~\"$group\",environment=~\"$environment\"}",
+        "definition": "label_values(os_info{group=~\"$group\",environment=~\"$environment\",project=~\"$project\"},instance)",
         "hide": 0,
         "includeAll": true,
+        "index": -1,
         "label": "Host",
         "multi": true,
         "multiFormat": "pipe",
         "name": "host",
         "options": [],
-        "query": "os_info{group=~\"$group\",environment=~\"$environment\"}",
+        "query": "label_values(os_info{group=~\"$group\",environment=~\"$environment\",project=~\"$project\"},instance)",
         "refresh": 1,
-        "regex": "/instance=\"(.+?)\"/",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": null,
@@ -1279,16 +1379,17 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "os_info{group=~\"$group\",environment=~\"$environment\",instance=~\"$host\"}",
+        "definition": "label_values(os_info{group=~\"$group\",environment=~\"$environment\",instance=~\"$host\",project=~\"$project\"},interface)",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": "",
         "multi": true,
         "name": "interface",
         "options": [],
-        "query": "os_info{group=~\"$group\",environment=~\"$environment\",instance=~\"$host\"}",
+        "query": "label_values(os_info{group=~\"$group\",environment=~\"$environment\",instance=~\"$host\",project=~\"$project\"},interface)",
         "refresh": 1,
-        "regex": "/interface=\"(.+?)\"/",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
@@ -1338,5 +1439,8 @@
   "timezone": "browser",
   "title": "Cross Server Graphs",
   "uid": "Swz9QGNmz",
+  "variables": {
+    "list": []
+  },
   "version": 1
 }

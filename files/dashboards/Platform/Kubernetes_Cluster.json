@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.5.3"
+      "version": "6.7.4"
     },
     {
       "type": "panel",
@@ -38,6 +38,7 @@
   "annotations": {
     "list": [
       {
+        "$$hashKey": "object:21",
         "builtIn": 1,
         "datasource": "DS_PROMETHEUS",
         "enable": true,
@@ -53,9 +54,10 @@
   "gnetId": 9873,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1594870750625,
+  "iteration": 1603348768863,
   "links": [
     {
+      "$$hashKey": "object:247",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -67,6 +69,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:248",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -78,6 +81,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:249",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -89,6 +93,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:250",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -144,7 +149,7 @@
         "y": 1
       },
       "height": "180px",
-      "hideTimeOverride": false,
+      "hideTimeOverride": true,
       "id": 6,
       "interval": null,
       "links": [],
@@ -162,7 +167,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -183,7 +187,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum (rate (container_cpu_usage_seconds_total{id=\"/\",group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"}[5m])) / sum (machine_cpu_cores{group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"}) * 100",
+          "expr": "sum (rate(container_cpu_usage_seconds_total{id=\"/\",cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\"}[5m])) / sum (machine_cpu_cores{cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\"}) * 100",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -251,7 +255,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -272,10 +275,11 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum (container_memory_working_set_bytes{id=\"/\",group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"}) / sum (machine_memory_bytes{group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"}) * 100",
+          "expr": "sum (container_memory_working_set_bytes{id=\"/\",cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\"}) / sum (machine_memory_bytes{cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\"}) * 100",
           "format": "time_series",
           "interval": "10s",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A",
           "step": 10
         }
@@ -340,7 +344,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -361,7 +364,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum (container_fs_usage_bytes{device=~\"^/dev/xvda.$\",id=\"/\",group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"}) / sum (container_fs_limit_bytes{device=~\"^/dev/xvda.$\",id=\"/\",group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"}) * 100",
+          "expr": "sum (container_fs_usage_bytes{device=~\"^/dev/xvda.$\",id=\"/\",cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\"}) / sum (container_fs_limit_bytes{device=~\"^/dev/xvda.$\",id=\"/\",cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\"}) * 100",
           "format": "time_series",
           "hide": false,
           "interval": "10s",
@@ -432,7 +435,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": " cores",
       "postfixFontSize": "30%",
       "prefix": "",
@@ -453,7 +455,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum (rate (container_cpu_usage_seconds_total{id=\"/\",group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"}[5m]))",
+          "expr": "sum (rate (container_cpu_usage_seconds_total{id=\"/\",cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\"}[5m]))",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -522,7 +524,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": " cores",
       "postfixFontSize": "30%",
       "prefix": "",
@@ -543,10 +544,11 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum (machine_cpu_cores{group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"})",
+          "expr": "sum (machine_cpu_cores{cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\"})",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A",
           "step": 10
         }
@@ -611,7 +613,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "20%",
       "prefix": "",
@@ -632,10 +633,11 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum (container_memory_working_set_bytes{id=\"/\",group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"})",
+          "expr": "sum (container_memory_working_set_bytes{id=\"/\",cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\"})",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A",
           "step": 10
         }
@@ -700,7 +702,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -721,10 +722,11 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum (machine_memory_bytes{group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"})",
+          "expr": "sum (machine_memory_bytes{cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\"})",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A",
           "step": 10
         }
@@ -790,7 +792,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -811,7 +812,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum (container_fs_usage_bytes{device=~\"^/dev/xvda.$\",id=\"/\",group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"})",
+          "expr": "sum (container_fs_usage_bytes{device=~\"^/dev/xvda.$\",id=\"/\",cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\"})",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -881,7 +882,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -902,7 +902,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum (container_fs_limit_bytes{device=~\"^/dev/xvda.$\",id=\"/\",group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"})",
+          "expr": "sum (container_fs_limit_bytes{device=~\"^/dev/xvda.$\",id=\"/\",cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\"})",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -977,7 +977,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum (rate(container_network_receive_bytes_total{group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"}[5m]))",
+          "expr": "sum (rate(container_network_receive_bytes_total{cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\"}[5m]))",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -987,7 +987,7 @@
           "step": 10
         },
         {
-          "expr": "- sum (rate(container_network_transmit_bytes_total{group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"}[5m]))",
+          "expr": "- sum (rate(container_network_transmit_bytes_total{cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\"}[5m]))",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -1098,7 +1098,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1119,11 +1118,12 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "count(machine_cpu_cores{group=\"$group\",environment=\"$environment\",nodeType=\"master\"})",
+          "expr": "count(machine_cpu_cores{cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\",nodeType=\"master\"})",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
           "intervalFactor": 2,
+          "legendFormat": "",
           "refId": "A",
           "step": 60
         }
@@ -1186,7 +1186,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1207,11 +1206,12 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "count(machine_cpu_cores{group=\"$group\",environment=\"$environment\",nodeType=\"slave\"})",
+          "expr": "count(machine_cpu_cores{cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\",nodeType=\"slave\"})",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
           "intervalFactor": 2,
+          "legendFormat": "",
           "refId": "A",
           "step": 60
         }
@@ -1275,7 +1275,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": " cores",
       "postfixFontSize": "30%",
       "prefix": "",
@@ -1296,7 +1295,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(machine_cpu_cores{group=\"$group\",environment=\"$environment\"})",
+          "expr": "sum(machine_cpu_cores{cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\"})",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 2,
@@ -1364,7 +1363,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "30%",
       "prefix": "",
@@ -1385,7 +1383,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(machine_memory_bytes{group=\"$group\",environment=\"$environment\"})",
+          "expr": "sum(machine_memory_bytes{cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\"})",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 2,
@@ -1450,7 +1448,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1471,9 +1468,11 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(kube_node_spec_unschedulable{group=\"$group\",environment=\"$environment\"})",
+          "expr": "sum(kube_node_spec_unschedulable{cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\"})",
           "format": "time_series",
+          "interval": "",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
@@ -1533,7 +1532,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1554,9 +1552,11 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(kubelet_running_pod_count{group=\"$group\",environment=\"$environment\"})",
+          "expr": "sum(kubelet_running_pod_count{cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\"})",
           "format": "time_series",
+          "interval": "",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
@@ -1616,7 +1616,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1637,9 +1636,11 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(kubelet_running_container_count{container_state=\"running\",group=\"$group\",environment=\"$environment\"})",
+          "expr": "sum(kubelet_running_container_count{cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\"})",
           "format": "time_series",
+          "interval": "",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
@@ -1723,7 +1724,7 @@
       "steppedLine": true,
       "targets": [
         {
-          "expr": "sum (rate (container_cpu_usage_seconds_total{namespace!~\"kube-system|kubernetes-dashboard\",pod!=\"\",group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"$Node\"}[5m])) by (pod)",
+          "expr": "sum (rate(container_cpu_usage_seconds_total{namespace!~\"kube-system|kubernetes-dashboard\",pod!=\"\",cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\"}[5m])) by (pod)",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -1827,7 +1828,7 @@
       "steppedLine": true,
       "targets": [
         {
-          "expr": "sum (container_memory_working_set_bytes{namespace!~\"kube-system|kubernetes-dashboard\",pod!=\"\",group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"}) by (pod)",
+          "expr": "sum (container_memory_working_set_bytes{namespace!~\"kube-system|kubernetes-dashboard\",pod!=\"\",cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\"}) by (pod)",
           "format": "time_series",
           "hide": false,
           "instant": false,
@@ -1933,7 +1934,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum (rate (container_network_receive_bytes_total{namespace!~\"kube-system|kubernetes-dashboard\",pod!=\"\",group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"}[5m])) by (pod)",
+          "expr": "sum (rate(container_network_receive_bytes_total{namespace!~\"kube-system|kubernetes-dashboard\",pod!=\"\",cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\"}[5m])) by (pod)",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -1943,7 +1944,7 @@
           "step": 10
         },
         {
-          "expr": "- sum (rate (container_network_transmit_bytes_total{namespace!~\"kube-system|kubernetes-dashboard\",pod!=\"\",group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"}[5m])) by (pod)",
+          "expr": "- sum (rate(container_network_transmit_bytes_total{namespace!~\"kube-system|kubernetes-dashboard\",pod!=\"\",cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\"}[5m])) by (pod)",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -2058,7 +2059,7 @@
           "steppedLine": true,
           "targets": [
             {
-              "expr": "sum (rate (container_cpu_usage_seconds_total{namespace=~\"kube-system|kubernetes-dashboard\",pod!=\"\",group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"$Node\"}[5m])) by (pod)",
+              "expr": "sum (rate (container_cpu_usage_seconds_total{namespace=~\"kube-system|kubernetes-dashboard\",pod!=\"\",cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\"}[5m])) by (pod)",
               "format": "time_series",
               "hide": false,
               "interval": "$interval",
@@ -2163,7 +2164,7 @@
           "steppedLine": true,
           "targets": [
             {
-              "expr": "sum (container_memory_working_set_bytes{namespace=~\"kube-system|kubernetes-dashboard\",pod!=\"\",group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"}) by (pod)",
+              "expr": "sum (container_memory_working_set_bytes{namespace=~\"kube-system|kubernetes-dashboard\",pod!=\"\",cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\"}) by (pod)",
               "format": "time_series",
               "interval": "$interval",
               "intervalFactor": 1,
@@ -2194,6 +2195,7 @@
           },
           "yaxes": [
             {
+              "$$hashKey": "object:2169",
               "decimals": 1,
               "format": "bytes",
               "label": null,
@@ -2203,6 +2205,7 @@
               "show": true
             },
             {
+              "$$hashKey": "object:2170",
               "format": "short",
               "label": null,
               "logBase": 1,
@@ -2248,7 +2251,7 @@
             "h": 9,
             "w": 24,
             "x": 0,
-            "y": 54
+            "y": 42
           },
           "hiddenSeries": false,
           "id": 20,
@@ -2282,7 +2285,7 @@
           "steppedLine": true,
           "targets": [
             {
-              "expr": "sum (rate (container_cpu_usage_seconds_total{id!=\"/\",group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"}[5m])) by (id)",
+              "expr": "sum (rate (container_cpu_usage_seconds_total{id!=\"/\",cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\"}[5m])) by (id)",
               "format": "time_series",
               "hide": false,
               "interval": "$interval",
@@ -2352,7 +2355,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 63
+            "y": 51
           },
           "hiddenSeries": false,
           "id": 28,
@@ -2387,7 +2390,7 @@
           "steppedLine": true,
           "targets": [
             {
-              "expr": "sum (container_memory_working_set_bytes{id!=\"/\",group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"}) by (id)",
+              "expr": "sum (container_memory_working_set_bytes{id!=\"/\",cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\"}) by (id)",
               "format": "time_series",
               "interval": "$interval",
               "intervalFactor": 1,
@@ -2455,7 +2458,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 71
+            "y": 59
           },
           "hiddenSeries": false,
           "id": 29,
@@ -2490,7 +2493,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum (rate (container_network_receive_bytes_total{id!=\"/\",group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"}[5m])) by (id)",
+              "expr": "sum (rate (container_network_receive_bytes_total{id!=\"/\",cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\"}[5m])) by (id)",
               "format": "time_series",
               "interval": "$interval",
               "intervalFactor": 1,
@@ -2500,7 +2503,7 @@
               "step": 10
             },
             {
-              "expr": "- sum (rate (container_network_transmit_bytes_total{id!=\"/\",group=\"$group\",environment=\"$environment\",kubernetes_io_hostname=~\"^$Node$\"}[5m])) by (id)",
+              "expr": "- sum (rate (container_network_transmit_bytes_total{id!=\"/\",cluster=\"$cluster\",environment=\"$environment\",project=\"$project\",kubernetes_io_hostname=~\"$node\"}[5m])) by (id)",
               "format": "time_series",
               "interval": "$interval",
               "intervalFactor": 1,
@@ -2560,7 +2563,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 21,
+  "schemaVersion": 22,
   "style": "dark",
   "tags": [
     "Platform",
@@ -2629,6 +2632,7 @@
         "definition": "label_values(machine_cpu_cores, environment)",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
         "label": "Environment",
         "multi": false,
         "name": "environment",
@@ -2648,16 +2652,17 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "machine_cpu_cores{environment=~\"$environment\"}",
+        "definition": "label_values(machine_cpu_cores{environment=\"$environment\"}, project)",
         "hide": 0,
         "includeAll": false,
-        "label": "Group",
+        "index": -1,
+        "label": "Project",
         "multi": false,
-        "name": "group",
+        "name": "project",
         "options": [],
-        "query": "machine_cpu_cores{environment=~\"$environment\"}",
+        "query": "label_values(machine_cpu_cores{environment=\"$environment\"}, project)",
         "refresh": 1,
-        "regex": "/group=\"(.+?)\"/",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
@@ -2667,21 +2672,45 @@
         "useTags": false
       },
       {
-        "allValue": ".*",
+        "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "machine_cpu_cores{group=~\"$group\",environment=~\"$environment\"}",
+        "definition": "label_values(machine_cpu_cores{project=\"$project\",environment=\"$environment\"},cluster)",
         "hide": 0,
-        "includeAll": true,
-        "label": "Node",
-        "multi": true,
-        "name": "Node",
+        "includeAll": false,
+        "index": -1,
+        "label": "Cluster",
+        "multi": false,
+        "name": "cluster",
         "options": [],
-        "query": "machine_cpu_cores{group=~\"$group\",environment=~\"$environment\"}",
+        "query": "label_values(machine_cpu_cores{project=\"$project\",environment=\"$environment\"},cluster)",
         "refresh": 1,
-        "regex": "/instance=\"(.+?)\"/",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": "",
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(machine_cpu_cores{cluster=\"$cluster\",environment=\"$environment\",project=\"$project\"},instance)",
+        "hide": 0,
+        "includeAll": true,
+        "index": -1,
+        "label": "Node",
+        "multi": true,
+        "name": "node",
+        "options": [],
+        "query": "label_values(machine_cpu_cores{cluster=\"$cluster\",environment=\"$environment\",project=\"$project\"},instance)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
         "tagValuesQuery": "",
         "tags": [],
         "tagsQuery": "",
@@ -2722,5 +2751,8 @@
   "timezone": "browser",
   "title": "Kubernetes Cluster",
   "uid": "U_gA5P2mz",
+  "variables": {
+    "list": []
+  },
   "version": 1
 }

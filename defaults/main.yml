@@ -138,6 +138,7 @@ grafana_dashboard_arg:
       - 'PostgreSQL_Overview'
   - category: 'OperatingSystem'
     title:
+      - 'Cross_Server_Graphs'
       - 'Linux_Disk_Performance'
       - 'Linux_Disk_Space'
       - 'Linux_Network_Overview'
@@ -147,7 +148,6 @@ grafana_dashboard_arg:
     title:
       - 'Alertmanager_Overview'
       - 'Consul_Overview'
-      - 'Cross_Server_Graphs'
       - 'Elasticsearch_Overview'
       - 'Graylog_Overview'
       - 'Home_Dashboard'

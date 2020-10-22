@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.5.3"
+      "version": "6.7.4"
     },
     {
       "type": "panel",
@@ -38,6 +38,7 @@
   "annotations": {
     "list": [
       {
+        "$$hashKey": "object:1415",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -53,9 +54,10 @@
   "gnetId": 9965,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1582596533496,
+  "iteration": 1603351900299,
   "links": [
     {
+      "$$hashKey": "object:1499",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -67,6 +69,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:1500",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -78,6 +81,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:1501",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -89,6 +93,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:1502",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -146,7 +151,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -335,7 +339,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": " Days",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -423,7 +426,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -521,7 +523,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -566,7 +567,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 21,
+  "schemaVersion": 22,
   "style": "dark",
   "tags": [
     "Insight"
@@ -631,14 +632,15 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(probe_dns_lookup_time_seconds , group)",
+        "definition": "label_values(probe_dns_lookup_time_seconds,environment)",
         "hide": 0,
         "includeAll": false,
-        "label": "Group",
+        "index": -1,
+        "label": "Environment",
         "multi": false,
-        "name": "group",
+        "name": "environment",
         "options": [],
-        "query": "label_values(probe_dns_lookup_time_seconds , group)",
+        "query": "label_values(probe_dns_lookup_time_seconds,environment)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -653,16 +655,63 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "probe_dns_lookup_time_seconds {group=\"$group\"}",
+        "definition": "label_values(probe_dns_lookup_time_seconds{environment=\"$environment\"},project)",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
+        "label": "Project",
+        "multi": false,
+        "name": "project",
+        "options": [],
+        "query": "label_values(probe_dns_lookup_time_seconds{environment=\"$environment\"},project)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(probe_dns_lookup_time_seconds{environment=\"$environment\",project=\"$project\"},group)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Group",
+        "multi": false,
+        "name": "group",
+        "options": [],
+        "query": "label_values(probe_dns_lookup_time_seconds{environment=\"$environment\",project=\"$project\"},group)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(probe_dns_lookup_time_seconds {environment=\"$environment\",project=\"$project\",group=\"$group\"},target)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
         "label": "Target",
         "multi": false,
         "name": "target",
         "options": [],
-        "query": "probe_dns_lookup_time_seconds {group=\"$group\"}",
+        "query": "label_values(probe_dns_lookup_time_seconds {environment=\"$environment\",project=\"$project\",group=\"$group\"},target)",
         "refresh": 1,
-        "regex": "/target=\"(.+?)\"/",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
@@ -705,5 +754,8 @@
   "timezone": "browser",
   "title": "WebSite Overview",
   "uid": "ynUxXflik",
+  "variables": {
+    "list": []
+  },
   "version": 1
 }
