@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.5.2"
+      "version": "6.7.4"
     },
     {
       "type": "panel",
@@ -38,6 +38,7 @@
   "annotations": {
     "list": [
       {
+        "$$hashKey": "object:18",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -52,7 +53,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1582090713088,
+  "iteration": 1604469746408,
   "links": [
     {
       "asDropdown": true,
@@ -163,7 +164,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "s",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -189,7 +189,7 @@
           "errors": {},
           "expr": "mysql_global_status_uptime{instance=\"$host\"}",
           "format": "time_series",
-          "interval": "5m",
+          "interval": "$interval",
           "intervalFactor": 1,
           "legendFormat": "",
           "metric": "",
@@ -252,7 +252,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "80%",
       "prefix": "",
@@ -279,7 +278,7 @@
           "expr": "mysql_version_info{instance=\"$host\"}",
           "format": "time_series",
           "instant": false,
-          "interval": "60m",
+          "interval": "$interval",
           "intervalFactor": 1,
           "legendFormat": "{{ version }}",
           "metric": "",
@@ -347,7 +346,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -441,7 +439,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -467,7 +464,7 @@
           "errors": {},
           "expr": "mysql_global_variables_innodb_buffer_pool_size{instance=\"$host\"}",
           "format": "time_series",
-          "interval": "5m",
+          "interval": "$interval",
           "intervalFactor": 1,
           "legendFormat": "",
           "metric": "",
@@ -530,7 +527,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -556,7 +552,7 @@
           "errors": {},
           "expr": "(mysql_global_variables_innodb_buffer_pool_size{instance=\"$host\"} * 100) / on (instance) node_memory_MemTotal_bytes{instance=\"$host\"}",
           "format": "time_series",
-          "interval": "5m",
+          "interval": "$interval",
           "intervalFactor": 1,
           "legendFormat": "",
           "metric": "",
@@ -640,6 +636,7 @@
       "renderer": "flot",
       "seriesOverrides": [
         {
+          "$$hashKey": "object:229",
           "alias": "Max Connections",
           "fill": 0
         }
@@ -711,6 +708,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:242",
           "format": "short",
           "label": "",
           "logBase": 1,
@@ -719,6 +717,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:243",
           "format": "short",
           "label": "",
           "logBase": 1,
@@ -738,7 +737,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "DS_PROMETHEUS",
-      "decimals": 2,
+      "decimals": 0,
       "description": "**MySQL Active Threads**\n\nThreads Connected is the number of open connections, while Threads Running is the number of threads not sleeping.",
       "editable": true,
       "error": false,
@@ -778,6 +777,7 @@
       "renderer": "flot",
       "seriesOverrides": [
         {
+          "$$hashKey": "object:124",
           "alias": "Peak Threads Running",
           "color": "#E24D42",
           "lines": false,
@@ -785,10 +785,12 @@
           "points": true
         },
         {
+          "$$hashKey": "object:125",
           "alias": "Peak Threads Connected",
           "color": "#1F78C1"
         },
         {
+          "$$hashKey": "object:126",
           "alias": "Avg Threads Running",
           "color": "#EAB839"
         }
@@ -857,6 +859,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:157",
           "format": "short",
           "label": "Threads",
           "logBase": 1,
@@ -865,6 +868,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:158",
           "format": "short",
           "label": "",
           "logBase": 1,
@@ -1007,7 +1011,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "DS_PROMETHEUS",
-      "decimals": 2,
+      "decimals": 0,
       "description": "**MySQL Thread Cache**\n\nThe thread_cache_size variable sets how many threads the server should cache to reuse. When a client disconnects, the client's threads are put in the cache if the cache is not full. It is autosized in MySQL 5.6.8 and above (capped to 100). Requests for threads are satisfied by reusing threads taken from the cache if possible, and only when the cache is empty is a new thread created.\n\n* *Threads_created*: The number of threads created to handle connections.\n* *Threads_cached*: The number of threads in the thread cache.",
       "editable": true,
       "error": false,
@@ -1053,6 +1057,7 @@
       "renderer": "flot",
       "seriesOverrides": [
         {
+          "$$hashKey": "object:315",
           "alias": "Threads Created",
           "fill": 0
         }
@@ -1122,6 +1127,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:328",
           "format": "short",
           "logBase": 1,
           "max": null,
@@ -1129,6 +1135,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:329",
           "format": "short",
           "logBase": 1,
           "max": null,
@@ -4813,7 +4820,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 21,
+  "schemaVersion": 22,
   "style": "dark",
   "tags": [
     "Databases"
@@ -4886,6 +4893,7 @@
         "definition": "",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
         "label": "Group",
         "multi": false,
         "name": "group",
@@ -4909,6 +4917,7 @@
         "definition": "",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
         "label": "Host",
         "multi": false,
         "multiFormat": "regex values",
@@ -4967,5 +4976,8 @@
   "timezone": "browser",
   "title": "MySQL Overview",
   "uid": "MQWgroiiz",
+  "variables": {
+    "list": []
+  },
   "version": 1
 }

@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.5.2"
+      "version": "6.7.4"
     },
     {
       "type": "panel",
@@ -38,6 +38,7 @@
   "annotations": {
     "list": [
       {
+        "$$hashKey": "object:18",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -52,7 +53,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1582091088317,
+  "iteration": 1604470104753,
   "links": [
     {
       "asDropdown": true,
@@ -136,7 +137,6 @@
       "hideTimeOverride": false,
       "id": 49,
       "links": [],
-      "options": {},
       "pageSize": null,
       "scroll": false,
       "showHeader": true,
@@ -146,6 +146,7 @@
       },
       "styles": [
         {
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -163,7 +164,7 @@
       "targets": [
         {
           "expr": "topk(10, sum(mysql_info_schema_table_rows{instance=\"$host\"}) by (schema, table)) > 0",
-          "interval": "5m",
+          "interval": "$interval",
           "intervalFactor": 1,
           "legendFormat": "{{ schema }}.{{ table }}",
           "refId": "A",
@@ -196,7 +197,6 @@
       "hideTimeOverride": false,
       "id": 51,
       "links": [],
-      "options": {},
       "pageSize": null,
       "scroll": false,
       "showHeader": true,
@@ -206,6 +206,7 @@
       },
       "styles": [
         {
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -223,7 +224,7 @@
       "targets": [
         {
           "expr": "topk(10, sum(mysql_info_schema_table_size{instance=\"$host\", component!=\"data_free\"}) by (schema, table)) > 0",
-          "interval": "5m",
+          "interval": "$interval",
           "intervalFactor": 1,
           "legendFormat": "{{ schema }}.{{ table }}",
           "refId": "A",
@@ -387,7 +388,6 @@
       "hideTimeOverride": true,
       "id": 50,
       "links": [],
-      "options": {},
       "pageSize": null,
       "scroll": false,
       "showHeader": true,
@@ -397,6 +397,7 @@
       },
       "styles": [
         {
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -415,7 +416,7 @@
         {
           "expr": "topk(5, sum(mysql_info_schema_table_size{instance=\"$host\", component=\"data_free\"}) by (schema, table)) > 0",
           "format": "table",
-          "interval": "5m",
+          "interval": "$interval",
           "intervalFactor": 1,
           "legendFormat": "{{ schema }}.{{ table }}",
           "refId": "A",
@@ -701,7 +702,6 @@
       "hideTimeOverride": true,
       "id": 53,
       "links": [],
-      "options": {},
       "pageSize": null,
       "scroll": false,
       "showHeader": true,
@@ -712,6 +712,7 @@
       "styles": [
         {
           "alias": "",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -728,6 +729,7 @@
         },
         {
           "alias": "",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -744,6 +746,7 @@
         },
         {
           "alias": "",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -760,6 +763,7 @@
         },
         {
           "alias": "",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -776,6 +780,7 @@
         },
         {
           "alias": "",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -795,7 +800,7 @@
         {
           "expr": "topk(10, mysql_info_schema_auto_increment_column{instance=\"$host\"} / mysql_info_schema_auto_increment_column_max{instance=\"$host\"})",
           "format": "table",
-          "interval": "5m",
+          "interval": "$interval",
           "intervalFactor": 1,
           "legendFormat": "{{ schema }}.{{ table }}",
           "refId": "A",
@@ -809,7 +814,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 21,
+  "schemaVersion": 22,
   "style": "dark",
   "tags": [
     "Databases"
@@ -882,6 +887,7 @@
         "definition": "",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
         "label": "Group",
         "multi": false,
         "name": "group",
@@ -905,6 +911,7 @@
         "definition": "",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
         "label": "Host",
         "multi": false,
         "multiFormat": "regex values",
@@ -963,5 +970,8 @@
   "timezone": "browser",
   "title": "MySQL Table Statistics",
   "uid": "CiMg9oiik",
+  "variables": {
+    "list": []
+  },
   "version": 1
 }
