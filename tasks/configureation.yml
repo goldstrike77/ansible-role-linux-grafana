@@ -110,10 +110,11 @@
     regexp: '{{ item.regexp }}'
     line: '{{ item.line }}'
   loop:
-    - { regexp: '^http_addr =', line: 'http_addr = {{ ansible_default_ipv4.address }}' }
-    - { regexp: '^http_port =', line: 'http_port = {{ grafana_port | default("3000") }}' }
-    - { regexp: '^root_url =',  line: 'root_url = %(protocol)s://%(domain)s/grafana/', create: '{{ grafana_proxy | bool }}' }
-    - { regexp: '^protocol =',  line: 'protocol = https', create: '{{ grafana_https | bool }}' }
-    - { regexp: '^cert_file =', line: 'cert_file = {{ grafana_cert_path }}/certificate.pem', create: '{{ grafana_https | bool }}' }
-    - { regexp: '^cert_key =',  line: 'cert_key = {{ grafana_cert_path }}/server.key', create: '{{ grafana_https | bool }}' }
+    - { regexp: '^http_addr =',           line: 'http_addr = {{ ansible_default_ipv4.address }}' }
+    - { regexp: '^http_port =',           line: 'http_port = {{ grafana_port | default("3000") }}' }
+    - { regexp: '^root_url =',            line: 'root_url = %(protocol)s://%(domain)s/grafana/', create: '{{ grafana_proxy | bool }}' }
+    - { regexp: '^serve_from_sub_path =', line: 'serve_from_sub_path = true', create: '{{ grafana_proxy | bool }}' }
+    - { regexp: '^protocol =',            line: 'protocol = https', create: '{{ grafana_https | bool }}' }
+    - { regexp: '^cert_file =',           line: 'cert_file = {{ grafana_cert_path }}/certificate.pem', create: '{{ grafana_https | bool }}' }
+    - { regexp: '^cert_key =',            line: 'cert_key = {{ grafana_cert_path }}/server.key', create: '{{ grafana_https | bool }}' }
   when: item.create | default(true) | bool
