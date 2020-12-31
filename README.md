@@ -61,11 +61,9 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `grafana_ngx_block_string`: Enables or disables block includes Exploits / File injections / Spam / SQL injections.
 * `grafana_ngx_compress`: Enables or disables compression.
 * `grafana_ngx_domain`: Defines domain name.
-* `grafana_ngx_pagespeed`: Enables or disables pagespeed modules.
 * `grafana_ngx_port_http`: NGinx HTTP listen port.
 * `grafana_ngx_port_https`: NGinx HTTPs listen port.
 * `grafana_ngx_ssl_protocols`: intermediate or modern, defines SSL protocol profile.
-* `grafana_ngx_version`: extras or standard
 
 ##### Server System Variables
 * `grafana_arg.default_theme`: Default UI theme.
@@ -87,6 +85,7 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `environments`: Define the service environment.
 * `datacenter`: Define the DataCenter.
 * `domain`: Define the Domain.
+* `customer`: Define the customer name.
 * `tags`: Define the service custom label.
 * `exporter_is_install`: Whether to install prometheus exporter.
 * `consul_public_register`: Whether register a exporter service with public consul client.
@@ -133,11 +132,9 @@ grafana_ngx_block_agents: false
 grafana_ngx_block_string: false
 grafana_ngx_compress: false
 grafana_ngx_domain: 'visual.example.com'
-grafana_ngx_pagespeed: false
 grafana_ngx_port_http: '80'
 grafana_ngx_port_https: '443'
 grafana_ngx_ssl_protocols: 'modern'
-grafana_ngx_version: 'extras'
 grafana_ngx_backend:
   - '127.0.0.1'
 grafana_ngx_site:
@@ -176,9 +173,10 @@ grafana_dashboard_arg:
       - 'Linux_Network_Overview'
       - 'Linux_System_Overview'
       - 'Windows_System_Overview'
-environments: 'Development'
+environments: 'prd'
 datacenter: 'dc01'
 domain: 'local'
+customer: 'demo'
 tags:
   subscription: 'default'
   owner: 'nobody'

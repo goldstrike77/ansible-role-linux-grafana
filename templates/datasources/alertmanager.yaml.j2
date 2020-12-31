@@ -15,7 +15,7 @@ datasources:
   isDefault: false
 {% if grafana_incident_levels_map is defined %}
   jsonData:
-{% for key,value in grafana_incident_levels_map.iteritems() %}
+{% for key,value in grafana_incident_levels_map.items() %}
     severity_{{ key }}: {{ value }}
 {% endfor %}
 {% endif %}
