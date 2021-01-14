@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.7.4"
+      "version": "6.7.5"
     },
     {
       "type": "panel",
@@ -54,7 +54,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1603176094953,
+  "iteration": 1610519511307,
   "links": [
     {
       "$$hashKey": "object:22075",
@@ -178,7 +178,7 @@
           "expr": "(node_time_seconds{instance=\"$host\"} - node_boot_time_seconds{instance=\"$host\"}) or (time() - node_boot_time_seconds{instance=\"$host\"})",
           "format": "time_series",
           "hide": false,
-          "interval": "5m",
+          "interval": "1m",
           "intervalFactor": 1,
           "legendFormat": "",
           "metric": "",
@@ -262,7 +262,7 @@
           "expr": "os_info{instance=\"$host\"}",
           "format": "time_series",
           "instant": true,
-          "interval": "5m",
+          "interval": "1m",
           "intervalFactor": 1,
           "legendFormat": "{{ build }}",
           "refId": "A",
@@ -350,8 +350,9 @@
         {
           "expr": "(count(node_cpu_seconds_total{instance=\"$host\",mode=\"user\"}) or (1-absent(node_cpu_seconds_total{instance=\"$host\",mode=\"user\"}))) + sum(rdsosmetrics_General_numVCPUs{instance=\"$host\"} or up * 0)",
           "format": "time_series",
-          "interval": "5m",
+          "interval": "1m",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A",
           "step": 300
         }
@@ -438,8 +439,9 @@
         {
           "expr": "node_memory_MemTotal_bytes{instance=\"$host\"}",
           "format": "time_series",
-          "interval": "5m",
+          "interval": "1m",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A",
           "step": 300
         }
@@ -527,8 +529,9 @@
         {
           "expr": "node_memory_MemFree_bytes{instance=\"$host\"} + node_memory_Buffers_bytes{instance=\"$host\"} + node_memory_Cached_bytes{instance=\"$host\"}",
           "format": "time_series",
-          "interval": "5m",
+          "interval": "1m",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A",
           "step": 300
         }
@@ -616,8 +619,9 @@
         {
           "expr": "node_memory_MemTotal_bytes{instance=\"$host\"}+node_memory_SwapTotal_bytes{instance=\"$host\"}",
           "format": "time_series",
-          "interval": "5m",
+          "interval": "1m",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A",
           "step": 300
         }
@@ -711,8 +715,9 @@
         {
           "expr": "sum(node_filesystem_size_bytes{instance=\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) + sum(node_memory_SwapTotal_bytes{instance=\"$host\"})",
           "format": "time_series",
-          "interval": "5m",
+          "interval": "1m",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A",
           "step": 300
         }
@@ -806,8 +811,9 @@
         {
           "expr": "sum(node_filesystem_free_bytes{instance=\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"})",
           "format": "time_series",
-          "interval": "5m",
+          "interval": "1m",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A",
           "step": 300
         }
@@ -3176,7 +3182,30 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(node_load1, environment)",
+        "definition": "label_values(node_load1, customer)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Customer",
+        "multi": false,
+        "name": "customer",
+        "options": [],
+        "query": "label_values(node_load1, customer)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(node_load1{customer=\"$customer\"}, environment)",
         "hide": 0,
         "includeAll": false,
         "index": -1,
@@ -3184,11 +3213,11 @@
         "multi": false,
         "name": "environment",
         "options": [],
-        "query": "label_values(node_load1, environment)",
+        "query": "label_values(node_load1{customer=\"$customer\"}, environment)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
-        "sort": 0,
+        "sort": 1,
         "tagValuesQuery": "",
         "tags": [],
         "tagsQuery": "",
@@ -3199,7 +3228,7 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(node_load1{environment=\"$environment\"}, project)",
+        "definition": "label_values(node_load1{customer=\"$customer\",environment=\"$environment\"}, project)",
         "hide": 0,
         "includeAll": false,
         "index": -1,
@@ -3207,11 +3236,11 @@
         "multi": false,
         "name": "project",
         "options": [],
-        "query": "label_values(node_load1{environment=\"$environment\"}, project)",
+        "query": "label_values(node_load1{customer=\"$customer\",environment=\"$environment\"}, project)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
-        "sort": 0,
+        "sort": 1,
         "tagValuesQuery": "",
         "tags": [],
         "tagsQuery": "",
@@ -3222,7 +3251,7 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(node_load1{project=\"$project\",environment=\"$environment\"}, group)",
+        "definition": "label_values(node_load1{customer=\"$customer\",environment=\"$environment\",project=\"$project\"}, group)",
         "hide": 0,
         "includeAll": false,
         "index": -1,
@@ -3230,11 +3259,11 @@
         "multi": false,
         "name": "group",
         "options": [],
-        "query": "label_values(node_load1{project=\"$project\",environment=\"$environment\"}, group)",
+        "query": "label_values(node_load1{customer=\"$customer\",environment=\"$environment\",project=\"$project\"}, group)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
-        "sort": 0,
+        "sort": 1,
         "tagValuesQuery": "",
         "tags": [],
         "tagsQuery": "",
@@ -3246,7 +3275,7 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(node_load1{group=\"$group\",project=\"$project\",environment=\"$environment\"},instance)",
+        "definition": "label_values(node_load1{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\"},instance)",
         "hide": 0,
         "includeAll": false,
         "index": -1,
@@ -3255,7 +3284,7 @@
         "multiFormat": "regex values",
         "name": "host",
         "options": [],
-        "query": "label_values(node_load1{group=\"$group\",project=\"$project\",environment=\"$environment\"},instance)",
+        "query": "label_values(node_load1{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\"},instance)",
         "refresh": 1,
         "refresh_on_load": false,
         "regex": "",
@@ -3271,7 +3300,7 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "os_info{instance=~\"$host\"}",
+        "definition": "label_values(os_info{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",instance=\"$host\"},interface)",
         "hide": 2,
         "includeAll": false,
         "index": -1,
@@ -3279,11 +3308,11 @@
         "multi": false,
         "name": "interface",
         "options": [],
-        "query": "os_info{instance=~\"$host\"}",
+        "query": "label_values(os_info{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",instance=\"$host\"},interface)",
         "refresh": 1,
-        "regex": "/interface=\"(.+?)\"/",
+        "regex": "",
         "skipUrlSync": false,
-        "sort": 0,
+        "sort": 1,
         "tagValuesQuery": "",
         "tags": [],
         "tagsQuery": "",
@@ -3334,5 +3363,5 @@
   "variables": {
     "list": []
   },
-  "version": 2
+  "version": 1
 }

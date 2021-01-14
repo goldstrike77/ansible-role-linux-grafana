@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.7.4"
+      "version": "6.7.5"
     },
     {
       "type": "panel",
@@ -54,7 +54,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1603176222425,
+  "iteration": 1610519889073,
   "links": [
     {
       "$$hashKey": "object:22684",
@@ -133,7 +133,7 @@
       },
       "hideTimeOverride": true,
       "id": 2,
-      "interval": null,
+      "interval": "$interval",
       "links": [],
       "mappingType": 1,
       "mappingTypes": [
@@ -171,95 +171,15 @@
         {
           "expr": "time() - wmi_system_system_up_time{instance=\"$host\"}",
           "format": "time_series",
+          "interval": "1m",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
       "thresholds": "300,3600",
       "timeFrom": "$interval",
       "title": "Uptime",
-      "type": "singlestat",
-      "valueFontSize": "50%",
-      "valueMaps": [
-        {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
-        }
-      ],
-      "valueName": "current"
-    },
-    {
-      "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "#299c46",
-        "rgba(237, 129, 40, 0.89)",
-        "#d44a3a"
-      ],
-      "datasource": "DS_PROMETHEUS",
-      "format": "none",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
-      },
-      "gridPos": {
-        "h": 2,
-        "w": 2,
-        "x": 2,
-        "y": 0
-      },
-      "hideTimeOverride": true,
-      "id": 4,
-      "interval": null,
-      "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
-      "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "80%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
-      },
-      "tableColumn": "",
-      "targets": [
-        {
-          "expr": "wmi_cs_logical_processors{instance=\"$host\"}",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "refId": "A"
-        }
-      ],
-      "thresholds": "",
-      "timeFrom": "$interval",
-      "title": "Virtual CPUs",
       "type": "singlestat",
       "valueFontSize": "50%",
       "valueMaps": [
@@ -292,12 +212,12 @@
       "gridPos": {
         "h": 2,
         "w": 5,
-        "x": 4,
+        "x": 2,
         "y": 0
       },
       "hideTimeOverride": true,
       "id": 6,
-      "interval": null,
+      "interval": "$interval",
       "links": [],
       "mappingType": 1,
       "mappingTypes": [
@@ -338,7 +258,7 @@
           "expr": "os_info{instance=\"$host\"}",
           "format": "time_series",
           "instant": true,
-          "interval": "5m",
+          "interval": "1m",
           "intervalFactor": 1,
           "legendFormat": "{{ build }}",
           "refId": "A"
@@ -351,6 +271,90 @@
       "valueFontSize": "50%",
       "valueMaps": [],
       "valueName": "name"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "DS_PROMETHEUS",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 2,
+        "x": 7,
+        "y": 0
+      },
+      "hideTimeOverride": true,
+      "id": 4,
+      "interval": "$interval",
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "80%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "wmi_cs_logical_processors{instance=\"$host\"}",
+          "format": "time_series",
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": "$interval",
+      "title": "VCores",
+      "type": "singlestat",
+      "valueFontSize": "50%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
     },
     {
       "cacheTimeout": null,
@@ -379,7 +383,7 @@
       },
       "hideTimeOverride": true,
       "id": 8,
-      "interval": null,
+      "interval": "$interval",
       "links": [],
       "mappingType": 1,
       "mappingTypes": [
@@ -417,13 +421,15 @@
         {
           "expr": "wmi_os_visible_memory_bytes{instance=\"$host\"}",
           "format": "time_series",
+          "interval": "1m",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
       "thresholds": "",
       "timeFrom": "$interval",
-      "title": "Physical Memory Space",
+      "title": "Physical Memory",
       "type": "singlestat",
       "valueFontSize": "50%",
       "valueMaps": [
@@ -462,7 +468,7 @@
       },
       "hideTimeOverride": true,
       "id": 10,
-      "interval": null,
+      "interval": "$interval",
       "links": [],
       "mappingType": 1,
       "mappingTypes": [
@@ -500,13 +506,15 @@
         {
           "expr": "wmi_os_physical_memory_free_bytes{instance=\"$host\"}",
           "format": "time_series",
+          "interval": "1m",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
       "thresholds": "",
       "timeFrom": "$interval",
-      "title": "Physical Memory Available",
+      "title": "Memory Available",
       "type": "singlestat",
       "valueFontSize": "50%",
       "valueMaps": [
@@ -546,7 +554,7 @@
       },
       "hideTimeOverride": true,
       "id": 12,
-      "interval": null,
+      "interval": "$interval",
       "links": [],
       "mappingType": 1,
       "mappingTypes": [
@@ -584,7 +592,9 @@
         {
           "expr": "wmi_os_virtual_memory_bytes{instance=\"$host\"}",
           "format": "time_series",
+          "interval": "1m",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
@@ -631,7 +641,7 @@
       },
       "hideTimeOverride": true,
       "id": 14,
-      "interval": null,
+      "interval": "$interval",
       "links": [],
       "mappingType": 1,
       "mappingTypes": [
@@ -669,7 +679,9 @@
         {
           "expr": "sum(wmi_logical_disk_size_bytes{instance=\"$host\"})",
           "format": "time_series",
+          "interval": "1m",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
@@ -715,7 +727,7 @@
       },
       "hideTimeOverride": true,
       "id": 15,
-      "interval": null,
+      "interval": "$interval",
       "links": [],
       "mappingType": 1,
       "mappingTypes": [
@@ -753,7 +765,9 @@
         {
           "expr": "sum(wmi_logical_disk_free_bytes{instance=\"$host\",volume!~\"HarddiskVolume.*\"})",
           "format": "time_series",
+          "interval": "1m",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
@@ -2035,61 +2049,15 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(wmi_system_system_up_time, environment)",
+        "definition": "label_values(wmi_system_system_up_time, customer)",
         "hide": 0,
         "includeAll": false,
         "index": -1,
-        "label": "Environment",
+        "label": "Customer",
         "multi": false,
-        "name": "environment",
+        "name": "customer",
         "options": [],
-        "query": "label_values(wmi_system_system_up_time, environment)",
-        "refresh": 1,
-        "regex": "",
-        "skipUrlSync": false,
-        "sort": 0,
-        "tagValuesQuery": "",
-        "tags": [],
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
-      },
-      {
-        "allValue": null,
-        "current": {},
-        "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(wmi_system_system_up_time{environment=\"$environment\"}, project)",
-        "hide": 0,
-        "includeAll": false,
-        "index": -1,
-        "label": "Project",
-        "multi": false,
-        "name": "project",
-        "options": [],
-        "query": "label_values(wmi_system_system_up_time{environment=\"$environment\"}, project)",
-        "refresh": 1,
-        "regex": "",
-        "skipUrlSync": false,
-        "sort": 0,
-        "tagValuesQuery": "",
-        "tags": [],
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
-      },
-      {
-        "allValue": null,
-        "current": {},
-        "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(wmi_system_system_up_time{project=\"$project\",environment=\"$environment\"}, group)",
-        "hide": 0,
-        "includeAll": false,
-        "index": -1,
-        "label": "Group",
-        "multi": false,
-        "name": "group",
-        "options": [],
-        "query": "label_values(wmi_system_system_up_time{project=\"$project\",environment=\"$environment\"}, group)",
+        "query": "label_values(wmi_system_system_up_time, customer)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -2104,7 +2072,76 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(wmi_system_system_up_time{group=\"$group\",project=\"$project\",environment=\"$environment\"},instance)",
+        "definition": "label_values(wmi_system_system_up_time{customer=\"$customer\"}, environment)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Environment",
+        "multi": false,
+        "name": "environment",
+        "options": [],
+        "query": "label_values(wmi_system_system_up_time{customer=\"$customer\"}, environment)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(wmi_system_system_up_time{customer=\"$customer\",environment=\"$environment\"}, project)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Project",
+        "multi": false,
+        "name": "project",
+        "options": [],
+        "query": "label_values(wmi_system_system_up_time{customer=\"$customer\",environment=\"$environment\"}, project)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(wmi_system_system_up_time{customer=\"$customer\",environment=\"$environment\",project=\"$project\"}, group)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Group",
+        "multi": false,
+        "name": "group",
+        "options": [],
+        "query": "label_values(wmi_system_system_up_time{customer=\"$customer\",environment=\"$environment\",project=\"$project\"}, group)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(wmi_system_system_up_time{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\"},instance)",
         "hide": 0,
         "includeAll": false,
         "index": -1,
@@ -2112,7 +2149,7 @@
         "multi": false,
         "name": "host",
         "options": [],
-        "query": "label_values(wmi_system_system_up_time{group=\"$group\",project=\"$project\",environment=\"$environment\"},instance)",
+        "query": "label_values(wmi_system_system_up_time{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\"},instance)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -2160,5 +2197,5 @@
   "variables": {
     "list": []
   },
-  "version": 2
+  "version": 1
 }

@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.5.3"
+      "version": "6.7.5"
     },
     {
       "type": "panel",
@@ -44,6 +44,7 @@
   "annotations": {
     "list": [
       {
+        "$$hashKey": "object:1310",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -58,9 +59,10 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1589945554258,
+  "iteration": 1610521608382,
   "links": [
     {
+      "$$hashKey": "object:1627",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -72,6 +74,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:1628",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -83,6 +86,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:1629",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -94,6 +98,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:1630",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -162,7 +167,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -186,6 +190,7 @@
           "expr": "((sum(elasticsearch_cluster_health_status{cluster=\"$cluster\",color=\"green\"})*2)+sum(elasticsearch_cluster_health_status{cluster=\"$cluster\",color=\"yellow\"})) / (count(elasticsearch_cluster_health_number_of_data_nodes{cluster=\"$cluster\"}))",
           "format": "time_series",
           "instant": false,
+          "interval": "$interval",
           "intervalFactor": 1,
           "legendFormat": "",
           "refId": "A"
@@ -263,7 +268,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -349,7 +353,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -437,7 +440,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -491,7 +493,6 @@
       "hideTimeOverride": true,
       "id": 100,
       "interval": "",
-      "options": {},
       "pageSize": null,
       "repeat": null,
       "showHeader": true,
@@ -502,6 +503,7 @@
       "styles": [
         {
           "alias": "Node",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -518,6 +520,7 @@
         },
         {
           "alias": "IP",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -534,6 +537,7 @@
         },
         {
           "alias": "Version",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -550,6 +554,7 @@
         },
         {
           "alias": "Heap",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -566,6 +571,7 @@
         },
         {
           "alias": "",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -649,7 +655,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -732,7 +737,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -815,7 +819,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1766,7 +1769,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 21,
+  "schemaVersion": 22,
   "style": "dark",
   "tags": [
     "Insight"
@@ -1831,14 +1834,107 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(elasticsearch_cluster_health_status, cluster)",
+        "definition": "label_values(elasticsearch_cluster_health_status, customer)",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
+        "label": "Customer",
+        "multi": false,
+        "name": "customer",
+        "options": [],
+        "query": "label_values(elasticsearch_cluster_health_status, customer)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(elasticsearch_cluster_health_status{customer=\"$customer\"}, environment)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Environment",
+        "multi": false,
+        "name": "environment",
+        "options": [],
+        "query": "label_values(elasticsearch_cluster_health_status{customer=\"$customer\"}, environment)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(elasticsearch_cluster_health_status{customer=\"$customer\",environment=\"$environment\"}, project)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Project",
+        "multi": false,
+        "name": "project",
+        "options": [],
+        "query": "label_values(elasticsearch_cluster_health_status{customer=\"$customer\",environment=\"$environment\"}, project)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(elasticsearch_cluster_health_status{customer=\"$customer\",environment=\"$environment\",project=\"$project\"}, group)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Group",
+        "multi": false,
+        "name": "group",
+        "options": [],
+        "query": "label_values(elasticsearch_cluster_health_status{customer=\"$customer\",environment=\"$environment\",project=\"$project\"}, group)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(elasticsearch_cluster_health_status{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\"}, cluster)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
         "label": "Cluster",
         "multi": false,
         "name": "cluster",
         "options": [],
-        "query": "label_values(elasticsearch_cluster_health_status, cluster)",
+        "query": "label_values(elasticsearch_cluster_health_status{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\"}, cluster)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -1883,5 +1979,8 @@
   "timezone": "browser",
   "title": "Elasticsearch Overview",
   "uid": "1111",
-  "version": 2
+  "variables": {
+    "list": []
+  },
+  "version": 1
 }
