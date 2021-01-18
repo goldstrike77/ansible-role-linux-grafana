@@ -2,7 +2,7 @@
   "__inputs": [
     {
       "name": "DS_PROMETHEUS",
-      "label": "Prometheus",
+      "label": "DS_PROMETHEUS",
       "description": "",
       "type": "datasource",
       "pluginId": "prometheus",
@@ -14,30 +14,31 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "5.4.2"
+      "version": "6.7.5"
     },
     {
       "type": "panel",
       "id": "graph",
       "name": "Graph",
-      "version": "5.0.0"
+      "version": ""
     },
     {
       "type": "datasource",
       "id": "prometheus",
       "name": "Prometheus",
-      "version": "5.0.0"
+      "version": "1.0.0"
     },
     {
       "type": "panel",
       "id": "singlestat",
       "name": "Singlestat",
-      "version": "5.0.0"
+      "version": ""
     }
   ],
   "annotations": {
     "list": [
       {
+        "$$hashKey": "object:5406",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -52,7 +53,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1552456077189,
+  "iteration": 1610939506663,
   "links": [
     {
       "asDropdown": true,
@@ -135,19 +136,16 @@
         {
           "targetBlank": true,
           "title": "Replication",
-          "type": "absolute",
           "url": "https://dev.mysql.com/doc/refman/5.7/en/replication.html"
         },
         {
           "targetBlank": true,
           "title": "SHOW SLAVE STATUS Syntax",
-          "type": "absolute",
           "url": "https://dev.mysql.com/doc/refman/5.7/en/show-slave-status.html"
         },
         {
           "targetBlank": true,
           "title": "IO Thread states",
-          "type": "absolute",
           "url": "https://dev.mysql.com/doc/refman/5.7/en/slave-io-thread-states.html"
         }
       ],
@@ -199,7 +197,6 @@
       ],
       "thresholds": "0.5,1",
       "title": "IO Thread Running",
-      "transparent": false,
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -251,19 +248,16 @@
         {
           "targetBlank": true,
           "title": "Replication",
-          "type": "absolute",
           "url": "https://dev.mysql.com/doc/refman/5.7/en/replication.html"
         },
         {
           "targetBlank": true,
           "title": "SHOW SLAVE STATUS Syntax",
-          "type": "absolute",
           "url": "https://dev.mysql.com/doc/refman/5.7/en/show-slave-status.html"
         },
         {
           "targetBlank": true,
           "title": "SQL Thread states",
-          "type": "absolute",
           "url": "https://dev.mysql.com/doc/refman/5.7/en/slave-sql-thread-states.html"
         }
       ],
@@ -315,7 +309,6 @@
       ],
       "thresholds": "0.5,1",
       "title": "SQL Thread Running",
-      "transparent": false,
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -367,17 +360,18 @@
         {
           "targetBlank": true,
           "title": "List of error codes",
-          "type": "absolute",
           "url": "https://dev.mysql.com/doc/refman/5.7/en/error-messages-server.html"
         }
       ],
       "mappingType": 1,
       "mappingTypes": [
         {
+          "$$hashKey": "object:5505",
           "name": "value to text",
           "value": 1
         },
         {
+          "$$hashKey": "object:5506",
           "name": "range to text",
           "value": 2
         }
@@ -419,16 +413,9 @@
       ],
       "thresholds": "0.5,1",
       "title": "Replication Error No",
-      "transparent": false,
       "type": "singlestat",
       "valueFontSize": "80%",
-      "valueMaps": [
-        {
-          "op": "=",
-          "text": "N/A",
-          "value": "0"
-        }
-      ],
+      "valueMaps": [],
       "valueName": "current"
     },
     {
@@ -466,7 +453,6 @@
         {
           "targetBlank": true,
           "title": "Replication",
-          "type": "absolute",
           "url": "https://dev.mysql.com/doc/refman/5.7/en/replication.html"
         }
       ],
@@ -518,7 +504,6 @@
       ],
       "thresholds": "0.5,1",
       "title": "Read Only",
-      "transparent": false,
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -546,6 +531,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -553,6 +539,7 @@
         "x": 0,
         "y": 4
       },
+      "hiddenSeries": false,
       "id": 16,
       "legend": {
         "alignAsTable": true,
@@ -571,23 +558,23 @@
         {
           "targetBlank": true,
           "title": "SHOW SLAVE STATUS Syntax",
-          "type": "absolute",
           "url": "https://dev.mysql.com/doc/refman/5.7/en/show-slave-status.html"
         },
         {
           "targetBlank": true,
           "title": "Improving replication performance",
-          "type": "absolute",
           "url": "https://dev.mysql.com/doc/refman/5.7/en/replication-solutions-performance.html"
         },
         {
           "targetBlank": true,
           "title": "Replication Slave Options and Variables",
-          "type": "absolute",
           "url": "https://dev.mysql.com/doc/refman/5.7/en/replication-options-slave.html"
         }
       ],
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -666,6 +653,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -673,6 +661,7 @@
         "x": 0,
         "y": 11
       },
+      "hiddenSeries": false,
       "id": 33,
       "legend": {
         "alignAsTable": true,
@@ -691,17 +680,18 @@
         {
           "targetBlank": true,
           "title": "The binary log",
-          "type": "absolute",
           "url": "https://dev.mysql.com/doc/refman/5.7/en/binary-log.html"
         },
         {
           "targetBlank": true,
           "title": "Configuring replication",
-          "type": "absolute",
           "url": "https://dev.mysql.com/doc/refman/5.7/en/replication-configuration.html"
         }
       ],
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -780,6 +770,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -787,6 +778,7 @@
         "x": 12,
         "y": 11
       },
+      "hiddenSeries": false,
       "id": 35,
       "legend": {
         "alignAsTable": false,
@@ -803,6 +795,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -881,6 +876,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -888,6 +884,7 @@
         "x": 0,
         "y": 18
       },
+      "hiddenSeries": false,
       "id": 34,
       "legend": {
         "alignAsTable": true,
@@ -906,17 +903,18 @@
         {
           "targetBlank": true,
           "title": "The binary log",
-          "type": "absolute",
           "url": "https://dev.mysql.com/doc/refman/5.7/en/binary-log.html"
         },
         {
           "targetBlank": true,
           "title": "Configuring replication",
-          "type": "absolute",
           "url": "https://dev.mysql.com/doc/refman/5.7/en/replication-configuration.html"
         }
       ],
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -995,6 +993,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -1002,6 +1001,7 @@
         "x": 12,
         "y": 18
       },
+      "hiddenSeries": false,
       "id": 36,
       "legend": {
         "alignAsTable": false,
@@ -1018,6 +1018,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1096,6 +1099,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -1103,6 +1107,7 @@
         "x": 0,
         "y": 25
       },
+      "hiddenSeries": false,
       "id": 37,
       "legend": {
         "alignAsTable": true,
@@ -1121,11 +1126,13 @@
         {
           "targetBlank": true,
           "title": "The Slave Relay Log",
-          "type": "absolute",
           "url": "https://dev.mysql.com/doc/refman/5.7/en/slave-logs-relaylog.html"
         }
       ],
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1204,6 +1211,7 @@
       "editable": true,
       "error": false,
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -1211,6 +1219,7 @@
         "x": 12,
         "y": 25
       },
+      "hiddenSeries": false,
       "id": 38,
       "legend": {
         "alignAsTable": true,
@@ -1227,6 +1236,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1296,7 +1308,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 16,
+  "schemaVersion": 22,
   "style": "dark",
   "tags": [
     "Databases"
@@ -1309,7 +1321,7 @@
         "auto_count": 200,
         "auto_min": "1s",
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -1366,14 +1378,84 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "",
+        "definition": "label_values(mysql_slave_status_seconds_behind_master, customer)",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
+        "label": "Customer",
+        "multi": false,
+        "name": "customer",
+        "options": [],
+        "query": "label_values(mysql_slave_status_seconds_behind_master, customer)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(mysql_slave_status_seconds_behind_master{customer=\"$customer\"}, environment)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Environment",
+        "multi": false,
+        "name": "environment",
+        "options": [],
+        "query": "label_values(mysql_slave_status_seconds_behind_master{customer=\"$customer\"}, environment)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(mysql_slave_status_seconds_behind_master{customer=\"$customer\",environment=\"$environment\"}, project)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Project",
+        "multi": false,
+        "name": "project",
+        "options": [],
+        "query": "label_values(mysql_slave_status_seconds_behind_master{customer=\"$customer\",environment=\"$environment\"}, project)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(mysql_slave_status_seconds_behind_master{customer=\"$customer\",environment=\"$environment\",project=\"$project\"}, group)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
         "label": "Group",
         "multi": false,
         "name": "group",
         "options": [],
-        "query": "label_values(mysql_slave_status_seconds_behind_master, group)",
+        "query": "label_values(mysql_slave_status_seconds_behind_master{customer=\"$customer\",environment=\"$environment\",project=\"$project\"}, group)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -1389,18 +1471,19 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "",
+        "definition": "label_values(mysql_slave_status_seconds_behind_master{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\"}, instance)",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
         "label": "Host",
         "multi": false,
         "multiFormat": "regex values",
         "name": "host",
         "options": [],
-        "query": "mysql_slave_status_seconds_behind_master{group=\"$group\"}",
+        "query": "label_values(mysql_slave_status_seconds_behind_master{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\"}, instance)",
         "refresh": 1,
         "refresh_on_load": false,
-        "regex": "/instance=\"(.+?)\"/",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": null,
@@ -1450,5 +1533,8 @@
   "timezone": "browser",
   "title": "MySQL Replication",
   "uid": "_9zrwMHmk",
-  "version": 1
+  "variables": {
+    "list": []
+  },
+  "version": 2
 }

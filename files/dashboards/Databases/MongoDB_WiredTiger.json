@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.4.5"
+      "version": "6.7.5"
     },
     {
       "type": "panel",
@@ -38,6 +38,7 @@
   "annotations": {
     "list": [
       {
+        "$$hashKey": "object:416",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -52,7 +53,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1578377544699,
+  "iteration": 1610944582993,
   "links": [
     {
       "asDropdown": true,
@@ -145,7 +146,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "null",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -168,8 +168,9 @@
         {
           "expr": "mongodb_mongod_wiredtiger_cache_bytes{instance=\"$host\", type=\"total\"}",
           "format": "time_series",
-          "interval": "5m",
+          "interval": "1m",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A",
           "step": 300
         }
@@ -233,7 +234,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "null",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -255,8 +255,9 @@
       "targets": [
         {
           "expr": "mongodb_mongod_wiredtiger_cache_max_bytes{instance=\"$host\"}",
-          "interval": "5m",
+          "interval": "1m",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A",
           "step": 300
         }
@@ -320,7 +321,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "null",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -342,7 +342,7 @@
       "targets": [
         {
           "expr": "node_memory_Cached_bytes{instance=\"$host\"}",
-          "interval": "5m",
+          "interval": "1m",
           "intervalFactor": 1,
           "legendFormat": "",
           "refId": "A",
@@ -408,7 +408,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "null",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -431,7 +430,7 @@
         {
           "expr": "(node_memory_MemAvailable_byte{instance=\"$host\"} or (node_memory_MemFree_bytes{instance=\"$host\"} + node_memory_Buffers_bytes{instance=\"$host\"} + node_memory_Cached_bytes{instance=\"$host\"})) / node_memory_MemTotal_bytes{instance=\"$host\"} * 100",
           "format": "time_series",
-          "interval": "5m",
+          "interval": "1m",
           "intervalFactor": 1,
           "legendFormat": "",
           "refId": "A",
@@ -470,6 +469,7 @@
         "x": 0,
         "y": 4
       },
+      "hiddenSeries": false,
       "id": 52,
       "legend": {
         "alignAsTable": true,
@@ -569,6 +569,7 @@
         "x": 12,
         "y": 4
       },
+      "hiddenSeries": false,
       "id": 46,
       "legend": {
         "alignAsTable": true,
@@ -678,6 +679,7 @@
         "x": 0,
         "y": 11
       },
+      "hiddenSeries": false,
       "id": 48,
       "legend": {
         "alignAsTable": true,
@@ -776,6 +778,7 @@
         "x": 12,
         "y": 11
       },
+      "hiddenSeries": false,
       "id": 60,
       "legend": {
         "alignAsTable": true,
@@ -884,6 +887,7 @@
         "x": 0,
         "y": 18
       },
+      "hiddenSeries": false,
       "id": 55,
       "legend": {
         "alignAsTable": true,
@@ -986,6 +990,7 @@
         "x": 12,
         "y": 18
       },
+      "hiddenSeries": false,
       "id": 40,
       "legend": {
         "alignAsTable": true,
@@ -1084,6 +1089,7 @@
         "x": 0,
         "y": 25
       },
+      "hiddenSeries": false,
       "id": 57,
       "legend": {
         "alignAsTable": true,
@@ -1196,6 +1202,7 @@
         "x": 12,
         "y": 25
       },
+      "hiddenSeries": false,
       "id": 53,
       "legend": {
         "alignAsTable": true,
@@ -1294,6 +1301,7 @@
         "x": 0,
         "y": 32
       },
+      "hiddenSeries": false,
       "id": 45,
       "legend": {
         "alignAsTable": true,
@@ -1404,6 +1412,7 @@
         "x": 12,
         "y": 32
       },
+      "hiddenSeries": false,
       "id": 68,
       "legend": {
         "alignAsTable": true,
@@ -1500,6 +1509,7 @@
         "x": 0,
         "y": 39
       },
+      "hiddenSeries": false,
       "id": 59,
       "legend": {
         "alignAsTable": true,
@@ -1599,6 +1609,7 @@
         "x": 12,
         "y": 39
       },
+      "hiddenSeries": false,
       "id": 58,
       "legend": {
         "alignAsTable": true,
@@ -1697,6 +1708,7 @@
         "x": 0,
         "y": 46
       },
+      "hiddenSeries": false,
       "id": 61,
       "legend": {
         "alignAsTable": true,
@@ -1797,6 +1809,7 @@
         "x": 12,
         "y": 46
       },
+      "hiddenSeries": false,
       "id": 36,
       "legend": {
         "alignAsTable": true,
@@ -1933,6 +1946,7 @@
         "x": 0,
         "y": 53
       },
+      "hiddenSeries": false,
       "id": 32,
       "legend": {
         "alignAsTable": true,
@@ -2041,6 +2055,7 @@
         "x": 12,
         "y": 53
       },
+      "hiddenSeries": false,
       "id": 39,
       "legend": {
         "alignAsTable": true,
@@ -2121,7 +2136,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 20,
+  "schemaVersion": 22,
   "style": "dark",
   "tags": [
     "Databases"
@@ -2134,6 +2149,7 @@
         "auto_count": 200,
         "auto_min": "1s",
         "current": {
+          "selected": false,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -2190,14 +2206,84 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(mongodb_up, group)",
+        "definition": "label_values(mongodb_mongod_storage_engine{engine=\"wiredTiger\"}, customer)",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
+        "label": "Customer",
+        "multi": false,
+        "name": "customer",
+        "options": [],
+        "query": "label_values(mongodb_mongod_storage_engine{engine=\"wiredTiger\"}, customer)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(mongodb_mongod_storage_engine{engine=\"wiredTiger\",customer=\"$customer\"}, environment)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Environment",
+        "multi": false,
+        "name": "environment",
+        "options": [],
+        "query": "label_values(mongodb_mongod_storage_engine{engine=\"wiredTiger\",customer=\"$customer\"}, environment)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(mongodb_mongod_storage_engine{engine=\"wiredTiger\",customer=\"$customer\",environment=\"$environment\"}, project)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Project",
+        "multi": false,
+        "name": "project",
+        "options": [],
+        "query": "label_values(mongodb_mongod_storage_engine{engine=\"wiredTiger\",customer=\"$customer\",environment=\"$environment\"}, project)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(mongodb_mongod_storage_engine{engine=\"wiredTiger\",customer=\"$customer\",environment=\"$environment\",project=\"$project\"}, group)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
         "label": "Group",
         "multi": false,
         "name": "group",
         "options": [],
-        "query": "label_values(mongodb_up, group)",
+        "query": "label_values(mongodb_mongod_storage_engine{engine=\"wiredTiger\",customer=\"$customer\",environment=\"$environment\",project=\"$project\"}, group)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -2213,15 +2299,16 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(mongodb_mongod_storage_engine{group=\"$group\", engine=\"wiredTiger\"}, instance)",
+        "definition": "label_values(mongodb_mongod_storage_engine{engine=\"wiredTiger\",customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\"}, instance)",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
         "label": "Instance",
         "multi": false,
         "multiFormat": "glob",
         "name": "host",
         "options": [],
-        "query": "label_values(mongodb_mongod_storage_engine{group=\"$group\", engine=\"wiredTiger\"}, instance)",
+        "query": "label_values(mongodb_mongod_storage_engine{engine=\"wiredTiger\",customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\"}, instance)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -2268,5 +2355,8 @@
   "timezone": "browser",
   "title": "MongoDB WiredTiger",
   "uid": "tBkrQGNmz",
-  "version": 1
+  "variables": {
+    "list": []
+  },
+  "version": 2
 }

@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.5.2"
+      "version": "6.7.5"
     },
     {
       "type": "panel",
@@ -38,6 +38,7 @@
   "annotations": {
     "list": [
       {
+        "$$hashKey": "object:1993",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -52,9 +53,10 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1582091668048,
+  "iteration": 1610943552700,
   "links": [
     {
+      "$$hashKey": "object:2497",
       "asDropdown": true,
       "includeVars": true,
       "keepTime": true,
@@ -66,6 +68,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:2498",
       "asDropdown": true,
       "includeVars": true,
       "keepTime": true,
@@ -77,6 +80,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:2499",
       "asDropdown": true,
       "includeVars": true,
       "keepTime": true,
@@ -88,6 +92,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:2500",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -125,7 +130,7 @@
       "height": "125px",
       "hideTimeOverride": true,
       "id": 49,
-      "interval": null,
+      "interval": "$interval\t",
       "links": [],
       "mappingType": 1,
       "mappingTypes": [
@@ -141,7 +146,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "null",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -164,7 +168,7 @@
       "targets": [
         {
           "expr": "mongodb_mongod_replset_my_state{instance=\"$host\"}",
-          "interval": "5m",
+          "interval": "1m",
           "intervalFactor": 1,
           "legendFormat": "",
           "metric": "",
@@ -262,7 +266,7 @@
       "height": "125px",
       "hideTimeOverride": true,
       "id": 59,
-      "interval": null,
+      "interval": "$interval\t",
       "links": [],
       "mappingType": 1,
       "mappingTypes": [
@@ -278,7 +282,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "null",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -300,7 +303,7 @@
       "targets": [
         {
           "expr": "mongodb_mongod_replset_number_of_members{instance=\"$host\"}",
-          "interval": "5m",
+          "interval": "1m",
           "intervalFactor": 1,
           "legendFormat": "",
           "metric": "",
@@ -363,7 +366,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "null",
       "nullText": null,
-      "options": {},
       "postfix": "s",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -386,7 +388,7 @@
         {
           "expr": "time() - mongodb_mongod_replset_member_election_date{instance=\"$host\"}",
           "format": "time_series",
-          "interval": "5m",
+          "interval": "1m",
           "intervalFactor": 1,
           "legendFormat": "",
           "metric": "",
@@ -449,7 +451,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "null",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "80%",
       "prefix": "",
@@ -471,7 +472,7 @@
       "targets": [
         {
           "expr": "(max(mongodb_mongod_replset_member_optime_date{state=\"PRIMARY\", set=\"$replset\"}) - min(mongodb_mongod_replset_member_optime_date{state=\"SECONDARY\"} * on (name) group_left mongodb_mongod_replset_my_name{instance=\"$host\"})) or vector(0)",
-          "interval": "5m",
+          "interval": "1m",
           "intervalFactor": 1,
           "legendFormat": "",
           "metric": "",
@@ -535,7 +536,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "null",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -557,7 +557,7 @@
       "targets": [
         {
           "expr": "mongodb_mongod_storage_engine{instance=\"$host\"}",
-          "interval": "5m",
+          "interval": "1m",
           "intervalFactor": 1,
           "legendFormat": "{{ engine }}",
           "metric": "",
@@ -1969,7 +1969,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 21,
+  "schemaVersion": 22,
   "style": "dark",
   "tags": [
     "Databases"
@@ -2039,14 +2039,84 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(mongodb_up, group)",
+        "definition": "label_values(mongodb_up, customer)",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
+        "label": "Customer",
+        "multi": false,
+        "name": "customer",
+        "options": [],
+        "query": "label_values(mongodb_up, customer)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(mongodb_up{customer=\"$customer\"}, environment)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Environment",
+        "multi": false,
+        "name": "environment",
+        "options": [],
+        "query": "label_values(mongodb_up{customer=\"$customer\"}, environment)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(mongodb_up{customer=\"$customer\",environment=\"$environment\"}, project)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Project",
+        "multi": false,
+        "name": "project",
+        "options": [],
+        "query": "label_values(mongodb_up{customer=\"$customer\",environment=\"$environment\"}, project)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(mongodb_up{customer=\"$customer\",environment=\"$environment\",project=\"$project\"}, group)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
         "label": "Group",
         "multi": false,
         "name": "group",
         "options": [],
-        "query": "label_values(mongodb_up, group)",
+        "query": "label_values(mongodb_up{customer=\"$customer\",environment=\"$environment\",project=\"$project\"}, group)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -2062,15 +2132,16 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(mongodb_mongod_replset_my_state{group=\"$group\", }, set)",
+        "definition": "label_values(mongodb_mongod_replset_my_state{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\"}, set)",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
         "label": "Replica Set",
         "multi": false,
         "multiFormat": "glob",
         "name": "replset",
         "options": [],
-        "query": "label_values(mongodb_mongod_replset_my_state{group=\"$group\", }, set)",
+        "query": "label_values(mongodb_mongod_replset_my_state{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\"}, set)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -2086,15 +2157,16 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(mongodb_mongod_replset_my_state{group=\"$group\", set=\"$replset\"}, instance)",
+        "definition": "label_values(mongodb_mongod_replset_my_state{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",set=\"$replset\"}, instance)",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
         "label": "Instance",
         "multi": false,
         "multiFormat": "glob",
         "name": "host",
         "options": [],
-        "query": "label_values(mongodb_mongod_replset_my_state{group=\"$group\", set=\"$replset\"}, instance)",
+        "query": "label_values(mongodb_mongod_replset_my_state{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",set=\"$replset\"}, instance)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -2141,5 +2213,8 @@
   "timezone": "browser",
   "title": "MongoDB ReplSet",
   "uid": "7lzrQGNik",
+  "variables": {
+    "list": []
+  },
   "version": 1
 }

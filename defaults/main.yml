@@ -119,7 +119,6 @@ grafana_dashboard_arg:
       - 'MongoDB_MMAPv1'
       - 'MongoDB_Overview'
       - 'MongoDB_ReplSet'
-      - 'MongoDB_RocksDB'
       - 'MongoDB_WiredTiger'
       - 'MySQL_Command_Handler_Counters_Compare'
       - 'MySQL_InnoDB_Compression'

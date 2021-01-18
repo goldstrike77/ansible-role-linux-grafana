@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.5.3"
+      "version": "6.7.5"
     },
     {
       "type": "panel",
@@ -44,6 +44,7 @@
   "annotations": {
     "list": [
       {
+        "$$hashKey": "object:595",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -58,9 +59,10 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1587454645817,
+  "iteration": 1610943232579,
   "links": [
     {
+      "$$hashKey": "object:1137",
       "asDropdown": true,
       "includeVars": true,
       "keepTime": true,
@@ -72,6 +74,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:1138",
       "asDropdown": true,
       "includeVars": true,
       "keepTime": true,
@@ -83,6 +86,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:1139",
       "asDropdown": true,
       "includeVars": true,
       "keepTime": true,
@@ -94,6 +98,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:1140",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -149,7 +154,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "s",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -234,7 +238,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -319,7 +322,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -404,7 +406,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -490,7 +491,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -547,7 +547,6 @@
       "id": 73,
       "interval": "",
       "links": [],
-      "options": {},
       "pageSize": null,
       "scroll": true,
       "showHeader": true,
@@ -558,6 +557,7 @@
       "styles": [
         {
           "alias": "",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -574,6 +574,7 @@
         },
         {
           "alias": "",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -590,6 +591,7 @@
         },
         {
           "alias": "",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -606,6 +608,7 @@
         },
         {
           "alias": "",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -622,6 +625,7 @@
         },
         {
           "alias": "",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -638,6 +642,7 @@
         },
         {
           "alias": "",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -654,6 +659,7 @@
         },
         {
           "alias": "",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -670,6 +676,7 @@
         },
         {
           "alias": "",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -686,6 +693,7 @@
         },
         {
           "alias": "DB",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -702,6 +710,7 @@
         },
         {
           "alias": "Objects",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -2041,7 +2050,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 21,
+  "schemaVersion": 22,
   "style": "dark",
   "tags": [
     "Databases"
@@ -2111,14 +2120,84 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(mongodb_up, group)",
+        "definition": "label_values(mongodb_up, customer)",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
+        "label": "Customer",
+        "multi": false,
+        "name": "customer",
+        "options": [],
+        "query": "label_values(mongodb_up, customer)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(mongodb_up{customer=\"$customer\"}, environment)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Environment",
+        "multi": false,
+        "name": "environment",
+        "options": [],
+        "query": "label_values(mongodb_up{customer=\"$customer\"}, environment)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(mongodb_up{customer=\"$customer\",environment=\"$environment\"}, project)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Project",
+        "multi": false,
+        "name": "project",
+        "options": [],
+        "query": "label_values(mongodb_up{customer=\"$customer\",environment=\"$environment\"}, project)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(mongodb_up{customer=\"$customer\",environment=\"$environment\",project=\"$project\"}, group)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
         "label": "Group",
         "multi": false,
         "name": "group",
         "options": [],
-        "query": "label_values(mongodb_up, group)",
+        "query": "label_values(mongodb_up{customer=\"$customer\",environment=\"$environment\",project=\"$project\"}, group)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -2134,15 +2213,16 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(mongodb_up{group=\"$group\", }, replicaset)",
+        "definition": "label_values(mongodb_up{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\"}, replicaset)",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
         "label": "Replicaset",
         "multi": false,
         "multiFormat": "glob",
         "name": "replicaset",
         "options": [],
-        "query": "label_values(mongodb_up{group=\"$group\", }, replicaset)",
+        "query": "label_values(mongodb_up{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\"}, replicaset)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -2158,17 +2238,18 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "mongodb_up{group=\"$group\", replicaset=\"$replicaset\"}",
+        "definition": "label_values(mongodb_up{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",replicaset=\"$replicaset\"}, instance)",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
         "label": "Instance",
         "multi": false,
         "multiFormat": "glob",
         "name": "host",
         "options": [],
-        "query": "mongodb_up{group=\"$group\", replicaset=\"$replicaset\"}",
+        "query": "label_values(mongodb_up{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",replicaset=\"$replicaset\"}, instance)",
         "refresh": 1,
-        "regex": "/instance=\"(.+?)\"/",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": null,
@@ -2180,7 +2261,7 @@
     ]
   },
   "time": {
-    "from": "now-5m",
+    "from": "now-3h",
     "to": "now"
   },
   "timepicker": {
@@ -2213,5 +2294,8 @@
   "timezone": "browser",
   "title": "MongoDB Overview",
   "uid": "6Lk9wMHik",
+  "variables": {
+    "list": []
+  },
   "version": 1
 }
