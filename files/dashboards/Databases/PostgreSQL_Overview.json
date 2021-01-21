@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.5.3"
+      "version": "6.7.5"
     },
     {
       "type": "panel",
@@ -44,6 +44,7 @@
   "annotations": {
     "list": [
       {
+        "$$hashKey": "object:2536",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -59,9 +60,10 @@
   "gnetId": 3300,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1582440155236,
+  "iteration": 1611191883652,
   "links": [
     {
+      "$$hashKey": "object:3233",
       "asDropdown": true,
       "includeVars": true,
       "keepTime": true,
@@ -73,6 +75,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:3234",
       "asDropdown": true,
       "includeVars": true,
       "keepTime": true,
@@ -84,6 +87,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:3235",
       "asDropdown": true,
       "includeVars": true,
       "keepTime": true,
@@ -95,6 +99,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:3236",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -107,102 +112,6 @@
     }
   ],
   "panels": [
-    {
-      "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": true,
-      "colors": [
-        "#d44a3a",
-        "rgba(237, 129, 40, 0.89)",
-        "#299c46"
-      ],
-      "datasource": "DS_PROMETHEUS",
-      "description": "Reports whether PMM Server can connect to the PostgreSQL instance.",
-      "format": "none",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
-      },
-      "gridPos": {
-        "h": 2,
-        "w": 2,
-        "x": 0,
-        "y": 0
-      },
-      "hideTimeOverride": true,
-      "id": 63,
-      "interval": null,
-      "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
-      "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "options": {},
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
-      },
-      "tableColumn": "",
-      "targets": [
-        {
-          "expr": "pg_up{instance=\"$host\"}",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "",
-          "refId": "A"
-        }
-      ],
-      "thresholds": "0,1",
-      "timeFrom": "$interval",
-      "title": "",
-      "type": "singlestat",
-      "valueFontSize": "70%",
-      "valueMaps": [
-        {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
-        },
-        {
-          "op": "=",
-          "text": "Dead",
-          "value": "0"
-        },
-        {
-          "op": "=",
-          "text": "Alive",
-          "value": "1"
-        }
-      ],
-      "valueName": "current"
-    },
     {
       "cacheTimeout": null,
       "colorBackground": false,
@@ -225,7 +134,7 @@
       "gridPos": {
         "h": 2,
         "w": 2,
-        "x": 2,
+        "x": 0,
         "y": 0
       },
       "hideTimeOverride": true,
@@ -235,10 +144,12 @@
       "mappingType": 1,
       "mappingTypes": [
         {
+          "$$hashKey": "object:4031",
           "name": "value to text",
           "value": 1
         },
         {
+          "$$hashKey": "object:4032",
           "name": "range to text",
           "value": 2
         }
@@ -246,11 +157,10 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
-      "postfixFontSize": "50%",
+      "postfixFontSize": "30%",
       "prefix": "",
-      "prefixFontSize": "50%",
+      "prefixFontSize": "30%",
       "rangeMaps": [
         {
           "from": "null",
@@ -269,6 +179,7 @@
         {
           "expr": "pg_static{instance=\"$host\"}",
           "format": "time_series",
+          "interval": "$interval",
           "intervalFactor": 1,
           "legendFormat": "{{ short_version }}",
           "refId": "A"
@@ -278,9 +189,10 @@
       "timeFrom": "$interval",
       "title": "Version",
       "type": "singlestat",
-      "valueFontSize": "70%",
+      "valueFontSize": "50%",
       "valueMaps": [
         {
+          "$$hashKey": "object:4034",
           "op": "=",
           "text": "N/A",
           "value": "null"
@@ -310,8 +222,8 @@
       },
       "gridPos": {
         "h": 2,
-        "w": 3,
-        "x": 4,
+        "w": 2,
+        "x": 2,
         "y": 0
       },
       "hideTimeOverride": true,
@@ -327,10 +239,12 @@
       "mappingType": 1,
       "mappingTypes": [
         {
+          "$$hashKey": "object:4065",
           "name": "value to text",
           "value": 1
         },
         {
+          "$$hashKey": "object:4066",
           "name": "range to text",
           "value": 2
         }
@@ -338,11 +252,10 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
-      "postfixFontSize": "50%",
+      "postfixFontSize": "30%",
       "prefix": "",
-      "prefixFontSize": "50%",
+      "prefixFontSize": "30%",
       "rangeMaps": [
         {
           "from": "null",
@@ -371,9 +284,10 @@
       "timeFrom": "$interval",
       "title": "Max Connections",
       "type": "singlestat",
-      "valueFontSize": "70%",
+      "valueFontSize": "50%",
       "valueMaps": [
         {
+          "$$hashKey": "object:4068",
           "op": "=",
           "text": "N/A",
           "value": "null"
@@ -403,8 +317,8 @@
       },
       "gridPos": {
         "h": 2,
-        "w": 4,
-        "x": 7,
+        "w": 3,
+        "x": 4,
         "y": 0
       },
       "hideTimeOverride": true,
@@ -420,10 +334,12 @@
       "mappingType": 1,
       "mappingTypes": [
         {
+          "$$hashKey": "object:4099",
           "name": "value to text",
           "value": 1
         },
         {
+          "$$hashKey": "object:4100",
           "name": "range to text",
           "value": 2
         }
@@ -431,11 +347,10 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
-      "postfixFontSize": "50%",
+      "postfixFontSize": "30%",
       "prefix": "",
-      "prefixFontSize": "50%",
+      "prefixFontSize": "30%",
       "rangeMaps": [
         {
           "from": "null",
@@ -463,197 +378,10 @@
       "timeFrom": "$interval",
       "title": "Shared Buffers",
       "type": "singlestat",
-      "valueFontSize": "70%",
+      "valueFontSize": "50%",
       "valueMaps": [
         {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
-        }
-      ],
-      "valueName": "current"
-    },
-    {
-      "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "#299c46",
-        "rgba(237, 129, 40, 0.89)",
-        "#d44a3a"
-      ],
-      "datasource": "DS_PROMETHEUS",
-      "decimals": 0,
-      "description": "The setting wal_buffers defines how much memory is used for caching the write-ahead log entries. Generally this value is small (3% of shared_buffers value), but it may need to be modified for heavily loaded servers.",
-      "format": "bytes",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
-      },
-      "gridPos": {
-        "h": 2,
-        "w": 4,
-        "x": 11,
-        "y": 0
-      },
-      "hideTimeOverride": true,
-      "id": 68,
-      "interval": null,
-      "links": [
-        {
-          "title": "GUC-WAL-BUFFERS",
-          "url": "https://www.postgresql.org/docs/current/static/runtime-config-wal.html#GUC-WAL-BUFFERS"
-        },
-        {
-          "targetBlank": true,
-          "title": "GUC-SHARED-BUFFERS",
-          "url": "https://www.postgresql.org/docs/current/static/runtime-config-resource.html#GUC-SHARED-BUFFERS"
-        }
-      ],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
-      "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "options": {},
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
-      },
-      "tableColumn": "",
-      "targets": [
-        {
-          "expr": "max_over_time(pg_settings_wal_buffers_bytes{instance=\"$host\",datname=~\"$db\",datname!~\"template.*|postgres\"}[$interval]) or\nmax_over_time(pg_settings_wal_buffers_bytes{instance=\"$host\",datname=~\"$db\",datname!~\"template.*|postgres\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "refId": "A"
-        }
-      ],
-      "thresholds": "",
-      "timeFrom": "$interval",
-      "title": "Disk-Page Buffers",
-      "type": "singlestat",
-      "valueFontSize": "70%",
-      "valueMaps": [
-        {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
-        }
-      ],
-      "valueName": "current"
-    },
-    {
-      "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "#299c46",
-        "rgba(237, 129, 40, 0.89)",
-        "#d44a3a"
-      ],
-      "datasource": "DS_PROMETHEUS",
-      "decimals": 0,
-      "description": "The parameter work_mem defines the amount of memory assigned for internal sort operations and hash tables before writing to temporary disk files.  The default is 4MB.",
-      "format": "bytes",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
-      },
-      "gridPos": {
-        "h": 2,
-        "w": 4,
-        "x": 15,
-        "y": 0
-      },
-      "hideTimeOverride": true,
-      "id": 69,
-      "interval": null,
-      "links": [
-        {
-          "targetBlank": true,
-          "title": "GUC-WORK-MEM",
-          "url": "https://www.postgresql.org/docs/current/static/runtime-config-resource.html#GUC-WORK-MEM"
-        }
-      ],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
-      "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "options": {},
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
-      },
-      "tableColumn": "",
-      "targets": [
-        {
-          "expr": "max_over_time(pg_settings_work_mem_bytes{instance=\"$host\",datname=~\"$db\",datname!~\"template.*|postgres\"}[$interval]) or\nmax_over_time(pg_settings_work_mem_bytes{instance=\"$host\",datname=~\"$db\",datname!~\"template.*|postgres\"}[5m])",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "",
-          "refId": "A"
-        }
-      ],
-      "thresholds": "",
-      "timeFrom": "$interval",
-      "title": "Memory Size for each Sort",
-      "type": "singlestat",
-      "valueFontSize": "70%",
-      "valueMaps": [
-        {
+          "$$hashKey": "object:4102",
           "op": "=",
           "text": "N/A",
           "value": "null"
@@ -684,7 +412,7 @@
       "gridPos": {
         "h": 2,
         "w": 3,
-        "x": 19,
+        "x": 7,
         "y": 0
       },
       "hideTimeOverride": true,
@@ -700,10 +428,12 @@
       "mappingType": 1,
       "mappingTypes": [
         {
+          "$$hashKey": "object:4201",
           "name": "value to text",
           "value": 1
         },
         {
+          "$$hashKey": "object:4202",
           "name": "range to text",
           "value": 2
         }
@@ -711,11 +441,10 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
-      "postfixFontSize": "50%",
+      "postfixFontSize": "30%",
       "prefix": "",
-      "prefixFontSize": "50%",
+      "prefixFontSize": "30%",
       "rangeMaps": [
         {
           "from": "null",
@@ -742,11 +471,400 @@
       ],
       "thresholds": "",
       "timeFrom": "$interval",
-      "title": "Disk Cache Size",
+      "title": "Effective Cache",
       "type": "singlestat",
-      "valueFontSize": "70%",
+      "valueFontSize": "50%",
       "valueMaps": [
         {
+          "$$hashKey": "object:4204",
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "DS_PROMETHEUS",
+      "decimals": 0,
+      "description": "The setting wal_buffers defines how much memory is used for caching the write-ahead log entries. Generally this value is small (3% of shared_buffers value), but it may need to be modified for heavily loaded servers.",
+      "format": "bytes",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 3,
+        "x": 10,
+        "y": 0
+      },
+      "hideTimeOverride": true,
+      "id": 68,
+      "interval": null,
+      "links": [
+        {
+          "title": "GUC-WAL-BUFFERS",
+          "url": "https://www.postgresql.org/docs/current/static/runtime-config-wal.html#GUC-WAL-BUFFERS"
+        },
+        {
+          "targetBlank": true,
+          "title": "GUC-SHARED-BUFFERS",
+          "url": "https://www.postgresql.org/docs/current/static/runtime-config-resource.html#GUC-SHARED-BUFFERS"
+        }
+      ],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "$$hashKey": "object:4133",
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "$$hashKey": "object:4134",
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "30%",
+      "prefix": "",
+      "prefixFontSize": "30%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "max_over_time(pg_settings_wal_buffers_bytes{instance=\"$host\",datname=~\"$db\",datname!~\"template.*|postgres\"}[$interval]) or\nmax_over_time(pg_settings_wal_buffers_bytes{instance=\"$host\",datname=~\"$db\",datname!~\"template.*|postgres\"}[5m])",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": "$interval",
+      "title": "Wal Buffer",
+      "type": "singlestat",
+      "valueFontSize": "50%",
+      "valueMaps": [
+        {
+          "$$hashKey": "object:4136",
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "DS_PROMETHEUS",
+      "decimals": 0,
+      "description": "The maximum memory to be used for maintenance operations.",
+      "format": "bytes",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 3,
+        "x": 13,
+        "y": 0
+      },
+      "hideTimeOverride": true,
+      "id": 97,
+      "interval": null,
+      "links": [
+        {
+          "title": "GUC-WAL-BUFFERS",
+          "url": "https://www.postgresql.org/docs/current/static/runtime-config-wal.html#GUC-WAL-BUFFERS"
+        },
+        {
+          "targetBlank": true,
+          "title": "GUC-SHARED-BUFFERS",
+          "url": "https://www.postgresql.org/docs/current/static/runtime-config-resource.html#GUC-SHARED-BUFFERS"
+        }
+      ],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "$$hashKey": "object:4133",
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "$$hashKey": "object:4134",
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "30%",
+      "prefix": "",
+      "prefixFontSize": "30%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "max_over_time(pg_settings_maintenance_work_mem_bytes{instance=\"$host\",datname=~\"$db\",datname!~\"template.*|postgres\"}[$interval]) or\nmax_over_time(pg_settings_maintenance_work_mem_bytes{instance=\"$host\",datname=~\"$db\",datname!~\"template.*|postgres\"}[5m])",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": "$interval",
+      "title": "Maintenance ",
+      "type": "singlestat",
+      "valueFontSize": "50%",
+      "valueMaps": [
+        {
+          "$$hashKey": "object:4136",
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "DS_PROMETHEUS",
+      "decimals": 0,
+      "description": "The maximum memory to be used for query workspaces.",
+      "format": "bytes",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 3,
+        "x": 16,
+        "y": 0
+      },
+      "hideTimeOverride": true,
+      "id": 69,
+      "interval": null,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "GUC-WORK-MEM",
+          "url": "https://www.postgresql.org/docs/current/static/runtime-config-resource.html#GUC-WORK-MEM"
+        }
+      ],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "$$hashKey": "object:4167",
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "$$hashKey": "object:4168",
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "30%",
+      "prefix": "",
+      "prefixFontSize": "30%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "max_over_time(pg_settings_work_mem_bytes{instance=\"$host\",datname=~\"$db\",datname!~\"template.*|postgres\"}[$interval]) or\nmax_over_time(pg_settings_work_mem_bytes{instance=\"$host\",datname=~\"$db\",datname!~\"template.*|postgres\"}[5m])",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": "$interval",
+      "title": "Query Workspace",
+      "type": "singlestat",
+      "valueFontSize": "50%",
+      "valueMaps": [
+        {
+          "$$hashKey": "object:4170",
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "DS_PROMETHEUS",
+      "decimals": 0,
+      "description": "The maximum number of temporary buffers used by each session.",
+      "format": "bytes",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 3,
+        "x": 19,
+        "y": 0
+      },
+      "hideTimeOverride": true,
+      "id": 98,
+      "interval": null,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "GUC-WORK-MEM",
+          "url": "https://www.postgresql.org/docs/current/static/runtime-config-resource.html#GUC-WORK-MEM"
+        }
+      ],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "$$hashKey": "object:4167",
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "$$hashKey": "object:4168",
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "30%",
+      "prefix": "",
+      "prefixFontSize": "30%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "max_over_time(pg_settings_temp_buffers_bytes{instance=\"$host\",datname=~\"$db\",datname!~\"template.*|postgres\"}[$interval]) or\nmax_over_time(pg_settings_temp_buffers_bytes{instance=\"$host\",datname=~\"$db\",datname!~\"template.*|postgres\"}[5m])",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": "$interval",
+      "title": "Temporary",
+      "type": "singlestat",
+      "valueFontSize": "50%",
+      "valueMaps": [
+        {
+          "$$hashKey": "object:4170",
           "op": "=",
           "text": "N/A",
           "value": "null"
@@ -792,10 +910,12 @@
       "mappingType": 1,
       "mappingTypes": [
         {
+          "$$hashKey": "object:4238",
           "name": "value to text",
           "value": 1
         },
         {
+          "$$hashKey": "object:4239",
           "name": "range to text",
           "value": 2
         }
@@ -803,11 +923,10 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
-      "postfixFontSize": "50%",
+      "postfixFontSize": "30%",
       "prefix": "",
-      "prefixFontSize": "50%",
+      "prefixFontSize": "30%",
       "rangeMaps": [
         {
           "from": "null",
@@ -835,19 +954,22 @@
       "timeFrom": "$interval",
       "title": "Autovacuum",
       "type": "singlestat",
-      "valueFontSize": "70%",
+      "valueFontSize": "50%",
       "valueMaps": [
         {
+          "$$hashKey": "object:4241",
           "op": "=",
           "text": "N/A",
           "value": "null"
         },
         {
+          "$$hashKey": "object:4242",
           "op": "=",
           "text": "NO",
           "value": "0"
         },
         {
+          "$$hashKey": "object:4243",
           "op": "=",
           "text": "YES",
           "value": "1"
@@ -3118,6 +3240,7 @@
       "panels": [
         {
           "content": "<table style=\"width:100%; border: 2px solid grey;\">\n  <tr><td></td><td></td><td></td><td></td></tr>\n  <tr><td> The maximum number of concurrent connections </td><td>${max_connections}</td><td> Shared memory buffers (bytes) </td><td>${shared_buffers}</td></tr>\n  <tr><td> The maximum memory to be used for query workspaces (bytes)</td><td>${work_mem}</td><td> The number of disk-page buffers in shared memory for WAL (bytes)</td><td>${wal_buffers}</td></tr>\n  <tr><td> The number of pages per write ahead log segment (bytes) </td><td>${wal_segment_size}</td><td>The maximum memory to be used for query workspaces (bytes)</td><td>${maintenance_work_mem}</td></tr>\n  <tr><td> The block size in the write ahead log </td><td>${block_size}</td><td>The maximum distance in log segments between automatic WAL checkpoints</td><td>${checkpoint_segments}</td></tr>\n  <tr><td> Time spent flushing dirty buffers during checkpoint, as fraction of checkpoint interval </td><td>${checkpoint_timeout}</td><td>The maximum number of simultaneously running WAL sender processes</td><td>${max_wal_senders}</td></tr>\n  <tr><td> The minimum size to shrink the WAL to (bytes)</td><td>${min_wal_size}</td><td>The WAL size that triggers a checkpoint (bytes)</td><td>${max_wal_size}</td></tr>\n  <tr><td> Compresses full-page writes written in WAL file </td><td>${wal_compression}</td><td>Maximum number of concurrent worker processes</td><td>${max_worker_processes}</td></tr>\n  <tr><td> The maximum number of parallel processes per executor node </td><td>${max_parallel_workers_per_gather}</td><td>The maximum number of parallel processes per executor node</td><td>${max_parallel_workers}</td></tr>\n  <tr><td> The default statistics target </td><td>${default_statistics_target}</td><td>The planner's estimate of the cost of a sequentially fetched disk page </td><td>${seq_page_cost}</td></tr>\n  <tr><td> The planner's estimate of the cost of a nonsequentially fetched disk page </td><td>${random_page_cost}</td><td>The planner's assumption about the size of the disk cache</td><td>${effective_cache_size}</td></tr>\n  <tr><td> Number of simultaneous requests that can be handled efficiently by the disk subsystem </td><td>${effective_io_concurrency}</td><td>Forces synchronization of updates to disk </td><td>${fsync}</td></tr>\n  <tr><td> Starts the autovacuum subprocess </td><td>${autovacuum}</td><td>Number of tuple inserts, updates, or deletes prior to analyze as a fraction of reltuples</td><td>${autovacuum_analyze_scale_factor}</td></tr>\n  <tr><td> Minimum number of tuple inserts, updates, or deletes prior to analyze </td><td>${autovacuum_analyze_threshold}</td><td>Number of tuple updates or deletes prior to vacuum as a fraction of reltuples</td><td>${autovacuum_vacuum_scale_factor}</td></tr>\n  <tr><td> Minimum number of tuple updates or deletes prior to vacuum </td><td>${autovacuum_vacuum_threshold}</td><td>Vacuum cost amount available before napping, for autovacuum </td><td>${autovacuum_vacuum_cost_limit}</td></tr>\n  <tr><td> Vacuum cost delay in milliseconds, for autovacuum (seconds) </td><td>${autovacuum_vacuum_cost_delay}</td><td> The maximum number of simultaneously running autovacuum worker processes </td><td>${autovacuum_max_workers}</td></tr>\n  <tr><td> Time to sleep between autovacuum runs (seconds) </td><td>${autovacuum_naptime}</td><td>Age at which to autovacuum a table to prevent transaction ID wraparound </td><td>${autovacuum_freeze_max_age}</td></tr>\n  <tr><td> The maximum memory to be used by each autovacuum worker process (bytes)</td><td>${autovacuum_work_mem}</td><td>Multixact age at which to autovacuum a table to prevent multixact wraparound</td><td>${autovacuum_multixact_freeze_max_age}</td></tr>\n  <tr><td> Start a subprocess to capture stderr output and/or csvlogs into log files </td><td>${logging_collector}</td><td>Sets the minimum execution time above which statements will be logged (seconds) </td><td>${log_min_duration_statement}</td></tr>\n  <tr><td> Logs the duration of each completed SQL statement </td><td>${log_duration}</td><td>Logs long lock waits </td><td>${log_lock_waits}</td></tr>\n  <tr><td></td><td></td><td></td><td></td></tr>\n</table>\n\n",
+          "datasource": null,
           "gridPos": {
             "h": 18,
             "w": 24,
@@ -3133,493 +3256,10 @@
       ],
       "title": "Settings",
       "type": "row"
-    },
-    {
-      "collapsed": false,
-      "datasource": null,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 82
-      },
-      "id": 88,
-      "panels": [],
-      "title": "System Summary",
-      "type": "row"
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "DS_PROMETHEUS",
-      "decimals": 2,
-      "fill": 5,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 83
-      },
-      "hiddenSeries": false,
-      "id": 90,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": false,
-        "hideEmpty": true,
-        "hideZero": true,
-        "max": true,
-        "min": true,
-        "show": true,
-        "sort": "avg",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "clamp_max(((avg by (mode) ( (clamp_max(rate(node_cpu_seconds_total{instance=\"$host\",mode!=\"idle\"}[$interval]),1)) or (clamp_max(irate(node_cpu_seconds_total{instance=\"$host\",mode!=\"idle\"}[5m]),1)) ))*100 or (avg_over_time(node_cpu_average{instance=\"$host\", mode!=\"total\", mode!=\"idle\"}[$interval]) or \navg_over_time(node_cpu_average{instance=\"$host\", mode!=\"total\", mode!=\"idle\"}[5m]))),100)",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "{{mode}}",
-          "refId": "A"
-        },
-        {
-          "expr": "",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "refId": "B"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "CPU Usage",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "percent",
-          "label": null,
-          "logBase": 1,
-          "max": "100",
-          "min": "0",
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {
-        "Max CPU Core Utilization": "#bf1b00"
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "DS_PROMETHEUS",
-      "decimals": 2,
-      "fill": 2,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 83
-      },
-      "hiddenSeries": false,
-      "id": 92,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": false,
-        "max": true,
-        "min": true,
-        "show": true,
-        "sort": "avg",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "links": [],
-      "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "Max CPU Core Utilization",
-          "lines": false,
-          "pointradius": 1,
-          "points": true,
-          "yaxis": 2
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "(avg_over_time(node_procs_running{instance=\"$host\"}[$interval])-1) / scalar(count(node_cpu_seconds_total{mode=\"user\", instance=\"$host\"})) or (avg_over_time(node_procs_running{instance=\"$host\"}[5m])-1) / scalar(count(node_cpu_seconds_total{mode=\"user\", instance=\"$host\"}))",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Normalized CPU Load",
-          "refId": "A"
-        },
-        {
-          "expr": "clamp_max(max by () (sum  by (cpu) ( (clamp_max(rate(node_cpu_seconds_total{instance=\"$host\",mode!=\"idle\",mode!=\"iowait\"}[$interval]),1)) or (clamp_max(irate(node_cpu_seconds_total{instance=\"$host\",mode!=\"idle\",mode!=\"iowait\"}[5m]),1)) )),1)",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Max CPU Core Utilization",
-          "refId": "B"
-        },
-        {
-          "expr": "avg_over_time(node_procs_blocked{instance=\"$host\"}[$interval]) or avg_over_time(node_procs_blocked{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "IO Load",
-          "refId": "C"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Saturation and Max Core Usage",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": "0",
-          "show": true
-        },
-        {
-          "format": "percentunit",
-          "label": null,
-          "logBase": 1,
-          "max": "1",
-          "min": "0",
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "DS_PROMETHEUS",
-      "decimals": 2,
-      "fill": 2,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 91
-      },
-      "hiddenSeries": false,
-      "id": 94,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": false,
-        "max": true,
-        "min": true,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "links": [],
-      "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "Disk Writes (Page Out)",
-          "transform": "negative-Y"
-        },
-        {
-          "alias": "Total",
-          "legend": false,
-          "lines": false
-        },
-        {
-          "alias": "Swap Out (Writes)",
-          "transform": "negative-Y"
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "rate(node_vmstat_pgpgin{instance=\"$host\"}[$interval]) * 1024 or irate(node_vmstat_pgpgin{instance=\"$host\"}[5m]) * 1024",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Disk Reads (Page In)",
-          "refId": "A"
-        },
-        {
-          "expr": "(rate(node_vmstat_pgpgout{instance=\"$host\"}[$interval]) * 1024 or irate(node_vmstat_pgpgout{instance=\"$host\"}[5m]) * 1024)",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Disk Writes (Page Out)",
-          "refId": "B"
-        },
-        {
-          "expr": "(rate(node_vmstat_pgpgin{instance=\"$host\"}[$interval]) * 1024 or irate(node_vmstat_pgpgin{instance=\"$host\"}[5m]) * 1024 ) + \n(rate(node_vmstat_pgpgout{instance=\"$host\"}[$interval]) * 1024 or irate(node_vmstat_pgpgout{instance=\"$host\"}[5m]) * 1024)",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Total",
-          "refId": "C"
-        },
-        {
-          "expr": "rate(node_vmstat_pswpin{instance=\"$host\"}[$interval]) * 4096 or irate(node_vmstat_pswpin{instance=\"$host\"}[5m]) * 4096",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Swap In (Reads)",
-          "refId": "D"
-        },
-        {
-          "expr": "rate(node_vmstat_pswpout{instance=\"$host\"}[$interval]) * 4096 or \nirate(node_vmstat_pswpout{instance=\"$host\"}[5m]) * 4096",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Swap Out (Writes)",
-          "refId": "E"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Disk I/O and Swap Activity",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "Bps",
-          "label": "Page Out (-) / Page In (+)",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "DS_PROMETHEUS",
-      "decimals": 2,
-      "fill": 2,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 91
-      },
-      "hiddenSeries": false,
-      "id": 96,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": false,
-        "max": true,
-        "min": true,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "links": [],
-      "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "Outbound",
-          "transform": "negative-Y"
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "sum(rate(node_network_receive_bytes_total{instance=\"$host\", device!=\"lo\"}[$interval])) or \nsum(irate(node_network_receive_bytes_total{instance=\"$host\", device!=\"lo\"}[5m])) or \nsum(max_over_time(rdsosmetrics_network_rx{instance=\"$host\"}[$interval])) or \nsum(max_over_time(rdsosmetrics_network_rx{instance=\"$host\"}[5m])) ",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Inbound",
-          "refId": "A"
-        },
-        {
-          "expr": "sum(rate(node_network_transmit_bytes_total{instance=\"$host\", device!=\"lo\"}[$interval])) or sum(irate(node_network_transmit_bytes_total{instance=\"$host\", device!=\"lo\"}[5m])) or\nsum(max_over_time(rdsosmetrics_network_tx{instance=\"$host\"}[$interval])) or sum(max_over_time(rdsosmetrics_network_tx{instance=\"$host\"}[5m]))",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Outbound",
-          "refId": "B"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Network Traffic",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "Bps",
-          "label": "Outbound (-) / Inbound (+)",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 21,
+  "schemaVersion": 22,
   "style": "dark",
   "tags": [
     "Databases"
@@ -3684,14 +3324,15 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "",
+        "definition": "label_values(pg_up, customer)",
         "hide": 0,
         "includeAll": false,
-        "label": "Group",
+        "index": -1,
+        "label": "Customer",
         "multi": false,
-        "name": "group",
+        "name": "customer",
         "options": [],
-        "query": "label_values(pg_up, group)",
+        "query": "label_values(pg_up, customer)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -3706,16 +3347,86 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "",
+        "definition": "label_values(pg_up{customer=\"$customer\"}, environment)",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
+        "label": "Environment",
+        "multi": false,
+        "name": "environment",
+        "options": [],
+        "query": "label_values(pg_up{customer=\"$customer\"}, environment)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(pg_up{customer=\"$customer\",environment=\"$environment\"}, project)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Project",
+        "multi": false,
+        "name": "project",
+        "options": [],
+        "query": "label_values(pg_up{customer=\"$customer\",environment=\"$environment\"}, project)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(pg_up{customer=\"$customer\",environment=\"$environment\",project=\"$project\"}, group)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Group",
+        "multi": false,
+        "name": "group",
+        "options": [],
+        "query": "label_values(pg_up{customer=\"$customer\",environment=\"$environment\",project=\"$project\"}, group)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(pg_up{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\"}, instance)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
         "label": "Host",
         "multi": false,
         "name": "host",
         "options": [],
-        "query": "pg_up{group=\"$group\"}",
+        "query": "label_values(pg_up{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\"}, instance)",
         "refresh": 1,
-        "regex": "/instance=\"(.+?)\"/",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
@@ -3731,6 +3442,7 @@
         "definition": "",
         "hide": 0,
         "includeAll": true,
+        "index": -1,
         "label": "DB",
         "multi": false,
         "name": "db",
@@ -3753,6 +3465,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "version",
@@ -3775,6 +3488,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "max_connections",
@@ -3797,6 +3511,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "shared_buffers",
@@ -3819,6 +3534,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "work_mem",
@@ -3841,6 +3557,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "wal_buffers",
@@ -3863,6 +3580,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "wal_segment_size",
@@ -3885,6 +3603,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "maintenance_work_mem",
@@ -3907,6 +3626,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "block_size",
@@ -3929,6 +3649,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "checkpoint_segments",
@@ -3951,6 +3672,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "checkpoint_timeout",
@@ -3973,6 +3695,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "default_statistics_target",
@@ -3995,6 +3718,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "seq_page_cost",
@@ -4017,6 +3741,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "random_page_cost",
@@ -4039,6 +3764,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "effective_cache_size",
@@ -4061,6 +3787,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "effective_io_concurrency",
@@ -4083,6 +3810,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "fsync",
@@ -4105,6 +3833,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "autovacuum",
@@ -4127,6 +3856,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "autovacuum_analyze_scale_factor",
@@ -4149,6 +3879,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "autovacuum_analyze_threshold",
@@ -4171,6 +3902,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "autovacuum_vacuum_scale_factor",
@@ -4193,6 +3925,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "autovacuum_vacuum_threshold",
@@ -4215,6 +3948,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "autovacuum_vacuum_cost_limit",
@@ -4237,6 +3971,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "autovacuum_vacuum_cost_delay",
@@ -4259,6 +3994,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "autovacuum_max_workers",
@@ -4281,6 +4017,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "autovacuum_naptime",
@@ -4303,6 +4040,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "autovacuum_freeze_max_age",
@@ -4325,6 +4063,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "logging_collector",
@@ -4347,6 +4086,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "log_min_duration_statement",
@@ -4369,6 +4109,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "log_duration",
@@ -4391,6 +4132,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "log_lock_waits",
@@ -4413,6 +4155,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "max_wal_senders",
@@ -4435,6 +4178,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "max_wal_size",
@@ -4457,6 +4201,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "min_wal_size",
@@ -4479,6 +4224,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "wal_compression",
@@ -4501,6 +4247,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "max_worker_processes",
@@ -4523,6 +4270,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "max_parallel_workers_per_gather",
@@ -4545,6 +4293,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "max_parallel_workers",
@@ -4567,6 +4316,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "autovacuum_work_mem",
@@ -4589,6 +4339,7 @@
         "definition": "",
         "hide": 2,
         "includeAll": false,
+        "index": -1,
         "label": null,
         "multi": false,
         "name": "autovacuum_multixact_freeze_max_age",
@@ -4639,5 +4390,8 @@
   "timezone": "browser",
   "title": "PostgreSQL Overview",
   "uid": "IvhES05ik",
+  "variables": {
+    "list": []
+  },
   "version": 1
 }
