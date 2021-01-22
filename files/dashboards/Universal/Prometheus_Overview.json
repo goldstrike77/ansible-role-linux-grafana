@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.5.3"
+      "version": "6.7.5"
     },
     {
       "type": "panel",
@@ -44,6 +44,7 @@
   "annotations": {
     "list": [
       {
+        "$$hashKey": "object:1241",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -58,9 +59,10 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1583138824649,
+  "iteration": 1611301820746,
   "links": [
     {
+      "$$hashKey": "object:1404",
       "asDropdown": true,
       "includeVars": true,
       "keepTime": true,
@@ -72,6 +74,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:1405",
       "asDropdown": true,
       "includeVars": true,
       "keepTime": true,
@@ -83,6 +86,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:1406",
       "asDropdown": true,
       "includeVars": true,
       "keepTime": true,
@@ -94,6 +98,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:1407",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -164,7 +169,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -249,7 +253,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -337,7 +340,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -424,7 +426,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -509,7 +510,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -595,7 +595,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -681,7 +680,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "s",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -768,7 +766,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -3619,7 +3616,6 @@
       "hideTimeOverride": true,
       "id": 13,
       "links": [],
-      "options": {},
       "pageSize": null,
       "scroll": false,
       "showHeader": true,
@@ -3630,6 +3626,7 @@
       "styles": [
         {
           "alias": "",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -3646,6 +3643,7 @@
         },
         {
           "alias": "Metrics",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -3699,7 +3697,6 @@
       "hideTimeOverride": true,
       "id": 14,
       "links": [],
-      "options": {},
       "pageSize": null,
       "scroll": false,
       "showHeader": true,
@@ -3710,6 +3707,7 @@
       "styles": [
         {
           "alias": "",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -3726,6 +3724,7 @@
         },
         {
           "alias": "Instance",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -3760,7 +3759,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 21,
+  "schemaVersion": 22,
   "style": "dark",
   "tags": [
     "Insight"
@@ -3830,14 +3829,15 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(prometheus_api_remote_read_queries, group)",
+        "definition": "label_values(prometheus_api_remote_read_queries, customer)",
         "hide": 0,
         "includeAll": false,
-        "label": "Group",
+        "index": -1,
+        "label": "Customer",
         "multi": false,
-        "name": "group",
+        "name": "customer",
         "options": [],
-        "query": "label_values(prometheus_api_remote_read_queries, group)",
+        "query": "label_values(prometheus_api_remote_read_queries, customer)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -3852,16 +3852,86 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "prometheus_api_remote_read_queries{group=\"$group\"}",
+        "definition": "label_values(prometheus_api_remote_read_queries{customer=\"$customer\"}, environment)",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
+        "label": "Environment",
+        "multi": false,
+        "name": "environment",
+        "options": [],
+        "query": "label_values(prometheus_api_remote_read_queries{customer=\"$customer\"}, environment)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(prometheus_api_remote_read_queries{customer=\"$customer\",environment=\"$environment\"}, project)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Project",
+        "multi": false,
+        "name": "project",
+        "options": [],
+        "query": "label_values(prometheus_api_remote_read_queries{customer=\"$customer\",environment=\"$environment\"}, project)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(prometheus_api_remote_read_queries{customer=\"$customer\",environment=\"$environment\",project=\"$project\"}, group)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Group",
+        "multi": false,
+        "name": "group",
+        "options": [],
+        "query": "label_values(prometheus_api_remote_read_queries{customer=\"$customer\",environment=\"$environment\",project=\"$project\"}, group)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(prometheus_api_remote_read_queries{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\"}, instance)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
         "label": "Host",
         "multi": false,
         "name": "host",
         "options": [],
-        "query": "prometheus_api_remote_read_queries{group=\"$group\"}",
+        "query": "label_values(prometheus_api_remote_read_queries{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\"}, instance)",
         "refresh": 1,
-        "regex": "/instance=\"(.+?)\"/",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
@@ -3906,5 +3976,8 @@
   "timezone": "browser",
   "title": "Prometheus Overview",
   "uid": "SK8vJ2Hiz",
+  "variables": {
+    "list": []
+  },
   "version": 1
 }

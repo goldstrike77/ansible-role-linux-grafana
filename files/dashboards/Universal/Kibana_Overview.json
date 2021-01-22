@@ -20,7 +20,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.5.2"
+      "version": "6.7.5"
     },
     {
       "type": "panel",
@@ -44,6 +44,7 @@
   "annotations": {
     "list": [
       {
+        "$$hashKey": "object:193",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -59,9 +60,10 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1582012030045,
+  "iteration": 1611301453868,
   "links": [
     {
+      "$$hashKey": "object:317",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -73,6 +75,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:318",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -84,6 +87,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:319",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -95,6 +99,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:320",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -151,7 +156,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -208,30 +212,36 @@
             "mean"
           ],
           "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
             "mappings": [],
             "max": 100,
             "min": 0,
-            "thresholds": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 90
-              }
-            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 90
+                }
+              ]
+            },
             "title": "",
             "unit": "percent"
           },
-          "override": {},
+          "overrides": [],
           "values": false
         },
         "orientation": "auto",
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "6.5.2",
+      "pluginVersion": "6.7.5",
       "targets": [
         {
           "expr": "kibana_heap_used_in_bytes{instance=\"$host\"} / kibana_heap_max_in_bytes{instance=\"$host\"} * 100",
@@ -397,7 +407,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -443,7 +452,7 @@
   ],
   "refresh": "1m",
   "revision": "1.0",
-  "schemaVersion": 21,
+  "schemaVersion": 22,
   "style": "dark",
   "tags": [
     "Insight"
@@ -508,14 +517,15 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(kibana_status, group)",
+        "definition": "label_values(kibana_status, customer)",
         "hide": 0,
         "includeAll": false,
-        "label": "Group",
+        "index": -1,
+        "label": "Customer",
         "multi": false,
-        "name": "group",
+        "name": "customer",
         "options": [],
-        "query": "label_values(kibana_status, group)",
+        "query": "label_values(kibana_status, customer)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -530,16 +540,86 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "kibana_status{group=\"$group\"}",
+        "definition": "label_values(kibana_status{customer=\"$customer\"}, environment)",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
+        "label": "Environment",
+        "multi": false,
+        "name": "environment",
+        "options": [],
+        "query": "label_values(kibana_status{customer=\"$customer\"}, environment)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(kibana_status{customer=\"$customer\",environment=\"$environment\"}, project)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Project",
+        "multi": false,
+        "name": "project",
+        "options": [],
+        "query": "label_values(kibana_status{customer=\"$customer\",environment=\"$environment\"}, project)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(kibana_status{customer=\"$customer\",environment=\"$environment\",project=\"$project\"}, group)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Group",
+        "multi": false,
+        "name": "group",
+        "options": [],
+        "query": "label_values(kibana_status{customer=\"$customer\",environment=\"$environment\",project=\"$project\"}, group)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(kibana_status{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\"}, instance)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
         "label": "Host",
         "multi": false,
         "name": "host",
         "options": [],
-        "query": "kibana_status{group=\"$group\"}",
+        "query": "label_values(kibana_status{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\"}, instance)",
         "refresh": 1,
-        "regex": "/instance=\"(.+?)\"/",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
@@ -583,5 +663,8 @@
   "timezone": "browser",
   "title": "Kibana Overview",
   "uid": "U3tGfHzWz",
+  "variables": {
+    "list": []
+  },
   "version": 1
 }
