@@ -54,7 +54,7 @@
   "gnetId": 1856,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1610510985908,
+  "iteration": 1611366212351,
   "links": [
     {
       "$$hashKey": "object:21641",
@@ -152,10 +152,12 @@
       "mappingType": 1,
       "mappingTypes": [
         {
+          "$$hashKey": "object:2307",
           "name": "value to text",
           "value": 1
         },
         {
+          "$$hashKey": "object:2308",
           "name": "range to text",
           "value": 2
         }
@@ -185,6 +187,7 @@
         {
           "expr": "sum(rate(node_network_receive_bytes_total{device=\"$device\",instance=\"$host\"}[1h]))",
           "format": "time_series",
+          "interval": "$interval",
           "intervalFactor": 1,
           "legendFormat": "",
           "refId": "A"
@@ -197,6 +200,7 @@
       "valueFontSize": "70%",
       "valueMaps": [
         {
+          "$$hashKey": "object:2310",
           "op": "=",
           "text": "N/A",
           "value": "null"
@@ -269,7 +273,9 @@
         {
           "expr": "sum(rate(node_network_transmit_bytes_total{device=\"$device\",instance=\"$host\"}[1h]))",
           "format": "time_series",
+          "interval": "$interval",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
@@ -1755,7 +1761,7 @@
       {
         "auto": true,
         "auto_count": 200,
-        "auto_min": "1s",
+        "auto_min": "1m",
         "current": {
           "selected": false,
           "text": "auto",
@@ -1766,42 +1772,43 @@
         "name": "interval",
         "options": [
           {
+            "$$hashKey": "object:2702",
             "selected": true,
             "text": "auto",
             "value": "$__auto_interval_interval"
           },
           {
-            "selected": false,
-            "text": "5s",
-            "value": "5s"
-          },
-          {
+            "$$hashKey": "object:2703",
             "selected": false,
             "text": "1m",
             "value": "1m"
           },
           {
+            "$$hashKey": "object:2704",
             "selected": false,
             "text": "5m",
             "value": "5m"
           },
           {
+            "$$hashKey": "object:2705",
             "selected": false,
             "text": "1h",
             "value": "1h"
           },
           {
+            "$$hashKey": "object:2706",
             "selected": false,
             "text": "6h",
             "value": "6h"
           },
           {
+            "$$hashKey": "object:2707",
             "selected": false,
             "text": "1d",
             "value": "1d"
           }
         ],
-        "query": "5s,1m,5m,1h,6h,1d",
+        "query": "1m,5m,1h,6h,1d",
         "refresh": 2,
         "skipUrlSync": false,
         "type": "interval"
@@ -1954,9 +1961,6 @@
     "hidden": false,
     "now": true,
     "refresh_intervals": [
-      "5s",
-      "10s",
-      "30s",
       "1m",
       "5m",
       "15m",
