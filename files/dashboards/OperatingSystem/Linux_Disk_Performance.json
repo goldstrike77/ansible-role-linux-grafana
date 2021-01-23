@@ -835,7 +835,7 @@
         "allFormat": "glob",
         "auto": true,
         "auto_count": 200,
-        "auto_min": "1s",
+        "auto_min": "1m",
         "current": {
           "selected": false,
           "text": "auto",
@@ -853,11 +853,6 @@
             "selected": true,
             "text": "auto",
             "value": "$__auto_interval_interval"
-          },
-          {
-            "selected": false,
-            "text": "5s",
-            "value": "5s"
           },
           {
             "selected": false,
@@ -885,7 +880,7 @@
             "value": "1d"
           }
         ],
-        "query": "5s,1m,5m,1h,6h,1d",
+        "query": "1m,5m,1h,6h,1d",
         "refresh": 2,
         "skipUrlSync": false,
         "type": "interval"
@@ -1047,9 +1042,6 @@
     "notice": false,
     "now": true,
     "refresh_intervals": [
-      "5s",
-      "10s",
-      "30s",
       "1m",
       "5m",
       "15m",
