@@ -2,7 +2,7 @@
   "__inputs": [
     {
       "name": "DS_PROMETHEUS",
-      "label": "Prometheus",
+      "label": "DS_PROMETHEUS",
       "description": "",
       "type": "datasource",
       "pluginId": "prometheus",
@@ -14,24 +14,25 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "5.4.2"
+      "version": "6.7.5"
     },
     {
       "type": "panel",
       "id": "graph",
       "name": "Graph",
-      "version": "5.0.0"
+      "version": ""
     },
     {
       "type": "datasource",
       "id": "prometheus",
       "name": "Prometheus",
-      "version": "5.0.0"
+      "version": "1.0.0"
     }
   ],
   "annotations": {
     "list": [
       {
+        "$$hashKey": "object:689",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -47,9 +48,10 @@
   "gnetId": 6753,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1552455299255,
+  "iteration": 1611819907374,
   "links": [
     {
+      "$$hashKey": "object:795",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -61,6 +63,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:796",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -72,6 +75,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:797",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -83,6 +87,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:798",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -103,12 +108,14 @@
       "datasource": "DS_PROMETHEUS",
       "decimals": 0,
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 10,
         "w": 12,
         "x": 0,
         "y": 0
       },
+      "hiddenSeries": false,
       "id": 2,
       "legend": {
         "alignAsTable": true,
@@ -124,6 +131,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -135,7 +145,7 @@
       "targets": [
         {
           "alias": "",
-          "expr": "nginx_connections_active{instance=\"$host\"}",
+          "expr": "nginx_connections_active{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",instance=\"$host\"}",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -144,7 +154,7 @@
           "refId": "A"
         },
         {
-          "expr": "nginx_connections_reading{instance=\"$host\"}",
+          "expr": "nginx_connections_reading{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",instance=\"$host\"}",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -152,7 +162,7 @@
           "refId": "B"
         },
         {
-          "expr": "nginx_connections_writing{instance=\"$host\"}",
+          "expr": "nginx_connections_writing{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",instance=\"$host\"}",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -160,7 +170,7 @@
           "refId": "D"
         },
         {
-          "expr": "nginx_connections_waiting{instance=\"$host\"}",
+          "expr": "nginx_connections_waiting{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",instance=\"$host\"}",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -218,12 +228,14 @@
       "datasource": "DS_PROMETHEUS",
       "description": "",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 10,
         "w": 12,
         "x": 12,
         "y": 0
       },
+      "hiddenSeries": false,
       "id": 4,
       "legend": {
         "alignAsTable": true,
@@ -239,6 +251,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -249,7 +264,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "irate(nginx_connections_handled{instance=\"$host\"}[5m])",
+          "expr": "irate(nginx_connections_handled{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",instance=\"$host\"}[5m])",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -257,7 +272,7 @@
           "refId": "C"
         },
         {
-          "expr": "irate(nginx_connections_accepted{instance=\"$host\"}[5m])",
+          "expr": "irate(nginx_connections_accepted{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",instance=\"$host\"}[5m])",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -265,7 +280,7 @@
           "refId": "B"
         },
         {
-          "expr": "irate(nginx_http_requests_total{instance=\"$host\",}[5m])",
+          "expr": "irate(nginx_http_requests_total{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",instance=\"$host\",}[5m])",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -317,7 +332,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 16,
+  "schemaVersion": 22,
   "style": "dark",
   "tags": [
     "Insight"
@@ -329,7 +344,7 @@
         "auto_count": 200,
         "auto_min": "1m",
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -377,18 +392,19 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(nginx_up, group)",
+        "definition": "label_values(nginx_up, customer)",
         "hide": 0,
         "includeAll": false,
-        "label": "Group",
+        "index": -1,
+        "label": "Customer",
         "multi": false,
-        "name": "group",
+        "name": "customer",
         "options": [],
-        "query": "label_values(nginx_up, group)",
+        "query": "label_values(nginx_up, customer)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
-        "sort": 0,
+        "sort": 1,
         "tagValuesQuery": "",
         "tags": [],
         "tagsQuery": "",
@@ -399,16 +415,86 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "nginx_up{group=\"$group\"}",
+        "definition": "label_values(nginx_up{customer=\"$customer\"}, environment)",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
+        "label": "Environment",
+        "multi": false,
+        "name": "environment",
+        "options": [],
+        "query": "label_values(nginx_up{customer=\"$customer\"}, environment)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(nginx_up{customer=\"$customer\",environment=\"$environment\"}, project)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Project",
+        "multi": false,
+        "name": "project",
+        "options": [],
+        "query": "label_values(nginx_up{customer=\"$customer\",environment=\"$environment\"}, project)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(nginx_up{customer=\"$customer\",environment=\"$environment\",project=\"$project\"}, group)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Group",
+        "multi": false,
+        "name": "group",
+        "options": [],
+        "query": "label_values(nginx_up{customer=\"$customer\",environment=\"$environment\",project=\"$project\"}, group)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(nginx_up{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\"}, instance)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
         "label": "Host",
         "multi": false,
         "name": "host",
         "options": [],
-        "query": "nginx_up{group=\"$group\"}",
+        "query": "label_values(nginx_up{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\"}, instance)",
         "refresh": 1,
-        "regex": "/instance=\"(.+?)\"/",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
@@ -448,5 +534,8 @@
   "timezone": "",
   "title": "NGinx Overview",
   "uid": "6jtsPFCiz",
+  "variables": {
+    "list": []
+  },
   "version": 1
 }
