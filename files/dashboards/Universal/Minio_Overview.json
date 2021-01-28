@@ -11,16 +11,22 @@
   ],
   "__requires": [
     {
+      "type": "panel",
+      "id": "bargauge",
+      "name": "Bar Gauge",
+      "version": ""
+    },
+    {
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.5.2"
+      "version": "6.7.5"
     },
     {
       "type": "panel",
       "id": "grafana-piechart-panel",
       "name": "Pie Chart",
-      "version": "1.4.0"
+      "version": "1.6.1"
     },
     {
       "type": "panel",
@@ -39,17 +45,12 @@
       "id": "singlestat",
       "name": "Singlestat",
       "version": ""
-    },
-    {
-      "type": "panel",
-      "id": "table",
-      "name": "Table",
-      "version": ""
     }
   ],
   "annotations": {
     "list": [
       {
+        "$$hashKey": "object:219",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -65,9 +66,10 @@
   "gnetId": 6248,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1582091891072,
+  "iteration": 1611826399231,
   "links": [
     {
+      "$$hashKey": "object:375",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -79,6 +81,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:376",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -90,6 +93,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:377",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -101,6 +105,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:378",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -146,10 +151,12 @@
       "mappingType": 1,
       "mappingTypes": [
         {
+          "$$hashKey": "object:1794",
           "name": "value to text",
           "value": 1
         },
         {
+          "$$hashKey": "object:1795",
           "name": "range to text",
           "value": 2
         }
@@ -157,11 +164,10 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
-      "prefixFontSize": "80%",
+      "prefixFontSize": "50%",
       "rangeMaps": [
         {
           "from": "null",
@@ -178,10 +184,11 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "avg(time() - process_start_time_seconds{service=\"minio_exporter\",tenant=\"$tenant\"})",
+          "expr": "avg(time() - process_start_time_seconds{service=\"minio\",customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",tenant=\"$tenant\"})",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
@@ -189,9 +196,10 @@
       "timeFrom": "$interval",
       "title": "Uptime",
       "type": "singlestat",
-      "valueFontSize": "80%",
+      "valueFontSize": "70%",
       "valueMaps": [
         {
+          "$$hashKey": "object:1797",
           "op": "=",
           "text": "N/A",
           "value": "null"
@@ -228,13 +236,12 @@
       "links": [],
       "maxDataPoints": 3,
       "nullPointMode": "connected",
-      "options": {},
       "pieType": "pie",
       "pluginVersion": "6.4.5",
       "strokeWidth": 1,
       "targets": [
         {
-          "expr": "sum(disk_storage_used{tenant=\"$tenant\"})",
+          "expr": "sum(bucket_usage_size{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",tenant=\"$tenant\"})",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -242,7 +249,7 @@
           "refId": "A"
         },
         {
-          "expr": "sum(disk_storage_total{tenant=\"$tenant\"})",
+          "expr": "sum(disk_storage_total{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",tenant=\"$tenant\"})",
           "interval": "$interval",
           "legendFormat": "Total",
           "refId": "B"
@@ -259,25 +266,25 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "DS_PROMETHEUS",
-      "description": "Data received x transmited by current Minio server instance",
+      "description": "",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 9,
-        "w": 11,
+        "w": 12,
         "x": 9,
         "y": 0
       },
       "height": "",
       "hiddenSeries": false,
-      "id": 6,
+      "id": 17,
       "legend": {
         "alignAsTable": true,
         "avg": true,
         "current": true,
         "max": false,
         "min": false,
-        "rightSide": false,
+        "rightSide": true,
         "show": true,
         "total": false,
         "values": true
@@ -299,22 +306,13 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(s3_rx_bytes_total{tenant=\"$tenant\"}[5m]))",
+          "expr": "(bucket_usage_size{service=\"minio\",customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",tenant=\"$tenant\"})",
           "format": "time_series",
           "interval": "$interval",
-          "intervalFactor": 2,
-          "legendFormat": "Received",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
           "metric": "minio_network_received_bytes_total",
           "refId": "A",
-          "step": 10
-        },
-        {
-          "expr": "sum(rate(s3_tx_bytes_total{tenant=\"$tenant\"}[5m]))",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 2,
-          "legendFormat": "Transmited",
-          "refId": "B",
           "step": 10
         }
       ],
@@ -322,7 +320,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Total In/Out Throughput",
+      "title": "Data Growth",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -338,6 +336,8 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:2129",
+          "decimals": 1,
           "format": "decbytes",
           "label": null,
           "logBase": 1,
@@ -346,12 +346,13 @@
           "show": true
         },
         {
+          "$$hashKey": "object:2130",
           "format": "decbytes",
           "label": null,
           "logBase": 1,
           "max": null,
           "min": null,
-          "show": true
+          "show": false
         }
       ],
       "yaxis": {
@@ -360,203 +361,94 @@
       }
     },
     {
-      "columns": [],
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorPostfix": false,
+      "colorValue": false,
+      "colors": [
+        "#d44a3a",
+        "rgba(237, 129, 40, 0.89)",
+        "#299c46"
+      ],
       "datasource": "DS_PROMETHEUS",
-      "fontSize": "100%",
+      "decimals": 0,
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
       "gridPos": {
-        "h": 9,
-        "w": 4,
-        "x": 20,
+        "h": 3,
+        "w": 3,
+        "x": 21,
         "y": 0
       },
       "hideTimeOverride": true,
-      "id": 15,
+      "id": 14,
+      "interval": null,
       "links": [],
-      "options": {},
-      "pageSize": null,
-      "scroll": false,
-      "showHeader": true,
-      "sort": {
-        "col": 1,
-        "desc": false
-      },
-      "styles": [
+      "mappingType": 1,
+      "mappingTypes": [
         {
-          "alias": "",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "Time",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
+          "$$hashKey": "object:1794",
+          "name": "value to text",
+          "value": 1
         },
         {
-          "alias": "",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "__name__",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "alias": "",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "environment",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "alias": "",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "job",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "alias": "",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "service",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "alias": "",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "tenant",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "alias": "",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "group",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "alias": "",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "instance",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "alias": "Http status",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 0,
-          "mappingType": 1,
-          "pattern": "code",
-          "thresholds": [],
-          "type": "number",
-          "unit": "short"
-        },
-        {
-          "alias": "",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 0,
-          "mappingType": 1,
-          "pattern": "Value",
-          "thresholds": [],
-          "type": "number",
-          "unit": "short"
+          "$$hashKey": "object:1795",
+          "name": "range to text",
+          "value": 2
         }
       ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "pluginVersion": "6.7.5",
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
       "targets": [
         {
-          "expr": "sum by(code, value)(promhttp_metric_handler_requests_total{tenant=\"$tenant\"})",
-          "format": "table",
-          "instant": true,
+          "expr": "topk(1, sum(bucket_objects_count{service=\"minio\",customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",tenant=\"$tenant\"}))",
+          "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
           "legendFormat": "",
           "refId": "A"
         }
       ],
+      "thresholds": "",
       "timeFrom": "$interval",
-      "title": "",
-      "transform": "table",
-      "type": "table"
+      "title": "Objects",
+      "type": "singlestat",
+      "valueFontSize": "70%",
+      "valueMaps": [
+        {
+          "$$hashKey": "object:1797",
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
     },
     {
       "cacheTimeout": null,
@@ -589,10 +481,12 @@
       "mappingType": 1,
       "mappingTypes": [
         {
+          "$$hashKey": "object:2276",
           "name": "value to text",
           "value": 1
         },
         {
+          "$$hashKey": "object:2277",
           "name": "range to text",
           "value": 2
         }
@@ -600,11 +494,10 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
-      "prefixFontSize": "80%",
+      "prefixFontSize": "50%",
       "rangeMaps": [
         {
           "from": "null",
@@ -621,10 +514,11 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(minio_disks_total{tenant=\"$tenant\"})",
+          "expr": "sum(minio_disks_total{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",tenant=\"$tenant\"})",
           "format": "time_series",
-          "interval": "10m",
+          "interval": "$interval",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
@@ -632,9 +526,100 @@
       "timeFrom": "$interval",
       "title": "Total disks",
       "type": "singlestat",
-      "valueFontSize": "80%",
+      "valueFontSize": "70%",
       "valueMaps": [
         {
+          "$$hashKey": "object:2279",
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorPostfix": false,
+      "colorValue": false,
+      "colors": [
+        "#d44a3a",
+        "rgba(237, 129, 40, 0.89)",
+        "#299c46"
+      ],
+      "datasource": "DS_PROMETHEUS",
+      "decimals": 0,
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 21,
+        "y": 3
+      },
+      "hideTimeOverride": true,
+      "id": 15,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "$$hashKey": "object:1794",
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "$$hashKey": "object:1795",
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "pluginVersion": "6.7.5",
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "sum (process_open_fds{service=\"minio\",customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",tenant=\"$tenant\"})",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": "$interval",
+      "title": "Open Files",
+      "type": "singlestat",
+      "valueFontSize": "70%",
+      "valueMaps": [
+        {
+          "$$hashKey": "object:1797",
           "op": "=",
           "text": "N/A",
           "value": "null"
@@ -674,10 +659,12 @@
       "mappingType": 1,
       "mappingTypes": [
         {
+          "$$hashKey": "object:2310",
           "name": "value to text",
           "value": 1
         },
         {
+          "$$hashKey": "object:2311",
           "name": "range to text",
           "value": 2
         }
@@ -685,11 +672,10 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
-      "prefixFontSize": "80%",
+      "prefixFontSize": "50%",
       "rangeMaps": [
         {
           "from": "null",
@@ -706,10 +692,11 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(minio_disks_offline{tenant=\"$tenant\"})",
+          "expr": "sum(minio_disks_offline{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",tenant=\"$tenant\"})",
           "format": "time_series",
-          "interval": "10m",
+          "interval": "$interval",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
@@ -717,19 +704,271 @@
       "timeFrom": "$interval",
       "title": "Offline disks",
       "type": "singlestat",
-      "valueFontSize": "80%",
+      "valueFontSize": "70%",
       "valueMaps": [
         {
+          "$$hashKey": "object:2313",
           "op": "=",
           "text": "N/A",
           "value": "null"
         }
       ],
       "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorPostfix": false,
+      "colorValue": false,
+      "colors": [
+        "#d44a3a",
+        "rgba(237, 129, 40, 0.89)",
+        "#299c46"
+      ],
+      "datasource": "DS_PROMETHEUS",
+      "decimals": 0,
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 21,
+        "y": 6
+      },
+      "hideTimeOverride": true,
+      "id": 16,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "$$hashKey": "object:1794",
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "$$hashKey": "object:1795",
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "pluginVersion": "6.7.5",
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "sum (go_goroutines{service=\"minio\",customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",tenant=\"$tenant\"})",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": "$interval",
+      "title": "Goroutines",
+      "type": "singlestat",
+      "valueFontSize": "70%",
+      "valueMaps": [
+        {
+          "$$hashKey": "object:1797",
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "DS_PROMETHEUS",
+      "description": "Data received x transmited by current Minio server instance",
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 9
+      },
+      "height": "",
+      "hiddenSeries": false,
+      "id": 6,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum(rate(s3_rx_bytes_total{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",tenant=\"$tenant\"}[5m]))",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 2,
+          "legendFormat": "Received",
+          "metric": "minio_network_received_bytes_total",
+          "refId": "A",
+          "step": 10
+        },
+        {
+          "expr": "sum(rate(s3_tx_bytes_total{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",tenant=\"$tenant\"}[5m]))",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 2,
+          "legendFormat": "Transmited",
+          "refId": "B",
+          "step": 10
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Total In/Out Throughput",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:2129",
+          "format": "decbytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:2130",
+          "format": "decbytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "datasource": "DS_PROMETHEUS",
+      "description": "",
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 9
+      },
+      "id": 18,
+      "links": [],
+      "options": {
+        "displayMode": "lcd",
+        "fieldOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "defaults": {
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "light-blue",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": [],
+          "values": false
+        },
+        "orientation": "horizontal",
+        "showUnfilled": true
+      },
+      "pluginVersion": "6.7.5",
+      "targets": [
+        {
+          "expr": "sum by (object_size) (bucket_objects_histogram{service=\"minio\",customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",tenant=\"$tenant\"})",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{object_size}}",
+          "metric": "minio_network_received_bytes_total",
+          "refId": "A",
+          "step": 10
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Object size distribution",
+      "type": "bargauge"
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 21,
+  "schemaVersion": 22,
   "style": "dark",
   "tags": [
     "object-storage",
@@ -742,7 +981,7 @@
         "auto_count": 200,
         "auto_min": "1m",
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -790,14 +1029,107 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(minio_disks_offline, tenant)",
+        "definition": "label_values(minio_disks_offline, customer)",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
+        "label": "Customer",
+        "multi": false,
+        "name": "customer",
+        "options": [],
+        "query": "label_values(minio_disks_offline, customer)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(minio_disks_offline{customer=\"$customer\"}, environment)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Environment",
+        "multi": false,
+        "name": "environment",
+        "options": [],
+        "query": "label_values(minio_disks_offline{customer=\"$customer\"}, environment)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(minio_disks_offline{customer=\"$customer\",environment=\"$environment\"}, project)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Project",
+        "multi": false,
+        "name": "project",
+        "options": [],
+        "query": "label_values(minio_disks_offline{customer=\"$customer\",environment=\"$environment\"}, project)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(minio_disks_offline{customer=\"$customer\",environment=\"$environment\",project=\"$project\"}, group)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Group",
+        "multi": false,
+        "name": "group",
+        "options": [],
+        "query": "label_values(minio_disks_offline{customer=\"$customer\",environment=\"$environment\",project=\"$project\"}, group)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(minio_disks_offline{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\"}, tenant)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
         "label": "Tenant",
         "multi": false,
         "name": "tenant",
         "options": [],
-        "query": "label_values(minio_disks_offline, tenant)",
+        "query": "label_values(minio_disks_offline{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\"}, tenant)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -839,5 +1171,8 @@
   "timezone": "browser",
   "title": "Minio Overview",
   "uid": "quT3-klik",
+  "variables": {
+    "list": []
+  },
   "version": 1
 }

@@ -11,8 +11,9 @@
 
 - name: Install Grafana plugins.
   git:
-    repo: '{{ item }}'
-    dest: '{{ grafana_path }}/grafana/plugins/{{ item.split("/")[-1] | lower }}'
+    repo: '{{ item.name }}'
+    version: '{{ item.version | default("master") }}'
+    dest: '{{ grafana_path }}/grafana/plugins/{{ item.name.split("/")[-1] | lower }}'
   become: 'yes'
   become_user: 'grafana'
   loop: '{{ grafana_plugins }}'

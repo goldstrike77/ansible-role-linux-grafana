@@ -62,8 +62,9 @@ grafana_ds_arg:
 
 # Plugins #
 grafana_plugins:
-  - 'https://github.com/grafana/piechart-panel.git'
-  - 'https://github.com/camptocamp/grafana-prometheus-alertmanager-datasource.git'
+  - name: 'https://github.com/grafana/piechart-panel.git'
+    version: 'release-1.6.1'
+  - name: 'https://github.com/camptocamp/grafana-prometheus-alertmanager-datasource.git'
 
 # LDAP Authentication #
 grafana_ldap_enabled: false # Enable LDAP integration.

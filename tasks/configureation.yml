@@ -5,7 +5,7 @@
     state: 'directory'
     owner: 'grafana'
     group: 'grafana'
-    mode: '0755'
+    mode: '0750'
 
 - name: Grafana sysconfig file transfer.
   template:
