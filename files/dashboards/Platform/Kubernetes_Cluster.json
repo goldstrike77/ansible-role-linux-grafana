@@ -54,7 +54,7 @@
   "gnetId": 9873,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1611817917567,
+  "iteration": 1611892301189,
   "links": [
     {
       "$$hashKey": "object:247",
@@ -2697,7 +2697,7 @@
         "hide": 0,
         "includeAll": false,
         "index": -1,
-        "label": "Group",
+        "label": "Cluster",
         "multi": false,
         "name": "group",
         "options": [],
@@ -2769,5 +2769,5 @@
   "variables": {
     "list": []
   },
-  "version": 1
+  "version": 2
 }

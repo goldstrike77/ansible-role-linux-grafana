@@ -60,7 +60,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1611301453868,
+  "iteration": 1611894337070,
   "links": [
     {
       "$$hashKey": "object:317",
@@ -139,6 +139,7 @@
         "x": 0,
         "y": 0
       },
+      "hideTimeOverride": true,
       "id": 5,
       "interval": null,
       "links": [],
@@ -176,14 +177,16 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "kibana_millis_uptime{instance=\"$host\"}",
+          "expr": "kibana_millis_uptime{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",instance=\"$host\"}",
           "format": "time_series",
-          "interval": "$interval",
+          "interval": "1m",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
       "thresholds": "300,3600",
+      "timeFrom": "1m",
       "title": "Uptime",
       "type": "singlestat",
       "valueFontSize": "80%",
@@ -244,14 +247,15 @@
       "pluginVersion": "6.7.5",
       "targets": [
         {
-          "expr": "kibana_heap_used_in_bytes{instance=\"$host\"} / kibana_heap_max_in_bytes{instance=\"$host\"} * 100",
+          "expr": "kibana_heap_used_in_bytes{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",instance=\"$host\"} / kibana_heap_max_in_bytes{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",instance=\"$host\"} * 100",
           "format": "time_series",
-          "interval": "$interval",
+          "interval": "1m",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
-      "timeFrom": null,
+      "timeFrom": "1m",
       "timeShift": null,
       "title": "Heap Used",
       "type": "gauge"
@@ -304,7 +308,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "kibana_os_load1{instance=\"$host\"}",
+          "expr": "kibana_os_load1{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",instance=\"$host\"}",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -312,7 +316,7 @@
           "refId": "A"
         },
         {
-          "expr": "kibana_os_load5{instance=\"$host\"}",
+          "expr": "kibana_os_load5{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",instance=\"$host\"}",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -320,8 +324,9 @@
           "refId": "B"
         },
         {
-          "expr": "kibana_os_load15{instance=\"$host\"}",
+          "expr": "kibana_os_load15{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",instance=\"$host\"}",
           "format": "time_series",
+          "interval": "$interval",
           "intervalFactor": 1,
           "legendFormat": "OS Load 15m",
           "refId": "C"
@@ -427,15 +432,16 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "kibana_concurrent_connections{instance=\"$host\"}",
+          "expr": "kibana_concurrent_connections{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",instance=\"$host\"}",
           "format": "time_series",
-          "interval": "$interval",
+          "interval": "1m",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
       "thresholds": "",
-      "timeFrom": null,
+      "timeFrom": "1m",
       "timeShift": null,
       "title": "Concurrent Connections",
       "type": "singlestat",

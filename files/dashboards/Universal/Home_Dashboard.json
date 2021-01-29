@@ -79,7 +79,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1610503515385,
+  "iteration": 1611901375531,
   "links": [
     {
       "$$hashKey": "object:7698",
@@ -153,7 +153,7 @@
       "datasource": null,
       "gridPos": {
         "h": 7,
-        "w": 6,
+        "w": 5,
         "x": 0,
         "y": 3
       },
@@ -168,11 +168,11 @@
     {
       "columns": [],
       "datasource": "DS_PROMETHEUS",
-      "fontSize": "120%",
+      "fontSize": "100%",
       "gridPos": {
         "h": 10,
-        "w": 12,
-        "x": 6,
+        "w": 13,
+        "x": 5,
         "y": 3
       },
       "hideTimeOverride": true,
@@ -297,7 +297,7 @@
           "expr": "sum(up{customer=~\"$customer\",environment=~\"$environment\",project=~\"$project\",group=~\"$group\",application!=\"\",service!=\"\"}) by (application,service)",
           "format": "table",
           "instant": true,
-          "interval": "",
+          "interval": "1m",
           "intervalFactor": 1,
           "legendFormat": "",
           "refId": "B"
@@ -307,7 +307,7 @@
           "format": "table",
           "hide": false,
           "instant": true,
-          "interval": "",
+          "interval": "1m",
           "legendFormat": "",
           "refId": "A"
         }
@@ -360,7 +360,7 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 6,
+        "w": 5,
         "x": 0,
         "y": 10
       },
@@ -407,7 +407,7 @@
       "targets": [
         {
           "annotations": false,
-          "expr": "environment=~\"$environment\",project=~\"$project\"",
+          "expr": "customer=~\"$customer\",environment=~\"$environment\",project=~\"$project\",group=~\"$group\"",
           "labelSelector": "*",
           "legendFormat": "",
           "refId": "A",
@@ -448,7 +448,7 @@
     {
       "columns": [],
       "datasource": "DS_ALERTMANAGER",
-      "fontSize": "100%",
+      "fontSize": "90%",
       "gridPos": {
         "h": 9,
         "w": 24,
@@ -538,8 +538,8 @@
         {
           "annotations": false,
           "expr": "customer=~\"$customer\",environment=~\"$environment\",project=~\"$project\",group=~\"$group\"",
-          "labelSelector": "*",
-          "legendFormat": "{{ instance }}",
+          "labelSelector": "datacenter,customer,environment,project,group,instance,service,severity,description",
+          "legendFormat": "",
           "refId": "A",
           "target": "Query",
           "type": "table"

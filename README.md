@@ -12,7 +12,7 @@ __Table of Contents__
 - [Overview](#overview)
 - [Requirements](#requirements)
   * [Operating systems](#operating-systems)
-  * [Grafana Versions](#Grafana-versions)
+  * [Versions](#versions)
 - [ Role variables](#Role-variables)
   * [Main Configuration](#Main-parameters)
   * [Other Configuration](#Other-parameters)
@@ -34,11 +34,11 @@ This Ansible role installs Grafana on the Linux operating system, including esta
 
   * CentOS 7
 
-### Grafana versions
+### Versions
 
 The following list of supported the Grafana releases:
 
-* Grafana 5, 6
+* 5, 6, 7
 
 ## Role variables
 ### Main parameters

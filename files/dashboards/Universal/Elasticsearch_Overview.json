@@ -59,7 +59,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1610521608382,
+  "iteration": 1611892296069,
   "links": [
     {
       "$$hashKey": "object:1627",
@@ -187,18 +187,18 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "((sum(elasticsearch_cluster_health_status{cluster=\"$cluster\",color=\"green\"})*2)+sum(elasticsearch_cluster_health_status{cluster=\"$cluster\",color=\"yellow\"})) / (count(elasticsearch_cluster_health_number_of_data_nodes{cluster=\"$cluster\"}))",
+          "expr": "((sum(elasticsearch_cluster_health_status{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\",color=\"green\"})*2)+sum(elasticsearch_cluster_health_status{cluster=\"$cluster\",color=\"yellow\"})) / (count(elasticsearch_cluster_health_number_of_data_nodes{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"}))",
           "format": "time_series",
           "instant": false,
-          "interval": "$interval",
+          "interval": "1m",
           "intervalFactor": 1,
           "legendFormat": "",
           "refId": "A"
         }
       ],
       "thresholds": "1,2,3",
-      "timeFrom": "$interval",
-      "title": "Cluster Status",
+      "timeFrom": "1m",
+      "title": "Status",
       "type": "singlestat",
       "valueFontSize": "70%",
       "valueMaps": [
@@ -235,7 +235,7 @@
         "#d44a3a"
       ],
       "datasource": "DS_PROMETHEUS",
-      "decimals": 1,
+      "decimals": 0,
       "format": "bytes",
       "gauge": {
         "maxValue": 100,
@@ -257,10 +257,12 @@
       "mappingType": 1,
       "mappingTypes": [
         {
+          "$$hashKey": "object:2145",
           "name": "value to text",
           "value": 1
         },
         {
+          "$$hashKey": "object:2146",
           "name": "range to text",
           "value": 2
         }
@@ -288,20 +290,22 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(elasticsearch_jvm_memory_max_bytes{cluster=\"$cluster\",area=\"heap\"})",
+          "expr": "sum(elasticsearch_jvm_memory_max_bytes{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\",area=\"heap\"})",
           "format": "time_series",
+          "interval": "1m",
           "intervalFactor": 1,
           "legendFormat": "",
           "refId": "A"
         }
       ],
       "thresholds": "",
-      "timeFrom": "$interval",
+      "timeFrom": "1m",
       "title": "Total Heap",
       "type": "singlestat",
       "valueFontSize": "70%",
       "valueMaps": [
         {
+          "$$hashKey": "object:2148",
           "op": "=",
           "text": "N/A",
           "value": "null"
@@ -342,10 +346,12 @@
       "mappingType": 1,
       "mappingTypes": [
         {
+          "$$hashKey": "object:946",
           "name": "value to text",
           "value": 1
         },
         {
+          "$$hashKey": "object:947",
           "name": "range to text",
           "value": 2
         }
@@ -373,9 +379,9 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(elasticsearch_cluster_health_number_of_nodes{cluster=\"$cluster\"})/count(elasticsearch_cluster_health_number_of_nodes{cluster=\"$cluster\"})",
+          "expr": "sum(elasticsearch_cluster_health_number_of_nodes{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"})/count(elasticsearch_cluster_health_number_of_nodes{cluster=\"$cluster\"})",
           "format": "time_series",
-          "interval": "",
+          "interval": "1m",
           "intervalFactor": 2,
           "legendFormat": "",
           "metric": "elasticsearch_cluster_health_number_of_nodes",
@@ -384,13 +390,14 @@
         }
       ],
       "thresholds": "",
-      "timeFrom": "$interval",
+      "timeFrom": "1m",
       "timeShift": null,
-      "title": "Running Nodes",
+      "title": "Nodes",
       "type": "singlestat",
       "valueFontSize": "70%",
       "valueMaps": [
         {
+          "$$hashKey": "object:949",
           "op": "=",
           "text": "N/A",
           "value": "null"
@@ -460,14 +467,16 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(elasticsearch_cluster_health_number_of_data_nodes{cluster=\"$cluster\"})/count(elasticsearch_cluster_health_number_of_nodes{cluster=\"$cluster\"})",
+          "expr": "sum(elasticsearch_cluster_health_number_of_data_nodes{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"})/count(elasticsearch_cluster_health_number_of_nodes{cluster=\"$cluster\"})",
           "format": "time_series",
+          "interval": "1m",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
       "thresholds": "",
-      "timeFrom": "$interval",
+      "timeFrom": "1m",
       "title": "Data Nodes",
       "type": "singlestat",
       "valueFontSize": "70%",
@@ -502,6 +511,7 @@
       },
       "styles": [
         {
+          "$$hashKey": "object:965",
           "alias": "Node",
           "align": "auto",
           "colorMode": null,
@@ -519,6 +529,7 @@
           "unit": "short"
         },
         {
+          "$$hashKey": "object:966",
           "alias": "IP",
           "align": "auto",
           "colorMode": null,
@@ -536,6 +547,7 @@
           "unit": "short"
         },
         {
+          "$$hashKey": "object:967",
           "alias": "Version",
           "align": "auto",
           "colorMode": null,
@@ -553,6 +565,7 @@
           "unit": "short"
         },
         {
+          "$$hashKey": "object:968",
           "alias": "Heap",
           "align": "auto",
           "colorMode": null,
@@ -570,6 +583,7 @@
           "unit": "bytes"
         },
         {
+          "$$hashKey": "object:969",
           "alias": "",
           "align": "auto",
           "colorMode": null,
@@ -589,20 +603,20 @@
       ],
       "targets": [
         {
-          "expr": "elasticsearch_clusterinfo_version_info{cluster=\"$cluster\"}",
+          "expr": "elasticsearch_clusterinfo_version_info{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"}",
           "format": "table",
           "hide": false,
           "instant": true,
-          "interval": "$interval",
+          "interval": "1m",
           "legendFormat": "",
           "refId": "A"
         },
         {
-          "expr": "avg by (instance)(elasticsearch_jvm_memory_max_bytes{cluster=\"$cluster\",area=\"heap\"})",
+          "expr": "avg by (instance)(elasticsearch_jvm_memory_max_bytes{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\",area=\"heap\"})",
           "format": "table",
           "hide": false,
           "instant": true,
-          "interval": "$interval",
+          "interval": "1m",
           "legendFormat": "",
           "refId": "B"
         }
@@ -675,14 +689,16 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "avg(elasticsearch_cluster_health_active_shards{cluster=\"$cluster\"})",
+          "expr": "avg(elasticsearch_cluster_health_active_shards{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"})",
           "format": "time_series",
+          "interval": "1m",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
       "thresholds": "",
-      "timeFrom": "$interval",
+      "timeFrom": "1m",
       "title": "Active Shards",
       "type": "singlestat",
       "valueFontSize": "70%",
@@ -757,14 +773,16 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "avg(elasticsearch_cluster_health_active_primary_shards{cluster=\"$cluster\"})",
+          "expr": "avg(elasticsearch_cluster_health_active_primary_shards{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"})",
           "format": "time_series",
+          "interval": "1m",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
       "thresholds": "",
-      "timeFrom": "$interval",
+      "timeFrom": "1m",
       "title": "Active Primary Shards",
       "type": "singlestat",
       "valueFontSize": "70%",
@@ -839,14 +857,16 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(elasticsearch_cluster_health_number_of_pending_tasks{cluster=\"$cluster\"})",
+          "expr": "sum(elasticsearch_cluster_health_number_of_pending_tasks{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"})",
           "format": "time_series",
+          "interval": "1m",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
       "thresholds": "0.5,1",
-      "timeFrom": "$interval",
+      "timeFrom": "1m",
       "title": "Pending Tasks",
       "type": "singlestat",
       "valueFontSize": "70%",
@@ -921,8 +941,9 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "elasticsearch_indices_docs{cluster=\"$cluster\"}",
+          "expr": "elasticsearch_indices_docs{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"}",
           "format": "time_series",
+          "interval": "$interval",
           "intervalFactor": 2,
           "legendFormat": "{{ name }}",
           "refId": "A",
@@ -1018,8 +1039,9 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "elasticsearch_indices_store_size_bytes{cluster=\"$cluster\"}",
+          "expr": "elasticsearch_indices_store_size_bytes{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"}",
           "format": "time_series",
+          "interval": "$interval",
           "intervalFactor": 2,
           "legendFormat": "{{ name }}",
           "refId": "A",
@@ -1112,8 +1134,9 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(elasticsearch_indices_indexing_index_total{cluster=\"$cluster\"}[5m])",
+          "expr": "rate(elasticsearch_indices_indexing_index_total{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"}[5m])",
           "format": "time_series",
+          "interval": "$interval",
           "intervalFactor": 1,
           "legendFormat": "{{ name }}",
           "refId": "A"
@@ -1206,8 +1229,9 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(elasticsearch_indices_search_fetch_total{cluster=\"$cluster\"}[5m])",
+          "expr": "rate(elasticsearch_indices_search_fetch_total{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"}[5m])",
           "format": "time_series",
+          "interval": "$interval",
           "intervalFactor": 1,
           "legendFormat": "{{ name }}",
           "refId": "A"
@@ -1300,9 +1324,9 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(elasticsearch_thread_pool_queue_count{cluster=\"$cluster\"}) by (type)",
+          "expr": "sum(elasticsearch_thread_pool_queue_count{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"}) by (type)",
           "format": "time_series",
-          "interval": "",
+          "interval": "$interval",
           "intervalFactor": 2,
           "legendFormat": "{{type}}",
           "refId": "A",
@@ -1409,9 +1433,9 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(elasticsearch_thread_pool_active_count{cluster=\"$cluster\",type!=\"management\"}) by (type)",
+          "expr": "sum(elasticsearch_thread_pool_active_count{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\",type!=\"management\"}) by (type)",
           "format": "time_series",
-          "interval": "",
+          "interval": "$interval",
           "intervalFactor": 2,
           "legendFormat": "{{ type }}",
           "refId": "A",
@@ -1505,9 +1529,9 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(elasticsearch_thread_pool_rejected_count{cluster=\"$cluster\",type!=\"management\"}[5m])",
+          "expr": "rate(elasticsearch_thread_pool_rejected_count{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\",type!=\"management\"}[5m])",
           "format": "time_series",
-          "interval": "",
+          "interval": "$interval",
           "intervalFactor": 2,
           "legendFormat": "{{ type }}",
           "refId": "A",
@@ -1609,16 +1633,18 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(elasticsearch_transport_rx_size_bytes_total{cluster=\"$cluster\"}[5m]))",
+          "expr": "sum(rate(elasticsearch_transport_rx_size_bytes_total{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"}[5m]))",
           "format": "time_series",
+          "interval": "$interval",
           "intervalFactor": 1,
           "legendFormat": "Inbound",
           "refId": "A",
           "step": 240
         },
         {
-          "expr": "sum(rate(elasticsearch_transport_tx_size_bytes_total{cluster=\"$cluster\"}[5m]))",
+          "expr": "sum(rate(elasticsearch_transport_tx_size_bytes_total{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"}[5m]))",
           "format": "time_series",
+          "interval": "$interval",
           "intervalFactor": 1,
           "legendFormat": "Outbound",
           "refId": "B",
@@ -1715,9 +1741,9 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "avg_over_time(elasticsearch_jvm_memory_used_bytes{area=\"heap\",cluster=\"$cluster\"}[15m]) / elasticsearch_jvm_memory_max_bytes{area=\"heap\",cluster=\"$cluster\"} * 100",
+          "expr": "avg_over_time(elasticsearch_jvm_memory_used_bytes{customer=\"$customer\",environment=\"$environment\",project=\"$project\",area=\"heap\",cluster=\"$cluster\"}[15m]) / elasticsearch_jvm_memory_max_bytes{area=\"heap\",cluster=\"$cluster\"} * 100",
           "format": "time_series",
-          "interval": "",
+          "interval": "$interval",
           "intervalFactor": 2,
           "legendFormat": "{{ name }}",
           "refId": "A",

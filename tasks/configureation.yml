@@ -70,6 +70,14 @@
   loop:
     - { regexp: '^timeout =', line: 'timeout = {{ grafana_arg.timeout }}' }
 
+- name: Grafana Plugins configuration.
+  lineinfile:
+    state: 'present'
+    dest: '/etc/grafana/grafana.ini'
+    insertafter: '\[paths\]'
+    regexp: '^plugins ='
+    line: 'plugins = {{ grafana_path }}/grafana/plugins'
+
 - name: Grafana Analytics configuration.
   lineinfile:
     state: 'present'

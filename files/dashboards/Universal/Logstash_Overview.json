@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.5.3"
+      "version": "6.7.5"
     },
     {
       "type": "panel",
@@ -27,11 +27,24 @@
       "id": "prometheus",
       "name": "Prometheus",
       "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "singlestat",
+      "name": "Singlestat",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
     }
   ],
   "annotations": {
     "list": [
       {
+        "$$hashKey": "object:223",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -47,9 +60,10 @@
   "gnetId": 2525,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1583216590004,
+  "iteration": 1611892260394,
   "links": [
     {
+      "$$hashKey": "object:381",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -61,6 +75,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:382",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -72,6 +87,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:383",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -83,6 +99,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:384",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -96,13 +113,316 @@
   ],
   "panels": [
     {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "DS_PROMETHEUS",
+      "decimals": 0,
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 0,
+        "y": 0
+      },
+      "hideTimeOverride": true,
+      "id": 21,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "$$hashKey": "object:3958",
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "$$hashKey": "object:3959",
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "count(logstash_node_mem_heap_max_bytes{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"})",
+          "interval": "1m",
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": "1m",
+      "timeShift": null,
+      "title": "Nodes",
+      "type": "singlestat",
+      "valueFontSize": "70%",
+      "valueMaps": [
+        {
+          "$$hashKey": "object:3961",
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "avg"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "DS_PROMETHEUS",
+      "decimals": 1,
+      "format": "bytes",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 2,
+        "y": 0
+      },
+      "hideTimeOverride": true,
+      "id": 19,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "$$hashKey": "object:3637",
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "$$hashKey": "object:3638",
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "sum(logstash_node_mem_heap_max_bytes{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"})",
+          "interval": "1m",
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": "1m",
+      "timeShift": null,
+      "title": "Total Heap",
+      "type": "singlestat",
+      "valueFontSize": "70%",
+      "valueMaps": [
+        {
+          "$$hashKey": "object:3640",
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "avg"
+    },
+    {
+      "cacheTimeout": null,
+      "columns": [],
+      "datasource": "DS_PROMETHEUS",
+      "fontSize": "80%",
+      "gridPos": {
+        "h": 3,
+        "w": 10,
+        "x": 4,
+        "y": 0
+      },
+      "id": 17,
+      "links": [],
+      "pageSize": null,
+      "showHeader": true,
+      "sort": {
+        "col": 0,
+        "desc": true
+      },
+      "styles": [
+        {
+          "$$hashKey": "object:1385",
+          "alias": "Node",
+          "align": "auto",
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "pattern": "instance",
+          "type": "string"
+        },
+        {
+          "$$hashKey": "object:1900",
+          "alias": "IP",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "ipaddress",
+          "thresholds": [],
+          "type": "string",
+          "unit": "short"
+        },
+        {
+          "$$hashKey": "object:1988",
+          "alias": "Version",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "version",
+          "thresholds": [],
+          "type": "string",
+          "unit": "short"
+        },
+        {
+          "$$hashKey": "object:2009",
+          "alias": "Heap",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "mappingType": 1,
+          "pattern": "Value #B",
+          "thresholds": [],
+          "type": "number",
+          "unit": "bytes"
+        },
+        {
+          "$$hashKey": "object:2914",
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "/.*/",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "logstash_info_node{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"}",
+          "format": "table",
+          "instant": true,
+          "interval": "1m",
+          "legendFormat": "",
+          "refId": "A"
+        },
+        {
+          "expr": "avg by (instance)(logstash_node_mem_heap_max_bytes{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"})",
+          "format": "table",
+          "instant": true,
+          "interval": "1m",
+          "legendFormat": "",
+          "refId": "B"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "transform": "table",
+      "type": "table"
+    },
+    {
       "collapsed": false,
       "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 0
+        "y": 3
       },
       "id": 13,
       "panels": [],
@@ -122,7 +442,7 @@
         "h": 10,
         "w": 6,
         "x": 0,
-        "y": 1
+        "y": 4
       },
       "height": "400",
       "hiddenSeries": false,
@@ -154,7 +474,8 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(logstash_node_pipeline_duration_seconds_total{cluster=\"$cluster\"}[5m])",
+          "expr": "rate(logstash_node_pipeline_duration_seconds_total{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"}[5m])",
+          "interval": "$interval",
           "intervalFactor": 2,
           "legendFormat": "{{instance}}",
           "refId": "A",
@@ -214,7 +535,7 @@
         "h": 10,
         "w": 6,
         "x": 6,
-        "y": 1
+        "y": 4
       },
       "height": "400",
       "hiddenSeries": false,
@@ -246,7 +567,8 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(logstash_node_pipeline_events_in_total{cluster=\"$cluster\"}[5m])",
+          "expr": "rate(logstash_node_pipeline_events_in_total{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"}[5m])",
+          "interval": "$interval",
           "intervalFactor": 2,
           "legendFormat": "{{instance}}",
           "refId": "A",
@@ -273,6 +595,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:1227",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -281,6 +604,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:1228",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -306,7 +630,7 @@
         "h": 10,
         "w": 6,
         "x": 12,
-        "y": 1
+        "y": 4
       },
       "height": "400",
       "hiddenSeries": false,
@@ -338,7 +662,8 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(logstash_node_pipeline_events_filtered_total{cluster=\"$cluster\"}[5m])",
+          "expr": "rate(logstash_node_pipeline_events_filtered_total{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"}[5m])",
+          "interval": "$interval",
           "intervalFactor": 2,
           "legendFormat": "{{instance}}",
           "refId": "A",
@@ -398,7 +723,7 @@
         "h": 10,
         "w": 6,
         "x": 18,
-        "y": 1
+        "y": 4
       },
       "height": "400",
       "hiddenSeries": false,
@@ -430,7 +755,8 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(logstash_node_pipeline_events_out_total{cluster=\"$cluster\"}[5m])",
+          "expr": "rate(logstash_node_pipeline_events_out_total{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"}[5m])",
+          "interval": "$interval",
           "intervalFactor": 2,
           "legendFormat": "{{instance}}",
           "refId": "A",
@@ -485,7 +811,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 11
+        "y": 14
       },
       "id": 14,
       "panels": [],
@@ -505,7 +831,7 @@
         "h": 8,
         "w": 6,
         "x": 0,
-        "y": 12
+        "y": 15
       },
       "height": "300",
       "hiddenSeries": false,
@@ -536,7 +862,8 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(logstash_node_plugin_duration_seconds_total{cluster=\"$cluster\"}[5m])) by (plugin)",
+          "expr": "sum(rate(logstash_node_plugin_duration_seconds_total{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"}[5m])) by (plugin)",
+          "interval": "$interval",
           "intervalFactor": 2,
           "legendFormat": "{{plugin}}",
           "refId": "A",
@@ -596,7 +923,7 @@
         "h": 8,
         "w": 6,
         "x": 6,
-        "y": 12
+        "y": 15
       },
       "height": "300",
       "hiddenSeries": false,
@@ -627,7 +954,8 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(logstash_node_plugin_failures_total{cluster=\"$cluster\"}[5m])) by (plugin)",
+          "expr": "sum(rate(logstash_node_plugin_failures_total{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"}[5m])) by (plugin)",
+          "interval": "$interval",
           "intervalFactor": 2,
           "legendFormat": "{{plugin}}",
           "refId": "A",
@@ -687,7 +1015,7 @@
         "h": 8,
         "w": 6,
         "x": 12,
-        "y": 12
+        "y": 15
       },
       "height": "300",
       "hiddenSeries": false,
@@ -718,7 +1046,8 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(logstash_node_plugin_events_in_total{cluster=\"$cluster\"}[5m])) by (plugin)",
+          "expr": "sum(rate(logstash_node_plugin_events_in_total{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"}[5m])) by (plugin)",
+          "interval": "$interval",
           "intervalFactor": 2,
           "legendFormat": "{{plugin}}",
           "refId": "A",
@@ -778,7 +1107,7 @@
         "h": 8,
         "w": 6,
         "x": 18,
-        "y": 12
+        "y": 15
       },
       "height": "300",
       "hiddenSeries": false,
@@ -809,7 +1138,8 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(logstash_node_plugin_events_out_total{cluster=\"$cluster\"}[5m])) by (plugin)",
+          "expr": "sum(rate(logstash_node_plugin_events_out_total{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"}[5m])) by (plugin)",
+          "interval": "$interval",
           "intervalFactor": 2,
           "legendFormat": "{{plugin}}",
           "refId": "A",
@@ -864,7 +1194,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 20
+        "y": 23
       },
       "id": 15,
       "panels": [],
@@ -884,7 +1214,7 @@
         "h": 10,
         "w": 6,
         "x": 0,
-        "y": 21
+        "y": 24
       },
       "height": "400px",
       "hiddenSeries": false,
@@ -919,7 +1249,8 @@
           "aggregator": "sum",
           "downsampleAggregator": "avg",
           "downsampleFillPolicy": "none",
-          "expr": "logstash_node_mem_heap_used_bytes{cluster=\"$cluster\"}",
+          "expr": "logstash_node_mem_heap_used_bytes{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"}",
+          "interval": "$interval",
           "intervalFactor": 2,
           "legendFormat": "{{instance}} - heap used",
           "metric": "logstash_node_mem_heap_used_bytes",
@@ -974,13 +1305,14 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "DS_PROMETHEUS",
+      "decimals": 0,
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 10,
         "w": 6,
         "x": 6,
-        "y": 21
+        "y": 24
       },
       "height": "400px",
       "hiddenSeries": false,
@@ -1015,7 +1347,8 @@
           "aggregator": "sum",
           "downsampleAggregator": "avg",
           "downsampleFillPolicy": "none",
-          "expr": "logstash_node_process_open_filedescriptors{cluster=\"$cluster\"}",
+          "expr": "logstash_node_process_open_filedescriptors{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"}",
+          "interval": "$interval",
           "intervalFactor": 2,
           "legendFormat": "{{instance}}",
           "metric": "logstash_node_process_open_filedescriptors",
@@ -1043,6 +1376,8 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:1078",
+          "decimals": 0,
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1051,6 +1386,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:1079",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1076,7 +1412,7 @@
         "h": 10,
         "w": 6,
         "x": 12,
-        "y": 21
+        "y": 24
       },
       "height": "400px",
       "hiddenSeries": false,
@@ -1111,7 +1447,8 @@
           "aggregator": "sum",
           "downsampleAggregator": "avg",
           "downsampleFillPolicy": "none",
-          "expr": "rate(logstash_node_gc_collection_total{cluster=\"$cluster\"}[5m])",
+          "expr": "rate(logstash_node_gc_collection_total{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"}[5m])",
+          "interval": "$interval",
           "intervalFactor": 2,
           "legendFormat": "{{instance}} - {{collector}}",
           "metric": "logstash_node_mem_heap_used_bytes",
@@ -1172,7 +1509,7 @@
         "h": 10,
         "w": 6,
         "x": 18,
-        "y": 21
+        "y": 24
       },
       "height": "400px",
       "hiddenSeries": false,
@@ -1207,7 +1544,8 @@
           "aggregator": "sum",
           "downsampleAggregator": "avg",
           "downsampleFillPolicy": "none",
-          "expr": "rate(logstash_node_gc_collection_duration_seconds_total{cluster=\"$cluster\"}[5m])",
+          "expr": "rate(logstash_node_gc_collection_duration_seconds_total{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"}[5m])",
+          "interval": "$interval",
           "intervalFactor": 2,
           "legendFormat": "{{instance}} - {{collector}}",
           "metric": "logstash_node_mem_heap_used_bytes",
@@ -1258,7 +1596,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 21,
+  "schemaVersion": 22,
   "style": "dark",
   "tags": [
     "Insight"
@@ -1318,14 +1656,84 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(logstash_exporter_build_info, cluster)",
+        "definition": "label_values(logstash_exporter_build_info, customer)",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
+        "label": "Customer",
+        "multi": false,
+        "name": "customer",
+        "options": [],
+        "query": "label_values(logstash_exporter_build_info, customer)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(logstash_exporter_build_info{customer=\"$customer\"}, environment)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Environment",
+        "multi": false,
+        "name": "environment",
+        "options": [],
+        "query": "label_values(logstash_exporter_build_info{customer=\"$customer\"}, environment)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(logstash_exporter_build_info{customer=\"$customer\",environment=\"$environment\"}, project)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Project",
+        "multi": false,
+        "name": "project",
+        "options": [],
+        "query": "label_values(logstash_exporter_build_info{customer=\"$customer\",environment=\"$environment\"}, project)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(logstash_exporter_build_info{customer=\"$customer\",environment=\"$environment\",project=\"$project\"}, cluster)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
         "label": "Cluster",
         "multi": false,
         "name": "cluster",
         "options": [],
-        "query": "label_values(logstash_exporter_build_info, cluster)",
+        "query": "label_values(logstash_exporter_build_info{customer=\"$customer\",environment=\"$environment\",project=\"$project\"}, cluster)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -1367,5 +1775,8 @@
   "timezone": "browser",
   "title": "Logstash Overview",
   "uid": "1OtsYUBWk",
+  "variables": {
+    "list": []
+  },
   "version": 1
 }
