@@ -59,7 +59,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1611301820746,
+  "iteration": 1612146872934,
   "links": [
     {
       "$$hashKey": "object:1404",
@@ -192,8 +192,9 @@
           "expr": "rate(prometheus_tsdb_wal_fsync_duration_seconds_sum{instance=\"$host\"}[3h])/rate(prometheus_tsdb_wal_fsync_duration_seconds_count{instance=\"$host\"}[3h])",
           "format": "time_series",
           "hide": false,
-          "interval": "",
+          "interval": "$interval\t",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
@@ -276,8 +277,9 @@
           "expr": "rate(prometheus_tsdb_head_gc_duration_seconds_sum{instance=\"$host\"}[3h])/rate(prometheus_tsdb_head_gc_duration_seconds_count{instance=\"$host\"}[3h])",
           "format": "time_series",
           "hide": false,
-          "interval": "",
+          "interval": "$interval\t",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
@@ -786,11 +788,12 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "rate(prometheus_tsdb_compaction_duration_seconds_sum{instance=\"$host\",service=\"prometheus_exporter\"}[6h])/rate(prometheus_tsdb_compaction_duration_seconds_count{instance=\"$host\",service=\"prometheus_exporter\"}[3h])",
+          "expr": "rate(prometheus_tsdb_compaction_duration_seconds_sum{instance=\"$host\",service=\"prometheus\"}[6h])/rate(prometheus_tsdb_compaction_duration_seconds_count{instance=\"$host\",service=\"prometheus\"}[3h])",
           "format": "time_series",
           "hide": false,
-          "interval": "",
+          "interval": "$interval\t",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
@@ -883,7 +886,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(process_cpu_seconds_total{instance=\"$host\",service=\"prometheus_exporter\"}[$interval]) or irate(process_cpu_seconds_total{instance=\"$host\",service=\"prometheus_exporter\"}[5m])",
+          "expr": "rate(process_cpu_seconds_total{instance=\"$host\",service=\"prometheus\"}[$interval]) or irate(process_cpu_seconds_total{instance=\"$host\",service=\"prometheus\"}[5m])",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -894,7 +897,7 @@
           "step": 60
         },
         {
-          "expr": "count(node_cpu{mode=\"user\", instance=\"$host\",service=\"prometheus_exporter\"})",
+          "expr": "count(node_cpu{mode=\"user\", instance=\"$host\",service=\"prometheus\"})",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -903,7 +906,7 @@
           "step": 40
         },
         {
-          "expr": "count(node_cpu{mode=\"user\", instance=\"$host\",service=\"prometheus_exporter\"})*0.75",
+          "expr": "count(node_cpu{mode=\"user\", instance=\"$host\",service=\"prometheus\"})*0.75",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -1016,7 +1019,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "process_resident_memory_bytes{instance=\"$host\",service=\"prometheus_exporter\"}",
+          "expr": "process_resident_memory_bytes{instance=\"$host\",service=\"prometheus\"}",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -1027,7 +1030,7 @@
           "step": 60
         },
         {
-          "expr": "process_virtual_memory_bytes{instance=\"$host\",service=\"prometheus_exporter\"}",
+          "expr": "process_virtual_memory_bytes{instance=\"$host\",service=\"prometheus\"}",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -1037,7 +1040,7 @@
           "step": 60
         },
         {
-          "expr": "go_memstats_alloc_bytes{instance=\"$host\",service=\"prometheus_exporter\"}+go_memstats_stack_inuse_bytes{instance=\"$host\",service=\"prometheus_exporter\"}",
+          "expr": "go_memstats_alloc_bytes{instance=\"$host\",service=\"prometheus\"}+go_memstats_stack_inuse_bytes{instance=\"$host\",service=\"prometheus\"}",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -1047,7 +1050,7 @@
           "step": 60
         },
         {
-          "expr": "node_memory_MemTotal{instance=\"$host\",service=\"prometheus_exporter\"}",
+          "expr": "node_memory_MemTotal{instance=\"$host\",service=\"prometheus\"}",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
