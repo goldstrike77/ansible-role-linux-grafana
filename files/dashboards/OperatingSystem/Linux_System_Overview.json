@@ -3317,7 +3317,7 @@
     ]
   },
   "time": {
-    "from": "now-3h",
+    "from": "now-2h",
     "to": "now"
   },
   "timepicker": {
