@@ -54,7 +54,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1610519511307,
+  "iteration": 1612839303115,
   "links": [
     {
       "$$hashKey": "object:22075",
@@ -178,7 +178,7 @@
           "expr": "(node_time_seconds{instance=\"$host\"} - node_boot_time_seconds{instance=\"$host\"}) or (time() - node_boot_time_seconds{instance=\"$host\"})",
           "format": "time_series",
           "hide": false,
-          "interval": "1m",
+          "interval": "$interval\t",
           "intervalFactor": 1,
           "legendFormat": "",
           "metric": "",
@@ -262,7 +262,7 @@
           "expr": "os_info{instance=\"$host\"}",
           "format": "time_series",
           "instant": true,
-          "interval": "1m",
+          "interval": "$interval\t",
           "intervalFactor": 1,
           "legendFormat": "{{ build }}",
           "refId": "A",
@@ -350,7 +350,7 @@
         {
           "expr": "(count(node_cpu_seconds_total{instance=\"$host\",mode=\"user\"}) or (1-absent(node_cpu_seconds_total{instance=\"$host\",mode=\"user\"}))) + sum(rdsosmetrics_General_numVCPUs{instance=\"$host\"} or up * 0)",
           "format": "time_series",
-          "interval": "1m",
+          "interval": "$interval\t",
           "intervalFactor": 1,
           "legendFormat": "",
           "refId": "A",
@@ -439,7 +439,7 @@
         {
           "expr": "node_memory_MemTotal_bytes{instance=\"$host\"}",
           "format": "time_series",
-          "interval": "1m",
+          "interval": "$interval\t",
           "intervalFactor": 1,
           "legendFormat": "",
           "refId": "A",
@@ -529,7 +529,7 @@
         {
           "expr": "node_memory_MemFree_bytes{instance=\"$host\"} + node_memory_Buffers_bytes{instance=\"$host\"} + node_memory_Cached_bytes{instance=\"$host\"}",
           "format": "time_series",
-          "interval": "1m",
+          "interval": "$interval\t",
           "intervalFactor": 1,
           "legendFormat": "",
           "refId": "A",
@@ -619,7 +619,7 @@
         {
           "expr": "node_memory_MemTotal_bytes{instance=\"$host\"}+node_memory_SwapTotal_bytes{instance=\"$host\"}",
           "format": "time_series",
-          "interval": "1m",
+          "interval": "$interval\t",
           "intervalFactor": 1,
           "legendFormat": "",
           "refId": "A",
@@ -715,7 +715,7 @@
         {
           "expr": "sum(node_filesystem_size_bytes{instance=\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) + sum(node_memory_SwapTotal_bytes{instance=\"$host\"})",
           "format": "time_series",
-          "interval": "1m",
+          "interval": "$interval\t",
           "intervalFactor": 1,
           "legendFormat": "",
           "refId": "A",
@@ -811,7 +811,7 @@
         {
           "expr": "sum(node_filesystem_free_bytes{instance=\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"})",
           "format": "time_series",
-          "interval": "1m",
+          "interval": "$interval\t",
           "intervalFactor": 1,
           "legendFormat": "",
           "refId": "A",
@@ -1986,7 +1986,7 @@
       }
     },
     {
-      "collapsed": false,
+      "collapsed": true,
       "datasource": null,
       "gridPos": {
         "h": 1,
@@ -1995,1119 +1995,1121 @@
         "y": 33
       },
       "id": 45,
-      "panels": [],
+      "panels": [
+        {
+          "aliasColors": {
+            "Total": "#bf1b00"
+          },
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "DS_PROMETHEUS",
+          "decimals": 2,
+          "editable": true,
+          "error": false,
+          "fill": 2,
+          "fillGradient": 0,
+          "grid": {},
+          "gridPos": {
+            "h": 7,
+            "w": 12,
+            "x": 0,
+            "y": 34
+          },
+          "hiddenSeries": false,
+          "id": 31,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": false,
+            "hideEmpty": false,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "sort": "avg",
+            "sortDesc": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "Disk Performance",
+              "url": "/dashboard/db/disk-performance?$__url_time_range&$__all_variables"
+            }
+          ],
+          "nullPointMode": "null",
+          "options": {
+            "dataLinks": []
+          },
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "Disk Writes (Page Out)",
+              "transform": "negative-Y"
+            },
+            {
+              "alias": "Total",
+              "legend": false,
+              "lines": false
+            }
+          ],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "calculatedInterval": "2s",
+              "datasourceErrors": {},
+              "errors": {},
+              "expr": "rate(node_vmstat_pgpgin{instance=\"$host\"}[$interval]) * 1024 or irate(node_vmstat_pgpgin{instance=\"$host\"}[5m]) * 1024",
+              "format": "time_series",
+              "interval": "$interval",
+              "intervalFactor": 1,
+              "legendFormat": "Disk Reads (Page In)",
+              "metric": "",
+              "refId": "A",
+              "step": 300,
+              "target": ""
+            },
+            {
+              "calculatedInterval": "2s",
+              "datasourceErrors": {},
+              "errors": {},
+              "expr": "(rate(node_vmstat_pgpgout{instance=\"$host\"}[$interval]) * 1024 or irate(node_vmstat_pgpgout{instance=\"$host\"}[5m]) * 1024)",
+              "format": "time_series",
+              "interval": "$interval",
+              "intervalFactor": 1,
+              "legendFormat": "Disk Writes (Page Out)",
+              "metric": "",
+              "refId": "B",
+              "step": 300,
+              "target": ""
+            },
+            {
+              "expr": "(rate(node_vmstat_pgpgin{instance=\"$host\"}[$interval]) * 1024 or irate(node_vmstat_pgpgin{instance=\"$host\"}[5m]) * 1024 ) + (rate(node_vmstat_pgpgout{instance=\"$host\"}[$interval]) * 1024 or irate(node_vmstat_pgpgout{instance=\"$host\"}[5m]) * 1024)",
+              "format": "time_series",
+              "interval": "$interval",
+              "intervalFactor": 1,
+              "legendFormat": "Total",
+              "refId": "C"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "I/O Activity",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "Bps",
+              "label": "Page Out (-) / Page In (+)",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "bytes",
+              "logBase": 1,
+              "max": null,
+              "min": 0,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {
+            "Allocated": "#E0752D",
+            "Limit": "#bf1b00"
+          },
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "DS_PROMETHEUS",
+          "decimals": null,
+          "editable": true,
+          "error": false,
+          "fill": 2,
+          "fillGradient": 0,
+          "grid": {},
+          "gridPos": {
+            "h": 7,
+            "w": 12,
+            "x": 12,
+            "y": 34
+          },
+          "hiddenSeries": false,
+          "id": 32,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": false,
+            "hideEmpty": false,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "sort": "avg",
+            "sortDesc": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "options": {
+            "dataLinks": []
+          },
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "Limit",
+              "fill": 0
+            }
+          ],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "calculatedInterval": "2s",
+              "datasourceErrors": {},
+              "errors": {},
+              "expr": "node_filefd_maximum{instance=\"$host\"}",
+              "format": "time_series",
+              "interval": "$interval",
+              "intervalFactor": 1,
+              "legendFormat": "Limit",
+              "metric": "",
+              "refId": "B",
+              "step": 300,
+              "target": ""
+            },
+            {
+              "calculatedInterval": "2s",
+              "datasourceErrors": {},
+              "errors": {},
+              "expr": "node_filefd_allocated{instance=\"$host\"}",
+              "format": "time_series",
+              "interval": "$interval",
+              "intervalFactor": 1,
+              "legendFormat": "Allocated",
+              "metric": "",
+              "refId": "A",
+              "step": 300,
+              "target": ""
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Global File Descriptors Usage",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": "",
+              "logBase": 1,
+              "max": null,
+              "min": 0,
+              "show": true
+            },
+            {
+              "format": "short",
+              "logBase": 1,
+              "max": null,
+              "min": 0,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {
+            "Read Latency": "#1f78c1",
+            "Write Latency": "#e24d42"
+          },
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "DS_PROMETHEUS",
+          "decimals": 2,
+          "description": "Shows average latency for Reads and Writes IO Devices.  Higher than typical latency for highly loaded storage indicates saturation (overload) and is frequent cause of performance problems.  Higher than normal latency also can indicate internal storage problems.",
+          "fill": 2,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 7,
+            "w": 12,
+            "x": 0,
+            "y": 41
+          },
+          "hiddenSeries": false,
+          "id": 61,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": false,
+            "hideEmpty": true,
+            "hideZero": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "sort": "avg",
+            "sortDesc": true,
+            "total": false,
+            "values": true
+          },
+          "lines": false,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "options": {
+            "dataLinks": []
+          },
+          "percentage": false,
+          "pointradius": 1,
+          "points": true,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "Avg Read Latency (1h)",
+              "fill": 0,
+              "lines": true,
+              "linewidth": 1,
+              "points": false
+            },
+            {
+              "alias": "Avg Write Latency (1h)",
+              "fill": 0,
+              "lines": true,
+              "linewidth": 1,
+              "points": false
+            }
+          ],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "(sum(rate(node_disk_read_time_ms{instance=\"$host\"}[$interval])) / sum(rate(node_disk_reads_completed{instance=\"$host\"}[$interval]))) or (sum(irate(node_disk_read_time_ms{instance=\"$host\"}[5m])) / sum(irate(node_disk_reads_completed{instance=\"$host\"}[5m])))\nor avg_over_time(aws_rds_read_latency_average{instance=\"$host\"}[$interval]) or avg_over_time(aws_rds_read_latency_average{instance=\"$host\"}[5m])",
+              "format": "time_series",
+              "interval": "$interval",
+              "intervalFactor": 1,
+              "legendFormat": "Read Latency",
+              "refId": "A"
+            },
+            {
+              "expr": "(sum(rate(node_disk_write_time_ms{instance=\"$host\"}[$interval])) / sum(rate(node_disk_writes_completed{instance=\"$host\"}[$interval]))) or (sum(irate(node_disk_write_time_ms{instance=\"$host\"}[5m])) / sum(irate(node_disk_writes_completed{instance=\"$host\"}[5m])))\nor (avg_over_time(aws_rds_write_latency_average{instance=\"$host\"}[$interval]) or avg_over_time(aws_rds_write_latency_average{instance=\"$host\"}[5m]))",
+              "format": "time_series",
+              "interval": "$interval",
+              "intervalFactor": 1,
+              "legendFormat": "Write Latency",
+              "refId": "B"
+            },
+            {
+              "expr": "(sum(rate(node_disk_read_time_seconds_total{instance=\"$host\"}[1h])) / sum(rate(node_disk_reads_completed_total{instance=\"$host\"}[1h])))\nor avg_over_time(aws_rds_read_latency_average{instance=\"$host\"}[1h]) or avg_over_time(aws_rds_read_latency_average{instance=\"$host\"}[1h]) ",
+              "format": "time_series",
+              "interval": "$interval",
+              "intervalFactor": 1,
+              "legendFormat": "Avg Read Latency (1h)",
+              "refId": "C"
+            },
+            {
+              "expr": "(sum(rate(node_disk_write_time_seconds_total{instance=\"$host\"}[1h])) / sum(rate(node_disk_writes_completed_total{instance=\"$host\"}[1h]))) \nor (avg_over_time(aws_rds_write_latency_average{instance=\"$host\"}[$interval]) or avg_over_time(aws_rds_write_latency_average{instance=\"$host\"}[1h]))",
+              "format": "time_series",
+              "interval": "$interval",
+              "intervalFactor": 1,
+              "legendFormat": "Avg Write Latency (1h)",
+              "refId": "D"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Disk IO Latency",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "decimals": 2,
+              "format": "ms",
+              "label": null,
+              "logBase": 2,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {
+            "Total": "#bf1b00"
+          },
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "DS_PROMETHEUS",
+          "decimals": 2,
+          "description": "Shows how much disk was loaded for reads or writes as average number of outstanding requests at different period of time.  High disk load is a good measure of actual storage utilization. Different storage types handle load differently - some will show latency increases on low loads others can handle higher load with no problems.",
+          "editable": true,
+          "error": false,
+          "fill": 2,
+          "fillGradient": 0,
+          "grid": {},
+          "gridPos": {
+            "h": 7,
+            "w": 12,
+            "x": 12,
+            "y": 41
+          },
+          "hiddenSeries": false,
+          "id": 51,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": false,
+            "hideEmpty": true,
+            "hideZero": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "sort": "avg",
+            "sortDesc": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "Disk Performance",
+              "url": "/dashboard/db/disk-performance?$__url_time_range&$__all_variables"
+            }
+          ],
+          "nullPointMode": "null",
+          "options": {
+            "dataLinks": []
+          },
+          "percentage": false,
+          "pointradius": 1,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "Write Load",
+              "transform": "negative-Y"
+            },
+            {
+              "alias": "Total",
+              "legend": false,
+              "lines": false
+            }
+          ],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "calculatedInterval": "2m",
+              "datasourceErrors": {},
+              "errors": {},
+              "expr": "sum(rate(node_disk_read_time_seconds_total{instance=\"$host\"}[$interval]))/1000 or sum(irate(node_disk_read_time_seconds_total{instance=\"$host\"}[5m]))/1000",
+              "format": "time_series",
+              "interval": "$interval",
+              "intervalFactor": 1,
+              "legendFormat": "Read Load",
+              "metric": "",
+              "refId": "A",
+              "step": 300,
+              "target": ""
+            },
+            {
+              "calculatedInterval": "2m",
+              "datasourceErrors": {},
+              "errors": {},
+              "expr": "sum(rate(node_disk_write_time_seconds_total{instance=\"$host\"}[$interval]))/1000 or sum(irate(node_disk_write_time_seconds_total{instance=\"$host\"}[5m]))/1000",
+              "format": "time_series",
+              "interval": "$interval",
+              "intervalFactor": 1,
+              "legendFormat": "Write Load",
+              "metric": "",
+              "refId": "B",
+              "step": 300,
+              "target": ""
+            },
+            {
+              "expr": "(sum(rate(node_disk_read_time_seconds_total{instance=\"$host\"}[$interval]))/1000 or sum(irate(node_disk_read_time_seconds_total{instance=\"$host\"}[5m]))/1000) + (sum(rate(node_disk_write_time_seconds_total{instance=\"$host\"}[$interval]))/1000 or sum(irate(node_disk_write_time_seconds_total{instance=\"$host\"}[5m]))/1000)",
+              "format": "time_series",
+              "interval": "$interval",
+              "intervalFactor": 1,
+              "legendFormat": "Total",
+              "refId": "C"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Disk IO Load",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": "Write Load (-) / Read Load (+)",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "ms",
+              "label": "",
+              "logBase": 1,
+              "max": null,
+              "min": 0,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        }
+      ],
       "title": "Disk",
       "type": "row"
     },
     {
-      "aliasColors": {
-        "Total": "#bf1b00"
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "DS_PROMETHEUS",
-      "decimals": 2,
-      "editable": true,
-      "error": false,
-      "fill": 2,
-      "fillGradient": 0,
-      "grid": {},
-      "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 0,
-        "y": 34
-      },
-      "hiddenSeries": false,
-      "id": 31,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": false,
-        "hideEmpty": false,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": true,
-        "sort": "avg",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "links": [
-        {
-          "targetBlank": true,
-          "title": "Disk Performance",
-          "url": "/dashboard/db/disk-performance?$__url_time_range&$__all_variables"
-        }
-      ],
-      "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "Disk Writes (Page Out)",
-          "transform": "negative-Y"
-        },
-        {
-          "alias": "Total",
-          "legend": false,
-          "lines": false
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "calculatedInterval": "2s",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "rate(node_vmstat_pgpgin{instance=\"$host\"}[$interval]) * 1024 or irate(node_vmstat_pgpgin{instance=\"$host\"}[5m]) * 1024",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Disk Reads (Page In)",
-          "metric": "",
-          "refId": "A",
-          "step": 300,
-          "target": ""
-        },
-        {
-          "calculatedInterval": "2s",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "(rate(node_vmstat_pgpgout{instance=\"$host\"}[$interval]) * 1024 or irate(node_vmstat_pgpgout{instance=\"$host\"}[5m]) * 1024)",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Disk Writes (Page Out)",
-          "metric": "",
-          "refId": "B",
-          "step": 300,
-          "target": ""
-        },
-        {
-          "expr": "(rate(node_vmstat_pgpgin{instance=\"$host\"}[$interval]) * 1024 or irate(node_vmstat_pgpgin{instance=\"$host\"}[5m]) * 1024 ) + (rate(node_vmstat_pgpgout{instance=\"$host\"}[$interval]) * 1024 or irate(node_vmstat_pgpgout{instance=\"$host\"}[5m]) * 1024)",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Total",
-          "refId": "C"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "I/O Activity",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "Bps",
-          "label": "Page Out (-) / Page In (+)",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "bytes",
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {
-        "Allocated": "#E0752D",
-        "Limit": "#bf1b00"
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "DS_PROMETHEUS",
-      "decimals": null,
-      "editable": true,
-      "error": false,
-      "fill": 2,
-      "fillGradient": 0,
-      "grid": {},
-      "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 12,
-        "y": 34
-      },
-      "hiddenSeries": false,
-      "id": 32,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": false,
-        "hideEmpty": false,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": true,
-        "sort": "avg",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "links": [],
-      "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "Limit",
-          "fill": 0
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "calculatedInterval": "2s",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "node_filefd_maximum{instance=\"$host\"}",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Limit",
-          "metric": "",
-          "refId": "B",
-          "step": 300,
-          "target": ""
-        },
-        {
-          "calculatedInterval": "2s",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "node_filefd_allocated{instance=\"$host\"}",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Allocated",
-          "metric": "",
-          "refId": "A",
-          "step": 300,
-          "target": ""
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Global File Descriptors Usage",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "label": "",
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        },
-        {
-          "format": "short",
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {
-        "Read Latency": "#1f78c1",
-        "Write Latency": "#e24d42"
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "DS_PROMETHEUS",
-      "decimals": 2,
-      "description": "Shows average latency for Reads and Writes IO Devices.  Higher than typical latency for highly loaded storage indicates saturation (overload) and is frequent cause of performance problems.  Higher than normal latency also can indicate internal storage problems.",
-      "fill": 2,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 0,
-        "y": 41
-      },
-      "hiddenSeries": false,
-      "id": 61,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": false,
-        "hideEmpty": true,
-        "hideZero": true,
-        "max": true,
-        "min": true,
-        "show": true,
-        "sort": "avg",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": false,
-      "linewidth": 2,
-      "links": [],
-      "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
-      "percentage": false,
-      "pointradius": 1,
-      "points": true,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "Avg Read Latency (1h)",
-          "fill": 0,
-          "lines": true,
-          "linewidth": 1,
-          "points": false
-        },
-        {
-          "alias": "Avg Write Latency (1h)",
-          "fill": 0,
-          "lines": true,
-          "linewidth": 1,
-          "points": false
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "(sum(rate(node_disk_read_time_ms{instance=\"$host\"}[$interval])) / sum(rate(node_disk_reads_completed{instance=\"$host\"}[$interval]))) or (sum(irate(node_disk_read_time_ms{instance=\"$host\"}[5m])) / sum(irate(node_disk_reads_completed{instance=\"$host\"}[5m])))\nor avg_over_time(aws_rds_read_latency_average{instance=\"$host\"}[$interval]) or avg_over_time(aws_rds_read_latency_average{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Read Latency",
-          "refId": "A"
-        },
-        {
-          "expr": "(sum(rate(node_disk_write_time_ms{instance=\"$host\"}[$interval])) / sum(rate(node_disk_writes_completed{instance=\"$host\"}[$interval]))) or (sum(irate(node_disk_write_time_ms{instance=\"$host\"}[5m])) / sum(irate(node_disk_writes_completed{instance=\"$host\"}[5m])))\nor (avg_over_time(aws_rds_write_latency_average{instance=\"$host\"}[$interval]) or avg_over_time(aws_rds_write_latency_average{instance=\"$host\"}[5m]))",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Write Latency",
-          "refId": "B"
-        },
-        {
-          "expr": "(sum(rate(node_disk_read_time_seconds_total{instance=\"$host\"}[1h])) / sum(rate(node_disk_reads_completed_total{instance=\"$host\"}[1h])))\nor avg_over_time(aws_rds_read_latency_average{instance=\"$host\"}[1h]) or avg_over_time(aws_rds_read_latency_average{instance=\"$host\"}[1h]) ",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Avg Read Latency (1h)",
-          "refId": "C"
-        },
-        {
-          "expr": "(sum(rate(node_disk_write_time_seconds_total{instance=\"$host\"}[1h])) / sum(rate(node_disk_writes_completed_total{instance=\"$host\"}[1h]))) \nor (avg_over_time(aws_rds_write_latency_average{instance=\"$host\"}[$interval]) or avg_over_time(aws_rds_write_latency_average{instance=\"$host\"}[1h]))",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Avg Write Latency (1h)",
-          "refId": "D"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Disk IO Latency",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "decimals": 2,
-          "format": "ms",
-          "label": null,
-          "logBase": 2,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {
-        "Total": "#bf1b00"
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "DS_PROMETHEUS",
-      "decimals": 2,
-      "description": "Shows how much disk was loaded for reads or writes as average number of outstanding requests at different period of time.  High disk load is a good measure of actual storage utilization. Different storage types handle load differently - some will show latency increases on low loads others can handle higher load with no problems.",
-      "editable": true,
-      "error": false,
-      "fill": 2,
-      "fillGradient": 0,
-      "grid": {},
-      "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 12,
-        "y": 41
-      },
-      "hiddenSeries": false,
-      "id": 51,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": false,
-        "hideEmpty": true,
-        "hideZero": true,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": true,
-        "sort": "avg",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "links": [
-        {
-          "targetBlank": true,
-          "title": "Disk Performance",
-          "url": "/dashboard/db/disk-performance?$__url_time_range&$__all_variables"
-        }
-      ],
-      "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
-      "percentage": false,
-      "pointradius": 1,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "Write Load",
-          "transform": "negative-Y"
-        },
-        {
-          "alias": "Total",
-          "legend": false,
-          "lines": false
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "calculatedInterval": "2m",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "sum(rate(node_disk_read_time_seconds_total{instance=\"$host\"}[$interval]))/1000 or sum(irate(node_disk_read_time_seconds_total{instance=\"$host\"}[5m]))/1000",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Read Load",
-          "metric": "",
-          "refId": "A",
-          "step": 300,
-          "target": ""
-        },
-        {
-          "calculatedInterval": "2m",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "sum(rate(node_disk_write_time_seconds_total{instance=\"$host\"}[$interval]))/1000 or sum(irate(node_disk_write_time_seconds_total{instance=\"$host\"}[5m]))/1000",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Write Load",
-          "metric": "",
-          "refId": "B",
-          "step": 300,
-          "target": ""
-        },
-        {
-          "expr": "(sum(rate(node_disk_read_time_seconds_total{instance=\"$host\"}[$interval]))/1000 or sum(irate(node_disk_read_time_seconds_total{instance=\"$host\"}[5m]))/1000) + (sum(rate(node_disk_write_time_seconds_total{instance=\"$host\"}[$interval]))/1000 or sum(irate(node_disk_write_time_seconds_total{instance=\"$host\"}[5m]))/1000)",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Total",
-          "refId": "C"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Disk IO Load",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "label": "Write Load (-) / Read Load (+)",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "ms",
-          "label": "",
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "collapsed": false,
+      "collapsed": true,
       "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 48
+        "y": 34
       },
       "id": 42,
-      "panels": [],
-      "title": "Network",
-      "type": "row"
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "DS_PROMETHEUS",
-      "decimals": 2,
-      "editable": true,
-      "error": false,
-      "fill": 2,
-      "fillGradient": 0,
-      "grid": {},
-      "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 0,
-        "y": 49
-      },
-      "hiddenSeries": false,
-      "id": 21,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": false,
-        "hideEmpty": false,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": true,
-        "sort": "avg",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "links": [],
-      "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
+      "panels": [
         {
-          "alias": "Outbound",
-          "transform": "negative-Y"
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "calculatedInterval": "2s",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "sum(rate(node_network_receive_bytes_total{instance=\"$host\", device=\"$interface\"}[$interval])) or sum(irate(node_network_receive_bytes_total{instance=\"$host\", device=\"$interface\"}[5m])) or sum(max_over_time(rdsosmetrics_network_rx{instance=\"$host\"}[$interval])) or sum(max_over_time(rdsosmetrics_network_rx{instance=\"$host\"}[5m])) ",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "{{ $interface }}: Inbound",
-          "metric": "",
-          "refId": "B",
-          "step": 300,
-          "target": ""
-        },
-        {
-          "calculatedInterval": "2s",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "sum(rate(node_network_transmit_bytes_total{instance=\"$host\", device!=\"lo\"}[$interval])) or sum(irate(node_network_transmit_bytes_total{instance=\"$host\", device!=\"lo\"}[5m])) or\nsum(max_over_time(rdsosmetrics_network_tx{instance=\"$host\"}[$interval])) or sum(max_over_time(rdsosmetrics_network_tx{instance=\"$host\"}[5m]))",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "{{ $interface }}: Outbound",
-          "metric": "",
-          "refId": "A",
-          "step": 300,
-          "target": ""
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Network Traffic",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "Bps",
-          "label": "Outbound (-) / Inbound (+)",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "bytes",
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {
-        "Total": "#bf1b00"
-      },
-      "bars": true,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "DS_PROMETHEUS",
-      "decimals": 2,
-      "editable": true,
-      "error": false,
-      "fill": 6,
-      "fillGradient": 0,
-      "grid": {},
-      "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 12,
-        "y": 49
-      },
-      "hiddenSeries": false,
-      "id": 22,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": false,
-        "hideEmpty": false,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": true,
-        "sort": "avg",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": false,
-      "linewidth": 2,
-      "links": [],
-      "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "Total",
+          "aliasColors": {},
           "bars": false,
-          "stack": false
-        }
-      ],
-      "spaceLength": 10,
-      "stack": true,
-      "steppedLine": false,
-      "targets": [
-        {
-          "calculatedInterval": "2s",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "sum(increase(node_network_receive_bytes_total{instance=\"$host\", device=\"$interface\"}[1h])) or sum(increase(rdsosmetrics_network_rx{instance=\"$host\", device=\"$interface\"}[1h]))",
-          "format": "time_series",
-          "hide": false,
-          "interval": "1h",
-          "intervalFactor": 1,
-          "legendFormat": "{{ $interface}}: Received",
-          "metric": "",
-          "refId": "A",
-          "step": 3600,
-          "target": ""
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "DS_PROMETHEUS",
+          "decimals": 2,
+          "editable": true,
+          "error": false,
+          "fill": 2,
+          "fillGradient": 0,
+          "grid": {},
+          "gridPos": {
+            "h": 7,
+            "w": 12,
+            "x": 0,
+            "y": 35
+          },
+          "hiddenSeries": false,
+          "id": 21,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": false,
+            "hideEmpty": false,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "sort": "avg",
+            "sortDesc": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "options": {
+            "dataLinks": []
+          },
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "Outbound",
+              "transform": "negative-Y"
+            }
+          ],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "calculatedInterval": "2s",
+              "datasourceErrors": {},
+              "errors": {},
+              "expr": "sum(rate(node_network_receive_bytes_total{instance=\"$host\", device=\"$interface\"}[$interval])) or sum(irate(node_network_receive_bytes_total{instance=\"$host\", device=\"$interface\"}[5m])) or sum(max_over_time(rdsosmetrics_network_rx{instance=\"$host\"}[$interval])) or sum(max_over_time(rdsosmetrics_network_rx{instance=\"$host\"}[5m])) ",
+              "format": "time_series",
+              "interval": "$interval",
+              "intervalFactor": 1,
+              "legendFormat": "{{ $interface }}: Inbound",
+              "metric": "",
+              "refId": "B",
+              "step": 300,
+              "target": ""
+            },
+            {
+              "calculatedInterval": "2s",
+              "datasourceErrors": {},
+              "errors": {},
+              "expr": "sum(rate(node_network_transmit_bytes_total{instance=\"$host\", device!=\"lo\"}[$interval])) or sum(irate(node_network_transmit_bytes_total{instance=\"$host\", device!=\"lo\"}[5m])) or\nsum(max_over_time(rdsosmetrics_network_tx{instance=\"$host\"}[$interval])) or sum(max_over_time(rdsosmetrics_network_tx{instance=\"$host\"}[5m]))",
+              "format": "time_series",
+              "interval": "$interval",
+              "intervalFactor": 1,
+              "legendFormat": "{{ $interface }}: Outbound",
+              "metric": "",
+              "refId": "A",
+              "step": 300,
+              "target": ""
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Network Traffic",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "Bps",
+              "label": "Outbound (-) / Inbound (+)",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "bytes",
+              "logBase": 1,
+              "max": null,
+              "min": 0,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
         },
         {
-          "calculatedInterval": "2s",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "sum(increase(node_network_transmit_bytes_total{instance=\"$host\", device=\"$interface\"}[1h])) or sum(increase(rdsosmetrics_network_tx{instance=\"$host\", device=\"$interface\"}[1h]))",
-          "format": "time_series",
-          "hide": false,
-          "interval": "1h",
-          "intervalFactor": 1,
-          "legendFormat": "{{ $interface }}: Sent",
-          "metric": "",
-          "refId": "B",
-          "step": 3600,
-          "target": ""
-        },
-        {
-          "expr": "(sum(increase(node_network_receive_bytes_total{instance=\"$host\", device=\"$interface\"}[1h]))+sum(increase(node_network_transmit_bytes_total{instance=\"$host\", device=\"$interface\"}[1h]))) or (sum(increase(rdsosmetrics_network_rx{instance=\"$host\", device=\"$interface\"}[1h]))+sum(increase(rdsosmetrics_network_tx{instance=\"$host\", device=\"$interface\"}[1h])))",
-          "format": "time_series",
-          "interval": "1h",
-          "intervalFactor": 1,
-          "legendFormat": "{{ $interface }}:Total",
-          "refId": "C"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": "24h",
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Network Utilization Hourly",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "bytes",
-          "label": "",
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        },
-        {
-          "format": "bytes",
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {
-        "Receive Drop": "#ef843c",
-        "Receive Errors": "#890f02",
-        "Transmit Drop": "#c15c17",
-        "Transmit Errors": "#e24d42"
-      },
-      "bars": true,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "DS_PROMETHEUS",
-      "decimals": 2,
-      "description": "Total Number of Local Network Interface Transmit Errors, Receive Errors and Drops.  Should be  Zero",
-      "editable": true,
-      "error": false,
-      "fill": 6,
-      "fillGradient": 0,
-      "grid": {},
-      "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 0,
-        "y": 56
-      },
-      "hiddenSeries": false,
-      "id": 52,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": false,
-        "hideEmpty": false,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": true,
-        "sort": "avg",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": false,
-      "linewidth": 2,
-      "links": [],
-      "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
-      "percentage": false,
-      "pointradius": 1,
-      "points": true,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": true,
-      "steppedLine": false,
-      "targets": [
-        {
-          "calculatedInterval": "2s",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "sum(rate(node_network_receive_errs_total{instance=\"$host\", device=\"$interface\"}[$interval])) or \nsum(irate(node_network_receive_errs_total{instance=\"$host\", device=\"$interface\"}[5m]))",
-          "format": "time_series",
-          "hide": false,
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "{{ $interface}}: Receive Errors",
-          "metric": "",
-          "refId": "A",
-          "step": 3600,
-          "target": ""
-        },
-        {
-          "expr": "sum(rate(node_network_transmit_errs_total{instance=\"$host\", device=\"$interface\"}[$interval])) or\nsum(irate(node_network_transmit_errs_total{instance=\"$host\", device=\"$interface\"}[5m]))",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "{{ $interface }}: Transmit Errors",
-          "refId": "B"
-        },
-        {
-          "expr": "sum(rate(node_network_receive_drop_total{instance=\"$host\", device=\"$interface\"}[$interval])) or\nsum(irate(node_network_receive_drop_total{instance=\"$host\", device=\"$interface\"}[5m]))",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "{{ $interface }}: Receive Drop",
-          "refId": "C"
-        },
-        {
-          "expr": "sum(rate(node_network_transmit_drop_total{instance=\"$host\", device=\"$interface\"}[$interval])) or \nsum(irate(node_network_transmit_drop_total{instance=\"$host\", device=\"$interface\"}[5m]))",
-          "format": "time_series",
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "{{ $interface }}: Transmit Drop",
-          "refId": "D"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Local Network Errors",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "ops",
-          "label": "",
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        },
-        {
-          "format": "bytes",
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {
-        "Segments Retransmitted": "#bf1b00"
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "DS_PROMETHEUS",
-      "decimals": 2,
-      "editable": true,
-      "error": false,
-      "fill": 2,
-      "fillGradient": 0,
-      "grid": {},
-      "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 12,
-        "y": 56
-      },
-      "hiddenSeries": false,
-      "id": 53,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": false,
-        "hideEmpty": false,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": true,
-        "sort": "avg",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "links": [],
-      "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "Outbound",
-          "transform": "negative-Y"
-        },
-        {
-          "alias": "Retransmit Ratio",
+          "aliasColors": {
+            "Total": "#bf1b00"
+          },
+          "bars": true,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "DS_PROMETHEUS",
+          "decimals": 2,
+          "editable": true,
+          "error": false,
+          "fill": 6,
+          "fillGradient": 0,
+          "grid": {},
+          "gridPos": {
+            "h": 7,
+            "w": 12,
+            "x": 12,
+            "y": 35
+          },
+          "hiddenSeries": false,
+          "id": 22,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": false,
+            "hideEmpty": false,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "sort": "avg",
+            "sortDesc": true,
+            "total": false,
+            "values": true
+          },
           "lines": false,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "options": {
+            "dataLinks": []
+          },
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "Total",
+              "bars": false,
+              "stack": false
+            }
+          ],
+          "spaceLength": 10,
+          "stack": true,
+          "steppedLine": false,
+          "targets": [
+            {
+              "calculatedInterval": "2s",
+              "datasourceErrors": {},
+              "errors": {},
+              "expr": "sum(increase(node_network_receive_bytes_total{instance=\"$host\", device=\"$interface\"}[1h])) or sum(increase(rdsosmetrics_network_rx{instance=\"$host\", device=\"$interface\"}[1h]))",
+              "format": "time_series",
+              "hide": false,
+              "interval": "1h",
+              "intervalFactor": 1,
+              "legendFormat": "{{ $interface}}: Received",
+              "metric": "",
+              "refId": "A",
+              "step": 3600,
+              "target": ""
+            },
+            {
+              "calculatedInterval": "2s",
+              "datasourceErrors": {},
+              "errors": {},
+              "expr": "sum(increase(node_network_transmit_bytes_total{instance=\"$host\", device=\"$interface\"}[1h])) or sum(increase(rdsosmetrics_network_tx{instance=\"$host\", device=\"$interface\"}[1h]))",
+              "format": "time_series",
+              "hide": false,
+              "interval": "1h",
+              "intervalFactor": 1,
+              "legendFormat": "{{ $interface }}: Sent",
+              "metric": "",
+              "refId": "B",
+              "step": 3600,
+              "target": ""
+            },
+            {
+              "expr": "(sum(increase(node_network_receive_bytes_total{instance=\"$host\", device=\"$interface\"}[1h]))+sum(increase(node_network_transmit_bytes_total{instance=\"$host\", device=\"$interface\"}[1h]))) or (sum(increase(rdsosmetrics_network_rx{instance=\"$host\", device=\"$interface\"}[1h]))+sum(increase(rdsosmetrics_network_tx{instance=\"$host\", device=\"$interface\"}[1h])))",
+              "format": "time_series",
+              "interval": "1h",
+              "intervalFactor": 1,
+              "legendFormat": "{{ $interface }}:Total",
+              "refId": "C"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": "24h",
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Network Utilization Hourly",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "bytes",
+              "label": "",
+              "logBase": 1,
+              "max": null,
+              "min": 0,
+              "show": true
+            },
+            {
+              "format": "bytes",
+              "logBase": 1,
+              "max": null,
+              "min": 0,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {
+            "Receive Drop": "#ef843c",
+            "Receive Errors": "#890f02",
+            "Transmit Drop": "#c15c17",
+            "Transmit Errors": "#e24d42"
+          },
+          "bars": true,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "DS_PROMETHEUS",
+          "decimals": 2,
+          "description": "Total Number of Local Network Interface Transmit Errors, Receive Errors and Drops.  Should be  Zero",
+          "editable": true,
+          "error": false,
+          "fill": 6,
+          "fillGradient": 0,
+          "grid": {},
+          "gridPos": {
+            "h": 7,
+            "w": 12,
+            "x": 0,
+            "y": 42
+          },
+          "hiddenSeries": false,
+          "id": 52,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": false,
+            "hideEmpty": false,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "sort": "avg",
+            "sortDesc": true,
+            "total": false,
+            "values": true
+          },
+          "lines": false,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "options": {
+            "dataLinks": []
+          },
+          "percentage": false,
           "pointradius": 1,
           "points": true,
-          "yaxis": 2
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "calculatedInterval": "2s",
-          "datasourceErrors": {},
-          "errors": {},
-          "expr": "rate(node_netstat_Tcp_RetransSegs{instance=\"$host\"}[$interval]) or irate(node_netstat_Tcp_RetransSegs{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "hide": false,
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Segments Retransmitted",
-          "metric": "",
-          "refId": "B",
-          "step": 300,
-          "target": ""
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": true,
+          "steppedLine": false,
+          "targets": [
+            {
+              "calculatedInterval": "2s",
+              "datasourceErrors": {},
+              "errors": {},
+              "expr": "sum(rate(node_network_receive_errs_total{instance=\"$host\", device=\"$interface\"}[$interval])) or \nsum(irate(node_network_receive_errs_total{instance=\"$host\", device=\"$interface\"}[5m]))",
+              "format": "time_series",
+              "hide": false,
+              "interval": "$interval",
+              "intervalFactor": 1,
+              "legendFormat": "{{ $interface}}: Receive Errors",
+              "metric": "",
+              "refId": "A",
+              "step": 3600,
+              "target": ""
+            },
+            {
+              "expr": "sum(rate(node_network_transmit_errs_total{instance=\"$host\", device=\"$interface\"}[$interval])) or\nsum(irate(node_network_transmit_errs_total{instance=\"$host\", device=\"$interface\"}[5m]))",
+              "format": "time_series",
+              "interval": "$interval",
+              "intervalFactor": 1,
+              "legendFormat": "{{ $interface }}: Transmit Errors",
+              "refId": "B"
+            },
+            {
+              "expr": "sum(rate(node_network_receive_drop_total{instance=\"$host\", device=\"$interface\"}[$interval])) or\nsum(irate(node_network_receive_drop_total{instance=\"$host\", device=\"$interface\"}[5m]))",
+              "format": "time_series",
+              "interval": "$interval",
+              "intervalFactor": 1,
+              "legendFormat": "{{ $interface }}: Receive Drop",
+              "refId": "C"
+            },
+            {
+              "expr": "sum(rate(node_network_transmit_drop_total{instance=\"$host\", device=\"$interface\"}[$interval])) or \nsum(irate(node_network_transmit_drop_total{instance=\"$host\", device=\"$interface\"}[5m]))",
+              "format": "time_series",
+              "interval": "$interval",
+              "intervalFactor": 1,
+              "legendFormat": "{{ $interface }}: Transmit Drop",
+              "refId": "D"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Local Network Errors",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "ops",
+              "label": "",
+              "logBase": 1,
+              "max": null,
+              "min": 0,
+              "show": true
+            },
+            {
+              "format": "bytes",
+              "logBase": 1,
+              "max": null,
+              "min": 0,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
         },
         {
-          "expr": "rate(node_netstat_Tcp_RetransSegs{instance=\"$host\"}[$interval])/rate(node_netstat_Tcp_OutSegs{instance=\"$host\"}[$interval]) or irate(node_netstat_Tcp_RetransSegs{instance=\"$host\"}[5m])/irate(node_netstat_Tcp_OutSegs{instance=\"$host\"}[5m])",
-          "format": "time_series",
-          "hide": false,
-          "interval": "$interval",
-          "intervalFactor": 1,
-          "legendFormat": "Retransmit Ratio",
-          "refId": "A"
+          "aliasColors": {
+            "Segments Retransmitted": "#bf1b00"
+          },
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "DS_PROMETHEUS",
+          "decimals": 2,
+          "editable": true,
+          "error": false,
+          "fill": 2,
+          "fillGradient": 0,
+          "grid": {},
+          "gridPos": {
+            "h": 7,
+            "w": 12,
+            "x": 12,
+            "y": 42
+          },
+          "hiddenSeries": false,
+          "id": 53,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": false,
+            "hideEmpty": false,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "sort": "avg",
+            "sortDesc": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "options": {
+            "dataLinks": []
+          },
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "Outbound",
+              "transform": "negative-Y"
+            },
+            {
+              "alias": "Retransmit Ratio",
+              "lines": false,
+              "pointradius": 1,
+              "points": true,
+              "yaxis": 2
+            }
+          ],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "calculatedInterval": "2s",
+              "datasourceErrors": {},
+              "errors": {},
+              "expr": "rate(node_netstat_Tcp_RetransSegs{instance=\"$host\"}[$interval]) or irate(node_netstat_Tcp_RetransSegs{instance=\"$host\"}[5m])",
+              "format": "time_series",
+              "hide": false,
+              "interval": "$interval",
+              "intervalFactor": 1,
+              "legendFormat": "Segments Retransmitted",
+              "metric": "",
+              "refId": "B",
+              "step": 300,
+              "target": ""
+            },
+            {
+              "expr": "rate(node_netstat_Tcp_RetransSegs{instance=\"$host\"}[$interval])/rate(node_netstat_Tcp_OutSegs{instance=\"$host\"}[$interval]) or irate(node_netstat_Tcp_RetransSegs{instance=\"$host\"}[5m])/irate(node_netstat_Tcp_OutSegs{instance=\"$host\"}[5m])",
+              "format": "time_series",
+              "hide": false,
+              "interval": "$interval",
+              "intervalFactor": 1,
+              "legendFormat": "Retransmit Ratio",
+              "refId": "A"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "TCP Retransmission",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "decimals": 2,
+              "format": "ops",
+              "label": "",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "decimals": 2,
+              "format": "percentunit",
+              "logBase": 1,
+              "max": null,
+              "min": 0,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
         }
       ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "TCP Retransmission",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "decimals": 2,
-          "format": "ops",
-          "label": "",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "decimals": 2,
-          "format": "percentunit",
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "title": "Network",
+      "type": "row"
     }
   ],
   "refresh": "1m",
@@ -3355,5 +3357,5 @@
   "variables": {
     "list": []
   },
-  "version": 1
+  "version": 2
 }
