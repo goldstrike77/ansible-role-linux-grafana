@@ -59,7 +59,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1611892296069,
+  "iteration": 1614667523236,
   "links": [
     {
       "$$hashKey": "object:1627",
@@ -379,7 +379,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(elasticsearch_cluster_health_number_of_nodes{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"})/count(elasticsearch_cluster_health_number_of_nodes{cluster=\"$cluster\"})",
+          "expr": "sum(elasticsearch_cluster_health_number_of_nodes{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"})/count(elasticsearch_cluster_health_number_of_nodes{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"})",
           "format": "time_series",
           "interval": "1m",
           "intervalFactor": 2,
@@ -467,7 +467,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(elasticsearch_cluster_health_number_of_data_nodes{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"})/count(elasticsearch_cluster_health_number_of_nodes{cluster=\"$cluster\"})",
+          "expr": "sum(elasticsearch_cluster_health_number_of_data_nodes{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"})/count(elasticsearch_cluster_health_number_of_nodes{customer=\"$customer\",environment=\"$environment\",project=\"$project\",cluster=\"$cluster\"})",
           "format": "time_series",
           "interval": "1m",
           "intervalFactor": 1,
