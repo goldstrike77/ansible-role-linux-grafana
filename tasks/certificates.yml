@@ -8,9 +8,10 @@
   block:
     - name: Install requirement python package.
       pip:
-        name: '{{ grafana_python_dependent_packages }}'
+        name: '{{ item }}'
         state: 'forcereinstall'
-        extra_args: '--default-timeout=120 -i https://{{ grafana_pypi_url }}/simple --trusted-host {{ grafana_pypi_url }}'
+        extra_args: '--default-timeout=120 --ignore-installed -i https://{{ grafana_pypi_url }}/simple --trusted-host {{ grafana_pypi_url }}'
+      loop: '{{ grafana_python_dependent_packages }}'
       register: grafana_python_status
       until: grafana_python_status is succeeded
       retries: 5
