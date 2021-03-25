@@ -229,7 +229,7 @@
             "rgba(50, 172, 45, 0.97)"
           ],
           "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 0,
+          "decimals": 1,
           "mappingType": 1,
           "pattern": "Value #D",
           "thresholds": [],
