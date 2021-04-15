@@ -26,7 +26,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.7.5"
+      "version": "6.7.6"
     },
     {
       "type": "panel",
@@ -65,7 +65,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1611301193982,
+  "iteration": 1618465359973,
   "links": [
     {
       "$$hashKey": "object:2587",
@@ -554,11 +554,13 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "6.7.5",
+      "pluginVersion": "6.7.6",
       "targets": [
         {
           "expr": "(1 - avg(irate(node_cpu_seconds_total{instance=~\"$host\",mode='idle'}[5m]))) * 100 or (1 - avg(irate(wmi_cpu_time_total{mode=\"idle\", instance=~\"$host\"}[5m]))) * 100",
+          "instant": false,
           "interval": "$interval",
+          "legendFormat": "",
           "refId": "A"
         }
       ],
@@ -628,7 +630,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "6.7.5",
+      "pluginVersion": "6.7.6",
       "targets": [
         {
           "expr": "avg((node_memory_MemTotal_bytes{instance=~\"$host\"} - (node_memory_MemFree_bytes{instance=~\"$host\"} + node_memory_Buffers_bytes{instance=~\"$host\"} + node_memory_Cached_bytes{instance=~\"$host\"})) / node_memory_MemTotal_bytes{instance=~\"$host\"}) * 100 or avg((wmi_cs_physical_memory_bytes{instance=~\"$host\"} - wmi_os_physical_memory_free_bytes{instance=~\"$host\"}) / wmi_cs_physical_memory_bytes{instance=~\"$host\"}) * 100",
@@ -702,7 +704,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "6.7.5",
+      "pluginVersion": "6.7.6",
       "targets": [
         {
           "expr": "(1- sum(node_filesystem_free_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) / sum (node_filesystem_size_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"})) * 100 or (1- sum(wmi_logical_disk_free_bytes{instance=~\"$host\"}) / sum(wmi_logical_disk_size_bytes{instance=~\"$host\"})) * 100",
@@ -762,7 +764,7 @@
         "orientation": "horizontal",
         "showUnfilled": true
       },
-      "pluginVersion": "6.7.5",
+      "pluginVersion": "6.7.6",
       "targets": [
         {
           "expr": "(count(node_memory_MemTotal_bytes{instance=~\"$host\"}) or vector(0)) + (count(wmi_os_visible_memory_bytes{instance=~\"$host\"}) or vector(0))",
@@ -819,7 +821,7 @@
       "description": "",
       "editable": true,
       "error": false,
-      "fill": 2,
+      "fill": 1,
       "fillGradient": 0,
       "grid": {},
       "gridPos": {
@@ -865,7 +867,7 @@
           "calculatedInterval": "10s",
           "datasourceErrors": {},
           "errors": {},
-          "expr": "(1 - avg by(instance)(irate(node_cpu_seconds_total{instance=~\"$host\",mode='idle'}[5m]))) or (1 - avg by(instance)(irate(wmi_cpu_time_total{mode=\"idle\", instance=~\"$host\"}[5m])))",
+          "expr": "(100 - avg by(instance)(irate(node_cpu_seconds_total{instance=~\"$host\",mode='idle'}[5m])) * 100) or (100 - avg by(instance)(irate(wmi_cpu_time_total{mode=\"idle\", instance=~\"$host\"}[5m])) * 100)",
           "format": "time_series",
           "instant": false,
           "interval": "$interval",
@@ -877,16 +879,7 @@
           "target": ""
         }
       ],
-      "thresholds": [
-        {
-          "colorMode": "custom",
-          "line": true,
-          "lineColor": "rgb(241, 34, 15)",
-          "op": "gt",
-          "value": 15,
-          "yaxis": "left"
-        }
-      ],
+      "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
@@ -907,15 +900,17 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:180",
           "decimals": 0,
-          "format": "percentunit",
+          "format": "percent",
           "label": "",
           "logBase": 1,
-          "max": "1",
+          "max": "100",
           "min": "0",
           "show": true
         },
         {
+          "$$hashKey": "object:181",
           "format": "none",
           "logBase": 1,
           "max": null,
@@ -937,7 +932,7 @@
       "decimals": 0,
       "editable": true,
       "error": false,
-      "fill": 2,
+      "fill": 1,
       "fillGradient": 0,
       "grid": {},
       "gridPos": {
@@ -981,7 +976,7 @@
           "calculatedInterval": "10s",
           "datasourceErrors": {},
           "errors": {},
-          "expr": "((node_memory_MemTotal_bytes{instance=~\"$host\"} - (node_memory_MemFree_bytes{instance=~\"$host\"} + node_memory_Buffers_bytes{instance=~\"$host\"} + node_memory_Cached_bytes{instance=~\"$host\"})) / node_memory_MemTotal_bytes{instance=~\"$host\"}) or ((wmi_cs_physical_memory_bytes{instance=~\"$host\"} - wmi_os_physical_memory_free_bytes{instance=~\"$host\"}) / wmi_cs_physical_memory_bytes{instance=~\"$host\"})",
+          "expr": "((node_memory_MemTotal_bytes{instance=~\"$host\"} - (node_memory_MemFree_bytes{instance=~\"$host\"} + node_memory_Buffers_bytes{instance=~\"$host\"} + node_memory_Cached_bytes{instance=~\"$host\"})) / node_memory_MemTotal_bytes{instance=~\"$host\"}) * 100 or ((wmi_cs_physical_memory_bytes{instance=~\"$host\"} - wmi_os_physical_memory_free_bytes{instance=~\"$host\"}) / wmi_cs_physical_memory_bytes{instance=~\"$host\"}) * 100",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -1013,15 +1008,17 @@
       },
       "yaxes": [
         {
-          "decimals": 1,
-          "format": "percentunit",
+          "$$hashKey": "object:702",
+          "decimals": 0,
+          "format": "percent",
           "label": "",
           "logBase": 1,
-          "max": "1",
+          "max": "100",
           "min": 0,
           "show": true
         },
         {
+          "$$hashKey": "object:703",
           "format": "none",
           "logBase": 1,
           "max": null,
@@ -1044,7 +1041,7 @@
       "description": "Percentage of usage disk space on mount for Linux.\nPercentage of usage disk space exclude reserve partition for Windows.",
       "editable": true,
       "error": false,
-      "fill": 0,
+      "fill": 1,
       "fillGradient": 0,
       "grid": {},
       "gridPos": {
@@ -1087,7 +1084,7 @@
           "calculatedInterval": "10s",
           "datasourceErrors": {},
           "errors": {},
-          "expr": "(1- sum by(instance)(node_filesystem_free_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) / sum by(instance)(node_filesystem_size_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"})) or (1- sum by(instance)(wmi_logical_disk_free_bytes{instance=~\"$host\"}) / sum by(instance)(wmi_logical_disk_size_bytes{instance=~\"$host\"}))",
+          "expr": "(1- sum by(instance)(node_filesystem_free_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) / sum by(instance)(node_filesystem_size_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"})) * 100 or (1- sum by(instance)(wmi_logical_disk_free_bytes{instance=~\"$host\"}) / sum by(instance)(wmi_logical_disk_size_bytes{instance=~\"$host\"})) * 100",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -1119,15 +1116,17 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:254",
           "decimals": 0,
-          "format": "percentunit",
+          "format": "percent",
           "label": "",
           "logBase": 1,
-          "max": "1",
+          "max": "100",
           "min": 0,
           "show": true
         },
         {
+          "$$hashKey": "object:255",
           "format": "bytes",
           "logBase": 1,
           "max": null,
@@ -1150,7 +1149,7 @@
       "description": "WMI calculate total traffic because don't know how to calculate variables array of multiple network interfaces.",
       "editable": true,
       "error": false,
-      "fill": 2,
+      "fill": 1,
       "fillGradient": 0,
       "grid": {},
       "gridPos": {
@@ -1227,6 +1226,8 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:1915",
+          "decimals": 0,
           "format": "Bps",
           "label": "",
           "logBase": 1,
@@ -1235,6 +1236,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:1916",
           "format": "bytes",
           "label": "",
           "logBase": 1,

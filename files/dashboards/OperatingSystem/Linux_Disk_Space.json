@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.7.5"
+      "version": "6.7.6"
     },
     {
       "type": "panel",
@@ -27,12 +27,6 @@
       "id": "prometheus",
       "name": "Prometheus",
       "version": "1.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "text",
-      "name": "Text",
-      "version": ""
     }
   ],
   "annotations": {
@@ -54,7 +48,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1610510820904,
+  "iteration": 1618466091713,
   "links": [
     {
       "$$hashKey": "object:21185",
@@ -115,11 +109,11 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "DS_PROMETHEUS",
-      "decimals": 2,
+      "decimals": 1,
       "description": "Shows the percentage of disk space utilization for every mountpoint defined on the system. Having some of the mountpoints close to 100% space utilization is not good because of the risk to have a “disk full” error that can block one of the services or even cause a crash of the entire system.\n\nIn case when the mountpoint is close to 100% consider to remove unused files or to expand the space allocated to the mountpoint.",
       "editable": true,
       "error": false,
-      "fill": 0,
+      "fill": 1,
       "fillGradient": 0,
       "grid": {},
       "gridPos": {
@@ -133,7 +127,7 @@
       "legend": {
         "alignAsTable": true,
         "avg": true,
-        "current": false,
+        "current": true,
         "hideEmpty": false,
         "hideZero": false,
         "max": true,
@@ -166,7 +160,7 @@
           "calculatedInterval": "2m",
           "datasourceErrors": {},
           "errors": {},
-          "expr": "1 - node_filesystem_free_bytes{instance=\"$host\", fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"} / node_filesystem_size_bytes{instance=\"$host\", fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}",
+          "expr": "(1 - node_filesystem_free_bytes{instance=\"$host\", fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"} / node_filesystem_size_bytes{instance=\"$host\", fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) * 100",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -198,15 +192,19 @@
       },
       "yaxes": [
         {
-          "format": "percentunit",
+          "$$hashKey": "object:2646",
+          "decimals": 0,
+          "format": "percent",
           "label": "",
           "logBase": 1,
-          "max": 1,
+          "max": "100",
           "min": 0,
           "show": true
         },
         {
+          "$$hashKey": "object:2647",
           "format": "bytes",
+          "label": "",
           "logBase": 1,
           "max": null,
           "min": null,
@@ -217,26 +215,6 @@
         "align": false,
         "alignLevel": null
       }
-    },
-    {
-      "content": "`Disk Space` -  Amount of disk space used and available on various mount points.  Running out of disk space on OS volume,  database volume or volume used for temporary space can cause downtime.   Some storage may also have reduced performance when small amount of space is available.\n",
-      "datasource": "DS_PROMETHEUS",
-      "editable": true,
-      "error": false,
-      "gridPos": {
-        "h": 3,
-        "w": 24,
-        "x": 0,
-        "y": 7
-      },
-      "height": "50px",
-      "id": 7,
-      "links": [],
-      "mode": "markdown",
-      "style": {},
-      "title": "",
-      "transparent": true,
-      "type": "text"
     },
     {
       "aliasColors": {
@@ -258,7 +236,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 10
+        "y": 7
       },
       "hiddenSeries": false,
       "id": 4,
@@ -287,12 +265,15 @@
       "points": false,
       "renderer": "flot",
       "repeat": "mountpoint",
+      "repeatDirection": "h",
       "seriesOverrides": [
         {
+          "$$hashKey": "object:2942",
           "alias": "/Used/",
           "color": "#99440A"
         },
         {
+          "$$hashKey": "object:2943",
           "alias": "/Free/",
           "color": "#EF843C"
         }
@@ -351,6 +332,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:2962",
           "format": "bytes",
           "label": "",
           "logBase": 1,
@@ -359,6 +341,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:2963",
           "format": "bytes",
           "logBase": 1,
           "max": null,

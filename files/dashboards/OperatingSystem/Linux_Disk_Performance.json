@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.7.5"
+      "version": "6.7.6"
     },
     {
       "type": "panel",
@@ -48,7 +48,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1610510490698,
+  "iteration": 1618466336630,
   "links": [
     {
       "$$hashKey": "object:20543",
@@ -202,6 +202,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:3322",
           "format": "ms",
           "label": "",
           "logBase": 2,
@@ -210,6 +211,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:3323",
           "format": "ms",
           "label": "",
           "logBase": 1,
@@ -800,6 +802,8 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:3460",
+          "decimals": null,
           "format": "short",
           "label": "",
           "logBase": 1,
@@ -808,6 +812,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:3461",
           "format": "short",
           "label": "",
           "logBase": 1,
