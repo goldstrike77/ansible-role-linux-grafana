@@ -26,7 +26,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.7.6"
+      "version": "6.7.5"
     },
     {
       "type": "panel",
@@ -65,7 +65,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1618465359973,
+  "iteration": 1622707294456,
   "links": [
     {
       "$$hashKey": "object:2587",
@@ -420,7 +420,25 @@
           "unit": "short"
         },
         {
-          "$$hashKey": "object:931",
+          "$$hashKey": "object:1020",
+          "alias": "Size",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "vmsize",
+          "thresholds": [],
+          "type": "string",
+          "unit": "short"
+        },
+        {
+          "$$hashKey": "object:1137",
           "alias": "",
           "align": "auto",
           "colorMode": null,
@@ -451,7 +469,7 @@
           "step": 300
         },
         {
-          "expr": "sum by(instance)(wmi_cs_logical_processors{instance=~\"$host\"}) or count by(instance)(node_cpu_seconds_total{instance=~\"$host\",mode=\"user\"})",
+          "expr": "sum by(instance)(windows_cs_logical_processors{instance=~\"$host\"}) or count by(instance)(node_cpu_seconds_total{instance=~\"$host\",mode=\"user\"})",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -461,7 +479,7 @@
           "refId": "B"
         },
         {
-          "expr": "(sum by(instance)(node_memory_MemTotal_bytes{instance=~\"$host\"}) or sum by(instance)(wmi_os_visible_memory_bytes{instance=~\"$host\"}))",
+          "expr": "(sum by(instance)(node_memory_MemTotal_bytes{instance=~\"$host\"}) or sum by(instance)(windows_os_visible_memory_bytes{instance=~\"$host\"}))",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -470,7 +488,7 @@
           "refId": "C"
         },
         {
-          "expr": "sum by(instance)(node_filesystem_size_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) + sum by(instance)(node_memory_SwapTotal_bytes{instance=~\"$host\"}) or sum by(instance)(wmi_logical_disk_size_bytes{instance=~\"$host\"})",
+          "expr": "sum by(instance)(node_filesystem_size_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) + sum by(instance)(node_memory_SwapTotal_bytes{instance=~\"$host\"}) or sum by(instance)(windows_logical_disk_size_bytes{instance=~\"$host\"})",
           "format": "table",
           "instant": true,
           "interval": "$interval",
@@ -478,7 +496,7 @@
           "refId": "D"
         },
         {
-          "expr": "(time() - wmi_system_system_up_time{instance=~\"$host\"}) or ((time() - node_boot_time_seconds{instance=~\"$host\"}))",
+          "expr": "(time() - windows_system_system_up_time{instance=~\"$host\"}) or ((time() - node_boot_time_seconds{instance=~\"$host\"}))",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -554,10 +572,10 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "6.7.6",
+      "pluginVersion": "6.7.5",
       "targets": [
         {
-          "expr": "(1 - avg(irate(node_cpu_seconds_total{instance=~\"$host\",mode='idle'}[5m]))) * 100 or (1 - avg(irate(wmi_cpu_time_total{mode=\"idle\", instance=~\"$host\"}[5m]))) * 100",
+          "expr": "(1 - avg(irate(node_cpu_seconds_total{instance=~\"$host\",mode='idle'}[5m]))) * 100 or (1 - avg(irate(windows_cpu_time_total{mode=\"idle\", instance=~\"$host\"}[5m]))) * 100",
           "instant": false,
           "interval": "$interval",
           "legendFormat": "",
@@ -630,10 +648,10 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "6.7.6",
+      "pluginVersion": "6.7.5",
       "targets": [
         {
-          "expr": "avg((node_memory_MemTotal_bytes{instance=~\"$host\"} - (node_memory_MemFree_bytes{instance=~\"$host\"} + node_memory_Buffers_bytes{instance=~\"$host\"} + node_memory_Cached_bytes{instance=~\"$host\"})) / node_memory_MemTotal_bytes{instance=~\"$host\"}) * 100 or avg((wmi_cs_physical_memory_bytes{instance=~\"$host\"} - wmi_os_physical_memory_free_bytes{instance=~\"$host\"}) / wmi_cs_physical_memory_bytes{instance=~\"$host\"}) * 100",
+          "expr": "avg((node_memory_MemTotal_bytes{instance=~\"$host\"} - (node_memory_MemFree_bytes{instance=~\"$host\"} + node_memory_Buffers_bytes{instance=~\"$host\"} + node_memory_Cached_bytes{instance=~\"$host\"})) / node_memory_MemTotal_bytes{instance=~\"$host\"}) * 100 or avg((windows_cs_physical_memory_bytes{instance=~\"$host\"} - windows_os_physical_memory_free_bytes{instance=~\"$host\"}) / windows_cs_physical_memory_bytes{instance=~\"$host\"}) * 100",
           "interval": "$interval",
           "refId": "A"
         }
@@ -704,10 +722,10 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "6.7.6",
+      "pluginVersion": "6.7.5",
       "targets": [
         {
-          "expr": "(1- sum(node_filesystem_free_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) / sum (node_filesystem_size_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"})) * 100 or (1- sum(wmi_logical_disk_free_bytes{instance=~\"$host\"}) / sum(wmi_logical_disk_size_bytes{instance=~\"$host\"})) * 100",
+          "expr": "(1- sum(node_filesystem_free_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) / sum (node_filesystem_size_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"})) * 100 or (1- sum(windows_logical_disk_free_bytes{instance=~\"$host\"}) / sum(windows_logical_disk_size_bytes{instance=~\"$host\"})) * 100",
           "interval": "$interval",
           "refId": "A"
         }
@@ -764,10 +782,10 @@
         "orientation": "horizontal",
         "showUnfilled": true
       },
-      "pluginVersion": "6.7.6",
+      "pluginVersion": "6.7.5",
       "targets": [
         {
-          "expr": "(count(node_memory_MemTotal_bytes{instance=~\"$host\"}) or vector(0)) + (count(wmi_os_visible_memory_bytes{instance=~\"$host\"}) or vector(0))",
+          "expr": "(count(node_memory_MemTotal_bytes{instance=~\"$host\"}) or vector(0)) + (count(windows_os_visible_memory_bytes{instance=~\"$host\"}) or vector(0))",
           "format": "time_series",
           "hide": false,
           "instant": false,
@@ -777,7 +795,7 @@
           "refId": "A"
         },
         {
-          "expr": "(sum(wmi_cs_logical_processors{instance=~\"$host\"}) or vector(0)) + (count(node_cpu_seconds_total{instance=~\"$host\",mode=\"user\"}) or vector(0))",
+          "expr": "(sum(windows_cs_logical_processors{instance=~\"$host\"}) or vector(0)) + (count(node_cpu_seconds_total{instance=~\"$host\",mode=\"user\"}) or vector(0))",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -786,7 +804,7 @@
           "refId": "B"
         },
         {
-          "expr": "((sum(node_memory_MemTotal_bytes{instance=~\"$host\"}) or vector(0)) + (sum(wmi_os_visible_memory_bytes{instance=~\"$host\"}) or vector(0))) / 1024 / 1024 / 1005",
+          "expr": "((sum(node_memory_MemTotal_bytes{instance=~\"$host\"}) or vector(0)) + (sum(windows_os_visible_memory_bytes{instance=~\"$host\"}) or vector(0))) / 1024 / 1024 / 1005",
           "format": "time_series",
           "hide": false,
           "instant": false,
@@ -796,7 +814,7 @@
           "refId": "C"
         },
         {
-          "expr": "((sum(node_filesystem_size_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) or vector(0)) + (sum(node_memory_SwapTotal_bytes{instance=~\"$host\"}) or vector(0)) + (sum(wmi_logical_disk_size_bytes{instance=~\"$host\"}) or vector(0))) / 1024 / 1024 / 1023.5",
+          "expr": "((sum(node_filesystem_size_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) or vector(0)) + (sum(node_memory_SwapTotal_bytes{instance=~\"$host\"}) or vector(0)) + (sum(windows_logical_disk_size_bytes{instance=~\"$host\"}) or vector(0))) / 1024 / 1024 / 1023.5",
           "format": "time_series",
           "hide": false,
           "interval": "$interval",
@@ -867,7 +885,7 @@
           "calculatedInterval": "10s",
           "datasourceErrors": {},
           "errors": {},
-          "expr": "(100 - avg by(instance)(irate(node_cpu_seconds_total{instance=~\"$host\",mode='idle'}[5m])) * 100) or (100 - avg by(instance)(irate(wmi_cpu_time_total{mode=\"idle\", instance=~\"$host\"}[5m])) * 100)",
+          "expr": "(100 - avg by(instance)(irate(node_cpu_seconds_total{instance=~\"$host\",mode='idle'}[5m])) * 100) or (100 - avg by(instance)(irate(windows_cpu_time_total{mode=\"idle\", instance=~\"$host\"}[5m])) * 100)",
           "format": "time_series",
           "instant": false,
           "interval": "$interval",
@@ -976,7 +994,7 @@
           "calculatedInterval": "10s",
           "datasourceErrors": {},
           "errors": {},
-          "expr": "((node_memory_MemTotal_bytes{instance=~\"$host\"} - (node_memory_MemFree_bytes{instance=~\"$host\"} + node_memory_Buffers_bytes{instance=~\"$host\"} + node_memory_Cached_bytes{instance=~\"$host\"})) / node_memory_MemTotal_bytes{instance=~\"$host\"}) * 100 or ((wmi_cs_physical_memory_bytes{instance=~\"$host\"} - wmi_os_physical_memory_free_bytes{instance=~\"$host\"}) / wmi_cs_physical_memory_bytes{instance=~\"$host\"}) * 100",
+          "expr": "((node_memory_MemTotal_bytes{instance=~\"$host\"} - (node_memory_MemFree_bytes{instance=~\"$host\"} + node_memory_Buffers_bytes{instance=~\"$host\"} + node_memory_Cached_bytes{instance=~\"$host\"})) / node_memory_MemTotal_bytes{instance=~\"$host\"}) * 100 or ((windows_cs_physical_memory_bytes{instance=~\"$host\"} - windows_os_physical_memory_free_bytes{instance=~\"$host\"}) / windows_cs_physical_memory_bytes{instance=~\"$host\"}) * 100",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -1084,7 +1102,7 @@
           "calculatedInterval": "10s",
           "datasourceErrors": {},
           "errors": {},
-          "expr": "(1- sum by(instance)(node_filesystem_free_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) / sum by(instance)(node_filesystem_size_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"})) * 100 or (1- sum by(instance)(wmi_logical_disk_free_bytes{instance=~\"$host\"}) / sum by(instance)(wmi_logical_disk_size_bytes{instance=~\"$host\"})) * 100",
+          "expr": "(1- sum by(instance)(node_filesystem_free_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) / sum by(instance)(node_filesystem_size_bytes{instance=~\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"})) * 100 or (1- sum by(instance)(windows_logical_disk_free_bytes{instance=~\"$host\"}) / sum by(instance)(windows_logical_disk_size_bytes{instance=~\"$host\"})) * 100",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -1194,7 +1212,7 @@
           "calculatedInterval": "2s",
           "datasourceErrors": {},
           "errors": {},
-          "expr": "(sum(irate(node_network_receive_bytes_total{instance=~\"$host\", device=~\"$interface\"}[5m]) + irate(node_network_transmit_bytes_total{instance=~\"$host\", device=~\"$interface\"}[5m])) by (instance)) or (sum(irate(wmi_net_bytes_sent_total{instance=~\"$host\"}[5m]) + irate(wmi_net_bytes_received_total{instance=~\"$host\"}[5m])) by (instance))",
+          "expr": "(sum(irate(node_network_receive_bytes_total{instance=~\"$host\", device=~\"$interface\"}[5m]) + irate(node_network_transmit_bytes_total{instance=~\"$host\", device=~\"$interface\"}[5m])) by (instance)) or (sum(irate(windows_net_bytes_sent_total{instance=~\"$host\"}[5m]) + irate(windows_net_bytes_received_total{instance=~\"$host\"}[5m])) by (instance))",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -1495,5 +1513,5 @@
   "variables": {
     "list": []
   },
-  "version": 1
+  "version": 3
 }
