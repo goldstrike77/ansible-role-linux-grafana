@@ -116,6 +116,7 @@ grafana_dashboard_arg:
       - 'VMware_vSphere_Overview'
   - category: 'Databases'
     title:
+      - 'Azure_Database_for_MySQL'
       - 'MongoDB_Cluster_Summary'
       - 'MongoDB_InMemory'
       - 'MongoDB_MMAPv1'
@@ -146,6 +147,7 @@ grafana_dashboard_arg:
   - category: 'Universal'
     title:
       - 'Alertmanager_Overview'
+      - 'Azure_Cache_for_Redis'
       - 'Consul_Overview'
       - 'Elasticsearch_Overview'
       - 'Graylog_Overview'
