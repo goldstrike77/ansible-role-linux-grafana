@@ -109,6 +109,9 @@ grafana_ldap_arg:
 
 # Dashboard #
 grafana_dashboard_arg:
+  - category: 'Network'
+    title:
+      - 'Azure_Virtual_network_gateway'
   - category: 'Platform'
     title:
       - 'Dell_PowerEdge'

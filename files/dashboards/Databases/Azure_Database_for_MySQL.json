@@ -1105,7 +1105,7 @@
         "options": [],
         "query": "azure_mysql{aggregation=\"average\",metric=\"cpu_percent\",resourceID=~\"/subscriptions/$subscription/resource[gG]roups/$resourcegroup/providers/Microsoft.DB[fF]orMySQL/servers/.*\"}",
         "refresh": 1,
-        "regex": ".*/Microsoft.DB[fF]orMySQL/servers\\/(\\S+).*\",timespan(\\S+)",
+        "regex": ".*/Microsoft.DB[fF]orMySQL/servers\\/(\\S+).*\"(\\S+)",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",

@@ -1071,7 +1071,7 @@
         "options": [],
         "query": "azure_redis{aggregation=\"average\",metric=\"serverLoad\",resourceID=~\"/subscriptions/$subscription/resource[gG]roups/$resourcegroup/providers/Microsoft.Cache/Redis/.*\"}",
         "refresh": 1,
-        "regex": ".*/Microsoft.Cache/Redis\\/(\\S+).*\",timespan(\\S+)",
+        "regex": ".*/Microsoft.Cache/Redis\\/(\\S+).*\"(\\S+)",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
