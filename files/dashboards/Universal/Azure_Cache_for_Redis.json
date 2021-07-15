@@ -92,6 +92,18 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:1205",
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "Network"
+      ],
+      "title": "Network",
+      "type": "dashboards"
+    },
+    {
       "$$hashKey": "object:766",
       "asDropdown": true,
       "icon": "external link",
