@@ -120,6 +120,8 @@ grafana_dashboard_arg:
   - category: 'Databases'
     title:
       - 'Azure_Database_for_MySQL'
+      - 'Azure_SQL_Elastic_pool'
+      - 'Azure_SQL_Managed_Instance'
       - 'MongoDB_Cluster_Summary'
       - 'MongoDB_InMemory'
       - 'MongoDB_MMAPv1'

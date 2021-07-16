@@ -18,12 +18,6 @@
     },
     {
       "type": "panel",
-      "id": "grafana-piechart-panel",
-      "name": "Pie Chart",
-      "version": "1.6.2"
-    },
-    {
-      "type": "panel",
       "id": "graph",
       "name": "Graph",
       "version": ""
@@ -44,7 +38,7 @@
   "annotations": {
     "list": [
       {
-        "$$hashKey": "object:126",
+        "$$hashKey": "object:70",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -59,10 +53,10 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1626419469819,
+  "iteration": 1626421989142,
   "links": [
     {
-      "$$hashKey": "object:634",
+      "$$hashKey": "object:206",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -74,7 +68,7 @@
       "type": "dashboards"
     },
     {
-      "$$hashKey": "object:653",
+      "$$hashKey": "object:225",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -86,7 +80,7 @@
       "type": "dashboards"
     },
     {
-      "$$hashKey": "object:673",
+      "$$hashKey": "object:245",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -98,7 +92,7 @@
       "type": "dashboards"
     },
     {
-      "$$hashKey": "object:1205",
+      "$$hashKey": "object:268",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -110,7 +104,7 @@
       "type": "dashboards"
     },
     {
-      "$$hashKey": "object:7508",
+      "$$hashKey": "object:294",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -125,136 +119,35 @@
   "panels": [
     {
       "aliasColors": {},
-      "breakPoint": "50%",
-      "cacheTimeout": null,
-      "combine": {
-        "label": "Others",
-        "threshold": 0
-      },
-      "datasource": "DS_PROMETHEUS",
-      "decimals": 0,
-      "fontSize": "80%",
-      "format": "bytes",
-      "gridPos": {
-        "h": 8,
-        "w": 4,
-        "x": 0,
-        "y": 0
-      },
-      "id": 4,
-      "interval": null,
-      "legend": {
-        "percentage": false,
-        "show": true,
-        "values": true
-      },
-      "legendType": "On graph",
-      "links": [],
-      "nullPointMode": "connected",
-      "pieType": "pie",
-      "pluginVersion": "6.7.6",
-      "strokeWidth": "",
-      "targets": [
-        {
-          "expr": "azure_mysql{aggregation=\"average\",metric=\"storage_limit\",resourceID=~\".*/$host\"}",
-          "interval": "5m",
-          "legendFormat": "Storage limit",
-          "refId": "A"
-        },
-        {
-          "expr": "azure_mysql{aggregation=\"average\",metric=\"storage_used\",resourceID=~\".*/$host\"}",
-          "interval": "5m",
-          "legendFormat": "Storage used",
-          "refId": "B"
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Storage",
-      "type": "grafana-piechart-panel",
-      "valueName": "current"
-    },
-    {
-      "aliasColors": {},
-      "breakPoint": "50%",
-      "cacheTimeout": null,
-      "combine": {
-        "label": "Others",
-        "threshold": 0
-      },
-      "datasource": "DS_PROMETHEUS",
-      "decimals": 0,
-      "fontSize": "80%",
-      "format": "bytes",
-      "gridPos": {
-        "h": 8,
-        "w": 4,
-        "x": 4,
-        "y": 0
-      },
-      "id": 11,
-      "interval": null,
-      "legend": {
-        "percentage": false,
-        "show": true,
-        "values": true
-      },
-      "legendType": "On graph",
-      "links": [],
-      "nullPointMode": "connected",
-      "pieType": "pie",
-      "pluginVersion": "6.7.6",
-      "strokeWidth": "",
-      "targets": [
-        {
-          "expr": "azure_mysql{aggregation=\"average\",metric=\"serverlog_storage_limit\",resourceID=~\".*/$host\"}",
-          "interval": "5m",
-          "legendFormat": "Storage limit",
-          "refId": "A"
-        },
-        {
-          "expr": "azure_mysql{aggregation=\"average\",metric=\"serverlog_storage_usage\",resourceID=~\".*/$host\"}",
-          "interval": "5m",
-          "legendFormat": "Storage used",
-          "refId": "B"
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Serverlog Storage",
-      "type": "grafana-piechart-panel",
-      "valueName": "current"
-    },
-    {
-      "aliasColors": {},
       "bars": false,
+      "cacheTimeout": null,
       "dashLength": 10,
       "dashes": false,
       "datasource": "DS_PROMETHEUS",
-      "decimals": 0,
       "fill": 2,
       "fillGradient": 0,
       "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 8,
+        "h": 6,
+        "w": 21,
+        "x": 0,
         "y": 0
       },
       "hiddenSeries": false,
-      "id": 7,
+      "id": 4,
       "legend": {
         "alignAsTable": true,
         "avg": true,
         "current": true,
         "max": true,
         "min": true,
-        "rightSide": false,
+        "rightSide": true,
         "show": true,
         "total": false,
         "values": true
       },
       "lines": true,
       "linewidth": 2,
+      "links": [],
       "nullPointMode": "null",
       "options": {
         "dataLinks": []
@@ -269,7 +162,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "azure_mysql{aggregation=\"average\",metric=\"active_connections\",resourceID=~\".*/$host\"}",
+          "expr": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"avg_cpu_percent\",resourceID=~\".*/$host.*\"}",
           "interval": "$interval",
           "legendFormat": " ",
           "refId": "A"
@@ -279,7 +172,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Active Connections",
+      "title": "CPU utilization",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -295,17 +188,17 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:628",
-          "decimals": 1,
-          "format": "short",
+          "$$hashKey": "object:1123",
+          "decimals": null,
+          "format": "percent",
           "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
+          "max": "100",
+          "min": "0",
           "show": true
         },
         {
-          "$$hashKey": "object:629",
+          "$$hashKey": "object:1124",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -322,7 +215,7 @@
     {
       "cacheTimeout": null,
       "colorBackground": false,
-      "colorValue": false,
+      "colorValue": true,
       "colors": [
         "#299c46",
         "rgba(237, 129, 40, 0.89)",
@@ -330,7 +223,7 @@
       ],
       "datasource": "DS_PROMETHEUS",
       "decimals": 0,
-      "format": "seconds",
+      "format": "none",
       "gauge": {
         "maxValue": 100,
         "minValue": 0,
@@ -339,23 +232,23 @@
         "thresholdMarkers": true
       },
       "gridPos": {
-        "h": 8,
-        "w": 4,
-        "x": 20,
+        "h": 3,
+        "w": 3,
+        "x": 21,
         "y": 0
       },
-      "id": 13,
+      "id": 2,
       "interval": null,
       "links": [],
       "mappingType": 1,
       "mappingTypes": [
         {
-          "$$hashKey": "object:6525",
+          "$$hashKey": "object:872",
           "name": "value to text",
           "value": 1
         },
         {
-          "$$hashKey": "object:6526",
+          "$$hashKey": "object:873",
           "name": "range to text",
           "value": 2
         }
@@ -363,11 +256,10 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "pluginVersion": "6.7.6",
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
-      "prefixFontSize": "50%",
+      "prefixFontSize": "70%",
       "rangeMaps": [
         {
           "from": "null",
@@ -386,7 +278,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "azure_mysql{aggregation=\"average\",metric=\"seconds_behind_master\",resourceID=~\".*/$host\"} or vector(0)",
+          "expr": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"virtual_core_count\",resourceID=~\".*/$host.*\"}",
           "interval": "5m",
           "legendFormat": "",
           "refId": "A"
@@ -395,37 +287,125 @@
       "thresholds": "",
       "timeFrom": null,
       "timeShift": null,
-      "title": "Replication lag",
+      "title": "vCores",
       "type": "singlestat",
-      "valueFontSize": "80%",
+      "valueFontSize": "70%",
       "valueMaps": [
         {
-          "$$hashKey": "object:6528",
+          "$$hashKey": "object:875",
           "op": "=",
           "text": "N/A",
           "value": "null"
         }
       ],
-      "valueName": "avg"
+      "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": true,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "DS_PROMETHEUS",
+      "decimals": 1,
+      "format": "mbytes",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 21,
+        "y": 3
+      },
+      "id": 3,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "$$hashKey": "object:872",
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "$$hashKey": "object:873",
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "70%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"reserved_storage_mb\",resourceID=~\".*/$host.*\"}",
+          "interval": "5m",
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Max Storage",
+      "type": "singlestat",
+      "valueFontSize": "70%",
+      "valueMaps": [
+        {
+          "$$hashKey": "object:875",
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
     },
     {
       "aliasColors": {},
       "bars": false,
+      "cacheTimeout": null,
       "dashLength": 10,
       "dashes": false,
       "datasource": "DS_PROMETHEUS",
-      "decimals": 0,
-      "description": "",
+      "decimals": 1,
       "fill": 2,
       "fillGradient": 0,
       "gridPos": {
-        "h": 8,
+        "h": 10,
         "w": 12,
         "x": 0,
-        "y": 8
+        "y": 6
       },
       "hiddenSeries": false,
-      "id": 2,
+      "id": 5,
       "legend": {
         "alignAsTable": true,
         "avg": true,
@@ -439,6 +419,7 @@
       },
       "lines": true,
       "linewidth": 2,
+      "links": [],
       "nullPointMode": "null",
       "options": {
         "dataLinks": []
@@ -447,29 +428,44 @@
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "seriesOverrides": [],
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:1696",
+          "alias": "Requests",
+          "lines": false,
+          "pointradius": 1,
+          "points": true,
+          "yaxis": 2
+        }
+      ],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
       "targets": [
         {
-          "expr": "azure_mysql{aggregation=\"average\",metric=\"cpu_percent\",resourceID=~\".*/$host\"}",
+          "expr": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"io_bytes_read\",resourceID=~\".*/$host.*\"}",
           "interval": "$interval",
-          "legendFormat": "CPU utilization",
+          "legendFormat": " Read",
           "refId": "A"
         },
         {
-          "expr": "azure_mysql{aggregation=\"average\",metric=\"io_consumption_percent\",resourceID=~\".*/$host\"}",
+          "expr": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"io_bytes_written\",resourceID=~\".*/$host.*\"}",
           "interval": "$interval",
-          "legendFormat": "I/O",
+          "legendFormat": "Write",
           "refId": "B"
+        },
+        {
+          "expr": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"io_requests\",resourceID=~\".*/$host.*\"}",
+          "interval": "$interval",
+          "legendFormat": "Requests",
+          "refId": "C"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Operating load",
+      "title": "I/O",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -485,23 +481,23 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:628",
-          "decimals": 0,
-          "format": "percent",
-          "label": "",
-          "logBase": 1,
-          "max": "100",
-          "min": "0",
-          "show": true
-        },
-        {
-          "$$hashKey": "object:629",
-          "format": "short",
-          "label": "",
+          "$$hashKey": "object:1123",
+          "decimals": 1,
+          "format": "bytes",
+          "label": null,
           "logBase": 1,
           "max": null,
           "min": null,
-          "show": false
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1124",
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
         }
       ],
       "yaxis": {
@@ -512,17 +508,18 @@
     {
       "aliasColors": {},
       "bars": false,
+      "cacheTimeout": null,
       "dashLength": 10,
       "dashes": false,
       "datasource": "DS_PROMETHEUS",
-      "decimals": 0,
+      "decimals": 1,
       "fill": 2,
       "fillGradient": 0,
       "gridPos": {
-        "h": 8,
+        "h": 10,
         "w": 12,
         "x": 12,
-        "y": 8
+        "y": 6
       },
       "hiddenSeries": false,
       "id": 6,
@@ -539,6 +536,7 @@
       },
       "lines": true,
       "linewidth": 2,
+      "links": [],
       "nullPointMode": "null",
       "options": {
         "dataLinks": []
@@ -547,117 +545,27 @@
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "seriesOverrides": [],
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:240",
+          "alias": "Max",
+          "fill": 1
+        }
+      ],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
       "targets": [
         {
-          "expr": "azure_mysql{aggregation=\"average\",metric=\"memory_percent\",resourceID=~\".*/$host\"}",
+          "expr": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"storage_space_used_mb\",resourceID=~\".*/$host.*\"}",
           "interval": "$interval",
-          "legendFormat": "Usage",
-          "refId": "A"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Memory",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:628",
-          "decimals": 0,
-          "format": "percent",
-          "label": "",
-          "logBase": 1,
-          "max": "100",
-          "min": "0",
-          "show": true
-        },
-        {
-          "$$hashKey": "object:629",
-          "format": "short",
-          "label": "",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "DS_PROMETHEUS",
-      "decimals": 0,
-      "fill": 2,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 16
-      },
-      "hiddenSeries": false,
-      "id": 5,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": true,
-        "sort": "max",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
-      "percentage": false,
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "azure_mysql{aggregation=\"average\",metric=\"storage_percent\",resourceID=~\".*/$host\"}",
-          "interval": "$interval",
-          "legendFormat": " Data",
+          "legendFormat": "Used",
           "refId": "A"
         },
         {
-          "expr": "azure_mysql{aggregation=\"average\",metric=\"serverlog_storage_percent\",resourceID=~\".*/$host\"}",
-          "interval": "$interval",
-          "legendFormat": "Log",
+          "expr": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"reserved_storage_mb\",resourceID=~\".*/$host.*\"}",
+          "interval": "",
+          "legendFormat": "Max",
           "refId": "B"
         }
       ],
@@ -681,116 +589,9 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:628",
-          "decimals": null,
-          "format": "percent",
-          "label": null,
-          "logBase": 1,
-          "max": "100",
-          "min": "0",
-          "show": true
-        },
-        {
-          "$$hashKey": "object:629",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "DS_PROMETHEUS",
-      "decimals": 1,
-      "description": "There are differences between API and portal.",
-      "fill": 2,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 16
-      },
-      "hiddenSeries": false,
-      "id": 8,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
-      "percentage": false,
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "$$hashKey": "object:4458",
-          "alias": "/.*Network In.*/",
-          "transform": "negative-Y"
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "azure_mysql{aggregation=\"average\",metric=\"network_bytes_ingress\",resourceID=~\".*/$host\"} or vector(0)",
-          "interval": "$interval",
-          "legendFormat": "Network In",
-          "refId": "A"
-        },
-        {
-          "expr": "azure_mysql{aggregation=\"average\",metric=\"network_bytes_egress\",resourceID=~\".*/$host\"} or vector(0)",
-          "interval": "$interval",
-          "legendFormat": "Network Out",
-          "refId": "B"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Network Traffic",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:628",
+          "$$hashKey": "object:1123",
           "decimals": 1,
-          "format": "bytes",
+          "format": "mbytes",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -798,7 +599,7 @@
           "show": true
         },
         {
-          "$$hashKey": "object:629",
+          "$$hashKey": "object:1124",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -826,7 +627,7 @@
         "auto_count": 200,
         "auto_min": "1m",
         "current": {
-          "selected": false,
+          "selected": true,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -874,7 +675,7 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(azure_mysql, resourceID)",
+        "definition": "label_values(azure_sqlmanagedinstance, resourceID)",
         "hide": 0,
         "includeAll": false,
         "index": -1,
@@ -882,7 +683,7 @@
         "multi": false,
         "name": "subscription",
         "options": [],
-        "query": "label_values(azure_mysql, resourceID)",
+        "query": "label_values(azure_sqlmanagedinstance, resourceID)",
         "refresh": 1,
         "regex": "^\\/subscriptions\\/(\\S+).*/resource[gG]roups\\/(\\S+)",
         "skipUrlSync": false,
@@ -897,7 +698,7 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "azure_mysql{aggregation=\"average\",metric=\"cpu_percent\",resourceID=~\"/subscriptions/$subscription/.*\"}",
+        "definition": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"avg_cpu_percent\",resourceID=~\"/subscriptions/$subscription/.*\"}",
         "hide": 0,
         "includeAll": false,
         "index": -1,
@@ -905,7 +706,7 @@
         "multi": false,
         "name": "resourcegroup",
         "options": [],
-        "query": "azure_mysql{aggregation=\"average\",metric=\"cpu_percent\",resourceID=~\"/subscriptions/$subscription/.*\"}",
+        "query": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"avg_cpu_percent\",resourceID=~\"/subscriptions/$subscription/.*\"}",
         "refresh": 1,
         "regex": ".*/resource[gG]roups\\/(\\S+).*/providers\\/(\\S+)",
         "skipUrlSync": false,
@@ -920,7 +721,7 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "azure_mysql{aggregation=\"average\",metric=\"cpu_percent\",resourceID=~\"/subscriptions/$subscription/resource[gG]roups/$resourcegroup/providers/Microsoft.DB[fF]orMySQL/servers/.*\"}",
+        "definition": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"avg_cpu_percent\",resourceID=~\"/subscriptions/$subscription/resource[gG]roups/$resourcegroup/providers/Microsoft.Sql/managedInstances/.*\"}",
         "hide": 0,
         "includeAll": false,
         "index": -1,
@@ -928,9 +729,9 @@
         "multi": false,
         "name": "host",
         "options": [],
-        "query": "azure_mysql{aggregation=\"average\",metric=\"cpu_percent\",resourceID=~\"/subscriptions/$subscription/resource[gG]roups/$resourcegroup/providers/Microsoft.DB[fF]orMySQL/servers/.*\"}",
+        "query": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"avg_cpu_percent\",resourceID=~\"/subscriptions/$subscription/resource[gG]roups/$resourcegroup/providers/Microsoft.Sql/managedInstances/.*\"}",
         "refresh": 1,
-        "regex": ".*/Microsoft.DB[fF]orMySQL/servers\\/(\\S+).*\"(\\S+)",
+        "regex": ".*/Microsoft.Sql/managedInstances\\/(\\S+).*\"(\\S+)",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
@@ -957,8 +758,8 @@
     ]
   },
   "timezone": "browser",
-  "title": "Azure Database for MySQL",
-  "uid": "nQgvVxi7z",
+  "title": "Azure SQL Managed Instance",
+  "uid": "eOxefQink",
   "variables": {
     "list": []
   },

@@ -47,7 +47,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1626333060086,
+  "iteration": 1626422072067,
   "links": [
     {
       "$$hashKey": "object:354",
@@ -536,6 +536,7 @@
       }
     }
   ],
+  "refresh": "5m",
   "schemaVersion": 22,
   "style": "dark",
   "tags": [
@@ -548,7 +549,7 @@
         "auto_count": 200,
         "auto_min": "1m",
         "current": {
-          "selected": false,
+          "selected": true,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
