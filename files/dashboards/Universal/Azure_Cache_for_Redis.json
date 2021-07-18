@@ -53,7 +53,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1626422056415,
+  "iteration": 1626607387195,
   "links": [
     {
       "$$hashKey": "object:704",
@@ -170,7 +170,7 @@
       "pluginVersion": "6.7.6",
       "targets": [
         {
-          "expr": "azure_redis{aggregation=\"average\",metric=\"cachemissrate\",resourceID=~\".*/$host\"}",
+          "expr": "azure_redis{aggregation=\"average\",metric=\"cachemissrate\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "5m",
           "legendFormat": "",
           "refId": "A"
@@ -234,7 +234,7 @@
       "pluginVersion": "6.7.6",
       "targets": [
         {
-          "expr": "azure_redis{aggregation=\"average\",metric=\"usedmemorypercentage\",resourceID=~\".*/$host\"}",
+          "expr": "azure_redis{aggregation=\"average\",metric=\"usedmemorypercentage\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "5m",
           "legendFormat": "",
           "refId": "A"
@@ -288,7 +288,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "azure_redis{aggregation=\"average\",metric=\"operationsPerSecond\",resourceID=~\".*/$host\"}",
+          "expr": "azure_redis{aggregation=\"average\",metric=\"operationsPerSecond\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": " ",
           "refId": "A"
@@ -390,13 +390,13 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "azure_redis{aggregation=\"average\",metric=\"percentProcessorTime\",resourceID=~\".*/$host\"}",
+          "expr": "azure_redis{aggregation=\"average\",metric=\"percentProcessorTime\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "CPU",
           "refId": "A"
         },
         {
-          "expr": "azure_redis{aggregation=\"average\",metric=\"serverLoad\",resourceID=~\".*/$host\"}",
+          "expr": "azure_redis{aggregation=\"average\",metric=\"serverLoad\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Server Load",
           "refId": "B"
@@ -490,13 +490,13 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "azure_redis{aggregation=\"average\",metric=\"usedmemory\",resourceID=~\".*/$host\"}",
+          "expr": "azure_redis{aggregation=\"average\",metric=\"usedmemory\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Used",
           "refId": "A"
         },
         {
-          "expr": "azure_redis{aggregation=\"average\",metric=\"usedmemoryRss\",resourceID=~\".*/$host\"}",
+          "expr": "azure_redis{aggregation=\"average\",metric=\"usedmemoryRss\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "",
           "legendFormat": "Rss",
           "refId": "B"
@@ -589,19 +589,19 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "azure_redis{aggregation=\"average\",metric=\"evictedkeys\",resourceID=~\".*/$host\"}",
+          "expr": "azure_redis{aggregation=\"average\",metric=\"evictedkeys\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Evicted",
           "refId": "A"
         },
         {
-          "expr": "azure_redis{aggregation=\"average\",metric=\"expiredkeys\",resourceID=~\".*/$host\"}",
+          "expr": "azure_redis{aggregation=\"average\",metric=\"expiredkeys\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Expired",
           "refId": "B"
         },
         {
-          "expr": "azure_redis{aggregation=\"average\",metric=\"totalkeys\",resourceID=~\".*/$host\"}",
+          "expr": "azure_redis{aggregation=\"average\",metric=\"totalkeys\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Total",
           "refId": "C"
@@ -700,13 +700,13 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "azure_redis{aggregation=\"average\",metric=\"getcommands\",resourceID=~\".*/$host\"}",
+          "expr": "azure_redis{aggregation=\"average\",metric=\"getcommands\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Gets",
           "refId": "A"
         },
         {
-          "expr": "azure_redis{aggregation=\"average\",metric=\"setcommands\",resourceID=~\".*/$host\"}",
+          "expr": "azure_redis{aggregation=\"average\",metric=\"setcommands\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Sets",
           "refId": "B"
@@ -799,7 +799,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "azure_redis{aggregation=\"average\",metric=\"connectedclients\",resourceID=~\".*/$host\"}",
+          "expr": "azure_redis{aggregation=\"average\",metric=\"connectedclients\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": " ",
           "refId": "A"
@@ -898,13 +898,13 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "azure_redis{aggregation=\"average\",metric=\"cacheRead\",resourceID=~\".*/$host\"}",
+          "expr": "azure_redis{aggregation=\"average\",metric=\"cacheRead\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Read",
           "refId": "A"
         },
         {
-          "expr": "azure_redis{aggregation=\"average\",metric=\"cacheWrite\",resourceID=~\".*/$host\"}",
+          "expr": "azure_redis{aggregation=\"average\",metric=\"cacheWrite\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Write",
           "refId": "B"
@@ -968,7 +968,7 @@
         "auto_count": 200,
         "auto_min": "1m",
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -1016,7 +1016,7 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(azure_redis, resourceID)",
+        "definition": "label_values(azure_redis, subscription)",
         "hide": 0,
         "includeAll": false,
         "index": -1,
@@ -1024,9 +1024,9 @@
         "multi": false,
         "name": "subscription",
         "options": [],
-        "query": "label_values(azure_redis, resourceID)",
+        "query": "label_values(azure_redis, subscription)",
         "refresh": 1,
-        "regex": "^\\/subscriptions\\/(\\S+).*/resource[gG]roups\\/(\\S+)",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
@@ -1039,7 +1039,7 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "azure_redis{aggregation=\"average\",metric=\"serverLoad\",resourceID=~\"/subscriptions/$subscription/.*\"}",
+        "definition": "label_values(azure_redis{subscription=\"$subscription\"}, resourcegroup)",
         "hide": 0,
         "includeAll": false,
         "index": -1,
@@ -1047,9 +1047,9 @@
         "multi": false,
         "name": "resourcegroup",
         "options": [],
-        "query": "azure_redis{aggregation=\"average\",metric=\"serverLoad\",resourceID=~\"/subscriptions/$subscription/.*\"}",
+        "query": "label_values(azure_redis{subscription=\"$subscription\"}, resourcegroup)",
         "refresh": 1,
-        "regex": ".*/resource[gG]roups\\/(\\S+).*/providers\\/(\\S+)",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
@@ -1062,7 +1062,7 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "azure_redis{aggregation=\"average\",metric=\"serverLoad\",resourceID=~\"/subscriptions/$subscription/resource[gG]roups/$resourcegroup/providers/Microsoft.Cache/Redis/.*\"}",
+        "definition": "label_values(azure_redis{subscription=\"$subscription\",resourcegroup=\"$resourcegroup\"}, host)",
         "hide": 0,
         "includeAll": false,
         "index": -1,
@@ -1070,9 +1070,9 @@
         "multi": false,
         "name": "host",
         "options": [],
-        "query": "azure_redis{aggregation=\"average\",metric=\"serverLoad\",resourceID=~\"/subscriptions/$subscription/resource[gG]roups/$resourcegroup/providers/Microsoft.Cache/Redis/.*\"}",
+        "query": "label_values(azure_redis{subscription=\"$subscription\",resourcegroup=\"$resourcegroup\"}, host)",
         "refresh": 1,
-        "regex": ".*/Microsoft.Cache/Redis\\/(\\S+).*\"(\\S+)",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",

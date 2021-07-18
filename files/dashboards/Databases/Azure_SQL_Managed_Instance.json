@@ -53,7 +53,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1626421989142,
+  "iteration": 1626608165791,
   "links": [
     {
       "$$hashKey": "object:206",
@@ -162,7 +162,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"avg_cpu_percent\",resourceID=~\".*/$host.*\"}",
+          "expr": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"avg_cpu_percent\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": " ",
           "refId": "A"
@@ -278,7 +278,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"virtual_core_count\",resourceID=~\".*/$host.*\"}",
+          "expr": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"virtual_core_count\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "5m",
           "legendFormat": "",
           "refId": "A"
@@ -366,7 +366,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"reserved_storage_mb\",resourceID=~\".*/$host.*\"}",
+          "expr": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"reserved_storage_mb\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "5m",
           "legendFormat": "",
           "refId": "A"
@@ -443,19 +443,19 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"io_bytes_read\",resourceID=~\".*/$host.*\"}",
+          "expr": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"io_bytes_read\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": " Read",
           "refId": "A"
         },
         {
-          "expr": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"io_bytes_written\",resourceID=~\".*/$host.*\"}",
+          "expr": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"io_bytes_written\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Write",
           "refId": "B"
         },
         {
-          "expr": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"io_requests\",resourceID=~\".*/$host.*\"}",
+          "expr": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"io_requests\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Requests",
           "refId": "C"
@@ -557,13 +557,13 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"storage_space_used_mb\",resourceID=~\".*/$host.*\"}",
+          "expr": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"storage_space_used_mb\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Used",
           "refId": "A"
         },
         {
-          "expr": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"reserved_storage_mb\",resourceID=~\".*/$host.*\"}",
+          "expr": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"reserved_storage_mb\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "",
           "legendFormat": "Max",
           "refId": "B"
@@ -627,7 +627,7 @@
         "auto_count": 200,
         "auto_min": "1m",
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -675,7 +675,7 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(azure_sqlmanagedinstance, resourceID)",
+        "definition": "label_values(azure_sqlmanagedinstance, subscription)",
         "hide": 0,
         "includeAll": false,
         "index": -1,
@@ -683,9 +683,9 @@
         "multi": false,
         "name": "subscription",
         "options": [],
-        "query": "label_values(azure_sqlmanagedinstance, resourceID)",
+        "query": "label_values(azure_sqlmanagedinstance, subscription)",
         "refresh": 1,
-        "regex": "^\\/subscriptions\\/(\\S+).*/resource[gG]roups\\/(\\S+)",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
@@ -698,7 +698,7 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"avg_cpu_percent\",resourceID=~\"/subscriptions/$subscription/.*\"}",
+        "definition": "label_values(azure_sqlmanagedinstance{subscription=\"$subscription\"}, resourcegroup)",
         "hide": 0,
         "includeAll": false,
         "index": -1,
@@ -706,9 +706,9 @@
         "multi": false,
         "name": "resourcegroup",
         "options": [],
-        "query": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"avg_cpu_percent\",resourceID=~\"/subscriptions/$subscription/.*\"}",
+        "query": "label_values(azure_sqlmanagedinstance{subscription=\"$subscription\"}, resourcegroup)",
         "refresh": 1,
-        "regex": ".*/resource[gG]roups\\/(\\S+).*/providers\\/(\\S+)",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
@@ -721,7 +721,7 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"avg_cpu_percent\",resourceID=~\"/subscriptions/$subscription/resource[gG]roups/$resourcegroup/providers/Microsoft.Sql/managedInstances/.*\"}",
+        "definition": "label_values(azure_sqlmanagedinstance{subscription=\"$subscription\",resourcegroup=\"$resourcegroup\"}, host)",
         "hide": 0,
         "includeAll": false,
         "index": -1,
@@ -729,9 +729,9 @@
         "multi": false,
         "name": "host",
         "options": [],
-        "query": "azure_sqlmanagedinstance{aggregation=\"average\",metric=\"avg_cpu_percent\",resourceID=~\"/subscriptions/$subscription/resource[gG]roups/$resourcegroup/providers/Microsoft.Sql/managedInstances/.*\"}",
+        "query": "label_values(azure_sqlmanagedinstance{subscription=\"$subscription\",resourcegroup=\"$resourcegroup\"}, host)",
         "refresh": 1,
-        "regex": ".*/Microsoft.Sql/managedInstances\\/(\\S+).*\"(\\S+)",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
@@ -763,5 +763,5 @@
   "variables": {
     "list": []
   },
-  "version": 1
+  "version": 2
 }

@@ -53,7 +53,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1626422024904,
+  "iteration": 1626607920995,
   "links": [
     {
       "$$hashKey": "object:211",
@@ -164,19 +164,19 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "azure_sqlelasticpool{aggregation=\"average\",metric=\"cpu_percent\",resourceID=~\".*/$host.*\"}",
+          "expr": "azure_sqlelasticpool{aggregation=\"average\",metric=\"cpu_percent\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "CPU",
           "refId": "A"
         },
         {
-          "expr": "azure_sqlelasticpool{aggregation=\"average\",metric=\"workers_percent\",resourceID=~\".*/$host.*\"}",
+          "expr": "azure_sqlelasticpool{aggregation=\"average\",metric=\"workers_percent\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Workers",
           "refId": "B"
         },
         {
-          "expr": "azure_sqlelasticpool{aggregation=\"average\",metric=\"sessions_percent\",resourceID=~\".*/$host.*\"}",
+          "expr": "azure_sqlelasticpool{aggregation=\"average\",metric=\"sessions_percent\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Sessions",
           "refId": "C"
@@ -293,7 +293,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "azure_sqlelasticpool{aggregation=\"average\",metric=\"cpu_limit\",resourceID=~\".*/$host.*\"}",
+          "expr": "azure_sqlelasticpool{aggregation=\"average\",metric=\"cpu_limit\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "5m",
           "legendFormat": "",
           "refId": "A"
@@ -382,7 +382,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "azure_sqlelasticpool{aggregation=\"average\",metric=\"storage_limit\",resourceID=~\".*/$host.*\"}",
+          "expr": "azure_sqlelasticpool{aggregation=\"average\",metric=\"storage_limit\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "5m",
           "legendFormat": "",
           "refId": "A"
@@ -460,13 +460,13 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "azure_sqlelasticpool{aggregation=\"average\",metric=\"storage_used\",resourceID=~\".*/$host.*\"}",
+          "expr": "azure_sqlelasticpool{aggregation=\"average\",metric=\"storage_used\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Used",
           "refId": "A"
         },
         {
-          "expr": "azure_sqlelasticpool{aggregation=\"average\",metric=\"storage_percent\",resourceID=~\".*/$host.*\"}",
+          "expr": "azure_sqlelasticpool{aggregation=\"average\",metric=\"storage_percent\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Percent",
           "refId": "B"
@@ -572,19 +572,19 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "azure_sqlelasticpool{aggregation=\"average\",metric=\"tempdb_data_size\",resourceID=~\".*/$host.*\"}",
+          "expr": "azure_sqlelasticpool{aggregation=\"average\",metric=\"tempdb_data_size\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Data",
           "refId": "A"
         },
         {
-          "expr": "azure_sqlelasticpool{aggregation=\"average\",metric=\"tempdb_log_size\",resourceID=~\".*/$host.*\"}",
+          "expr": "azure_sqlelasticpool{aggregation=\"average\",metric=\"tempdb_log_size\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Log",
           "refId": "B"
         },
         {
-          "expr": "azure_sqlelasticpool{aggregation=\"average\",metric=\"tempdb_log_used_percent\",resourceID=~\".*/$host.*\"}",
+          "expr": "azure_sqlelasticpool{aggregation=\"average\",metric=\"tempdb_log_used_percent\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Percent",
           "refId": "C"
@@ -682,13 +682,13 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "azure_sqlelasticpool{aggregation=\"average\",metric=\"physical_data_read_percent\",resourceID=~\".*/$host.*\"}",
+          "expr": "azure_sqlelasticpool{aggregation=\"average\",metric=\"physical_data_read_percent\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Data",
           "refId": "A"
         },
         {
-          "expr": "azure_sqlelasticpool{aggregation=\"average\",metric=\"log_write_percent\",resourceID=~\".*/$host.*\"}",
+          "expr": "azure_sqlelasticpool{aggregation=\"average\",metric=\"log_write_percent\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Log",
           "refId": "B"
@@ -785,7 +785,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "azure_sqlelasticpool{aggregation=\"average\",metric=\"xtp_storage_percent\",resourceID=~\".*/$host.*\"}",
+          "expr": "azure_sqlelasticpool{aggregation=\"average\",metric=\"xtp_storage_percent\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": " ",
           "refId": "A"
@@ -849,7 +849,7 @@
         "auto_count": 200,
         "auto_min": "1m",
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -897,7 +897,7 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(azure_sqlelasticpool, resourceID)",
+        "definition": "label_values(azure_sqlelasticpool, subscription)",
         "hide": 0,
         "includeAll": false,
         "index": -1,
@@ -905,9 +905,9 @@
         "multi": false,
         "name": "subscription",
         "options": [],
-        "query": "label_values(azure_sqlelasticpool, resourceID)",
+        "query": "label_values(azure_sqlelasticpool, subscription)",
         "refresh": 1,
-        "regex": "^\\/subscriptions\\/(\\S+).*/resource[gG]roups\\/(\\S+)",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
@@ -920,7 +920,7 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "azure_sqlelasticpool{aggregation=\"average\",metric=\"sessions_percent\",resourceID=~\"/subscriptions/$subscription/.*\"}",
+        "definition": "label_values(azure_sqlelasticpool{subscription=\"$subscription\"},resourcegroup)",
         "hide": 0,
         "includeAll": false,
         "index": -1,
@@ -928,9 +928,9 @@
         "multi": false,
         "name": "resourcegroup",
         "options": [],
-        "query": "azure_sqlelasticpool{aggregation=\"average\",metric=\"sessions_percent\",resourceID=~\"/subscriptions/$subscription/.*\"}",
+        "query": "label_values(azure_sqlelasticpool{subscription=\"$subscription\"},resourcegroup)",
         "refresh": 1,
-        "regex": ".*/resource[gG]roups\\/(\\S+).*/providers\\/(\\S+)",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
@@ -943,7 +943,7 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "azure_sqlelasticpool{aggregation=\"average\",metric=\"sessions_percent\",resourceID=~\"/subscriptions/$subscription/resource[gG]roups/$resourcegroup/providers/Microsoft.Sql/servers/.*\"}",
+        "definition": "label_values(azure_sqlelasticpool{subscription=\"$subscription\",resourcegroup=\"$resourcegroup\"},host)",
         "hide": 0,
         "includeAll": false,
         "index": -1,
@@ -951,9 +951,9 @@
         "multi": false,
         "name": "host",
         "options": [],
-        "query": "azure_sqlelasticpool{aggregation=\"average\",metric=\"sessions_percent\",resourceID=~\"/subscriptions/$subscription/resource[gG]roups/$resourcegroup/providers/Microsoft.Sql/servers/.*\"}",
+        "query": "label_values(azure_sqlelasticpool{subscription=\"$subscription\",resourcegroup=\"$resourcegroup\"},host)",
         "refresh": 1,
-        "regex": ".*/Microsoft.Sql/servers\\/(\\S+).*\\/elasticpools(\\S+)",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
@@ -985,5 +985,5 @@
   "variables": {
     "list": []
   },
-  "version": 1
+  "version": 2
 }

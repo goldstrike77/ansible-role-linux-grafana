@@ -59,7 +59,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1626419469819,
+  "iteration": 1626607664709,
   "links": [
     {
       "$$hashKey": "object:634",
@@ -156,13 +156,13 @@
       "strokeWidth": "",
       "targets": [
         {
-          "expr": "azure_mysql{aggregation=\"average\",metric=\"storage_limit\",resourceID=~\".*/$host\"}",
+          "expr": "azure_mysql{aggregation=\"average\",metric=\"storage_limit\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "5m",
           "legendFormat": "Storage limit",
           "refId": "A"
         },
         {
-          "expr": "azure_mysql{aggregation=\"average\",metric=\"storage_used\",resourceID=~\".*/$host\"}",
+          "expr": "azure_mysql{aggregation=\"average\",metric=\"storage_used\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "5m",
           "legendFormat": "Storage used",
           "refId": "B"
@@ -207,13 +207,13 @@
       "strokeWidth": "",
       "targets": [
         {
-          "expr": "azure_mysql{aggregation=\"average\",metric=\"serverlog_storage_limit\",resourceID=~\".*/$host\"}",
+          "expr": "azure_mysql{aggregation=\"average\",metric=\"serverlog_storage_limit\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "5m",
           "legendFormat": "Storage limit",
           "refId": "A"
         },
         {
-          "expr": "azure_mysql{aggregation=\"average\",metric=\"serverlog_storage_usage\",resourceID=~\".*/$host\"}",
+          "expr": "azure_mysql{aggregation=\"average\",metric=\"serverlog_storage_usage\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "5m",
           "legendFormat": "Storage used",
           "refId": "B"
@@ -269,7 +269,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "azure_mysql{aggregation=\"average\",metric=\"active_connections\",resourceID=~\".*/$host\"}",
+          "expr": "azure_mysql{aggregation=\"average\",metric=\"active_connections\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": " ",
           "refId": "A"
@@ -386,7 +386,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "azure_mysql{aggregation=\"average\",metric=\"seconds_behind_master\",resourceID=~\".*/$host\"} or vector(0)",
+          "expr": "azure_mysql{aggregation=\"average\",metric=\"seconds_behind_master\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"} or vector(0)",
           "interval": "5m",
           "legendFormat": "",
           "refId": "A"
@@ -453,13 +453,13 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "azure_mysql{aggregation=\"average\",metric=\"cpu_percent\",resourceID=~\".*/$host\"}",
+          "expr": "azure_mysql{aggregation=\"average\",metric=\"cpu_percent\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "CPU utilization",
           "refId": "A"
         },
         {
-          "expr": "azure_mysql{aggregation=\"average\",metric=\"io_consumption_percent\",resourceID=~\".*/$host\"}",
+          "expr": "azure_mysql{aggregation=\"average\",metric=\"io_consumption_percent\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "I/O",
           "refId": "B"
@@ -553,7 +553,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "azure_mysql{aggregation=\"average\",metric=\"memory_percent\",resourceID=~\".*/$host\"}",
+          "expr": "azure_mysql{aggregation=\"average\",metric=\"memory_percent\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Usage",
           "refId": "A"
@@ -649,13 +649,13 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "azure_mysql{aggregation=\"average\",metric=\"storage_percent\",resourceID=~\".*/$host\"}",
+          "expr": "azure_mysql{aggregation=\"average\",metric=\"storage_percent\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": " Data",
           "refId": "A"
         },
         {
-          "expr": "azure_mysql{aggregation=\"average\",metric=\"serverlog_storage_percent\",resourceID=~\".*/$host\"}",
+          "expr": "azure_mysql{aggregation=\"average\",metric=\"serverlog_storage_percent\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Log",
           "refId": "B"
@@ -756,13 +756,13 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "azure_mysql{aggregation=\"average\",metric=\"network_bytes_ingress\",resourceID=~\".*/$host\"} or vector(0)",
+          "expr": "azure_mysql{aggregation=\"average\",metric=\"network_bytes_ingress\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"} or vector(0)",
           "interval": "$interval",
           "legendFormat": "Network In",
           "refId": "A"
         },
         {
-          "expr": "azure_mysql{aggregation=\"average\",metric=\"network_bytes_egress\",resourceID=~\".*/$host\"} or vector(0)",
+          "expr": "azure_mysql{aggregation=\"average\",metric=\"network_bytes_egress\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"} or vector(0)",
           "interval": "$interval",
           "legendFormat": "Network Out",
           "refId": "B"
@@ -874,7 +874,7 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(azure_mysql, resourceID)",
+        "definition": "label_values(azure_mysql, subscription)",
         "hide": 0,
         "includeAll": false,
         "index": -1,
@@ -882,9 +882,9 @@
         "multi": false,
         "name": "subscription",
         "options": [],
-        "query": "label_values(azure_mysql, resourceID)",
+        "query": "label_values(azure_mysql, subscription)",
         "refresh": 1,
-        "regex": "^\\/subscriptions\\/(\\S+).*/resource[gG]roups\\/(\\S+)",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
@@ -897,7 +897,7 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "azure_mysql{aggregation=\"average\",metric=\"cpu_percent\",resourceID=~\"/subscriptions/$subscription/.*\"}",
+        "definition": "label_values(azure_mysql{subscription=\"$subscription\"}, resourcegroup)",
         "hide": 0,
         "includeAll": false,
         "index": -1,
@@ -905,9 +905,9 @@
         "multi": false,
         "name": "resourcegroup",
         "options": [],
-        "query": "azure_mysql{aggregation=\"average\",metric=\"cpu_percent\",resourceID=~\"/subscriptions/$subscription/.*\"}",
+        "query": "label_values(azure_mysql{subscription=\"$subscription\"}, resourcegroup)",
         "refresh": 1,
-        "regex": ".*/resource[gG]roups\\/(\\S+).*/providers\\/(\\S+)",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
@@ -920,7 +920,7 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "azure_mysql{aggregation=\"average\",metric=\"cpu_percent\",resourceID=~\"/subscriptions/$subscription/resource[gG]roups/$resourcegroup/providers/Microsoft.DB[fF]orMySQL/servers/.*\"}",
+        "definition": "label_values(azure_mysql{subscription=\"$subscription\",resourcegroup=\"$resourcegroup\"}, host)",
         "hide": 0,
         "includeAll": false,
         "index": -1,
@@ -928,9 +928,9 @@
         "multi": false,
         "name": "host",
         "options": [],
-        "query": "azure_mysql{aggregation=\"average\",metric=\"cpu_percent\",resourceID=~\"/subscriptions/$subscription/resource[gG]roups/$resourcegroup/providers/Microsoft.DB[fF]orMySQL/servers/.*\"}",
+        "query": "label_values(azure_mysql{subscription=\"$subscription\",resourcegroup=\"$resourcegroup\"}, host)",
         "refresh": 1,
-        "regex": ".*/Microsoft.DB[fF]orMySQL/servers\\/(\\S+).*\"(\\S+)",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
@@ -962,5 +962,5 @@
   "variables": {
     "list": []
   },
-  "version": 1
+  "version": 2
 }

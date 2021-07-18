@@ -47,7 +47,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1626422072067,
+  "iteration": 1626607055954,
   "links": [
     {
       "$$hashKey": "object:354",
@@ -155,19 +155,19 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "azure_virtualnetworkgateway{aggregation=\"average\",metric=\"AverageBandwidth\",resourceID=~\".*/$host\"}",
+          "expr": "azure_virtualnetworkgateway{aggregation=\"average\",metric=\"AverageBandwidth\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Site-to-Site",
           "refId": "A"
         },
         {
-          "expr": "azure_virtualnetworkgateway{aggregation=\"average\",metric=\"TunnelAverageBandwidth\",resourceID=~\".*/$host\"}",
+          "expr": "azure_virtualnetworkgateway{aggregation=\"average\",metric=\"TunnelAverageBandwidth\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Tunnel",
           "refId": "B"
         },
         {
-          "expr": "azure_virtualnetworkgateway{aggregation=\"average\",metric=\"P2SBandwidth\",resourceID=~\".*/$host\"}",
+          "expr": "azure_virtualnetworkgateway{aggregation=\"average\",metric=\"P2SBandwidth\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Point-to-Site",
           "refId": "C"
@@ -267,13 +267,13 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "azure_virtualnetworkgateway{aggregation=\"average\",metric=\"TunnelEgressBytes\",resourceID=~\".*/$host\"}",
+          "expr": "azure_virtualnetworkgateway{aggregation=\"average\",metric=\"TunnelEgressBytes\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Outgoing",
           "refId": "A"
         },
         {
-          "expr": "azure_virtualnetworkgateway{aggregation=\"average\",metric=\"TunnelIngressBytes\",resourceID=~\".*/$host\"}",
+          "expr": "azure_virtualnetworkgateway{aggregation=\"average\",metric=\"TunnelIngressBytes\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Incoming",
           "refId": "B"
@@ -373,13 +373,13 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "azure_virtualnetworkgateway{aggregation=\"average\",metric=\"TunnelEgressPackets\",resourceID=~\".*/$host\"}",
+          "expr": "azure_virtualnetworkgateway{aggregation=\"average\",metric=\"TunnelEgressPackets\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Outgoing",
           "refId": "A"
         },
         {
-          "expr": "azure_virtualnetworkgateway{aggregation=\"average\",metric=\"TunnelIngressPackets\",resourceID=~\".*/$host\"}",
+          "expr": "azure_virtualnetworkgateway{aggregation=\"average\",metric=\"TunnelIngressPackets\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Incoming",
           "refId": "B"
@@ -479,13 +479,13 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "azure_virtualnetworkgateway{aggregation=\"average\",metric=\"TunnelEgressPacketDropTSMismatch\",resourceID=~\".*/$host\"}",
+          "expr": "azure_virtualnetworkgateway{aggregation=\"average\",metric=\"TunnelEgressPacketDropTSMismatch\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Outgoing",
           "refId": "A"
         },
         {
-          "expr": "azure_virtualnetworkgateway{aggregation=\"average\",metric=\"TunnelIngressPacketDropTSMismatch\",resourceID=~\".*/$host\"}",
+          "expr": "azure_virtualnetworkgateway{aggregation=\"average\",metric=\"TunnelIngressPacketDropTSMismatch\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\",host=\"$host\"}",
           "interval": "$interval",
           "legendFormat": "Incoming",
           "refId": "B"
@@ -549,7 +549,7 @@
         "auto_count": 200,
         "auto_min": "1m",
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -597,7 +597,7 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(azure_virtualnetworkgateway, resourceID)",
+        "definition": "label_values(azure_virtualnetworkgateway, subscription)",
         "hide": 0,
         "includeAll": false,
         "index": -1,
@@ -605,9 +605,9 @@
         "multi": false,
         "name": "subscription",
         "options": [],
-        "query": "label_values(azure_virtualnetworkgateway, resourceID)",
+        "query": "label_values(azure_virtualnetworkgateway, subscription)",
         "refresh": 1,
-        "regex": "^\\/subscriptions\\/(\\S+).*/resource[gG]roups\\/(\\S+)",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
@@ -620,7 +620,7 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "azure_virtualnetworkgateway{aggregation=\"average\",metric=\"AverageBandwidth\",resourceID=~\"/subscriptions/$subscription/.*\"}",
+        "definition": "label_values(azure_virtualnetworkgateway{aggregation=\"average\",metric=\"AverageBandwidth\",subscription=\"$subscription\"}, resourcegroup)",
         "hide": 0,
         "includeAll": false,
         "index": -1,
@@ -628,11 +628,11 @@
         "multi": false,
         "name": "resourcegroup",
         "options": [],
-        "query": "azure_virtualnetworkgateway{aggregation=\"average\",metric=\"AverageBandwidth\",resourceID=~\"/subscriptions/$subscription/.*\"}",
+        "query": "label_values(azure_virtualnetworkgateway{aggregation=\"average\",metric=\"AverageBandwidth\",subscription=\"$subscription\"}, resourcegroup)",
         "refresh": 1,
-        "regex": ".*/resource[gG]roups\\/(\\S+).*/providers\\/(\\S+)",
+        "regex": "",
         "skipUrlSync": false,
-        "sort": 0,
+        "sort": 1,
         "tagValuesQuery": "",
         "tags": [],
         "tagsQuery": "",
@@ -643,7 +643,7 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "azure_virtualnetworkgateway{aggregation=\"average\",metric=\"AverageBandwidth\",resourceID=~\"/subscriptions/$subscription/resource[gG]roups/$resourcegroup/providers/Microsoft.Network/virtualNetworkGateways/.*\"}",
+        "definition": "label_values(azure_virtualnetworkgateway{aggregation=\"average\",metric=\"AverageBandwidth\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\"}, host)",
         "hide": 0,
         "includeAll": false,
         "index": -1,
@@ -651,9 +651,9 @@
         "multi": false,
         "name": "host",
         "options": [],
-        "query": "azure_virtualnetworkgateway{aggregation=\"average\",metric=\"AverageBandwidth\",resourceID=~\"/subscriptions/$subscription/resource[gG]roups/$resourcegroup/providers/Microsoft.Network/virtualNetworkGateways/.*\"}",
+        "query": "label_values(azure_virtualnetworkgateway{aggregation=\"average\",metric=\"AverageBandwidth\",subscription=\"$subscription\",resourcegroup=\"$resourcegroup\"}, host)",
         "refresh": 1,
-        "regex": ".*/Microsoft.Network\\/virtualNetworkGateways\\/(\\S+).*\"(\\S+)",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
@@ -685,5 +685,5 @@
   "variables": {
     "list": []
   },
-  "version": 1
+  "version": 2
 }
