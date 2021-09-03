@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.5.3"
+      "version": "6.7.6"
     },
     {
       "type": "panel",
@@ -38,6 +38,7 @@
   "annotations": {
     "list": [
       {
+        "$$hashKey": "object:153",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -53,9 +54,10 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1598768167569,
+  "iteration": 1630648259382,
   "links": [
     {
+      "$$hashKey": "object:411",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -67,6 +69,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:412",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -78,6 +81,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:413",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -101,6 +105,7 @@
       "type": "dashboards"
     },
     {
+      "$$hashKey": "object:414",
       "asDropdown": true,
       "icon": "external link",
       "includeVars": true,
@@ -126,7 +131,6 @@
       "hideTimeOverride": false,
       "id": 2,
       "interval": "",
-      "options": {},
       "pageSize": null,
       "showHeader": true,
       "sort": {
@@ -135,7 +139,9 @@
       },
       "styles": [
         {
+          "$$hashKey": "object:1169",
           "alias": "Environment",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -151,7 +157,9 @@
           "unit": "short"
         },
         {
+          "$$hashKey": "object:1170",
           "alias": "Group",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -167,7 +175,9 @@
           "unit": "short"
         },
         {
+          "$$hashKey": "object:1171",
           "alias": "Host",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -183,7 +193,9 @@
           "unit": "short"
         },
         {
+          "$$hashKey": "object:1172",
           "alias": "Batteries",
+          "align": "auto",
           "colorMode": "cell",
           "colors": [
             "#37872D",
@@ -203,21 +215,26 @@
           "unit": "short",
           "valueMaps": [
             {
+              "$$hashKey": "object:1319",
               "text": "OK",
               "value": "0"
             },
             {
+              "$$hashKey": "object:1320",
               "text": "Critical",
               "value": "1"
             },
             {
+              "$$hashKey": "object:1321",
               "text": "Non-Critical",
               "value": "2"
             }
           ]
         },
         {
+          "$$hashKey": "object:1173",
           "alias": "Fans",
+          "align": "auto",
           "colorMode": "cell",
           "colors": [
             "#37872D",
@@ -236,21 +253,26 @@
           "unit": "short",
           "valueMaps": [
             {
+              "$$hashKey": "object:1341",
               "text": "OK",
               "value": "0"
             },
             {
+              "$$hashKey": "object:1342",
               "text": "Critical",
               "value": "1"
             },
             {
+              "$$hashKey": "object:1343",
               "text": "Non-Critical",
               "value": "2"
             }
           ]
         },
         {
+          "$$hashKey": "object:1174",
           "alias": "Intrusion",
+          "align": "auto",
           "colorMode": "cell",
           "colors": [
             "#37872D",
@@ -269,21 +291,26 @@
           "unit": "short",
           "valueMaps": [
             {
+              "$$hashKey": "object:1363",
               "text": "OK",
               "value": "0"
             },
             {
+              "$$hashKey": "object:1364",
               "text": "Critical",
               "value": "1"
             },
             {
+              "$$hashKey": "object:1365",
               "text": "Non-Critical",
               "value": "2"
             }
           ]
         },
         {
+          "$$hashKey": "object:1175",
           "alias": "Memory",
+          "align": "auto",
           "colorMode": "cell",
           "colors": [
             "#37872D",
@@ -303,21 +330,26 @@
           "unit": "short",
           "valueMaps": [
             {
+              "$$hashKey": "object:1385",
               "text": "OK",
               "value": "0"
             },
             {
+              "$$hashKey": "object:1386",
               "text": "Critical",
               "value": "1"
             },
             {
+              "$$hashKey": "object:1387",
               "text": "Non-Critical",
               "value": "2"
             }
           ]
         },
         {
+          "$$hashKey": "object:1176",
           "alias": "Power",
+          "align": "auto",
           "colorMode": "cell",
           "colors": [
             "#37872D",
@@ -336,21 +368,26 @@
           "unit": "none",
           "valueMaps": [
             {
+              "$$hashKey": "object:1407",
               "text": "OK",
               "value": "0"
             },
             {
+              "$$hashKey": "object:1408",
               "text": "Critical",
               "value": "1"
             },
             {
+              "$$hashKey": "object:1409",
               "text": "Non-Critical",
               "value": "2"
             }
           ]
         },
         {
+          "$$hashKey": "object:1177",
           "alias": "Processors",
+          "align": "auto",
           "colorMode": "cell",
           "colors": [
             "#37872D",
@@ -369,21 +406,26 @@
           "unit": "short",
           "valueMaps": [
             {
+              "$$hashKey": "object:1429",
               "text": "OK",
               "value": "0"
             },
             {
+              "$$hashKey": "object:1430",
               "text": "Critical",
               "value": "1"
             },
             {
+              "$$hashKey": "object:1431",
               "text": "Non-Critical",
               "value": "2"
             }
           ]
         },
         {
+          "$$hashKey": "object:1178",
           "alias": "Temperatures",
+          "align": "auto",
           "colorMode": "cell",
           "colors": [
             "#37872D",
@@ -405,21 +447,26 @@
           "unit": "short",
           "valueMaps": [
             {
+              "$$hashKey": "object:1451",
               "text": "OK",
               "value": "0"
             },
             {
+              "$$hashKey": "object:1452",
               "text": "Critical",
               "value": "1"
             },
             {
+              "$$hashKey": "object:1453",
               "text": "Non-Critical",
               "value": "2"
             }
           ]
         },
         {
+          "$$hashKey": "object:1179",
           "alias": "Voltages",
+          "align": "auto",
           "colorMode": "cell",
           "colors": [
             "#37872D",
@@ -438,21 +485,26 @@
           "unit": "short",
           "valueMaps": [
             {
+              "$$hashKey": "object:1473",
               "text": "OK",
               "value": "0"
             },
             {
+              "$$hashKey": "object:1474",
               "text": "Critical",
               "value": "1"
             },
             {
+              "$$hashKey": "object:1475",
               "text": "Non-Critical",
               "value": "2"
             }
           ]
         },
         {
+          "$$hashKey": "object:1180",
           "alias": "Service Code",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -468,7 +520,9 @@
           "unit": "short"
         },
         {
+          "$$hashKey": "object:1181",
           "alias": "Service Tag",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -484,7 +538,9 @@
           "unit": "short"
         },
         {
+          "$$hashKey": "object:1182",
           "alias": "P.Disk",
+          "align": "auto",
           "colorMode": "cell",
           "colors": [
             "#37872D",
@@ -503,21 +559,26 @@
           "unit": "none",
           "valueMaps": [
             {
+              "$$hashKey": "object:1527",
               "text": "Non-Critical",
               "value": "2"
             },
             {
+              "$$hashKey": "object:1528",
               "text": "Critical",
               "value": "1"
             },
             {
+              "$$hashKey": "object:1529",
               "text": "OK",
               "value": "0"
             }
           ]
         },
         {
+          "$$hashKey": "object:1183",
           "alias": "Inlet",
+          "align": "auto",
           "colorMode": "value",
           "colors": [
             "#3274D9",
@@ -536,7 +597,9 @@
           "unit": "celsius"
         },
         {
+          "$$hashKey": "object:1184",
           "alias": "Exhaust",
+          "align": "auto",
           "colorMode": "value",
           "colors": [
             "#3274D9",
@@ -555,7 +618,9 @@
           "unit": "celsius"
         },
         {
+          "$$hashKey": "object:1185",
           "alias": "V.Disk",
+          "align": "auto",
           "colorMode": "cell",
           "colors": [
             "#37872D",
@@ -574,21 +639,26 @@
           "unit": "short",
           "valueMaps": [
             {
+              "$$hashKey": "object:1563",
               "text": "OK",
               "value": "0"
             },
             {
+              "$$hashKey": "object:1564",
               "text": "Critical",
               "value": "1"
             },
             {
+              "$$hashKey": "object:1565",
               "text": "Non-Critical",
               "value": "2"
             }
           ]
         },
         {
+          "$$hashKey": "object:1186",
           "alias": "Cabinet",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -600,11 +670,49 @@
           "mappingType": 1,
           "pattern": "CabinetUnits",
           "thresholds": [],
-          "type": "number",
+          "type": "string",
           "unit": "short"
         },
         {
+          "$$hashKey": "object:4154",
+          "alias": "Project",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "project",
+          "thresholds": [],
+          "type": "string",
+          "unit": "short"
+        },
+        {
+          "$$hashKey": "object:4226",
+          "alias": "Customer",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "customer",
+          "thresholds": [],
+          "type": "string",
+          "unit": "short"
+        },
+        {
+          "$$hashKey": "object:6319",
           "alias": "",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -622,7 +730,7 @@
       ],
       "targets": [
         {
-          "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Batteries\",instance=~\"$host\"})",
+          "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,project,group,customer,CabinetUnits)(dell_hw_chassis_status{component=\"Batteries\",instance=~\"$host\"})",
           "format": "table",
           "instant": true,
           "interval": "$interval",
@@ -630,7 +738,7 @@
           "refId": "A"
         },
         {
-          "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Fans\",instance=~\"$host\"})",
+          "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,project,group,customer,CabinetUnits)(dell_hw_chassis_status{component=\"Fans\",instance=~\"$host\"})",
           "format": "table",
           "instant": true,
           "interval": "$interval",
@@ -638,7 +746,7 @@
           "refId": "B"
         },
         {
-          "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Intrusion\",instance=~\"$host\"})",
+          "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,project,group,customer,CabinetUnits)(dell_hw_chassis_status{component=\"Intrusion\",instance=~\"$host\"})",
           "format": "table",
           "instant": true,
           "interval": "$interval",
@@ -646,7 +754,7 @@
           "refId": "C"
         },
         {
-          "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Memory\",instance=~\"$host\"})",
+          "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,project,group,customer,CabinetUnits)(dell_hw_chassis_status{component=\"Memory\",instance=~\"$host\"})",
           "format": "table",
           "instant": true,
           "interval": "$interval",
@@ -654,7 +762,7 @@
           "refId": "D"
         },
         {
-          "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Power_Supplies\",instance=~\"$host\"})",
+          "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,project,group,customer,CabinetUnits)(dell_hw_chassis_status{component=\"Power_Supplies\",instance=~\"$host\"})",
           "format": "table",
           "instant": true,
           "interval": "$interval",
@@ -662,7 +770,7 @@
           "refId": "F"
         },
         {
-          "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Processors\",instance=~\"$host\"})",
+          "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,project,group,customer,CabinetUnits)(dell_hw_chassis_status{component=\"Processors\",instance=~\"$host\"})",
           "format": "table",
           "instant": true,
           "interval": "$interval",
@@ -670,7 +778,7 @@
           "refId": "G"
         },
         {
-          "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Temperatures\",instance=~\"$host\"})",
+          "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,project,group,customer,CabinetUnits)(dell_hw_chassis_status{component=\"Temperatures\",instance=~\"$host\"})",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -679,7 +787,7 @@
           "refId": "H"
         },
         {
-          "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_status{component=\"Voltages\",instance=~\"$host\"})",
+          "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,project,group,customer,CabinetUnits)(dell_hw_chassis_status{component=\"Voltages\",instance=~\"$host\"})",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -688,27 +796,35 @@
           "refId": "I"
         },
         {
-          "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_storage_pdisk_status{instance=~\"$host\"})",
+          "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,project,group,customer,CabinetUnits)(dell_hw_storage_pdisk_status{instance=~\"$host\"})",
           "format": "table",
           "instant": true,
+          "interval": "",
+          "legendFormat": "",
           "refId": "K"
         },
         {
-          "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_storage_vdisk_status{instance=~\"$host\"})",
+          "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,project,group,customer,CabinetUnits)(dell_hw_storage_vdisk_status{instance=~\"$host\"})",
           "format": "table",
           "instant": true,
+          "interval": "",
+          "legendFormat": "",
           "refId": "L"
         },
         {
-          "expr": "avg by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_temps_reading{component=\"System_Board_Inlet_Temp\",instance=~\"$host\"})",
+          "expr": "avg by(instance,ExpressServiceCode,ServiceTag,environment,project,group,customer,CabinetUnits)(dell_hw_chassis_temps_reading{component=\"System_Board_Inlet_Temp\",instance=~\"$host\"})",
           "format": "table",
           "instant": true,
+          "interval": "",
+          "legendFormat": "",
           "refId": "E"
         },
         {
-          "expr": "avg by(instance,ExpressServiceCode,ServiceTag,environment,group,CabinetUnits)(dell_hw_chassis_temps_reading{component=\"System_Board_Exhaust_Temp\",instance=~\"$host\"})",
+          "expr": "avg by(instance,ExpressServiceCode,ServiceTag,environment,project,group,customer,CabinetUnits)(dell_hw_chassis_temps_reading{component=\"System_Board_Exhaust_Temp\",instance=~\"$host\"})",
           "format": "table",
           "instant": true,
+          "interval": "",
+          "legendFormat": "",
           "refId": "J"
         }
       ],
@@ -907,7 +1023,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 21,
+  "schemaVersion": 22,
   "style": "dark",
   "tags": [
     "Platform"
@@ -967,14 +1083,15 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "label_values(dell_hw_chassis_current_reading, group)",
+        "definition": "label_values(dell_hw_chassis_current_reading, customer)",
         "hide": 0,
         "includeAll": false,
-        "label": "Group",
+        "index": -1,
+        "label": "Customer",
         "multi": true,
-        "name": "group",
+        "name": "customer",
         "options": [],
-        "query": "label_values(dell_hw_chassis_current_reading, group)",
+        "query": "label_values(dell_hw_chassis_current_reading, customer)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -989,18 +1106,88 @@
         "allValue": null,
         "current": {},
         "datasource": "DS_PROMETHEUS",
-        "definition": "dell_hw_chassis_current_reading{group=~\"$group\"}",
+        "definition": "label_values(dell_hw_chassis_current_reading{customer=~\"$customer\"}, environment)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Environment",
+        "multi": true,
+        "name": "environment",
+        "options": [],
+        "query": "label_values(dell_hw_chassis_current_reading{customer=~\"$customer\"}, environment)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(dell_hw_chassis_current_reading{customer=~\"$customer\",environment=~\"$environment\"}, project)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Project",
+        "multi": true,
+        "name": "project",
+        "options": [],
+        "query": "label_values(dell_hw_chassis_current_reading{customer=~\"$customer\",environment=~\"$environment\"}, project)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(dell_hw_chassis_current_reading{customer=~\"$customer\",environment=~\"$environment\",project=~\"$project\"},group)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Group",
+        "multi": true,
+        "name": "group",
+        "options": [],
+        "query": "label_values(dell_hw_chassis_current_reading{customer=~\"$customer\",environment=~\"$environment\",project=~\"$project\"},group)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "DS_PROMETHEUS",
+        "definition": "label_values(dell_hw_chassis_current_reading{customer=~\"$customer\",environment=~\"$environment\",project=~\"$project\",group=~\"$group\"},instance)",
         "hide": 0,
         "includeAll": true,
+        "index": -1,
         "label": "Host",
         "multi": true,
         "name": "host",
         "options": [],
-        "query": "dell_hw_chassis_current_reading{group=~\"$group\"}",
+        "query": "label_values(dell_hw_chassis_current_reading{customer=~\"$customer\",environment=~\"$environment\",project=~\"$project\",group=~\"$group\"},instance)",
         "refresh": 1,
-        "regex": "/instance=\"(.+?)\"/",
+        "regex": "",
         "skipUrlSync": false,
-        "sort": 0,
+        "sort": 1,
         "tagValuesQuery": "",
         "tags": [],
         "tagsQuery": "",
@@ -1027,5 +1214,8 @@
   "timezone": "browser",
   "title": "Dell PowerEdge",
   "uid": "oNLJJRYWz",
+  "variables": {
+    "list": []
+  },
   "version": 1
 }
