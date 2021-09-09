@@ -320,7 +320,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "kibana_os_load1{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",instance=\"$host\"}",
+          "expr": "kibana_os_load_1m{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",instance=\"$host\"}",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -328,7 +328,7 @@
           "refId": "A"
         },
         {
-          "expr": "kibana_os_load5{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",instance=\"$host\"}",
+          "expr": "kibana_os_load_5m{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",instance=\"$host\"}",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -336,7 +336,7 @@
           "refId": "B"
         },
         {
-          "expr": "kibana_os_load15{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",instance=\"$host\"}",
+          "expr": "kibana_os_load_15m{customer=\"$customer\",environment=\"$environment\",project=\"$project\",group=\"$group\",instance=\"$host\"}",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
