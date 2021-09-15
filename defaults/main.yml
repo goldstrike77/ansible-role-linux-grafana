@@ -120,6 +120,7 @@ grafana_dashboard_arg:
   - category: 'Databases'
     title:
       - 'Azure_Database_for_MySQL'
+      - 'Azure_Database_for_PostgreSQL'
       - 'Azure_SQL_Elastic_pool'
       - 'Azure_SQL_Managed_Instance'
       - 'MongoDB_Cluster_Summary'
@@ -153,6 +154,7 @@ grafana_dashboard_arg:
     title:
       - 'Alertmanager_Overview'
       - 'Azure_Cache_for_Redis'
+      - 'Azure_Storage_Account'
       - 'Consul_Overview'
       - 'Elasticsearch_Overview'
       - 'Graylog_Overview'
