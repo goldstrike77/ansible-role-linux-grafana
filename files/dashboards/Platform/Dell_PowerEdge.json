@@ -54,7 +54,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1630648259382,
+  "iteration": 1631766713496,
   "links": [
     {
       "$$hashKey": "object:411",
@@ -140,7 +140,7 @@
       "styles": [
         {
           "$$hashKey": "object:1169",
-          "alias": "Environment",
+          "alias": "Env",
           "align": "auto",
           "colorMode": null,
           "colors": [
@@ -194,8 +194,8 @@
         },
         {
           "$$hashKey": "object:1172",
-          "alias": "Batteries",
-          "align": "auto",
+          "alias": "Battery",
+          "align": "center",
           "colorMode": "cell",
           "colors": [
             "#37872D",
@@ -234,7 +234,7 @@
         {
           "$$hashKey": "object:1173",
           "alias": "Fans",
-          "align": "auto",
+          "align": "center",
           "colorMode": "cell",
           "colors": [
             "#37872D",
@@ -272,7 +272,7 @@
         {
           "$$hashKey": "object:1174",
           "alias": "Intrusion",
-          "align": "auto",
+          "align": "center",
           "colorMode": "cell",
           "colors": [
             "#37872D",
@@ -310,7 +310,7 @@
         {
           "$$hashKey": "object:1175",
           "alias": "Memory",
-          "align": "auto",
+          "align": "center",
           "colorMode": "cell",
           "colors": [
             "#37872D",
@@ -349,7 +349,7 @@
         {
           "$$hashKey": "object:1176",
           "alias": "Power",
-          "align": "auto",
+          "align": "center",
           "colorMode": "cell",
           "colors": [
             "#37872D",
@@ -386,8 +386,8 @@
         },
         {
           "$$hashKey": "object:1177",
-          "alias": "Processors",
-          "align": "auto",
+          "alias": "CPU",
+          "align": "center",
           "colorMode": "cell",
           "colors": [
             "#37872D",
@@ -424,8 +424,8 @@
         },
         {
           "$$hashKey": "object:1178",
-          "alias": "Temperatures",
-          "align": "auto",
+          "alias": "TEMP.",
+          "align": "center",
           "colorMode": "cell",
           "colors": [
             "#37872D",
@@ -466,7 +466,7 @@
         {
           "$$hashKey": "object:1179",
           "alias": "Voltages",
-          "align": "auto",
+          "align": "center",
           "colorMode": "cell",
           "colors": [
             "#37872D",
@@ -540,7 +540,7 @@
         {
           "$$hashKey": "object:1182",
           "alias": "P.Disk",
-          "align": "auto",
+          "align": "center",
           "colorMode": "cell",
           "colors": [
             "#37872D",
@@ -578,7 +578,7 @@
         {
           "$$hashKey": "object:1183",
           "alias": "Inlet",
-          "align": "auto",
+          "align": "center",
           "colorMode": "value",
           "colors": [
             "#3274D9",
@@ -599,7 +599,7 @@
         {
           "$$hashKey": "object:1184",
           "alias": "Exhaust",
-          "align": "auto",
+          "align": "center",
           "colorMode": "value",
           "colors": [
             "#3274D9",
@@ -620,7 +620,7 @@
         {
           "$$hashKey": "object:1185",
           "alias": "V.Disk",
-          "align": "auto",
+          "align": "center",
           "colorMode": "cell",
           "colors": [
             "#37872D",
@@ -658,7 +658,7 @@
         {
           "$$hashKey": "object:1186",
           "alias": "Cabinet",
-          "align": "auto",
+          "align": "",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -710,7 +710,45 @@
           "unit": "short"
         },
         {
-          "$$hashKey": "object:6319",
+          "$$hashKey": "object:2921",
+          "alias": "Disks",
+          "align": "right",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Value #M",
+          "preserveFormat": false,
+          "thresholds": [],
+          "type": "string",
+          "unit": "short"
+        },
+        {
+          "$$hashKey": "object:2942",
+          "alias": "Raid",
+          "align": "right",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Value #N",
+          "sanitize": false,
+          "thresholds": [],
+          "type": "string",
+          "unit": "short"
+        },
+        {
+          "$$hashKey": "object:3173",
           "alias": "",
           "align": "auto",
           "colorMode": null,
@@ -733,7 +771,7 @@
           "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,project,group,customer,CabinetUnits)(dell_hw_chassis_status{component=\"Batteries\",instance=~\"$host\"})",
           "format": "table",
           "instant": true,
-          "interval": "$interval",
+          "interval": "1m",
           "legendFormat": "",
           "refId": "A"
         },
@@ -741,7 +779,7 @@
           "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,project,group,customer,CabinetUnits)(dell_hw_chassis_status{component=\"Fans\",instance=~\"$host\"})",
           "format": "table",
           "instant": true,
-          "interval": "$interval",
+          "interval": "1m",
           "legendFormat": "",
           "refId": "B"
         },
@@ -749,7 +787,7 @@
           "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,project,group,customer,CabinetUnits)(dell_hw_chassis_status{component=\"Intrusion\",instance=~\"$host\"})",
           "format": "table",
           "instant": true,
-          "interval": "$interval",
+          "interval": "1m",
           "legendFormat": "",
           "refId": "C"
         },
@@ -757,7 +795,7 @@
           "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,project,group,customer,CabinetUnits)(dell_hw_chassis_status{component=\"Memory\",instance=~\"$host\"})",
           "format": "table",
           "instant": true,
-          "interval": "$interval",
+          "interval": "1m",
           "legendFormat": "",
           "refId": "D"
         },
@@ -765,7 +803,7 @@
           "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,project,group,customer,CabinetUnits)(dell_hw_chassis_status{component=\"Power_Supplies\",instance=~\"$host\"})",
           "format": "table",
           "instant": true,
-          "interval": "$interval",
+          "interval": "1m",
           "legendFormat": "",
           "refId": "F"
         },
@@ -773,7 +811,7 @@
           "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,project,group,customer,CabinetUnits)(dell_hw_chassis_status{component=\"Processors\",instance=~\"$host\"})",
           "format": "table",
           "instant": true,
-          "interval": "$interval",
+          "interval": "1m",
           "legendFormat": "",
           "refId": "G"
         },
@@ -782,7 +820,7 @@
           "format": "table",
           "hide": false,
           "instant": true,
-          "interval": "$interval",
+          "interval": "1m",
           "legendFormat": "",
           "refId": "H"
         },
@@ -791,7 +829,7 @@
           "format": "table",
           "hide": false,
           "instant": true,
-          "interval": "$interval",
+          "interval": "1m",
           "legendFormat": "",
           "refId": "I"
         },
@@ -799,7 +837,7 @@
           "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,project,group,customer,CabinetUnits)(dell_hw_storage_pdisk_status{instance=~\"$host\"})",
           "format": "table",
           "instant": true,
-          "interval": "",
+          "interval": "1m",
           "legendFormat": "",
           "refId": "K"
         },
@@ -807,7 +845,7 @@
           "expr": "max by(instance,ExpressServiceCode,ServiceTag,environment,project,group,customer,CabinetUnits)(dell_hw_storage_vdisk_status{instance=~\"$host\"})",
           "format": "table",
           "instant": true,
-          "interval": "",
+          "interval": "1m",
           "legendFormat": "",
           "refId": "L"
         },
@@ -815,7 +853,7 @@
           "expr": "avg by(instance,ExpressServiceCode,ServiceTag,environment,project,group,customer,CabinetUnits)(dell_hw_chassis_temps_reading{component=\"System_Board_Inlet_Temp\",instance=~\"$host\"})",
           "format": "table",
           "instant": true,
-          "interval": "",
+          "interval": "1m",
           "legendFormat": "",
           "refId": "E"
         },
@@ -823,9 +861,25 @@
           "expr": "avg by(instance,ExpressServiceCode,ServiceTag,environment,project,group,customer,CabinetUnits)(dell_hw_chassis_temps_reading{component=\"System_Board_Exhaust_Temp\",instance=~\"$host\"})",
           "format": "table",
           "instant": true,
-          "interval": "",
+          "interval": "1m",
           "legendFormat": "",
           "refId": "J"
+        },
+        {
+          "expr": "count by(instance,ExpressServiceCode,ServiceTag,environment,project,group,customer,CabinetUnits)(dell_hw_storage_pdisk_status{instance=~\"$host\"})",
+          "format": "table",
+          "instant": true,
+          "interval": "1m",
+          "legendFormat": "",
+          "refId": "M"
+        },
+        {
+          "expr": "avg by(instance,ExpressServiceCode,ServiceTag,environment,project,group,customer,CabinetUnits)(dell_hw_storage_vdisk_raidlevel{instance=~\"$host\"})",
+          "format": "table",
+          "instant": true,
+          "interval": "1m",
+          "legendFormat": "",
+          "refId": "N"
         }
       ],
       "timeFrom": "$interval",
@@ -841,7 +895,7 @@
       "dashes": false,
       "datasource": "DS_PROMETHEUS",
       "decimals": 0,
-      "fill": 1,
+      "fill": 2,
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
@@ -863,7 +917,7 @@
         "values": true
       },
       "lines": true,
-      "linewidth": 1,
+      "linewidth": 2,
       "nullPointMode": "null",
       "options": {
         "dataLinks": []
@@ -904,6 +958,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:6701",
           "decimals": 0,
           "format": "none",
           "label": "Watts",
@@ -913,6 +968,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:6702",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -934,7 +990,7 @@
       "dashes": false,
       "datasource": "DS_PROMETHEUS",
       "decimals": 0,
-      "fill": 1,
+      "fill": 2,
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
@@ -956,7 +1012,7 @@
         "values": true
       },
       "lines": true,
-      "linewidth": 1,
+      "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
       "options": {
@@ -999,6 +1055,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:6840",
           "decimals": 0,
           "format": "short",
           "label": "Revolutions per minute",
@@ -1008,6 +1065,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:6841",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1217,5 +1275,5 @@
   "variables": {
     "list": []
   },
-  "version": 1
+  "version": 2
 }
