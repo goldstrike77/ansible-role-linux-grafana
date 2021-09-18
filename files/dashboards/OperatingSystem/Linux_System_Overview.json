@@ -54,7 +54,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1612839303115,
+  "iteration": 1631932356627,
   "links": [
     {
       "$$hashKey": "object:22075",
@@ -148,7 +148,7 @@
       "height": "125px",
       "hideTimeOverride": true,
       "id": 19,
-      "interval": "$interval",
+      "interval": "",
       "links": [],
       "mappingType": 1,
       "mappingTypes": [
@@ -190,7 +190,7 @@
           "expr": "(node_time_seconds{instance=\"$host\"} - node_boot_time_seconds{instance=\"$host\"}) or (time() - node_boot_time_seconds{instance=\"$host\"})",
           "format": "time_series",
           "hide": false,
-          "interval": "$interval\t",
+          "interval": "1m",
           "intervalFactor": 1,
           "legendFormat": "",
           "metric": "",
@@ -199,7 +199,7 @@
         }
       ],
       "thresholds": "300,3600",
-      "timeFrom": "$interval\t",
+      "timeFrom": null,
       "title": "Uptime",
       "type": "singlestat",
       "valueFontSize": "50%",
@@ -235,7 +235,7 @@
       "height": "125px",
       "hideTimeOverride": true,
       "id": 64,
-      "interval": "$interval",
+      "interval": "",
       "links": [],
       "mappingType": 1,
       "mappingTypes": [
@@ -274,7 +274,7 @@
           "expr": "os_info{instance=\"$host\"}",
           "format": "time_series",
           "instant": true,
-          "interval": "$interval\t",
+          "interval": "1m",
           "intervalFactor": 1,
           "legendFormat": "{{ build }}",
           "refId": "A",
@@ -282,12 +282,104 @@
         }
       ],
       "thresholds": "",
-      "timeFrom": "$interval\t",
+      "timeFrom": null,
       "title": "Operating System",
       "type": "singlestat",
       "valueFontSize": "50%",
       "valueMaps": [
         {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "name"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "rgba(245, 54, 54, 0.9)",
+        "rgba(237, 129, 40, 0.89)",
+        "rgba(50, 172, 45, 0.97)"
+      ],
+      "datasource": "DS_PROMETHEUS",
+      "editable": true,
+      "error": false,
+      "format": "short",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 5,
+        "x": 7,
+        "y": 0
+      },
+      "height": "125px",
+      "hideTimeOverride": true,
+      "id": 65,
+      "interval": "",
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "$$hashKey": "object:1098",
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "$$hashKey": "object:1099",
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "30%",
+      "prefix": "",
+      "prefixFontSize": "30%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "os_info{instance=\"$host\"}",
+          "format": "time_series",
+          "instant": true,
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "{{ vmsize }}",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "title": "Size",
+      "type": "singlestat",
+      "valueFontSize": "50%",
+      "valueMaps": [
+        {
+          "$$hashKey": "object:1101",
           "op": "=",
           "text": "N/A",
           "value": "null"
@@ -317,14 +409,14 @@
       },
       "gridPos": {
         "h": 2,
-        "w": 2,
-        "x": 7,
+        "w": 3,
+        "x": 12,
         "y": 0
       },
       "height": "125px",
       "hideTimeOverride": true,
       "id": 25,
-      "interval": "$interval",
+      "interval": "",
       "links": [],
       "mappingType": 1,
       "mappingTypes": [
@@ -362,7 +454,7 @@
         {
           "expr": "(count(node_cpu_seconds_total{instance=\"$host\",mode=\"user\"}) or (1-absent(node_cpu_seconds_total{instance=\"$host\",mode=\"user\"}))) + sum(rdsosmetrics_General_numVCPUs{instance=\"$host\"} or up * 0)",
           "format": "time_series",
-          "interval": "$interval\t",
+          "interval": "1m",
           "intervalFactor": 1,
           "legendFormat": "",
           "refId": "A",
@@ -370,7 +462,7 @@
         }
       ],
       "thresholds": "",
-      "timeFrom": "$interval\t",
+      "timeFrom": null,
       "title": "VCores",
       "type": "singlestat",
       "valueFontSize": "50%",
@@ -407,13 +499,13 @@
       "gridPos": {
         "h": 2,
         "w": 3,
-        "x": 9,
+        "x": 15,
         "y": 0
       },
       "height": "125px",
       "hideTimeOverride": true,
       "id": 26,
-      "interval": "$interval",
+      "interval": "",
       "links": [],
       "mappingType": 1,
       "mappingTypes": [
@@ -451,7 +543,7 @@
         {
           "expr": "node_memory_MemTotal_bytes{instance=\"$host\"}",
           "format": "time_series",
-          "interval": "$interval\t",
+          "interval": "1m",
           "intervalFactor": 1,
           "legendFormat": "",
           "refId": "A",
@@ -459,98 +551,8 @@
         }
       ],
       "thresholds": "",
-      "timeFrom": "$interval\t",
+      "timeFrom": null,
       "title": "Physical Memory",
-      "type": "singlestat",
-      "valueFontSize": "50%",
-      "valueMaps": [
-        {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
-        }
-      ],
-      "valueName": "current"
-    },
-    {
-      "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "rgba(245, 54, 54, 0.9)",
-        "rgba(237, 129, 40, 0.89)",
-        "rgba(50, 172, 45, 0.97)"
-      ],
-      "datasource": "DS_PROMETHEUS",
-      "decimals": 0,
-      "description": "Free+Cached+Buffers",
-      "editable": true,
-      "error": false,
-      "format": "bytes",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
-      },
-      "gridPos": {
-        "h": 2,
-        "w": 3,
-        "x": 12,
-        "y": 0
-      },
-      "height": "125px",
-      "hideTimeOverride": true,
-      "id": 62,
-      "interval": "$interval",
-      "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
-      "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "80%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
-      },
-      "tableColumn": "",
-      "targets": [
-        {
-          "expr": "node_memory_MemFree_bytes{instance=\"$host\"} + node_memory_Buffers_bytes{instance=\"$host\"} + node_memory_Cached_bytes{instance=\"$host\"}",
-          "format": "time_series",
-          "interval": "$interval\t",
-          "intervalFactor": 1,
-          "legendFormat": "",
-          "refId": "A",
-          "step": 300
-        }
-      ],
-      "thresholds": "",
-      "timeFrom": "$interval\t",
-      "title": "Memory Available",
       "type": "singlestat",
       "valueFontSize": "50%",
       "valueMaps": [
@@ -587,13 +589,13 @@
       "gridPos": {
         "h": 2,
         "w": 3,
-        "x": 15,
+        "x": 18,
         "y": 0
       },
       "height": "125px",
       "hideTimeOverride": true,
       "id": 37,
-      "interval": "$interval",
+      "interval": "",
       "links": [],
       "mappingType": 1,
       "mappingTypes": [
@@ -631,7 +633,7 @@
         {
           "expr": "node_memory_MemTotal_bytes{instance=\"$host\"}+node_memory_SwapTotal_bytes{instance=\"$host\"}",
           "format": "time_series",
-          "interval": "$interval\t",
+          "interval": "1m",
           "intervalFactor": 1,
           "legendFormat": "",
           "refId": "A",
@@ -639,7 +641,7 @@
         }
       ],
       "thresholds": "",
-      "timeFrom": "$interval\t",
+      "timeFrom": null,
       "title": "Virtual Memory",
       "type": "singlestat",
       "valueFontSize": "50%",
@@ -677,13 +679,13 @@
       "gridPos": {
         "h": 2,
         "w": 3,
-        "x": 18,
+        "x": 21,
         "y": 0
       },
       "height": "125px",
       "hideTimeOverride": true,
       "id": 38,
-      "interval": "$interval",
+      "interval": "",
       "links": [
         {
           "targetBlank": true,
@@ -727,7 +729,7 @@
         {
           "expr": "sum(node_filesystem_size_bytes{instance=\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"}) + sum(node_memory_SwapTotal_bytes{instance=\"$host\"})",
           "format": "time_series",
-          "interval": "$interval\t",
+          "interval": "1m",
           "intervalFactor": 1,
           "legendFormat": "",
           "refId": "A",
@@ -735,104 +737,8 @@
         }
       ],
       "thresholds": "",
-      "timeFrom": "$interval\t",
+      "timeFrom": null,
       "title": "Disk Space",
-      "type": "singlestat",
-      "valueFontSize": "50%",
-      "valueMaps": [
-        {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
-        }
-      ],
-      "valueName": "current"
-    },
-    {
-      "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "rgba(245, 54, 54, 0.9)",
-        "rgba(237, 129, 40, 0.89)",
-        "rgba(50, 172, 45, 0.97)"
-      ],
-      "datasource": "DS_PROMETHEUS",
-      "decimals": 0,
-      "description": "Sum of disk free on all partitions. Note  it can be significantly over-reported in some installations",
-      "editable": true,
-      "error": false,
-      "format": "bytes",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
-      },
-      "gridPos": {
-        "h": 2,
-        "w": 3,
-        "x": 21,
-        "y": 0
-      },
-      "height": "125px",
-      "hideTimeOverride": true,
-      "id": 63,
-      "interval": "$interval",
-      "links": [
-        {
-          "targetBlank": true,
-          "title": "Disk Available",
-          "url": "/dashboard/db/disk-available?$__url_time_range&$__all_variables"
-        }
-      ],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
-      "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "80%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
-      },
-      "tableColumn": "",
-      "targets": [
-        {
-          "expr": "sum(node_filesystem_free_bytes{instance=\"$host\",fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs\"})",
-          "format": "time_series",
-          "interval": "$interval\t",
-          "intervalFactor": 1,
-          "legendFormat": "",
-          "refId": "A",
-          "step": 300
-        }
-      ],
-      "thresholds": "",
-      "timeFrom": "$interval\t",
-      "title": "Disk Available",
       "type": "singlestat",
       "valueFontSize": "50%",
       "valueMaps": [
@@ -3369,5 +3275,5 @@
   "variables": {
     "list": []
   },
-  "version": 2
+  "version": 1
 }
