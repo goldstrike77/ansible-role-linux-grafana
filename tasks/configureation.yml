@@ -99,6 +99,7 @@
   loop:
     - { regexp: '^admin_user =',     line: 'admin_user = {{ grafana_admin_user }}' }
     - { regexp: '^admin_password =', line: 'admin_password = {{ grafana_admin_password }}' }
+    - { regexp: '^allow_embedding =', line: 'allow_embedding = {{ grafana_arg.allow_embedding | bool | to_json | default("false") }}' }
 
 - name: Grafana UI theme configuration.
   lineinfile:

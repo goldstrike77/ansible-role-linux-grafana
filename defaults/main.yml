@@ -39,6 +39,7 @@ grafana_ngx_site: # Define backend traffic context.
 
 # Server System Variables #
 grafana_arg:
+  allow_embedding: false
   default_theme: 'dark' # dark or light
   reporting_enabled: false
   check_for_updates: false

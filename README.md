@@ -66,6 +66,7 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `grafana_ngx_ssl_protocols`: intermediate or modern, defines SSL protocol profile.
 
 ##### Server System Variables
+* `grafana_arg.allow_embedding`: A boolean to determine whether or not to allow Grafana HTTP responses includes the header X-Frame-Options.
 * `grafana_arg.default_theme`: Default UI theme.
 * `grafana_arg.reporting_enabled`: Sends usage counters to stats.grafana.org every 24 hours.
 * `grafana_arg.check_for_updates`: Enable or disable all checks to https://grafana.net for new vesions.
@@ -149,6 +150,7 @@ grafana_ngx_site:
     sticky: 'ip_hash'
     keepalive: '32'
 grafana_arg:
+  allow_embedding: false
   default_theme: 'dark'
   reporting_enabled: false
   check_for_updates: false
@@ -202,3 +204,5 @@ Please send your suggestions to make this role better.
 Please donate to the following monero address.
 
     46CHVMbb6wQV2PJYEbahb353SYGqXhcdFQVEWdCnHb6JaR5125h3kNQ6bcqLye5G7UF7qz6xL9qHLDSAY3baagfmLZABz75
+
+<p><img src="https://raw.githubusercontent.com/goldstrike77/goldstrike77.github.io/master/img/xmr_address.png" align="left" /></p>
