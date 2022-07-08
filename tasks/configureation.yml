@@ -86,8 +86,8 @@
     regexp: '{{ item.regexp }}'
     line: '{{ item.line }}'
   loop:
-    - { regexp: '^reporting_enabled =', line: 'reporting_enabled = {{ grafana_arg.reporting_enabled | bool | to_json }}' }
-    - { regexp: '^check_for_updates =', line: 'check_for_updates = {{ grafana_arg.check_for_updates | bool | to_json }}' }
+    - { regexp: '^reporting_enabled =', line: 'reporting_enabled = {{ grafana_arg.reporting_enabled | bool | to_json | default("false") }}' }
+    - { regexp: '^check_for_updates =', line: 'check_for_updates = {{ grafana_arg.check_for_updates | bool | to_json | default("false") }}' }
 
 - name: Grafana Security configuration.
   lineinfile:
@@ -97,9 +97,19 @@
     regexp: '{{ item.regexp }}'
     line: '{{ item.line }}'
   loop:
-    - { regexp: '^admin_user =',     line: 'admin_user = {{ grafana_admin_user }}' }
-    - { regexp: '^admin_password =', line: 'admin_password = {{ grafana_admin_password }}' }
+    - { regexp: '^admin_user =',      line: 'admin_user = {{ grafana_admin_user }}' }
+    - { regexp: '^admin_password =',  line: 'admin_password = {{ grafana_admin_password }}' }
     - { regexp: '^allow_embedding =', line: 'allow_embedding = {{ grafana_arg.allow_embedding | bool | to_json | default("false") }}' }
+
+- name: Grafana Anonymous authentication configuration.
+  lineinfile:
+    state: 'present'
+    dest: '/etc/grafana/grafana.ini'
+    insertafter: '\[auth.anonymous\]'
+    regexp: '{{ item.regexp }}'
+    line: '{{ item.line }}'
+  loop:
+    - { regexp: '^enabled =', line: 'enabled = {{ grafana_arg.allow_anonymous | bool | to_json | default("false") }}' }
 
 - name: Grafana UI theme configuration.
   lineinfile:

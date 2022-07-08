@@ -49,14 +49,14 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `grafana_version`: Specify the Grafana version.
 * `grafana_admin_user`: The name of the default Grafana admin user.
 * `grafana_admin_password`: The password of the default Grafana admin.
-* `grafana_https`: A boolean value, whether Encrypting HTTP client communications.
+* `grafana_https`: A boolean to determine whether or not to Encrypting HTTP client communications.
 * `grafana_proxy`: Whether running behind a HaProxy.
 
 ##### Listen port
 * `grafana_port`: Grafana instance listen port.
 
 ##### NGinx parameters
-* `grafana_ngx_dept`: A boolean value, whether proxy web interface using NGinx.
+* `grafana_ngx_dept`: A boolean to determine whether or not to proxy web interface using NGinx.
 * `grafana_ngx_block_agents`: Enables or disables block unsafe User Agents.
 * `grafana_ngx_block_string`: Enables or disables block includes Exploits / File injections / Spam / SQL injections.
 * `grafana_ngx_compress`: Enables or disables compression.
@@ -66,6 +66,7 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `grafana_ngx_ssl_protocols`: intermediate or modern, defines SSL protocol profile.
 
 ##### Server System Variables
+* `grafana_arg.allow_anonymous`: A boolean to determine whether or not to allow without any login required by enabling anonymous access.
 * `grafana_arg.allow_embedding`: A boolean to determine whether or not to allow Grafana HTTP responses includes the header X-Frame-Options.
 * `grafana_arg.default_theme`: Default UI theme.
 * `grafana_arg.reporting_enabled`: Sends usage counters to stats.grafana.org every 24 hours.
@@ -150,6 +151,7 @@ grafana_ngx_site:
     sticky: 'ip_hash'
     keepalive: '32'
 grafana_arg:
+  allow_anonymous: false
   allow_embedding: false
   default_theme: 'dark'
   reporting_enabled: false
