@@ -1,18 +1,18 @@
 ---
 # General parameters #
-grafana_is_install: false
-grafana_path: '/data'
-grafana_version: '6.7'
-grafana_admin_user: 'admin'
-grafana_admin_password: 'changeme'
-grafana_https: true # A boolean value, whether Encrypting HTTP client communications.
-grafana_proxy: false # Whether running behind a HaProxy.
+grafana_is_install: false # A boolean to determine whether or not to install the Grafana.
+grafana_path: '/data' # Specify the Grafana data directory.
+grafana_version: '6.7.6' # Specify the Grafana version.
+grafana_admin_user: 'admin' # The name of the default Grafana admin user.
+grafana_admin_password: 'changeme' # The password of the default Grafana admin.
+grafana_https: true # A boolean to determine whether or not to Encrypting HTTP client communications.
+grafana_proxy: false # A boolean to determine whether or not running behind a HaProxy.
 
 # Listen port #
 grafana_port: '3000'
 
 # NGinx parameters #
-grafana_ngx_dept: false # A boolean value, whether proxy web interface and API traffic using NGinx.
+grafana_ngx_dept: false # A boolean to determine whether or not proxy web interface and API traffic using NGinx.
 grafana_ngx_block_agents: false # Enables or disables block unsafe User Agents.
 grafana_ngx_block_string: false # Enables or disables block includes Exploits / File injections / Spam / SQL injections.
 grafana_ngx_compress: false # Enables or disables compression.

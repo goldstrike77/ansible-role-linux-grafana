@@ -1,6 +1,6 @@
 ---
 - name: Include tasks for specific OS.
-  include: '{{ ansible_os_family }}.yml'
+  include: '{{ ansible_distribution_file_variety }}.yml'
 
 - name: Configure the grafana firewall.
   include: 'firewall.yml'
@@ -14,15 +14,8 @@
 - name: Install the Grafana plugins.
   include: 'plugin.yml'
 
-- name: Enable LDAP Authentication.
-  include: 'ldap.yml'
-
 - name: Manage Grafana dashboards.
   include: 'dashboard.yml'
-
-- name: Reload the grafana service.
-  shell: echo ''
-  notify: 'Ensure grafana service is enabled'
 
 - name: Force the handler to run immediately.
   meta: flush_handlers

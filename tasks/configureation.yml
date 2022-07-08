@@ -7,14 +7,20 @@
     group: 'grafana'
     mode: '0750'
 
-- name: Grafana sysconfig file transfer.
+- name: Grafana configuration file transfer.
   template:
-    src: 'grafana-server.j2'
-    dest: '/etc/sysconfig/grafana-server'
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
     backup: 'yes'
     owner: 'root'
-    group: 'root'
+    group: 'grafana'
     mode: '0664'
+  loop:
+    - { src: 'grafana-server.j2', dest: '/etc/sysconfig/grafana-server' }
+    - { src: 'ldap.toml.j2', dest: '/etc/grafana/ldap.toml', create: '{{ grafana_ldap_enabled | bool }}' }
+    - { src: 'grafana{{ grafana_version.split(".")[0] }}.ini.j2', dest: '/etc/grafana/grafana.ini' }
+  when: item.create | default(true) | bool
+  notify: Restart grafana-server service.
 
 - name: Grafana Dashboards provisioning files discover.
   find:
@@ -37,6 +43,7 @@
     group: 'grafana'
     mode: '0640'
   loop: '{{ grafana_dashboard_arg }}'
+  notify: Restart grafana-server service.
 
 - name: Grafana Datasources provisioning files discover.
   find:
@@ -59,81 +66,4 @@
     group: 'grafana'
     mode: '0640'
   loop: "{{ grafana_ds_arg|subelements('settings') }}"
-
-- name: Grafana Data proxy configuration.
-  lineinfile:
-    state: 'present'
-    dest: '/etc/grafana/grafana.ini'
-    insertafter: '\[dataproxy\]'
-    regexp: '{{ item.regexp }}'
-    line: '{{ item.line }}'
-  loop:
-    - { regexp: '^timeout =', line: 'timeout = {{ grafana_arg.timeout }}' }
-
-- name: Grafana Plugins configuration.
-  lineinfile:
-    state: 'present'
-    dest: '/etc/grafana/grafana.ini'
-    insertafter: '\[paths\]'
-    regexp: '^plugins ='
-    line: 'plugins = {{ grafana_path }}/grafana/plugins'
-
-- name: Grafana Analytics configuration.
-  lineinfile:
-    state: 'present'
-    dest: '/etc/grafana/grafana.ini'
-    insertafter: '\[analytics\]'
-    regexp: '{{ item.regexp }}'
-    line: '{{ item.line }}'
-  loop:
-    - { regexp: '^reporting_enabled =', line: 'reporting_enabled = {{ grafana_arg.reporting_enabled | bool | to_json | default("false") }}' }
-    - { regexp: '^check_for_updates =', line: 'check_for_updates = {{ grafana_arg.check_for_updates | bool | to_json | default("false") }}' }
-
-- name: Grafana Security configuration.
-  lineinfile:
-    state: 'present'
-    dest: '/etc/grafana/grafana.ini'
-    insertafter: '\[security\]'
-    regexp: '{{ item.regexp }}'
-    line: '{{ item.line }}'
-  loop:
-    - { regexp: '^admin_user =',      line: 'admin_user = {{ grafana_admin_user }}' }
-    - { regexp: '^admin_password =',  line: 'admin_password = {{ grafana_admin_password }}' }
-    - { regexp: '^allow_embedding =', line: 'allow_embedding = {{ grafana_arg.allow_embedding | bool | to_json | default("false") }}' }
-
-- name: Grafana Anonymous authentication configuration.
-  lineinfile:
-    state: 'present'
-    dest: '/etc/grafana/grafana.ini'
-    insertafter: '\[auth.anonymous\]'
-    regexp: '{{ item.regexp }}'
-    line: '{{ item.line }}'
-  loop:
-    - { regexp: '^enabled =', line: 'enabled = {{ grafana_arg.allow_anonymous | bool | to_json | default("false") }}' }
-
-- name: Grafana UI theme configuration.
-  lineinfile:
-    state: 'present'
-    dest: '/etc/grafana/grafana.ini'
-    insertafter: '\[users\]'
-    regexp: '{{ item.regexp }}'
-    line: '{{ item.line }}'
-  loop:
-    - { regexp: '^default_theme =', line: 'default_theme = {{ grafana_arg.default_theme }}' }
-
-- name: Grafana reverse proxy and port configuration.
-  lineinfile:
-    state: 'present'
-    dest: '/etc/grafana/grafana.ini'
-    insertafter: '\[server\]'
-    regexp: '{{ item.regexp }}'
-    line: '{{ item.line }}'
-  loop:
-    - { regexp: '^http_addr =',           line: 'http_addr = {{ ansible_default_ipv4.address }}' }
-    - { regexp: '^http_port =',           line: 'http_port = {{ grafana_port | default("3000") }}' }
-    - { regexp: '^root_url =',            line: 'root_url = %(protocol)s://%(domain)s/grafana/', create: '{{ grafana_proxy | bool }}' }
-    - { regexp: '^serve_from_sub_path =', line: 'serve_from_sub_path = true', create: '{{ grafana_proxy | bool }}' }
-    - { regexp: '^protocol =',            line: 'protocol = https', create: '{{ grafana_https | bool }}' }
-    - { regexp: '^cert_file =',           line: 'cert_file = {{ grafana_cert_path }}/certificate.pem', create: '{{ grafana_https | bool }}' }
-    - { regexp: '^cert_key =',            line: 'cert_key = {{ grafana_cert_path }}/server.key', create: '{{ grafana_https | bool }}' }
-  when: item.create | default(true) | bool
+  notify: Restart grafana-server service.

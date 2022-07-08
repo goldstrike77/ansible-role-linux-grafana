@@ -1,6 +1,6 @@
 ---
 - name: Include OS-specific variables.
-  include_vars: '{{ ansible_os_family }}.yml'
+  include_vars: '{{ ansible_distribution_file_variety }}.yml'
 
 - name: Add grafana YUM repositories.
   yum_repository:
@@ -9,6 +9,7 @@
     file: '{{ grafana_repo_name }}'
     baseurl: '{{ grafana_repo_url }}'
     gpgcheck: 'no'
+    sslverify: 'no'
     timeout: '60'
 
 - name: Install the grafana.

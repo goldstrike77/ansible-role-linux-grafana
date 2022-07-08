@@ -38,7 +38,7 @@ This Ansible role installs Grafana on the Linux operating system, including esta
 
 The following list of supported the Grafana releases:
 
-* 5, 6, 7
+* 6, 7, 8
 
 ## Role variables
 ### Main parameters
@@ -50,7 +50,7 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 * `grafana_admin_user`: The name of the default Grafana admin user.
 * `grafana_admin_password`: The password of the default Grafana admin.
 * `grafana_https`: A boolean to determine whether or not to Encrypting HTTP client communications.
-* `grafana_proxy`: Whether running behind a HaProxy.
+* `grafana_proxy`: A boolean to determine whether or not running behind a HaProxy.
 
 ##### Listen port
 * `grafana_port`: Grafana instance listen port.
@@ -106,7 +106,7 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 ### Hosts inventory file
 See tests/inventory for an example.
 
-    node01 ansible_host='192.168.1.10' grafana_version='6.7'
+    node01 ansible_host='192.168.1.10' grafana_version='6.7.6'
 
 ### Vars in role configuration
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
@@ -115,7 +115,7 @@ Including an example of how to use your role (for instance, with variables passe
 - hosts: all
   roles:
      - role: ansible-role-linux-grafana
-       grafana_version: '6.7'
+       grafana_version: '6.7.6'
 ```
 
 ### Combination of group vars and playbook
@@ -123,7 +123,7 @@ You can also use the group_vars or the host_vars files for setting the variables
 
 ```yaml
 grafana_path: '/data'
-grafana_version: '6.7'
+grafana_version: '6.7.6'
 grafana_admin_user: 'admin'
 grafana_admin_password: 'changeme'
 grafana_https: true
