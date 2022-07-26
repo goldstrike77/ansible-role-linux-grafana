@@ -2,7 +2,7 @@
 # General parameters #
 grafana_is_install: false # A boolean to determine whether or not to install the Grafana.
 grafana_path: '/data' # Specify the Grafana data directory.
-grafana_version: '6.7.6' # Specify the Grafana version.
+grafana_version: '8.3.10' # Specify the Grafana version.
 grafana_admin_user: 'admin' # The name of the default Grafana admin user.
 grafana_admin_password: 'changeme' # The password of the default Grafana admin.
 grafana_https: true # A boolean to determine whether or not to Encrypting HTTP client communications.
@@ -67,7 +67,7 @@ grafana_plugins:
   - name: 'grafana-piechart-panel'
     version: '1.6.2'
   - name: 'camptocamp-prometheus-alertmanager-datasource'
-    version: '0.0.8'
+    version: '1.2.1'
 
 # LDAP Authentication #
 grafana_ldap_enabled: false # Enable LDAP integration.

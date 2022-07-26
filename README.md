@@ -106,7 +106,7 @@ There are some variables in defaults/main.yml which can (Or needs to) be overrid
 ### Hosts inventory file
 See tests/inventory for an example.
 
-    node01 ansible_host='192.168.1.10' grafana_version='6.7.6'
+    node01 ansible_host='192.168.1.10' grafana_version='8.3.10'
 
 ### Vars in role configuration
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
@@ -115,7 +115,7 @@ Including an example of how to use your role (for instance, with variables passe
 - hosts: all
   roles:
      - role: ansible-role-linux-grafana
-       grafana_version: '6.7.6'
+       grafana_version: '8.3.10'
 ```
 
 ### Combination of group vars and playbook
@@ -123,7 +123,7 @@ You can also use the group_vars or the host_vars files for setting the variables
 
 ```yaml
 grafana_path: '/data'
-grafana_version: '6.7.6'
+grafana_version: '8.3.10'
 grafana_admin_user: 'admin'
 grafana_admin_password: 'changeme'
 grafana_https: true
